@@ -1,0 +1,306 @@
+{
+  "CaseId": "Case #003",
+  "Title": "The Ghost in the System",
+  "Victim": "Dr. Evelyn Reed (Head of AI Research)",
+  "MissingFileName": "Genesis_Model_Weights.bin",
+  "IncidentDate": "2026-10-20",
+  "Difficulty": "Khó",
+  "Overview": "Tại phòng thí nghiệm AI tối mật, toàn bộ trọng số mô hình trí tuệ nhân tạo thế hệ mới 'Genesis-70B' đã bị một tài khoản ma có tên 'adm_shadow99' trích xuất và xóa sạch dấu vết commit trên máy chủ mã nguồn. Nhóm nghiên cứu chỉ phát hiện khi mô hình huấn luyện bị gián đoạn lúc rạng sáng.",
+  "SummaryBrief": "Vụ án rò rỉ trọng số mô hình AI tối mật và danh tính kẻ ẩn danh trong hệ thống.",
+  "CorrectSuspectId": "SUSPECT_01",
+  "CorrectMotive": "Bán trộm trọng số mô hình AI cho quỹ đầu tư Horizon Capital lấy 200,000 USD",
+  "CorrectMethod": "Tự tạo tài khoản ma 'adm_shadow99', nâng quyền Domain Admin lúc đêm muộn, trích xuất mã nguồn rồi dùng Git force-push xóa vết",
+  "MotiveOptions": [
+    "Bán trộm trọng số mô hình AI cho quỹ đầu tư Horizon Capital lấy 200,000 USD",
+    "Phản đối định hướng phát triển AI của công ty vì lo ngại đạo đức công nghệ",
+    "Muốn dùng mã nguồn để tự thành lập công ty khởi nghiệp riêng",
+    "Bị hacker nước ngoài tống tiền ép buộc lấy cắp mã nguồn"
+  ],
+  "MethodOptions": [
+    "Tự tạo tài khoản ma 'adm_shadow99', nâng quyền Domain Admin lúc đêm muộn, trích xuất mã nguồn rồi dùng Git force-push xóa vết",
+    "Cài phần mềm gián điệp Keylogger ghi lại mật khẩu của Dr. Evelyn Reed",
+    "Đánh sập máy chủ dự phòng để kích hoạt chế độ cứu hộ khẩn cấp không cần mật khẩu",
+    "Sao chép ổ cứng vật lý tại trung tâm dữ liệu ngoài trời"
+  ],
+  "RequiredEvidenceIds": [
+    "E203",
+    "E205",
+    "E208"
+  ],
+  "MinEvidenceForPass": 3,
+  "Suspects": [
+    {
+      "Id": "SUSPECT_01",
+      "Name": "Samuel Drake",
+      "Role": "Lead DevOps & Infrastructure Engineer",
+      "Description": "Kỹ sư phụ trách hạ tầng cụm GPU và tài khoản máy chủ Domain Controller.",
+      "PossibleMotive": "Đang làm thủ tục định cư nước ngoài và cần số vốn lớn 200,000 USD.",
+      "Alibi": "Tuyên bố ở nhà giám sát hệ thống bằng điện thoại và không hề tạo tài khoản mới nào."
+    },
+    {
+      "Id": "SUSPECT_02",
+      "Name": "Ryan Miller",
+      "Role": "AI Research Intern",
+      "Description": "Thực tập sinh nghiên cứu thuật toán xử lý ngôn ngữ tự nhiên.",
+      "PossibleMotive": "Muốn sao chép dữ liệu để làm đề tài nghiên cứu tốt nghiệp.",
+      "Alibi": "Đã rời viện nghiên cứu từ 18:00 và có bạn cùng phòng làm chứng."
+    },
+    {
+      "Id": "SUSPECT_03",
+      "Name": "Linda Croft",
+      "Role": "VP of Commercial Partnerships",
+      "Description": "Phó chủ tịch đối ngoại đang đàm phán cấp phép mô hình AI cho các đối tác.",
+      "PossibleMotive": "Áp lực doanh số ký kết hợp đồng trước khi kết thúc năm tài chính.",
+      "Alibi": "Đang tham gia hội nghị công nghệ tại San Francisco."
+    },
+    {
+      "Id": "SUSPECT_04",
+      "Name": "Arthur Pendelton",
+      "Role": "Data Center Security Guard",
+      "Description": "Bảo vệ trực phòng máy chủ trung tâm phụ trách camera và thẻ từ.",
+      "PossibleMotive": "Không có chuyên môn về AI hay hạ tầng mạng.",
+      "Alibi": "Thực hiện đi tuần 30 phút một lần theo quy định."
+    }
+  ],
+  "Evidences": [
+    {
+      "Id": "E201",
+      "Name": "Cảnh báo bảo mật - Tài khoản lạ adm_shadow99",
+      "Description": "Hệ thống IDS phát hiện tài khoản 'adm_shadow99' được khởi tạo lúc 02:40 sáng từ trạm máy DevOps.",
+      "Source": "Mail Client",
+      "Importance": "High",
+      "Timestamp": "02:40"
+    },
+    {
+      "Id": "E202",
+      "Name": "Lịch sử Browser - Git Internal Repository",
+      "Description": "Truy cập kho Git nội bộ git.novatech-ai.internal/clone thực hiện lệnh trích xuất mã nguồn lúc 02:48 sáng.",
+      "Source": "Browser History",
+      "Importance": "High",
+      "Timestamp": "02:48"
+    },
+    {
+      "Id": "E203",
+      "Name": "Nhật ký Active Directory - Khởi tạo tài khoản đặc quyền",
+      "Description": "Log kiểm toán Windows Server ghi nhận tài khoản SamuelDrake thực thi lệnh tạo và gán quyền Domain Admin cho adm_shadow99.",
+      "Source": "System Logs / Work",
+      "Importance": "Critical",
+      "Timestamp": "02:41"
+    },
+    {
+      "Id": "E204",
+      "Name": "Tệp nén bị bỏ quên - model_dump_split.001",
+      "Description": "Một phần tệp nén mô hình AI dung lượng 4.5 GB bị bỏ quên trong thư mục Downloads của máy tính.",
+      "Source": "Downloads",
+      "Importance": "High",
+      "Timestamp": "03:05"
+    },
+    {
+      "Id": "E205",
+      "Name": "Nhật ký kiểm soát cửa phòng Server Vault",
+      "Description": "Hệ thống kiểm soát cửa ghi nhận thẻ nhân viên EMP-8812 (Samuel Drake) quét mở cửa phòng Server lúc 02:55 sáng.",
+      "Source": "Camera Logs",
+      "Importance": "Critical",
+      "Timestamp": "02:55"
+    },
+    {
+      "Id": "E206",
+      "Name": "Bản ghi nhớ chuyển nhượng 200,000 USD",
+      "Description": "Thỏa thuận nguyên tắc với đại diện quỹ Horizon Capital chuyển khoản 200,000 USD sau khi nhận trọng số mô hình Genesis.",
+      "Source": "Archive",
+      "Importance": "High",
+      "Timestamp": "23:15"
+    },
+    {
+      "Id": "E207",
+      "Name": "Script xóa lịch sử Git - git_force_push.sh",
+      "Description": "Tệp script bash thực thi git push --force nhằm xóa các commit nhật ký trích xuất file.",
+      "Source": "Documents",
+      "Importance": "Medium",
+      "Timestamp": "03:10"
+    },
+    {
+      "Id": "E208",
+      "Name": "Thùng rác - Khóa SSH adm_shadow99_id_rsa",
+      "Description": "Tập tin khóa OpenSSH riêng tư xác thực tài khoản adm_shadow99 được tìm thấy trong Thùng rác.",
+      "Source": "Recycle Bin",
+      "Importance": "Critical",
+      "Timestamp": "03:15"
+    }
+  ],
+  "Emails": [
+    {
+      "Id": "MAIL_201",
+      "Sender": "Azure AD Sentinel <security-alert@novatech.local>",
+      "Recipient": "Dr. Evelyn Reed <e.reed@novatech.local>",
+      "Date": "2026-10-20",
+      "Time": "02:42",
+      "Subject": "CẢNH BÁO: Tài khoản đặc quyền mới được khởi tạo",
+      "Body": "Hệ thống phát hiện tài khoản 'adm_shadow99' vừa được thêm vào nhóm Domain Admins bởi người dùng SamuelDrake lúc 02:41:15.\nVui lòng kiểm tra lại nếu đây không phải yêu cầu được phê duyệt.",
+      "EvidenceId": "E201"
+    },
+    {
+      "Id": "MAIL_202",
+      "Sender": "Horizon Capital <partner@horizon-vc.ch>",
+      "Recipient": "Samuel Drake <s.drake@novatech.local>",
+      "Date": "2026-10-19",
+      "Time": "23:15",
+      "Subject": "Xác nhận thỏa thuận chuyển giao công nghệ Genesis",
+      "Body": "Chào Samuel,\n\nHội đồng đầu tư đã phê duyệt khoản giải ngân 200,000 USD vào tài khoản ngân hàng tại Thụy Sĩ của bạn ngay khi chúng tôi nhận được trọng số mô hình Genesis_Model_Weights.bin.",
+      "EvidenceId": "E206"
+    },
+    {
+      "Id": "MAIL_203",
+      "Sender": "Dr. Evelyn Reed <e.reed@novatech.local>",
+      "Recipient": "All AI Lab Team <ai-team@novatech.local>",
+      "Date": "2026-10-19",
+      "Time": "17:30",
+      "Subject": "Mô hình Genesis-70B hoàn thành huấn luyện checkpoint cuối",
+      "Body": "Chúc mừng cả nhóm! Mô hình Genesis đã huấn luyện xong và file trọng số đang lưu tại phân vùng bảo mật. Hãy giữ bí mật tuyệt đối trước ngày ra mắt.",
+      "EvidenceId": null
+    }
+  ],
+  "BrowserHistories": [
+    {
+      "Id": "BH_201",
+      "Date": "2026-10-20",
+      "Time": "02:48",
+      "Url": "https://git.novatech-ai.internal/genesis-core/clone",
+      "Title": "Genesis AI Core Weights Repository Clone",
+      "EvidenceId": "E202",
+      "IsSuspicious": true
+    },
+    {
+      "Id": "BH_202",
+      "Date": "2026-10-20",
+      "Time": "03:00",
+      "Url": "https://swissbank.ch/secure_login",
+      "Title": "Swiss Private Banking Portal Login",
+      "EvidenceId": null,
+      "IsSuspicious": false
+    }
+  ],
+  "Files": [
+    {
+      "Id": "FILE_201",
+      "FileName": "active_directory_audit.evtx",
+      "Folder": "Work",
+      "Size": "22 KB",
+      "ModifiedTime": "2026-10-20 02:42",
+      "Content": "EventID: 4720 (A user account was created)\nTarget Account Name: adm_shadow99\nSubject Account Name: SamuelDrake\nPrivilege Level: Domain Admins, Schema Admins\nLogon IP: 10.0.12.5 (DevOps Workstation #03 - Samuel Drake)",
+      "IsDeleted": false,
+      "EvidenceId": "E203"
+    },
+    {
+      "Id": "FILE_202",
+      "FileName": "model_dump_split.001",
+      "Folder": "Downloads",
+      "Size": "4.5 GB",
+      "ModifiedTime": "2026-10-20 03:05",
+      "Content": "----- GENESIS-70B MODEL WEIGHTS ARCHIVE (PART 001/010) -----\nSHA256: 7f8a3b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a\nSIZE: 4,500 MB\nSTATUS: CHUNK EXPORT COMPLETED",
+      "IsDeleted": false,
+      "EvidenceId": "E204"
+    },
+    {
+      "Id": "FILE_203",
+      "FileName": "git_force_push.sh",
+      "Folder": "Documents",
+      "Size": "1 KB",
+      "ModifiedTime": "2026-10-20 03:10",
+      "Content": "#!/bin/bash\ngit reset --hard HEAD~5\ngit push origin master --force\necho 'Git commit history erased successfully.'",
+      "IsDeleted": false,
+      "EvidenceId": "E207"
+    },
+    {
+      "Id": "FILE_204",
+      "FileName": "adm_shadow99_id_rsa",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Work",
+      "Size": "3 KB",
+      "ModifiedTime": "2026-10-20 03:15",
+      "Content": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn\nNhAAAAAwEAAQAAAYEA0x8v9Z1kL+93Km...adm_shadow99@internal-cluster\n-----END OPENSSH PRIVATE KEY-----",
+      "IsDeleted": true,
+      "EvidenceId": "E208"
+    },
+    {
+      "Id": "FILE_205",
+      "FileName": "server_badge_access.log",
+      "Folder": "Projects",
+      "Size": "8 KB",
+      "ModifiedTime": "2026-10-20 02:56",
+      "Content": "[02:55:12] Badge Scan Accepted: Door=Server_Vault_B, Cardholder=Samuel Drake (ID: EMP-8812)\n[02:58:40] Door Closed.",
+      "IsDeleted": false,
+      "EvidenceId": "E205"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": "23:15",
+      "EventDescription": "Ghi nhận email trao đổi thỏa thuận tài chính với Horizon Capital.",
+      "EvidenceId": "E206",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:40",
+      "EventDescription": "EventID 4720: Tài khoản adm_shadow99 được tạo trên Active Directory.",
+      "EvidenceId": "E201",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:41",
+      "EventDescription": "Tài khoản adm_shadow99 được thêm vào nhóm Domain Admins.",
+      "EvidenceId": "E203",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:48",
+      "EventDescription": "Đăng nhập tải kho Git chứa mã nguồn Genesis.",
+      "EvidenceId": "E202",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:55",
+      "EventDescription": "Ghi nhận lượt quẹt thẻ mở cửa phòng Server Vault B.",
+      "EvidenceId": "E205",
+      "IsVerified": false
+    },
+    {
+      "Time": "03:05",
+      "EventDescription": "Trích xuất mô hình ra các tệp nén dung lượng lớn.",
+      "EvidenceId": "E204",
+      "IsVerified": false
+    },
+    {
+      "Time": "03:10",
+      "EventDescription": "Chạy script git_force_push.sh xóa lịch sử commit.",
+      "EvidenceId": "E207",
+      "IsVerified": false
+    },
+    {
+      "Time": "03:15",
+      "EventDescription": "Tập tin khóa SSH adm_shadow99_id_rsa bị xóa vào Thùng rác.",
+      "EvidenceId": "E208",
+      "IsVerified": false
+    }
+  ],
+  "ConnectionRules": [
+    {
+      "EvidenceA": "E201",
+      "EvidenceB": "E203",
+      "SuccessMessage": "CHÍNH XÁC: Tài khoản ẩn danh adm_shadow99 do chính Samuel Drake tạo và tự nâng quyền Admin!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Vạch trần danh tính 'Bóng ma': adm_shadow99 không phải hacker ngoài mà là tài khoản nội gián do Samuel Drake lập ra!"
+    },
+    {
+      "EvidenceA": "E205",
+      "EvidenceB": "E204",
+      "SuccessMessage": "CHÍNH XÁC: Samuel quẹt thẻ vào phòng Server lúc 02:55 khớp với file nén mô hình tạo ra lúc 03:05!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Bằng chứng xác thực: Samuel Drake đã trực tiếp có mặt tại phòng Server Vault để trích xuất tệp mô hình AI!"
+    },
+    {
+      "EvidenceA": "E206",
+      "EvidenceB": "E208",
+      "SuccessMessage": "CHÍNH XÁC: Động cơ 200,000 USD từ Horizon Capital khớp với chìa khóa SSH trong Thùng Rác!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Động cơ và chứng cứ phi tang đã rõ ràng: Samuel chiếm đoạt mô hình AI tối mật vì thỏa thuận tài chính bất hợp pháp!"
+    }
+  ]
+}

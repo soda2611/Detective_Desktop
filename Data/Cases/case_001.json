@@ -1,0 +1,386 @@
+{
+  "CaseId": "Case #001",
+  "Title": "The Missing File",
+  "Victim": "David Miller (Senior Project Manager)",
+  "MissingFileName": "Project_Nexus_Core.enc",
+  "IncidentDate": "2026-10-05",
+  "Difficulty": "Dễ",
+  "Overview": "Tối qua, David Miller được phát hiện bất tỉnh tại văn phòng tầng 4. Tập tin thuật toán lõi chứa bản quyền triệu đô 'Project_Nexus_Core.enc' đã biến mất khỏi máy tính sau khi một kết nối USB và upload Cloud trái phép diễn ra.",
+  "SummaryBrief": "Vụ án trộm cắp tài sản trí tuệ công nghệ cao tại tập đoàn Novatech.",
+  "CorrectSuspectId": "SUSPECT_02",
+  "CorrectMotive": "Gián điệp công nghệ - Nhận tiền lót tay 50,000 USD từ đối thủ CyberTech",
+  "CorrectMethod": "Lừa nạn nhân ra ngoài, cắm USB sao chép, tải lên Cloud và xóa file gốc",
+  "MotiveOptions": [
+    "Gián điệp công nghệ - Nhận tiền lót tay 50,000 USD từ đối thủ CyberTech",
+    "Bất mãn tiền lương và chế độ đãi ngộ tại Novatech",
+    "Che giấu lỗ hổng an ninh mạng trước đợt kiểm toán",
+    "Tư thù cá nhân và tranh chấp quyền tác giả thuật toán với David Miller"
+  ],
+  "MethodOptions": [
+    "Lừa nạn nhân ra ngoài, cắm USB sao chép, tải lên Cloud và xóa file gốc",
+    "Tấn công từ xa qua lỗ hổng cổng mạng VPN lúc nửa đêm",
+    "Gửi email chứa mã độc trojan để chiếm quyền điều khiển máy",
+    "Lẻn vào ban đêm và đánh tráo toàn bộ ổ cứng SSD vật lý"
+  ],
+  "RequiredEvidenceIds": [
+    "E001",
+    "E003",
+    "E004"
+  ],
+  "MinEvidenceForPass": 3,
+  "Suspects": [
+    {
+      "Id": "SUSPECT_01",
+      "Name": "Marcus Vance",
+      "Role": "Head of Corporate Security",
+      "Description": "Phụ trách an ninh mạng và camera tòa nhà. Thường xuyên tuần tra ban đêm.",
+      "PossibleMotive": "Che giấu lỗ hổng bảo mật nghiêm trọng trong đợt kiểm toán.",
+      "Alibi": "Khai rằng đang trực tại phòng máy chủ tổng từ 21:30 đến 22:30."
+    },
+    {
+      "Id": "SUSPECT_02",
+      "Name": "Elena Rostova",
+      "Role": "Lead Systems Engineer",
+      "Description": "Kỹ sư hệ thống cấp cao, có toàn quyền truy cập mã nguồn và máy chủ lưu trữ.",
+      "PossibleMotive": "Gián điệp công nghệ - Nhận tiền lót tay 50,000 USD từ đối thủ CyberTech.",
+      "Alibi": "Tuyên bố đang dự cuộc họp khẩn với nhóm QA từ 21:40 (nhưng biên bản bị nghi làm giả)."
+    },
+    {
+      "Id": "SUSPECT_03",
+      "Name": "Sarah Connor",
+      "Role": "Junior QA Engineer",
+      "Description": "Nhân viên kiểm thử phần mềm mới vào làm 3 tháng. Đang có mâu thuẫn đánh giá năng lực.",
+      "PossibleMotive": "Bất mãn với công ty do bị dọa cắt hợp đồng.",
+      "Alibi": "Đã check-out vân tay rời tòa nhà lúc 20:45 cùng hai đồng nghiệp khác."
+    },
+    {
+      "Id": "SUSPECT_04",
+      "Name": "Alex Tran",
+      "Role": "Chief Financial Officer (CFO)",
+      "Description": "Giám đốc tài chính, người kiểm soát dòng tiền và ngân sách dự án Nexus.",
+      "PossibleMotive": "Dự án Nexus vượt ngân sách và nguy cơ làm sụt giảm cổ phiếu cá nhân.",
+      "Alibi": "Đang đi công tác tại Singapore, chỉ liên lạc qua điện thoại."
+    }
+  ],
+  "Evidences": [
+    {
+      "Id": "E001",
+      "Name": "Email lúc 21:43 - Hẹn gặp khẩn cấp",
+      "Description": "Email gửi từ Elena yêu cầu David rời bàn làm việc gặp gấp tại sảnh phụ trước giờ sao lưu tự động.",
+      "Source": "Mail Client",
+      "Importance": "High",
+      "Timestamp": "21:43"
+    },
+    {
+      "Id": "E002",
+      "Name": "Browser History - Cloud Storage",
+      "Description": "Lịch sử duyệt web lúc 21:42 truy cập dịch vụ lưu trữ đám mây ngoài công ty (cloud-storage.local/upload).",
+      "Source": "Browser History",
+      "Importance": "High",
+      "Timestamp": "21:42"
+    },
+    {
+      "Id": "E003",
+      "Name": "Recycle Bin - File bị xóa lúc 21:55",
+      "Description": "File mã hóa 'Project_Nexus_Core.enc' bị chuyển vào Thùng Rác và cố tình xóa nhật ký liên kết.",
+      "Source": "Recycle Bin",
+      "Importance": "Critical",
+      "Timestamp": "21:55"
+    },
+    {
+      "Id": "E004",
+      "Name": "USB Access Log lúc 21:45",
+      "Description": "Hệ thống ghi nhận USB Serial #KN8820 được cắm vào máy tính trong 6 phút rồi tháo ra đột ngột.",
+      "Source": "System Logs",
+      "Importance": "Critical",
+      "Timestamp": "21:45"
+    },
+    {
+      "Id": "E005",
+      "Name": "Camera An Ninh lúc 21:40",
+      "Description": "Hình ảnh camera hành lang ghi nhận một bóng người dáng nữ mang thẻ nhân viên IT lẻn vào khu văn phòng.",
+      "Source": "Archive / Camera",
+      "Importance": "Medium",
+      "Timestamp": "21:40"
+    },
+    {
+      "Id": "E006",
+      "Name": "Biên bản cuộc họp - MeetingNotes_2140.txt",
+      "Description": "Tập tin biên bản cuộc họp ghi nhận họp từ 21:40 nhưng thời gian sửa đổi lưu trên hệ thống là 21:51.",
+      "Source": "Documents / Work",
+      "Importance": "High",
+      "Timestamp": "21:51"
+    },
+    {
+      "Id": "E007",
+      "Name": "Bản Thỏa Thuận Đối Thủ Cạnh Tranh",
+      "Description": "Bản nháp hợp đồng tư vấn bí mật với hãng đối thủ CyberTech trị giá 50,000 USD đính kèm điều khoản cung cấp thuật toán.",
+      "Source": "Archive",
+      "Importance": "Critical",
+      "Timestamp": "18:20"
+    },
+    {
+      "Id": "E008",
+      "Name": "Lệnh Shell xóa Log lúc 21:58",
+      "Description": "Đoạn mã lệnh batch script 'clean_trace.bat' được chạy trên terminal nhằm xóa dấu vết truy cập.",
+      "Source": "Terminal History",
+      "Importance": "Medium",
+      "Timestamp": "21:58"
+    }
+  ],
+  "Emails": [
+    {
+      "Id": "MAIL_01",
+      "Sender": "HR Department <hr@novatech.local>",
+      "Recipient": "David Miller <david.miller@novatech.local>",
+      "Date": "2026-10-05",
+      "Time": "09:15",
+      "Subject": "Thông báo kế hoạch sao lưu định kỳ quý 4",
+      "Body": "Chào David,\n\nNhắc nhở toàn bộ file lõi của dự án Project Nexus phải được bàn giao và mã hóa trước 22:00 tối nay để phục vụ đợt sao lưu tổng của toàn tập đoàn.\n\nTrân trọng,\nPhòng Nhân sự & Quản trị.",
+      "EvidenceId": null
+    },
+    {
+      "Id": "MAIL_02",
+      "Sender": "Marcus Vance <m.vance@novatech.local>",
+      "Recipient": "David Miller <david.miller@novatech.local>",
+      "Date": "2026-10-05",
+      "Time": "14:30",
+      "Subject": "Yêu cầu kiểm tra quyền truy cập cổng ngoại vi USB",
+      "Body": "Gửi David,\n\nBộ phận an ninh phát hiện một số cổng USB trên tầng 4 chưa được bật chính sách khóa cứng. Tôi sẽ xuống kiểm tra cổng vật lý vào cuối ca làm việc.\n\nMarcus Vance.",
+      "EvidenceId": null
+    },
+    {
+      "Id": "MAIL_03",
+      "Sender": "Elena Rostova <e.rostova@novatech.local>",
+      "Recipient": "David Miller <david.miller@novatech.local>",
+      "Date": "2026-10-05",
+      "Time": "21:43",
+      "Subject": "GẶP GẤP: Sự cố kỹ thuật tại phòng họp sảnh phụ",
+      "Body": "Chào David,\n\nTôi vừa phát hiện phòng họp sảnh phụ có mùi khét bất thường nghi do sự cố điện máy lạnh. Nhờ anh xuống kiểm tra khẩn cấp giúp tôi, tạm thời chưa báo bảo vệ để tránh kích hoạt chuông báo động toàn tòa nhà. Tôi đang đợi anh tại lối cầu thang thoát hiểm.\n\nElena Rostova.",
+      "EvidenceId": "E001"
+    },
+    {
+      "Id": "MAIL_04",
+      "Sender": "Sarah Connor <s.connor@novatech.local>",
+      "Recipient": "David Miller <david.miller@novatech.local>",
+      "Date": "2026-10-05",
+      "Time": "17:40",
+      "Subject": "Báo cáo lỗi kiểm thử Module Nexus Alpha",
+      "Body": "Anh David,\n\nEm đã log 4 bug quan trọng lên hệ thống Jira. Em đã check-out về sớm lúc 20:45 vì cảm cúm. Nhờ anh review lại giúp em vào sáng mai.\n\nSarah.",
+      "EvidenceId": null
+    },
+    {
+      "Id": "MAIL_05",
+      "Sender": "Unknown Client <contact@darknet-broker.org>",
+      "Recipient": "Elena Rostova <e.rostova@novatech.local>",
+      "Date": "2026-10-04",
+      "Time": "23:10",
+      "Subject": "Xác nhận điều khoản thanh toán: Nexus Algorithm",
+      "Body": "[Email này được chuyển tiếp từ tài khoản cá nhân]\n\nChào Elena,\nBên mua đã chuẩn bị 50,000 USD tiền mặt. Chúng tôi cần file nguyên gốc 'Project_Nexus_Core.enc' trước 22:00 ngày 5/10. Nếu trễ hạn, thỏa thuận sẽ bị hủy.\n\nNgười trung gian.",
+      "EvidenceId": "E007"
+    }
+  ],
+  "BrowserHistories": [
+    {
+      "Id": "BH_01",
+      "Date": "2026-10-05",
+      "Time": "21:03",
+      "Url": "http://company.local/files/nexus",
+      "Title": "Project Nexus - Archive Repository",
+      "EvidenceId": null,
+      "IsSuspicious": false
+    },
+    {
+      "Id": "BH_02",
+      "Date": "2026-10-05",
+      "Time": "21:17",
+      "Url": "http://company.local/security/policies",
+      "Title": "Security Policy & Hardware Restrictions",
+      "EvidenceId": null,
+      "IsSuspicious": false
+    },
+    {
+      "Id": "BH_03",
+      "Date": "2026-10-05",
+      "Time": "21:40",
+      "Url": "http://cctv.local/camera/hallway_4f",
+      "Title": "Internal CCTV Hallway 4th Floor",
+      "EvidenceId": "E005",
+      "IsSuspicious": true
+    },
+    {
+      "Id": "BH_04",
+      "Date": "2026-10-05",
+      "Time": "21:42",
+      "Url": "https://cloud-storage.local/upload/dropzone",
+      "Title": "Private Storage Dropzone - Upload File Completed",
+      "EvidenceId": "E002",
+      "IsSuspicious": true
+    },
+    {
+      "Id": "BH_05",
+      "Date": "2026-10-05",
+      "Time": "21:51",
+      "Url": "http://company.local/portal/calendar/edit",
+      "Title": "Calendar Meeting Event Editor",
+      "EvidenceId": null,
+      "IsSuspicious": false
+    }
+  ],
+  "Files": [
+    {
+      "Id": "FILE_01",
+      "FileName": "Project_Nexus_Overview.docx",
+      "Folder": "Projects",
+      "Size": "45 KB",
+      "ModifiedTime": "2026-10-05 16:20",
+      "Content": "=== DỰ ÁN TỔNG QUAN NEXUS ===\nThuật toán tối ưu năng lượng lượng tử do David Miller phát triển độc quyền. Giá trị thương mại ước tính trên thị trường: 1,500,000 USD.\nFile dữ liệu cốt lõi lưu tại Project_Nexus_Core.enc.",
+      "IsDeleted": false,
+      "EvidenceId": null
+    },
+    {
+      "Id": "FILE_02",
+      "FileName": "MeetingNotes_2140.txt",
+      "Folder": "Documents",
+      "Size": "12 KB",
+      "ModifiedTime": "2026-10-05 21:51",
+      "Content": "=== BIÊN BẢN HỌP ĐỘT XUẤT ===\nThời gian: 21:40 - 21:55 ngày 05/10/2026.\nThành phần tham dự: Elena Rostova, Nguyễn Văn A, Trần Thị B.\nThư ký ghi chép: Elena Rostova.\nNội dung: Thảo luận về bản thử nghiệm QA.",
+      "IsDeleted": false,
+      "EvidenceId": "E006"
+    },
+    {
+      "Id": "FILE_03",
+      "FileName": "usb_controller_log.log",
+      "Folder": "Work",
+      "Size": "8 KB",
+      "ModifiedTime": "2026-10-05 21:46",
+      "Content": "[21:45:12] USB Mass Storage Attached: Vendor=Kingston, Serial=KN8820\n[21:45:30] File Copy Request: Read 854MB from C:\\Projects\\Nexus\\Core\n[21:45:58] Write Completed.\n[21:46:02] USB Device Safely Removed without Unmount Dialog.",
+      "IsDeleted": false,
+      "EvidenceId": "E004"
+    },
+    {
+      "Id": "FILE_04",
+      "FileName": "salary_negotiation.pdf",
+      "Folder": "Archive",
+      "Size": "110 KB",
+      "ModifiedTime": "2026-09-28 10:00",
+      "Content": "Bản lưu trữ đánh giá lương nhân sự:\n- Elena Rostova: Yêu cầu nâng 40% lương cơ bản nhưng ban giám đốc từ chối phê duyệt.",
+      "IsDeleted": false,
+      "EvidenceId": null
+    },
+    {
+      "Id": "FILE_05",
+      "FileName": "clean_trace.bat",
+      "Folder": "Downloads",
+      "Size": "2 KB",
+      "ModifiedTime": "2026-10-05 21:58",
+      "Content": "@echo off\nwevtutil cl System\nwevtutil cl Security\ndel /f /q C:\\Users\\David\\AppData\\Local\\Temp\\*.*\necho Clean traces finished.",
+      "IsDeleted": false,
+      "EvidenceId": "E008"
+    },
+    {
+      "Id": "FILE_06",
+      "FileName": "Project_Nexus_Core.enc",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Projects",
+      "Size": "854 MB",
+      "ModifiedTime": "2026-10-05 21:55",
+      "Content": "----- PROJECT NEXUS ENCRYPTED REPOSITORY -----\nHEADER: NOVT-SEC-AES256-GCM\nFILE: Project_Nexus_Core.enc\nSTATUS: LOCKED BINARY PAYLOAD\n[Tập tin mã hóa dữ liệu thuật toán lõi được bảo mật]",
+      "IsDeleted": true,
+      "EvidenceId": "E003"
+    },
+    {
+      "Id": "FILE_07",
+      "FileName": "old_draft_2025.txt",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Documents",
+      "Size": "5 KB",
+      "ModifiedTime": "2026-08-15 11:20",
+      "Content": "Bản nháp dự án cũ không còn sử dụng.",
+      "IsDeleted": true,
+      "EvidenceId": null
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": "21:03",
+      "EventDescription": "David Miller mở tài liệu dự án kiểm tra lần cuối.",
+      "EvidenceId": "",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:17",
+      "EventDescription": "Trang bảo mật nội bộ và quyền truy cập USB bị kiểm tra từ xa.",
+      "EvidenceId": "",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:40",
+      "EventDescription": "Camera hành lang ghi nhận bóng người tiến vào khu lab.",
+      "EvidenceId": "E005",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:42",
+      "EventDescription": "Truy cập cloud-storage.local upload file dung lượng lớn.",
+      "EvidenceId": "E002",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:43",
+      "EventDescription": "Ghi nhận email khẩn cấp gửi từ e.rostova@novatech.local tới David Miller.",
+      "EvidenceId": "E001",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:45",
+      "EventDescription": "USB Kingston cắm vào cổng phụ máy tính.",
+      "EvidenceId": "E004",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:51",
+      "EventDescription": "Tập tin MeetingNotes_2140.txt được lưu với mốc thời gian 21:51.",
+      "EvidenceId": "E006",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:55",
+      "EventDescription": "Tập tin Project_Nexus_Core.enc bị xóa khỏi thư mục Projects.",
+      "EvidenceId": "E003",
+      "IsVerified": false
+    },
+    {
+      "Time": "21:58",
+      "EventDescription": "Chạy file clean_trace.bat xóa dấu vết.",
+      "EvidenceId": "E008",
+      "IsVerified": false
+    }
+  ],
+  "ConnectionRules": [
+    {
+      "EvidenceA": "E001",
+      "EvidenceB": "E004",
+      "SuccessMessage": "CHÍNH XÁC: Elena lừa David đi gặp riêng để cắm USB vào máy trộm dữ liệu lúc 21:45!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Email hẹn khẩn cấp gửi đi lúc 21:43, chỉ 2 phút sau (21:45) USB bị cắm vào máy! Kẻ gian đã cố ý bẫy David!"
+    },
+    {
+      "EvidenceA": "E002",
+      "EvidenceB": "E003",
+      "SuccessMessage": "CHÍNH XÁC: Kẻ trộm đã sao lưu file lên Cloud ngoài trước khi xóa sạch trên máy để phi tang!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Sau khi tải lên Cloud cá nhân lúc 21:42, file gốc lập tức bị xóa lúc 21:55!"
+    },
+    {
+      "EvidenceA": "E005",
+      "EvidenceB": "E006",
+      "SuccessMessage": "CHÍNH XÁC: Biên bản cuộc họp đã bị làm giả để ngụy tạo chứng cứ ngoại phạm!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Camera thấy người lẻn vào lúc 21:40, nhưng biên bản lại ghi đang họp từ 21:40 đến 21:50!"
+    },
+    {
+      "EvidenceA": "E007",
+      "EvidenceB": "E004",
+      "SuccessMessage": "CHÍNH XÁC: Động cơ phạm tội là gián điệp công nghệ bán file cho CyberTech!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Bản hợp đồng 50,000 USD với CyberTech khớp với thuật toán lõi bị copy qua USB!"
+    }
+  ]
+}

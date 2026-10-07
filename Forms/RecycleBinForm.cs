@@ -1,0 +1,175 @@
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using _2611_WIN_B3.Game;
+using _2611_WIN_B3.Models;
+
+namespace _2611_WIN_B3.Forms
+{
+    public partial class RecycleBinForm : Form
+    {
+        public RecycleBinForm()
+        {
+            InitializeComponent();
+        }
+
+        private void RecycleBinForm_Load(object sender, EventArgs e)
+        {
+            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lvDeleted.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
+            txtDetail.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+            grpDetail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblClueAlert.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+            btnRestore.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+
+            colName.Width = 300;
+            colOriginalLoc.Width = 280;
+            colSize.Width = 110;
+            colDateDeleted.Width = 170;
+
+            LoadDeletedFiles();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (lblTitle != null && btnRestore != null)
+            {
+                lblTitle.AutoEllipsis = true;
+                lblTitle.Width = Math.Max(100, btnRestore.Left - lblTitle.Left - 15);
+            }
+        }
+
+        private void LoadDeletedFiles()
+        {
+            lvDeleted.Items.Clear();
+            var deletedFiles = GameManager.Instance.CaseManager.FileItems.Where(f => f.IsDeleted).ToList();
+
+            var c = GameManager.Instance.CaseManager.CurrentCase;
+            foreach (var file in deletedFiles)
+            {
+                var lvi = new ListViewItem(file.FileName)
+                {
+                    Tag = file
+                };
+                lvi.SubItems.Add($"C:\\Users\\{c.VictimUserName}\\{file.OriginalFolder}");
+                lvi.SubItems.Add(file.Size);
+                lvi.SubItems.Add(file.ModifiedTime);
+
+                if (!string.IsNullOrEmpty(file.EvidenceId))
+                {
+                    lvi.ForeColor = Color.FromArgb(194, 65, 12);
+                    lvi.Font = new Font(lvDeleted.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    lvi.ForeColor = Color.FromArgb(15, 23, 42);
+                }
+
+                lvDeleted.Items.Add(lvi);
+            }
+
+            if (lvDeleted.Items.Count > 0)
+            {
+                lvDeleted.Items[0].Selected = true;
+            }
+            else
+            {
+                txtDetail.Text = "Thùng rác hiện đang trống. Tất cả tập tin đã được khôi phục hoặc không có tập tin bị xóa.";
+                lblClueAlert.Visible = false;
+            }
+        }
+
+        private void InspectCurrentFile()
+        {
+            if (lvDeleted.SelectedItems.Count == 0) return;
+
+            var item = lvDeleted.SelectedItems[0];
+            if (item.Tag is FileItem file)
+            {
+                txtDetail.Text = file.Content;
+
+                if (!string.IsNullOrEmpty(file.EvidenceId))
+                {
+                    bool isNew = GameManager.Instance.EvidenceManager.DiscoverEvidence(file.EvidenceId);
+                    var ev = GameManager.Instance.EvidenceManager.GetEvidence(file.EvidenceId);
+                    lblClueAlert.Visible = true;
+                    if (isNew)
+                    {
+                        lblClueAlert.Text = $"⭐ TÌM THẤY TẬP TIN THEN CHỐT BỊ XÓA [{file.EvidenceId}]: {ev?.Name}";
+                    }
+                    else
+                    {
+                        lblClueAlert.Text = $"🔍 BẰNG CHỨNG [{file.EvidenceId}] ĐÃ ĐƯỢC LƯU TRỮ TRONG HỒ SƠ: {ev?.Name}";
+                    }
+                }
+                else
+                {
+                    lblClueAlert.Visible = false;
+                }
+            }
+        }
+
+        private void lvDeleted_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InspectCurrentFile();
+        }
+
+        private void lvDeleted_DoubleClick(object sender, EventArgs e)
+        {
+            InspectCurrentFile();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (lvDeleted.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một tập tin để khôi phục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var item = lvDeleted.SelectedItems[0];
+            if (item.Tag is FileItem file)
+            {
+                // Thực hiện khôi phục tập tin thực sự về hệ thống tệp
+                file.IsDeleted = false;
+                file.Folder = file.OriginalFolder;
+                GameManager.Instance.State.RestoredFileIds.Add(file.Id);
+
+                bool isNew = false;
+                Evidence? ev = null;
+                if (!string.IsNullOrEmpty(file.EvidenceId))
+                {
+                    isNew = GameManager.Instance.EvidenceManager.DiscoverEvidence(file.EvidenceId);
+                    ev = GameManager.Instance.EvidenceManager.GetEvidence(file.EvidenceId);
+                }
+
+                // Lưu trạng thái và thông báo tới các Form đang mở (Explorer, v.v.)
+                GameManager.Instance.NotifyStateChanged();
+
+                var c = GameManager.Instance.CaseManager.CurrentCase;
+                string msg = $"Đã khôi phục tập tin '{file.FileName}' về thư mục C:\\Users\\{c.VictimUserName}\\{file.Folder} thành công!\n" +
+                             $"Nội dung đã được xác minh toàn vẹn và hiện đã có thể truy cập trong File Explorer.";
+
+                if (isNew && ev != null)
+                {
+                    msg += $"\n\n⭐ Phát hiện bằng chứng then chốt: [{ev.Id}] {ev.Name}";
+                }
+
+                MessageBox.Show(msg, "Khôi phục thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Nạp lại danh sách trong Thùng rác (tập tin đã khôi phục sẽ biến mất)
+                LoadDeletedFiles();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            AudioManager.Instance.Play(SoundEffect.Click);
+            Close();
+        }
+    }
+}
+

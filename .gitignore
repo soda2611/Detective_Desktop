@@ -1,0 +1,72 @@
+# =====================================================================
+# .gitignore cho dự án C# / .NET 10 Windows Forms (Desktop Detective)
+# =====================================================================
+
+# --------------------------------------------------
+# Build Outputs & Artifacts (.NET / Visual Studio)
+# --------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# --------------------------------------------------
+# Visual Studio Temporary Files & Cache
+# --------------------------------------------------
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.userprefs
+*.dbmdl
+*.jsproj.user
+*.pidb
+*.booproj.user
+
+# --------------------------------------------------
+# Visual Studio Code & JetBrains Rider
+# --------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.DotSettings.user
+
+# --------------------------------------------------
+# NuGet & Dependencies
+# --------------------------------------------------
+*.nupkg
+packages/
+!**/packages/build/
+project.lock.json
+project.assets.json
+
+# --------------------------------------------------
+# OS & File System Artifacts
+# --------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# --------------------------------------------------
+# Crash Dumps, Profiler & Diagnostics
+# --------------------------------------------------
+*.dmp
+*.crash
+*.stackdump
+*.vstest
+TestResults/
+BenchmarkDotNet.Artifacts/
+
+# --------------------------------------------------
+# Game Runtime Local State (Tiến trình save cục bộ)
+# --------------------------------------------------
+# Tệp tiến trình runtime được tạo tự động khi chơi game trên máy cá nhân
+gamelog.json
+savegame.json
+

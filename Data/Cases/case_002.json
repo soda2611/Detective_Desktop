@@ -1,0 +1,319 @@
+{
+  "CaseId": "Case #002",
+  "Title": "The Ransomware Attack",
+  "Victim": "Robert Vance (Chief Accountant)",
+  "MissingFileName": "Ledger_Financial_Q3.db.locked",
+  "IncidentDate": "2026-10-12",
+  "Difficulty": "Trung bình",
+  "Overview": "Sáng sớm thứ Hai, toàn bộ hệ thống máy chủ kế toán bị tê liệt bởi mã độc tống tiền 'LockBit-Nova'. Cơ sở dữ liệu sổ cái tài chính quý 3 bị mã hóa với đuôi .locked. Kẻ tấn công đòi 10 Bitcoin tiền chuộc trước 08:00 sáng nếu không sẽ xóa vĩnh viễn khóa giải mã.",
+  "SummaryBrief": "Vụ án tống tiền mã hóa dữ liệu kế toán và gián điệp nội bộ trong phòng IT.",
+  "CorrectSuspectId": "SUSPECT_01",
+  "CorrectMotive": "Tống tiền chuộc 10 Bitcoin để thanh toán nợ cờ bạc cá nhân 150,000 USD",
+  "CorrectMethod": "Phát tán email giả mạo, chiếm quyền Admin từ xa qua VPN để chạy mã độc tống tiền rồi giấu khóa giải mã vào Thùng Rác",
+  "MotiveOptions": [
+    "Tống tiền chuộc 10 Bitcoin để thanh toán nợ cờ bạc cá nhân 150,000 USD",
+    "Bất mãn vì không được thăng chức Giám đốc Công nghệ Thông tin",
+    "Phá hoại dữ liệu nhằm che giấu hành vi tham ô quỹ tài chính quý 3",
+    "Vô tình tải phần mềm độc hại từ liên kết lạ trên Internet"
+  ],
+  "MethodOptions": [
+    "Phát tán email giả mạo, chiếm quyền Admin từ xa qua VPN để chạy mã độc tống tiền rồi giấu khóa giải mã vào Thùng Rác",
+    "Lẻn vào phòng server cắm USB tự chạy mã độc Autorun lúc nửa đêm",
+    "Tấn công từ chối dịch vụ DDoS gây sập nguồn máy chủ",
+    "Đánh tráo thiết bị tường lửa Firewall của công ty"
+  ],
+  "RequiredEvidenceIds": [
+    "E103",
+    "E104",
+    "E106"
+  ],
+  "MinEvidenceForPass": 3,
+  "Suspects": [
+    {
+      "Id": "SUSPECT_01",
+      "Name": "Kevin Shaw",
+      "Role": "Senior System Administrator",
+      "Description": "Quản trị viên mạng cấp cao nắm giữ chứng thư số và toàn quyền root máy chủ.",
+      "PossibleMotive": "Ngập trong nợ nần cờ bạc trực tuyến hơn 150,000 USD.",
+      "Alibi": "Khai rằng ở nhà ngủ từ 22:00 tối qua và không đụng vào máy tính."
+    },
+    {
+      "Id": "SUSPECT_02",
+      "Name": "Amanda Brooks",
+      "Role": "General Accountant",
+      "Description": "Kế toán viên phụ trách tổng hợp sổ cái tài chính, là người đầu tiên phát hiện màn hình khóa.",
+      "PossibleMotive": "Bị khiển trách vì sai lệch số liệu kế toán tuần trước.",
+      "Alibi": "Có mặt tại bàn làm việc từ 07:30 sáng và lập tức báo động cho an ninh."
+    },
+    {
+      "Id": "SUSPECT_03",
+      "Name": "Daniel Park",
+      "Role": "IT Helpdesk Specialist",
+      "Description": "Nhân viên trực ca đêm phòng máy chủ từ 20:00 đến 06:00 sáng.",
+      "PossibleMotive": "Mâu thuẫn với ban quản lý về tiền lương làm thêm giờ.",
+      "Alibi": "Thừa nhận đã ngủ quên trong phòng nghỉ từ 01:00 đến 05:00 sáng."
+    },
+    {
+      "Id": "SUSPECT_04",
+      "Name": "Victor Rossi",
+      "Role": "Head of Internal Audit",
+      "Description": "Trưởng ban kiểm toán nội bộ, đang chuẩn bị công bố báo cáo thanh tra thuế.",
+      "PossibleMotive": "Bị đe dọa vì phát hiện gian lận tài chính cấp cao.",
+      "Alibi": "Đang làm việc tại chi nhánh văn phòng phía Nam."
+    }
+  ],
+  "Evidences": [
+    {
+      "Id": "E101",
+      "Name": "Email giả mạo thuế - Phishing Mail",
+      "Description": "Email giả danh Cục Thuế gửi kèm tệp Excel 'Tax_Audit_2026.xlsm' chứa mã độc Macro được gửi từ IP nội bộ.",
+      "Source": "Mail Client",
+      "Importance": "High",
+      "Timestamp": "16:30"
+    },
+    {
+      "Id": "E102",
+      "Name": "Lịch sử Browser - Sàn Crypto Mixer",
+      "Description": "Truy cập dịch vụ rửa tiền mã hóa crypto-mixer.dark và kiểm tra tỷ giá 10 Bitcoin lúc 01:15 sáng.",
+      "Source": "Browser History",
+      "Importance": "High",
+      "Timestamp": "01:15"
+    },
+    {
+      "Id": "E103",
+      "Name": "Thông điệp tống tiền - RANSOM_NOTE.txt",
+      "Description": "File thông báo tống tiền đòi 10 BTC chuyển vào ví 'bc1q9x...kevin' trước 08:00 sáng để nhận khóa giải mã.",
+      "Source": "Documents / Work",
+      "Importance": "Critical",
+      "Timestamp": "02:25"
+    },
+    {
+      "Id": "E104",
+      "Name": "Log kết nối VPN ngoài giờ lúc 02:15",
+      "Description": "Nhật ký tường lửa ghi nhận IP 113.161.42.18 kết nối VPN với quyền Root lúc 02:15 sáng.",
+      "Source": "System Logs",
+      "Importance": "Critical",
+      "Timestamp": "02:15"
+    },
+    {
+      "Id": "E105",
+      "Name": "PowerShell Script độc hại trong Temp",
+      "Description": "Tệp mã lệnh 'encrypt_runner.ps1' chứa thuật toán mã hóa AES-256 thực thi lúc 02:20 sáng.",
+      "Source": "Downloads / Temp",
+      "Importance": "High",
+      "Timestamp": "02:20"
+    },
+    {
+      "Id": "E106",
+      "Name": "Thùng rác - Khóa master_private_key.pem.bak",
+      "Description": "Tập tin khóa giải mã riêng tư (RSA Private Key) được phát hiện trong Thùng Rác hệ thống.",
+      "Source": "Recycle Bin",
+      "Importance": "Critical",
+      "Timestamp": "02:28"
+    },
+    {
+      "Id": "E107",
+      "Name": "Biên lai đòi nợ cờ bạc 150,000 USD",
+      "Description": "Tài liệu nhắc nợ cá nhân từ sàn cá độ trực tuyến với hạn chót thanh toán là trưa ngày 12/10/2026.",
+      "Source": "Archive",
+      "Importance": "High",
+      "Timestamp": "00:45"
+    },
+    {
+      "Id": "E108",
+      "Name": "Camera bãi đỗ xe lúc 02:30 sáng",
+      "Description": "Camera lối thoát hiểm ghi lại cảnh Kevin Shaw rời trụ sở công ty lúc 02:30 sáng dù khai ở nhà ngủ.",
+      "Source": "Camera Logs",
+      "Importance": "Medium",
+      "Timestamp": "02:30"
+    }
+  ],
+  "Emails": [
+    {
+      "Id": "MAIL_101",
+      "Sender": "General Tax Office <notice@irs-taxportal.org>",
+      "Recipient": "Robert Vance <r.vance@novatech.local>",
+      "Date": "2026-10-11",
+      "Time": "16:30",
+      "Subject": "Yêu cầu rà soát bổ sung quyết toán thuế quý 3",
+      "Body": "Kính gửi Trưởng phòng Kế toán,\n\nVui lòng mở tệp đính kèm Tax_Audit_2026.xlsm và bật Macro để cập nhật biểu mẫu kê khai thuế bắt buộc trước ngày 15/10.\n\nTổng cục Thuế.",
+      "EvidenceId": "E101"
+    },
+    {
+      "Id": "MAIL_102",
+      "Sender": "Kevin Shaw <k.shaw@novatech.local>",
+      "Recipient": "Daniel Park <d.park@novatech.local>",
+      "Date": "2026-10-11",
+      "Time": "19:00",
+      "Subject": "Tôi sẽ giám sát bảo trì máy chủ từ xa đêm nay",
+      "Body": "Daniel,\n\nĐêm nay tôi sẽ chạy bảo trì backup từ xa qua VPN. Cậu cứ nghỉ ngơi trực máy, không cần theo dõi cảnh báo từ hệ thống máy chủ tài chính đâu nhé.\n\nKevin.",
+      "EvidenceId": null
+    },
+    {
+      "Id": "MAIL_103",
+      "Sender": "Vegas Bet Alert <support@vegas-bet99.io>",
+      "Recipient": "Kevin Shaw <k.shaw@novatech.local>",
+      "Date": "2026-10-12",
+      "Time": "00:45",
+      "Subject": "CẢNH BÁO CUỐI CÙNG: Thu hồi khoản nợ 150,000 USD",
+      "Body": "[Thư tự động chuyển tiếp]\n\nTài khoản của bạn đã âm 150,000 USD sau phiên cược tối qua. Nếu không thanh toán bằng Bitcoin trước 12:00 trưa ngày 12/10, hồ sơ sẽ chuyển cho đơn vị thu nợ cưỡng chế.",
+      "EvidenceId": "E107"
+    },
+    {
+      "Id": "MAIL_104",
+      "Sender": "Security Monitoring <soc@novatech.local>",
+      "Recipient": "Kevin Shaw <k.shaw@novatech.local>",
+      "Date": "2026-10-12",
+      "Time": "02:22",
+      "Subject": "CẢNH BÁO: Tệp tin tài chính bị mã hóa hàng loạt",
+      "Body": "Phát hiện tiến trình bất thường mã hóa 45,000 tệp trong thư mục D:\\FinancialData. Người dùng kích hoạt: Administrator (IP: 192.168.1.105 - VPN_KEVIN).",
+      "EvidenceId": null
+    }
+  ],
+  "BrowserHistories": [
+    {
+      "Id": "BH_101",
+      "Date": "2026-10-12",
+      "Time": "01:15",
+      "Url": "https://crypto-mixer.dark/cleaner",
+      "Title": "Crypto Mixer - Anonymous Bitcoin Tumbler Service",
+      "EvidenceId": "E102",
+      "IsSuspicious": true
+    },
+    {
+      "Id": "BH_102",
+      "Date": "2026-10-12",
+      "Time": "01:40",
+      "Url": "http://vpn.novatech.local/portal/admin",
+      "Title": "Novatech Enterprise VPN Portal",
+      "EvidenceId": null,
+      "IsSuspicious": false
+    },
+    {
+      "Id": "BH_103",
+      "Date": "2026-10-12",
+      "Time": "02:30",
+      "Url": "http://security-cctv.local/parking_exit",
+      "Title": "Parking Lot Exit Gate Camera 02:30",
+      "EvidenceId": "E108",
+      "IsSuspicious": true
+    }
+  ],
+  "Files": [
+    {
+      "Id": "FILE_101",
+      "FileName": "RANSOM_NOTE_README.txt",
+      "Folder": "Documents",
+      "Size": "4 KB",
+      "ModifiedTime": "2026-10-12 02:25",
+      "Content": "=== YOUR NETWORK IS ENCRYPTED BY LOCKBIT-NOVA ===\nToàn bộ cơ sở dữ liệu kế toán và hợp đồng đã bị khóa mã AES-256.\nĐể nhận công cụ giải mã, chuyển chính xác 10 BTC vào ví: bc1q9xkevinshaw4482\nThời hạn: 08:00 AM ngày 12/10/2026. Sau thời hạn này khóa giải mã sẽ bị hủy!",
+      "IsDeleted": false,
+      "EvidenceId": "E103"
+    },
+    {
+      "Id": "FILE_102",
+      "FileName": "vpn_audit_auth.log",
+      "Folder": "Work",
+      "Size": "14 KB",
+      "ModifiedTime": "2026-10-12 02:16",
+      "Content": "[02:15:32] VPN Tunnel Established: User=KevinShaw, Role=RootAdmin, IP=113.161.42.18 (ISP: Viettel Home FTTH Kevin Shaw)\n[02:16:01] Elevated Privilege Command: sudo ./encrypt_runner.ps1",
+      "IsDeleted": false,
+      "EvidenceId": "E104"
+    },
+    {
+      "Id": "FILE_103",
+      "FileName": "encrypt_runner.ps1",
+      "Folder": "Downloads",
+      "Size": "6 KB",
+      "ModifiedTime": "2026-10-12 02:20",
+      "Content": "# LockBit Encryptor Payload\n$files = Get-ChildItem -Path 'C:\\Financial' -Recurse\nforeach ($f in $files) {\n    Encrypt-AES256 -Path $f.FullName -Key $masterKey\n    Rename-Item $f.FullName ($f.FullName + '.locked')\n}",
+      "IsDeleted": false,
+      "EvidenceId": "E105"
+    },
+    {
+      "Id": "FILE_104",
+      "FileName": "master_private_key.pem.bak",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Work",
+      "Size": "2 KB",
+      "ModifiedTime": "2026-10-12 02:28",
+      "Content": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA2v9Kz0bLq8X3yZ7w1QpMmJnK7tV4xR0s9eF8d7c6b5a4\n3A2B1C0D9E8F7A6B5C4D3E2F1A0B9C8D7E6F5A4B3C2D1E0F9A8B7C6D5E4F\n[LockBit-Nova Master Key Backup]\n-----END RSA PRIVATE KEY-----",
+      "IsDeleted": true,
+      "EvidenceId": "E106"
+    },
+    {
+      "Id": "FILE_105",
+      "FileName": "Ledger_Financial_Q3.db.locked",
+      "Folder": "Projects",
+      "Size": "1.2 GB",
+      "ModifiedTime": "2026-10-12 02:24",
+      "Content": "[TẬP TIN ĐÃ BỊ MÃ HÓA KHÔNG THỂ ĐỌC]\nFile cơ sở dữ liệu tài chính chính thức của Novatech đã bị khóa mã hóa toàn bộ.",
+      "IsDeleted": false,
+      "EvidenceId": null
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": "00:45",
+      "EventDescription": "Ghi nhận email cảnh báo nợ tài chính gửi tới hộp thư k.shaw@novatech.local.",
+      "EvidenceId": "E107",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:15",
+      "EventDescription": "Truy cập sàn rửa tiền mã hóa crypto-mixer.",
+      "EvidenceId": "E102",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:15",
+      "EventDescription": "Kết nối VPN quyền Root được thiết lập từ địa chỉ IP 113.161.42.18.",
+      "EvidenceId": "E104",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:20",
+      "EventDescription": "Script encrypt_runner.ps1 mã hóa toàn bộ sổ cái.",
+      "EvidenceId": "E105",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:25",
+      "EventDescription": "Tạo file đòi tiền chuộc RANSOM_NOTE.txt trên màn hình.",
+      "EvidenceId": "E103",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:28",
+      "EventDescription": "Tập tin khóa master_private_key.pem.bak bị chuyển vào Thùng rác.",
+      "EvidenceId": "E106",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:30",
+      "EventDescription": "Camera an ninh ghi nhận một bóng người rời khỏi tòa nhà qua cửa thoát hiểm.",
+      "EvidenceId": "E108",
+      "IsVerified": false
+    }
+  ],
+  "ConnectionRules": [
+    {
+      "EvidenceA": "E104",
+      "EvidenceB": "E108",
+      "SuccessMessage": "CHÍNH XÁC: Kevin khai ở nhà ngủ nhưng camera thấy ở văn phòng và VPN kết nối từ thiết bị của hắn!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Bác bỏ bằng chứng ngoại phạm của Kevin Shaw: Hắn đã trực tiếp có mặt và dùng VPN nội bộ để kích hoạt mã độc!"
+    },
+    {
+      "EvidenceA": "E103",
+      "EvidenceB": "E106",
+      "SuccessMessage": "CHÍNH XÁC: Khóa giải mã trong Thùng Rác khớp hoàn toàn với mã độc đòi 10 Bitcoin trong file Ransom Note!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Tìm thấy chứng cứ then chốt: Kevin giấu chìa khóa giải mã vào Thùng Rác để tống tiền công ty!"
+    },
+    {
+      "EvidenceA": "E107",
+      "EvidenceB": "E102",
+      "SuccessMessage": "CHÍNH XÁC: Động cơ gây án là cờ bạc nợ 150,000 USD nên chuẩn bị sẵn sàn rửa tiền ảo để nhận 10 Bitcoin!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Động cơ phạm tội đã rõ ràng: Áp lực trả nợ cờ bạc khiến Kevin Shaw liều lĩnh tống tiền chính công ty mình!"
+    }
+  ]
+}

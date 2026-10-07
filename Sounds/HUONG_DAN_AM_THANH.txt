@@ -1,0 +1,40 @@
+========================================================================================
+                      HƯỚNG DẪN CHÈN FILE ÂM THANH CHO GAME DESKTOP DETECTIVE
+========================================================================================
+
+Bạn có thể chèn các tệp âm thanh định dạng .WAV vào thư mục này để tạo hiệu ứng âm thanh
+sống động cho trò chơi. Tên các tệp được hỗ trợ:
+
+1. click.wav
+   -> Âm thanh khi click nút, chọn danh mục, thao tác trên giao diện.
+
+2. clue.wav
+   -> Âm thanh vang lên khi phát hiện ra một manh mối / bằng chứng mới.
+
+3. connect.wav
+   -> Âm thanh khi kết nối thành công 2 bằng chứng trên bảng điều tra (Evidence Board).
+
+4. win.wav
+   -> Âm thanh chiến thắng hào hùng khi phá án thành công (Ending 1 hoặc Ending 5).
+
+5. fail.wav
+   -> Âm thanh cảnh báo / thất bại khi bắt sai người hoặc thiếu bằng chứng.
+
+6. notify.wav
+   -> Âm thanh thông báo tin tức hoặc cập nhật hệ thống.
+
+7. open.wav
+   -> Âm thanh khi mở các ứng dụng (Mail, Browser, Documents, Recycle Bin, v.v.).
+
+8. bgm.mp3 hoặc bgm.wav (hoặc music.mp3 / music.wav)
+   -> Nhạc nền game (Background Music). Tự động phát lặp vô tận (Looping) khi vào game.
+   -> Khi bấm nút "🔇 Âm: Tắt" trên thanh tác vụ, cả nhạc nền và hiệu ứng âm thanh sẽ tự động tạm dừng.
+
+LƯU Ý:
+- Định dạng yêu cầu: 
+  + Hiệu ứng SFX: Tệp âm thanh chuẩn .WAV (PCM).
+  + Nhạc nền BGM: Hỗ trợ cả .MP3 và .WAV.
+- Nếu bạn chưa chèn file âm thanh hoặc file bị thiếu, trò chơi sẽ TỰ ĐỘNG phát âm thanh 
+  hệ thống mặc định của Windows mà KHÔNG bao giờ bị lỗi hay văng ứng dụng!
+========================================================================================
+
