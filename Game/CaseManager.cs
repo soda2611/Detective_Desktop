@@ -21,6 +21,7 @@ namespace _2611_WIN_B3.Game
         public List<Email> Emails => CurrentPackage.Emails;
         public List<BrowserHistory> BrowserHistories => CurrentPackage.BrowserHistories;
         public List<FileItem> FileItems => CurrentPackage.Files;
+        public List<NoteItem> Notes => CurrentPackage.Notes;
 
         private static readonly JsonSerializerOptions JsonOptions = new()
         {
@@ -76,7 +77,7 @@ namespace _2611_WIN_B3.Game
                         var pkg = JsonSerializer.Deserialize<CasePackage>(json, JsonOptions);
                         if (pkg != null && !string.IsNullOrEmpty(pkg.CaseId))
                         {
-                            InitPackageFileDefaults(pkg);
+                            InitPackageDefaults(pkg);
                             AvailableCases.Add(pkg);
                         }
                     }
@@ -99,11 +100,17 @@ namespace _2611_WIN_B3.Game
                     CorrectMotive = "Gián điệp công nghệ - Nhận tiền lót tay 50,000 USD từ đối thủ CyberTech",
                     CorrectMethod = "Lừa nạn nhân ra ngoài, cắm USB sao chép, tải lên Cloud và xóa file gốc"
                 };
-                InitPackageFileDefaults(defaultCase);
+                InitPackageDefaults(defaultCase);
                 AvailableCases.Add(defaultCase);
             }
 
             CurrentPackage = AvailableCases[0];
+        }
+
+        private void InitPackageDefaults(CasePackage pkg)
+        {
+            InitPackageFileDefaults(pkg);
+            InitPackageNotesDefaults(pkg);
         }
 
         private void InitPackageFileDefaults(CasePackage pkg)
@@ -113,6 +120,214 @@ namespace _2611_WIN_B3.Game
             {
                 file.InitialIsDeleted = file.IsDeleted;
                 file.InitialFolder = file.Folder;
+            }
+        }
+
+        private void InitPackageNotesDefaults(CasePackage pkg)
+        {
+            if (pkg.Notes == null) pkg.Notes = new List<NoteItem>();
+            if (pkg.Notes.Count > 0) return;
+
+            string id = pkg.CaseId.ToLowerInvariant();
+            if (id.Contains("001") || id.Contains("1"))
+            {
+                // Vụ án 1: The Missing File (David Miller ghi chú công việc trước khi bị tấn công)
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_01",
+                    Title = "📌 Việc cần làm trước khi về (05/10)",
+                    Author = "David Miller (Senior Project Manager)",
+                    Date = "2026-10-05 17:30",
+                    Category = "Sticky Note",
+                    EvidenceId = "E009",
+                    Content = 
+                        "TO-DO TRƯỚC KHI VỀ:\n" +
+                        "────────────────────────────────────────\n" +
+                        "1. Kiểm tra tiến độ mã hóa file Project_Nexus_Core.enc trước hạn chót 22:00.\n" +
+                        "2. Đợi Elena ghé trả lại chiếc USB Kingston màu xanh (bữa mượn sao chép slide QA).\n" +
+                        "3. Mua bánh sandwich ở canteen tầng 1 trước 21:30.\n" +
+                        "4. Khóa cửa phòng làm việc cẩn thận trước khi ra về."
+                });
+
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_02",
+                    Title = "☕ Lời nhắn & Việc nhà",
+                    Author = "David Miller",
+                    Date = "2026-10-05 14:00",
+                    Category = "Cá nhân",
+                    EvidenceId = null,
+                    Content =
+                        "LỜI NHẮN:\n" +
+                        "────────────────────────────────────────\n" +
+                        "• Vợ dặn tối nay về sớm trước 22:30 đón con.\n" +
+                        "• Bác bảo vệ nhắc xe máy để nhầm khu vực B2.\n" +
+                        "• Đợt đánh giá quý tới: Đề xuất tăng phụ cấp cho nhóm QA của Sarah và Elena."
+                });
+
+                // Đảm bảo E009 có trong danh mục bằng chứng của vụ án
+                if (!pkg.Evidences.Exists(e => e.Id == "E009"))
+                {
+                    pkg.Evidences.Add(new Evidence
+                    {
+                        Id = "E009",
+                        Name = "Sticky Note - Lời nhắc trả USB của David Miller",
+                        Description = "Mẩu giấy việc cần làm dán trên màn hình David Miller: ghi lại việc Elena Rostova đang giữ chiếc USB Kingston của phòng lab.",
+                        Source = "Sticky Notes",
+                        Importance = "Critical",
+                        Timestamp = "17:30"
+                    });
+                }
+
+                // Thêm mốc Timeline 17:30 nếu chưa có
+                var t009 = pkg.Timeline.Find(t => t.EvidenceId == "E009");
+                if (t009 != null)
+                {
+                    t009.Time = "17:30";
+                    t009.EventDescription = "David Miller dán mẩu giấy to-do nhắc nhở việc Elena đang giữ chiếc USB Kingston.";
+                }
+                else
+                {
+                    pkg.Timeline.Insert(0, new TimelineEntry
+                    {
+                        Time = "17:30",
+                        EventDescription = "David Miller dán mẩu giấy to-do nhắc nhở việc Elena đang giữ chiếc USB Kingston.",
+                        EvidenceId = "E009"
+                    });
+                }
+
+                // Thêm luật suy luận Timeline giữa E009 và E004 (USB Kingston)
+                if (!pkg.ConnectionRules.Exists(r => (r.EvidenceA == "E009" && r.EvidenceB == "E004") || (r.EvidenceA == "E004" && r.EvidenceB == "E009")))
+                {
+                    pkg.ConnectionRules.Add(new EvidenceConnectionRule
+                    {
+                        EvidenceA = "E009",
+                        EvidenceB = "E004",
+                        SuccessMessage = "CHÍNH XÁC: Chiếc USB Kingston cắm vào máy lúc 21:45 chính là chiếc USB mà David ghi chú Elena đang giữ!",
+                        NotificationText = "[KẾT NỐI TIMELINE] Mẩu giấy ghi chú lúc 17:30 xác nhận Elena giữ chiếc USB Kingston, vạch trần kẻ cắm USB sao chép file lúc 21:45!"
+                    });
+                }
+            }
+            else if (id.Contains("002") || id.Contains("2"))
+            {
+                // Vụ án 2: The Ransomware Attack (Robert Vance bàn giao công việc trước kỳ nghỉ cuối tuần)
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_101",
+                    Title = "📌 Bàn giao trực cuối tuần",
+                    Author = "Robert Vance (Chief Accountant)",
+                    Date = "2026-10-10 17:15",
+                    Category = "Sticky Note",
+                    EvidenceId = "E109",
+                    Content =
+                        "LƯU Ý CUỐI TUẦN:\n" +
+                        "────────────────────────────────────────\n" +
+                        "• Kevin Shaw (IT) có qua xin cấp tài khoản VPN máy chủ kế toán để 'chạy bảo trì bản vá định kỳ đêm Chủ nhật'.\n" +
+                        "• Đã cấp credential tạm thời cho Kevin, hạn chót đến 06:00 sáng Thứ Hai.\n" +
+                        "• Sáng Thứ Hai nhớ đổi lại mật khẩu root máy chủ và thu hồi quyền VPN của Kevin.\n" +
+                        "• Nhớ tắt điều hòa phòng làm việc."
+                });
+
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_102",
+                    Title = "📋 Danh mục chứng từ cần quyết toán",
+                    Author = "Robert Vance",
+                    Date = "2026-10-09 11:30",
+                    Category = "Tài chính",
+                    EvidenceId = null,
+                    Content =
+                        "QUYẾT TOÁN THUẾ QUÝ 3:\n" +
+                        "────────────────────────────────────────\n" +
+                        "1. Rà soát hóa đơn tiếp khách phòng Marketing.\n" +
+                        "2. Nhắc bên ngân hàng gửi sao kê tài khoản doanh nghiệp.\n" +
+                        "3. Lịch hẹn nha sĩ vào chiều Thứ Ba."
+                });
+
+                if (!pkg.Evidences.Exists(e => e.Id == "E109"))
+                {
+                    pkg.Evidences.Add(new Evidence
+                    {
+                        Id = "E109",
+                        Name = "Sticky Note - Bút tích cấp quyền VPN cuối tuần của Robert Vance",
+                        Description = "Ghi chú bàn giao công việc của Kế toán trưởng: ghi lại việc đã cấp quyền truy cập VPN máy chủ kế toán cho quản trị viên Kevin Shaw sử dụng trong kỳ nghỉ cuối tuần.",
+                        Source = "Sticky Notes",
+                        Importance = "Critical",
+                        Timestamp = "17:15"
+                    });
+                }
+
+                // Thêm luật kết nối giữa E109 và E104 (VPN ngoài giờ)
+                if (!pkg.ConnectionRules.Exists(r => (r.EvidenceA == "E109" && r.EvidenceB == "E104") || (r.EvidenceA == "E104" && r.EvidenceB == "E109")))
+                {
+                    pkg.ConnectionRules.Add(new EvidenceConnectionRule
+                    {
+                        EvidenceA = "E109",
+                        EvidenceB = "E104",
+                        SuccessMessage = "CHÍNH XÁC: Phiên kết nối VPN lúc 02:15 sáng sử dụng chính tài khoản mà Robert đã ghi chú cấp tạm cho Kevin Shaw mượn!",
+                        NotificationText = "[KẾT NỐI TIMELINE] Ghi chú bàn giao xác nhận Kevin Shaw được cấp quyền VPN cuối tuần, vạch trần kẻ kết nối từ xa lúc 02:15 để phát tán ransomware!"
+                    });
+                }
+            }
+            else if (id.Contains("003") || id.Contains("3"))
+            {
+                // Vụ án 3: The Ghost in the System (Dr. Evelyn Reed ghi chép quan sát phòng lab AI)
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_201",
+                    Title = "📌 Việc cần kiểm tra phòng lab AI",
+                    Author = "Dr. Evelyn Reed (Head of AI Research)",
+                    Date = "2026-10-19 16:45",
+                    Category = "Sticky Note",
+                    EvidenceId = "E209",
+                    Content =
+                        "GHI CHÚ LAB AI:\n" +
+                        "────────────────────────────────────────\n" +
+                        "• Samuel Drake dạo này liên tục gặng hỏi về cấu trúc file checkpoint Genesis-70B và cách bypass SSH nội bộ.\n" +
+                        "• Samuel mượn thẻ ra vào phòng Server Vault với lý do 'kiểm tra nhiệt độ rack máy chủ', sáng mai nhớ đòi lại thẻ!\n" +
+                        "• Nhắc cả nhóm: Tuyệt đối không lưu SSH key cá nhân trên máy trạm chung!"
+                });
+
+                pkg.Notes.Add(new NoteItem
+                {
+                    Id = "NOTE_202",
+                    Title = "🧪 Tiến độ huấn luyện mô hình Genesis",
+                    Author = "Dr. Evelyn Reed",
+                    Date = "2026-10-18 10:00",
+                    Category = "Nghiên cứu",
+                    EvidenceId = null,
+                    Content =
+                        "EXPERIMENT LOG:\n" +
+                        "────────────────────────────────────────\n" +
+                        "• Epoch 42: Hàm mất mát (Loss) đã hội tụ về 0.82.\n" +
+                        "• Dự kiến nộp bản thảo bài báo khoa học cho hội nghị AI tháng 12.\n" +
+                        "• Nhớ mua thêm cà phê hạt cho máy pha ở phòng sinh hoạt chung."
+                });
+
+                if (!pkg.Evidences.Exists(e => e.Id == "E209"))
+                {
+                    pkg.Evidences.Add(new Evidence
+                    {
+                        Id = "E209",
+                        Name = "Sticky Note - Ghi chú nhắc nhở của Dr. Evelyn về Samuel",
+                        Description = "Mẩu giấy dán tại bàn làm việc của Dr. Evelyn: ghi lại việc Samuel Drake mượn thẻ vào phòng Server Vault và liên tục tò mò về cấu trúc file checkpoint AI.",
+                        Source = "Sticky Notes",
+                        Importance = "Critical",
+                        Timestamp = "16:45"
+                    });
+                }
+
+                // Thêm luật kết nối giữa E209 và E205 (Nhật ký cửa Server Vault)
+                if (!pkg.ConnectionRules.Exists(r => (r.EvidenceA == "E209" && r.EvidenceB == "E205") || (r.EvidenceA == "E205" && r.EvidenceB == "E209")))
+                {
+                    pkg.ConnectionRules.Add(new EvidenceConnectionRule
+                    {
+                        EvidenceA = "E209",
+                        EvidenceB = "E205",
+                        SuccessMessage = "CHÍNH XÁC: Thẻ nhân viên quét mở phòng Server lúc 02:55 chính là chiếc thẻ mà Dr. Evelyn đã ghi chú cho Samuel Drake mượn!",
+                        NotificationText = "[KẾT NỐI TIMELINE] Ghi chú của Dr. Evelyn xác nhận Samuel Drake giữ thẻ mở Server Vault, chứng minh Samuel đã trực tiếp đột nhập phòng máy chủ!"
+                    });
+                }
             }
         }
 
@@ -165,7 +380,7 @@ namespace _2611_WIN_B3.Game
                     return false;
                 }
 
-                InitPackageFileDefaults(pkg);
+                InitPackageDefaults(pkg);
 
                 // Kiểm tra trùng lặp để thực hiện Replace hoặc Append
                 int idx = AvailableCases.FindIndex(c => c.CaseId.Equals(pkg.CaseId, StringComparison.OrdinalIgnoreCase));

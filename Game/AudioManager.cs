@@ -43,7 +43,7 @@ namespace _2611_WIN_B3.Game
         private AudioFileReader? _bgmReader;
         private LoopStream? _bgmLoopStream;
 
-        private float _bgmVolume = 0.25f; // Giảm nhạc nền xuống 25% (êm dịu, không lấn át)
+        private float _bgmVolume = 0.30f; // Giảm nhạc nền xuống 30% (êm dịu, không lấn át)
         private float _sfxVolume = 1.40f; // Âm lượng hiệu ứng thông thường 140%
         private float _clueVolume = 2.50f; // Tăng âm lượng phát hiện manh mối clue.wav lên 250%
 

@@ -126,6 +126,14 @@
       "Source": "Recycle Bin",
       "Importance": "Critical",
       "Timestamp": "03:15"
+    },
+    {
+      "Id": "E209",
+      "Name": "Sticky Note - Ghi chú nhắc nhở của Dr. Evelyn về Samuel",
+      "Description": "Mẩu giấy dán tại bàn làm việc của Dr. Evelyn: ghi lại việc Samuel Drake mượn thẻ vào phòng Server Vault và liên tục tò mò về cấu trúc file checkpoint AI.",
+      "Source": "Sticky Notes",
+      "Importance": "Critical",
+      "Timestamp": "16:45"
     }
   ],
   "Emails": [
@@ -301,6 +309,32 @@
       "EvidenceB": "E208",
       "SuccessMessage": "CHÍNH XÁC: Động cơ 200,000 USD từ Horizon Capital khớp với chìa khóa SSH trong Thùng Rác!",
       "NotificationText": "[KẾT NỐI TIMELINE] Động cơ và chứng cứ phi tang đã rõ ràng: Samuel chiếm đoạt mô hình AI tối mật vì thỏa thuận tài chính bất hợp pháp!"
+    },
+    {
+      "EvidenceA": "E209",
+      "EvidenceB": "E205",
+      "SuccessMessage": "CHÍNH XÁC: Thẻ nhân viên quét mở phòng Server lúc 02:55 chính là chiếc thẻ mà Dr. Evelyn đã ghi chú cho Samuel Drake mượn!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Ghi chú của Dr. Evelyn xác nhận Samuel Drake giữ thẻ mở Server Vault, chứng minh Samuel đã trực tiếp đột nhập phòng máy chủ!"
+    }
+  ],
+  "Notes": [
+    {
+      "Id": "NOTE_201",
+      "Title": "Việc cần kiểm tra phòng lab AI",
+      "Author": "Dr. Evelyn Reed (Head of AI Research)",
+      "Date": "2026-10-19 16:45",
+      "Category": "Sticky Note",
+      "Content": "GHI CHÚ LAB AI:\n────────────────────────────────────────\n• Samuel Drake dạo này liên tục gặng hỏi về cấu trúc file checkpoint Genesis-70B và cách bypass SSH nội bộ.\n• Samuel mượn thẻ ra vào phòng Server Vault với lý do 'kiểm tra nhiệt độ rack máy chủ', sáng mai nhớ đòi lại thẻ!\n• Nhắc cả nhóm: Tuyệt đối không lưu SSH key cá nhân trên máy trạm chung!",
+      "EvidenceId": "E209"
+    },
+    {
+      "Id": "NOTE_202",
+      "Title": "Tiến độ huấn luyện mô hình Genesis",
+      "Author": "Dr. Evelyn Reed",
+      "Date": "2026-10-18 10:00",
+      "Category": "Nghiên cứu",
+      "Content": "EXPERIMENT LOG:\n────────────────────────────────────────\n• Epoch 42: Hàm mất mát (Loss) đã hội tụ về 0.82.\n• Dự kiến nộp bản thảo bài báo khoa học cho hội nghị AI tháng 12.\n• Nhớ mua thêm cà phê hạt cho máy pha ở phòng sinh hoạt chung.",
+      "EvidenceId": null
     }
   ]
 }

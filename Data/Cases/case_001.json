@@ -126,6 +126,14 @@
       "Source": "Terminal History",
       "Importance": "Medium",
       "Timestamp": "21:58"
+    },
+    {
+      "Id": "E009",
+      "Name": "Sticky Note - Lời nhắc trả USB của David Miller",
+      "Description": "Mẩu giấy việc cần làm dán trên màn hình David Miller: ghi lại việc Elena Rostova đang giữ chiếc USB Kingston của phòng lab.",
+      "Source": "Sticky Notes",
+      "Importance": "Critical",
+      "Timestamp": "17:30"
     }
   ],
   "Emails": [
@@ -315,6 +323,12 @@
       "IsVerified": false
     },
     {
+      "Time": "17:30",
+      "EventDescription": "David Miller dán mẩu giấy to-do nhắc nhở việc Elena đang giữ chiếc USB Kingston.",
+      "EvidenceId": "E009",
+      "IsVerified": false
+    },
+    {
       "Time": "21:40",
       "EventDescription": "Camera hành lang ghi nhận bóng người tiến vào khu lab.",
       "EvidenceId": "E005",
@@ -381,6 +395,32 @@
       "EvidenceB": "E004",
       "SuccessMessage": "CHÍNH XÁC: Động cơ phạm tội là gián điệp công nghệ bán file cho CyberTech!",
       "NotificationText": "[KẾT NỐI TIMELINE] Bản hợp đồng 50,000 USD với CyberTech khớp với thuật toán lõi bị copy qua USB!"
+    },
+    {
+      "EvidenceA": "E009",
+      "EvidenceB": "E004",
+      "SuccessMessage": "CHÍNH XÁC: Chiếc USB Kingston cắm vào máy lúc 21:45 chính là chiếc USB mà David ghi chú Elena đang giữ!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Mẩu giấy ghi chú lúc 17:30 xác nhận Elena giữ chiếc USB Kingston, vạch trần kẻ cắm USB sao chép file lúc 21:45!"
+    }
+  ],
+  "Notes": [
+    {
+      "Id": "NOTE_01",
+      "Title": "Việc cần làm trước khi về (05/10)",
+      "Author": "David Miller (Senior Project Manager)",
+      "Date": "2026-10-05 17:30",
+      "Category": "Sticky Note",
+      "Content": "TO-DO TRƯỚC KHI VỀ:\n────────────────────────────────────────\n1. Kiểm tra tiến độ mã hóa file Project_Nexus_Core.enc trước hạn chót 22:00.\n2. Đợi Elena ghé trả lại chiếc USB Kingston màu xanh (bữa mượn sao chép slide QA).\n3. Mua bánh sandwich ở canteen tầng 1 trước 21:30.\n4. Khóa cửa phòng làm việc cẩn thận trước khi ra về.",
+      "EvidenceId": "E009"
+    },
+    {
+      "Id": "NOTE_02",
+      "Title": "Lời nhắn & Việc nhà",
+      "Author": "David Miller",
+      "Date": "2026-10-05 14:00",
+      "Category": "Cá nhân",
+      "Content": "LỜI NHẮN:\n────────────────────────────────────────\n• Vợ dặn tối nay về sớm trước 22:30 đón con.\n• Bác bảo vệ nhắc xe máy để nhầm khu vực B2.\n• Đợt đánh giá quý tới: Đề xuất tăng phụ cấp cho nhóm QA của Sarah và Elena.",
+      "EvidenceId": null
     }
   ]
 }

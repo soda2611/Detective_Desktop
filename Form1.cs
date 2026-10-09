@@ -40,11 +40,18 @@ namespace _2611_WIN_B3
             UpdateTimerDisplay();
             lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
 
-            btnSoundToggle.Text = AudioManager.Instance.IsMuted ? "🔇 Âm: Tắt" : "🔊 Âm: Bật";
+            btnSoundToggle.Text = AudioManager.Instance.IsMuted ? "🔇 Tắt" : "🔊 Bật";
             btnSoundToggle.ForeColor = AudioManager.Instance.IsMuted ? Color.FromArgb(185, 28, 28) : Color.FromArgb(20, 60, 110);
 
-            // Mở tối đa toàn màn hình để mang lại trải nghiệm hệ điều hành ảo chân thực
-            WindowState = FormWindowState.Maximized;
+            // Tối ưu thanh Taskbar gọn gàng 48px chuẩn phong cách OS hiện đại
+            pnlTaskbar.Height = 48;
+
+            // Mở ở chế độ cửa sổ thông thường (1280x760, căn giữa màn hình)
+            WindowState = FormWindowState.Normal;
+            DoubleBuffered = true;
+            SetDoubleBuffered(pnlDesktop);
+            SetDoubleBuffered(pnlTaskbar);
+            SetDoubleBuffered(grpCaseBrief);
 
             // Nâng cao kích thước font chữ cho các biểu tượng ứng dụng và nhãn giao diện
             var iconFont = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
@@ -58,6 +65,15 @@ namespace _2611_WIN_B3
             lblCaseReport.Font = iconFont;
             lblGuide.Font = iconFont;
 
+            // Đồng bộ Typography cho Taskbar
+            lblCaseTitle.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold);
+            lblVictimInfo.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+            lblEvidenceCounter.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            lblNotification.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblClock.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCaseTimer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSoundToggle.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+
             SetupDesktopIconHover();
             SetupResponsiveLayout();
 
@@ -70,8 +86,38 @@ namespace _2611_WIN_B3
             FormClosing += (s, ev) => AudioManager.Instance.StopBgm();
         }
 
+        private static void SetDoubleBuffered(Control c)
+        {
+            try
+            {
+                var prop = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                prop?.SetValue(c, true, null);
+            }
+            catch { }
+        }
+
         private void SetupResponsiveLayout()
         {
+            // Vô hiệu hóa Anchor mặc định trên các control do code tự layout để tránh xung đột co giật
+            grpCaseBrief.Anchor = AnchorStyles.None;
+            btnStartInvestigation.Anchor = AnchorStyles.None;
+            btnHighScores.Anchor = AnchorStyles.None;
+            btnSelectCase.Anchor = AnchorStyles.None;
+            txtCaseOverview.Anchor = AnchorStyles.None;
+
+            btnSoundToggle.Anchor = AnchorStyles.None;
+            lblCaseTimer.Anchor = AnchorStyles.None;
+            lblClock.Anchor = AnchorStyles.None;
+            lblNotification.Anchor = AnchorStyles.None;
+            pbEvidenceProgress.Anchor = AnchorStyles.None;
+            lblEvidenceCounter.Anchor = AnchorStyles.None;
+            lblCaseTitle.Anchor = AnchorStyles.None;
+            lblVictimInfo.Anchor = AnchorStyles.None;
+
+            Resize += (s, e) => {
+                LayoutDesktop();
+                LayoutTaskbar();
+            };
             pnlDesktop.Resize += (s, e) => LayoutDesktop();
             pnlTaskbar.Resize += (s, e) => LayoutTaskbar();
             grpCaseBrief.Resize += (s, e) => LayoutCaseBriefButtons();
@@ -83,33 +129,65 @@ namespace _2611_WIN_B3
 
         private void LayoutCaseBriefButtons()
         {
-            if (grpCaseBrief == null || btnSelectCase == null || btnHighScores == null || btnStartInvestigation == null) return;
-            int btnH = 44;
-            int margin = 18;
-            int bottomY = grpCaseBrief.ClientSize.Height - btnH - 12;
+            if (grpCaseBrief == null || btnSelectCase == null || btnHighScores == null || btnStartInvestigation == null || txtCaseOverview == null) return;
 
-            if (bottomY < 50) return;
+            int clientW = grpCaseBrief.ClientSize.Width;
+            int clientH = grpCaseBrief.ClientSize.Height;
+            int margin = 14;
+            int btnH = 38;
+            int gap = 8;
+            int availW = clientW - (margin * 2);
 
-            int selectW = 180;
-            int hsW = 180;
-            int startW = 190;
+            if (availW < 100 || clientH < 100) return;
 
-            // Đặt 3 nút nằm sát góc phải dưới từ phải sang trái, không bao giờ đè lên nhau
-            btnSelectCase.Location = new Point(grpCaseBrief.ClientSize.Width - selectW - margin, bottomY);
-            btnSelectCase.Size = new Size(selectW, btnH);
+            int topOfButtons;
 
-            btnHighScores.Location = new Point(btnSelectCase.Left - hsW - 10, bottomY);
-            btnHighScores.Size = new Size(hsW, btnH);
+            // Kiểm tra xem 3 nút có đủ chỗ hiển thị trên 1 hàng không (ngưỡng tối thiểu ~480px)
+            if (availW >= 480)
+            {
+                // === CHẾ ĐỘ 1 HÀNG (Widescreen / Standard) ===
+                int bottomY = clientH - btnH - 12;
+                topOfButtons = bottomY;
 
-            btnStartInvestigation.Location = new Point(Math.Max(margin, btnHighScores.Left - startW - 10), bottomY);
-            btnStartInvestigation.Size = new Size(startW, btnH);
+                // Tỷ lệ: Nút chính Bắt đầu chiếm ~40%, 2 nút phụ chiếm ~30% mỗi nút
+                int b1 = (availW - (gap * 2)) * 38 / 100;
+                int b2 = (availW - (gap * 2) - b1) / 2;
+                int b3 = availW - (gap * 2) - b1 - b2;
 
-            // Điều chỉnh vùng hiển thị của txtCaseOverview để tránh bị nút che khuất
-            txtCaseOverview.Location = new Point(margin, 34);
-            txtCaseOverview.Size = new Size(
-                Math.Max(100, grpCaseBrief.ClientSize.Width - (margin * 2)),
-                Math.Max(50, bottomY - 44)
-            );
+                btnStartInvestigation.Location = new Point(margin, bottomY);
+                btnStartInvestigation.Size = new Size(b1, btnH);
+
+                btnHighScores.Location = new Point(btnStartInvestigation.Right + gap, bottomY);
+                btnHighScores.Size = new Size(b2, btnH);
+
+                btnSelectCase.Location = new Point(btnHighScores.Right + gap, bottomY);
+                btnSelectCase.Size = new Size(b3, btnH);
+            }
+            else
+            {
+                // === CHẾ ĐỘ 2 HÀNG (Compact / Responsive Stacking) ===
+                // Hàng trên: Nút BẮT ĐẦU (Action chính) chiếm trọn chiều rộng
+                // Hàng dưới: 2 nút Bảng thành tích & Đổi vụ án chia đôi 50/50
+                int row2Y = clientH - btnH - 10;
+                int row1Y = row2Y - btnH - gap;
+                topOfButtons = row1Y;
+
+                btnStartInvestigation.Location = new Point(margin, row1Y);
+                btnStartInvestigation.Size = new Size(availW, btnH);
+
+                int halfW = (availW - gap) / 2;
+                btnHighScores.Location = new Point(margin, row2Y);
+                btnHighScores.Size = new Size(halfW, btnH);
+
+                btnSelectCase.Location = new Point(btnHighScores.Right + gap, row2Y);
+                btnSelectCase.Size = new Size(availW - halfW - gap, btnH);
+            }
+
+            // Tự động căn chỉnh kích thước vùng văn bản txtCaseOverview, tuyệt đối không bị nút che lấp
+            int overviewTop = 28;
+            int overviewHeight = Math.Max(30, topOfButtons - overviewTop - 8);
+            txtCaseOverview.Location = new Point(margin, overviewTop);
+            txtCaseOverview.Size = new Size(availW, overviewHeight);
         }
 
         /// <summary>
@@ -255,24 +333,19 @@ namespace _2611_WIN_B3
             int desktopW = pnlDesktop.ClientSize.Width;
             int desktopH = pnlDesktop.ClientSize.Height;
 
-            // Xếp 9 icons thành 3 cột hoặc 2 cột tùy độ rộng màn hình
-            int colWidth = 135;
-            int rowHeight = 125;
-            int startX = 25;
-            int startY = 20;
-
             Panel[] icons = {
                 pnlIconDocuments, pnlIconBrowser, pnlIconMail,
                 pnlIconRecycleBin, pnlIconSearch, pnlIconNotes,
                 pnlIconEvidenceBoard, pnlIconCaseReport, pnlIconGuide
             };
 
-            int cols = 3;
-            // Nếu màn hình quá hẹp, chuyển sang 2 cột icons
-            if (desktopW < 900)
-            {
-                cols = 2;
-            }
+            // Phân bổ cột icon: 2 cột khi hẹp (< 800px), 3 cột chuẩn hệ điều hành
+            int cols = (desktopW < 800) ? 2 : 3;
+
+            int startX = 20;
+            int startY = 16;
+            int colWidth = 125;
+            int rowHeight = 115;
 
             for (int i = 0; i < icons.Length; i++)
             {
@@ -282,12 +355,12 @@ namespace _2611_WIN_B3
                 icons[i].Location = new Point(startX + c * colWidth, startY + r * rowHeight);
             }
 
-            // GroupBox tóm tắt vụ án chiếm phần còn lại bên phải
-            int iconsRightEdge = startX + (cols * colWidth) + 15;
-            int briefLeft = Math.Max(iconsRightEdge, 440);
-            int briefTop = 20;
-            int briefW = Math.Max(300, desktopW - briefLeft - 20);
-            int briefH = Math.Max(200, desktopH - briefTop - 15);
+            // Căn chỉnh GroupBox hồ sơ vụ án bên phải
+            int iconsRightEdge = startX + (cols * colWidth) + 16;
+            int briefLeft = Math.Max(iconsRightEdge, cols == 2 ? 275 : 405);
+            int briefTop = 16;
+            int briefW = Math.Max(320, desktopW - briefLeft - 18);
+            int briefH = Math.Max(200, desktopH - briefTop - 12);
 
             grpCaseBrief.Location = new Point(briefLeft, briefTop);
             grpCaseBrief.Size = new Size(briefW, briefH);
@@ -301,52 +374,53 @@ namespace _2611_WIN_B3
             int barW = pnlTaskbar.ClientSize.Width;
             int barH = pnlTaskbar.ClientSize.Height;
 
-            // 1. Phía bên phải: btnSoundToggle, lblClock, lblCaseTimer
-            int rightMargin = 20;
-            int clockW = 140;
-            int soundW = 130;
+            // Ẩn các nhãn tiêu đề vụ án trùng lặp khỏi Taskbar để tối ưu diện tích và độ thanh thoát
+            lblCaseTitle.Visible = false;
+            lblVictimInfo.Visible = false;
 
-            // Đồng hồ & Timer căn giữa cụm bên phải
-            lblClock.Location = new Point(barW - clockW - rightMargin, 26);
-            lblClock.Size = new Size(clockW, 30);
+            // 1. Cụm bên phải: System Tray (Đồng hồ + Stopwatch đếm giờ + Nút Âm thanh)
+            int rightMargin = 14;
+            int clockW = 76;
+            int timerW = 86;
+            int soundW = 80;
 
-            lblCaseTimer.Location = new Point(barW - clockW - rightMargin, 60);
-            lblCaseTimer.Size = new Size(clockW, 32);
+            lblClock.Location = new Point(barW - clockW - rightMargin, 11);
+            lblClock.Size = new Size(clockW, 26);
+            lblClock.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblClock.TextAlign = ContentAlignment.MiddleCenter;
 
-            btnSoundToggle.Location = new Point(lblClock.Left - soundW - 20, 36);
-            btnSoundToggle.Size = new Size(soundW, 46);
+            lblCaseTimer.Location = new Point(lblClock.Left - timerW - 8, 11);
+            lblCaseTimer.Size = new Size(timerW, 26);
+            lblCaseTimer.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCaseTimer.TextAlign = ContentAlignment.MiddleCenter;
 
-            int rightEdgeStart = btnSoundToggle.Left - 24;
+            btnSoundToggle.Location = new Point(lblCaseTimer.Left - soundW - 10, 9);
+            btnSoundToggle.Size = new Size(soundW, 30);
+            btnSoundToggle.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnSoundToggle.Text = AudioManager.Instance.IsMuted ? "🔇 Tắt" : "🔊 Bật";
 
-            // 2. Phía bên trái: Tiến trình & Thông tin vụ án
-            // Row 1: Tiến trình bằng chứng (pbEvidenceProgress + lblEvidenceCounter)
-            int progBarW = 240;
-            pbEvidenceProgress.Location = new Point(18, 16);
-            pbEvidenceProgress.Size = new Size(progBarW, 18);
+            int rightEdge = btnSoundToggle.Left - 14;
+
+            // 2. Cụm bên trái: Tiến trình thu thập bằng chứng
+            int leftMargin = 14;
+            int progBarW = 110;
+            pbEvidenceProgress.Location = new Point(leftMargin, 17);
+            pbEvidenceProgress.Size = new Size(progBarW, 14);
 
             lblEvidenceCounter.AutoSize = true;
-            lblEvidenceCounter.Location = new Point(18 + progBarW + 14, 12);
+            lblEvidenceCounter.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            lblEvidenceCounter.Location = new Point(leftMargin + progBarW + 8, 14);
 
-            // Row 1 bên phải: Thông báo/Manh mối mới (khi có sự kiện phát sinh)
-            int notifLeft = lblEvidenceCounter.Right + 20;
-            int notifWidth = Math.Max(50, rightEdgeStart - notifLeft);
-            lblNotification.Location = new Point(notifLeft, 12);
-            lblNotification.Size = new Size(notifWidth, 26);
+            int leftBoundary = lblEvidenceCounter.Right + 14;
 
-            // Chiều rộng tối đa cho thông tin vụ án (trải dài đến tận nút Âm thanh)
-            int caseInfoWidth = Math.Max(200, rightEdgeStart - 18);
-
-            // Row 2: Tiêu đề vụ án (rộng rãi, cao thoáng)
-            lblCaseTitle.AutoSize = false;
-            lblCaseTitle.AutoEllipsis = true;
-            lblCaseTitle.Location = new Point(18, 46);
-            lblCaseTitle.Size = new Size(caseInfoWidth, 30);
-
-            // Row 3: Chi tiết nạn nhân & file (rộng rãi, không bị chen chúc hay tràn viền)
-            lblVictimInfo.AutoSize = false;
-            lblVictimInfo.AutoEllipsis = true;
-            lblVictimInfo.Location = new Point(18, 80);
-            lblVictimInfo.Size = new Size(caseInfoWidth, 26);
+            // 3. Cụm trung tâm: Bảng tin thông báo thời gian thực 1 dòng thanh lịch
+            int notifWidth = Math.Max(60, rightEdge - leftBoundary);
+            lblNotification.AutoSize = false;
+            lblNotification.AutoEllipsis = true;
+            lblNotification.Location = new Point(leftBoundary, 9);
+            lblNotification.Size = new Size(notifWidth, 30);
+            lblNotification.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
+            lblNotification.TextAlign = ContentAlignment.MiddleLeft;
         }
 
         private void SetupDesktopIconHover()
@@ -399,27 +473,17 @@ namespace _2611_WIN_B3
 
             txtCaseOverview.Text =
                 $"=== {c.CaseId.ToUpper()}: {c.Title.ToUpper()} ===\n" +
-                $"• Độ khó: {c.Difficulty} | Ngày xảy ra: {c.IncidentDate}\n" +
-                $"• Nạn nhân / Đối tượng: {c.Victim}\n" +
-                $"• Tập tin bị mất / Mục tiêu: {c.MissingFileName}\n" +
-                $"• Tóm tắt nhanh: {c.SummaryBrief}\n\n" +
-                $"TÌNH TIẾT BAN ĐẦU:\n{c.Overview}\n\n" +
-                $"DỮ LIỆU ĐIỀU TRA TRÊN HỆ THỐNG:\n" +
-                $"• Số lượng nghi phạm trong diện điều tra: {pkg.Suspects.Count} người\n" +
-                $"• Số lượng bằng chứng cần thu thập: {pkg.Evidences.Count} manh mối\n" +
-                $"• Số lượng email trao đổi: {pkg.Emails.Count} thư\n" +
-                $"• Số lượng tập tin & dữ liệu: {pkg.Files.Count} tệp\n\n" +
-                $"CHỈ DẪN ĐIỀU TRA DÀNH CHO BẠN:\n" +
-                $"1. Nhấp đúp vào ✉ Mail: Đọc các email trao đổi nội bộ và phát hiện các bức thư bất thường.\n" +
-                $"2. Nhấp đúp vào 🌐 Browser: Rà soát lịch sử duyệt web tìm vị trí upload / truy cập mạng trái phép.\n" +
-                $"3. Nhấp đúp vào 📁 Documents: Đọc tài liệu dự án, biên bản họp và các file nhật ký log.\n" +
-                $"4. Nhấp đúp vào 🗑 Recycle Bin: Tìm kiếm và khôi phục các tập tin then chốt đã bị thủ phạm xóa.\n" +
-                $"5. Nhấp đúp vào 📝 Notes: Ghi chú lại bất cứ nghi vấn và phân tích cá nhân nào.\n" +
-                $"6. Mở 🧩 Evidence Board: Kết nối 2 manh mối tương ứng để dựng lại dòng thời gian (Timeline).\n" +
-                $"7. Mở 📋 Case Report: Nộp kết luận khi đã nắm chắc danh tính thủ phạm, động cơ và thủ đoạn!\n" +
-                $"8. Nhấp đúp vào 📖 Cẩm Nang: Xem chi tiết hướng dẫn & điều kiện mở 5 Endings!\n" +
-                $"9. Bấm '🏆 Bảng thành tích' để xem xếp hạng và mở file highscores.txt!\n" +
-                $"10. Bấm '📂 Đổi màn chơi' để mở danh sách các vụ án khác (hoặc nạp vụ án mới từ file JSON)!";
+                $"• Mức độ: {c.Difficulty}  |  Ngày xảy ra: {c.IncidentDate}\n" +
+                $"• Nạn nhân: {c.Victim}\n" +
+                $"• Mục tiêu: Thu hồi '{c.MissingFileName}' & vạch trần thủ phạm\n" +
+                $"• Tóm tắt: {c.SummaryBrief}\n\n" +
+                $"TÌNH TIẾT VỤ ÁN:\n{c.Overview}\n\n" +
+                $"DỮ LIỆU ĐIỀU TRA KHẢ DỤNG TRÊN HỆ THỐNG:\n" +
+                $"• {pkg.Suspects.Count} nghi phạm trong diện thẩm vấn\n" +
+                $"• {pkg.Evidences.Count} bằng chứng cần thu thập & đối soát\n" +
+                $"• {pkg.Emails.Count} email nội bộ  |  {pkg.Files.Count} tệp tin hệ thống  |  {pkg.Notes.Count} ghi chú trích xuất\n\n" +
+                $"💡 GỢI Ý ĐIỀU TRA:\n" +
+                $"Mở các ứng dụng trên màn hình để thu thập dấu vết kỹ thuật số. Mở 🧩 Evidence Board để dựng lại dòng thời gian, và hoàn thành 📋 Case Report khi đã đủ chứng cứ!";
         }
 
         private void State_OnEvidenceDiscovered(string id, string name)
@@ -494,7 +558,7 @@ namespace _2611_WIN_B3
         private void btnSoundToggle_Click(object sender, EventArgs e)
         {
             AudioManager.Instance.IsMuted = !AudioManager.Instance.IsMuted;
-            btnSoundToggle.Text = AudioManager.Instance.IsMuted ? "🔇 Âm: Tắt" : "🔊 Âm: Bật";
+            btnSoundToggle.Text = AudioManager.Instance.IsMuted ? "🔇 Tắt" : "🔊 Bật";
             btnSoundToggle.ForeColor = AudioManager.Instance.IsMuted ? Color.FromArgb(185, 28, 28) : Color.FromArgb(20, 60, 110);
             if (!AudioManager.Instance.IsMuted)
             {
@@ -572,6 +636,7 @@ namespace _2611_WIN_B3
         {
             AudioManager.Instance.Play(SoundEffect.AppOpen);
             var form = new NotesForm();
+            form.FormClosed += (s, ev) => UpdateDashboard();
             form.Show(this);
         }
 

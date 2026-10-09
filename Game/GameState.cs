@@ -20,6 +20,7 @@ namespace _2611_WIN_B3.Game
         public HashSet<string> OpenedFileIds { get; set; } = new HashSet<string>();
         public HashSet<string> RestoredFileIds { get; set; } = new HashSet<string>();
         public HashSet<string> CheckedBrowserIds { get; set; } = new HashSet<string>();
+        public HashSet<string> ReadNoteIds { get; set; } = new HashSet<string>();
         public List<string> ConnectedEvidencePairs { get; set; } = new List<string>();
         public string DetectiveNotes { get; set; } = "=== SỔ TAY GHI CHÉP ĐIỀU TRA ===\n- Ghi lại các manh mối, mâu thuẫn thời gian và nghi vấn cần đối chiếu.\n- Dữ liệu sổ tay được lưu trữ tự động vào tiến trình điều tra.\n";
         public string SelectedSuspectId { get; set; } = string.Empty;

@@ -126,6 +126,14 @@
       "Source": "Camera Logs",
       "Importance": "Medium",
       "Timestamp": "02:30"
+    },
+    {
+      "Id": "E109",
+      "Name": "Sticky Note - Bút tích cấp quyền VPN cuối tuần của Robert Vance",
+      "Description": "Ghi chú bàn giao công việc của Kế toán trưởng: ghi lại việc đã cấp quyền truy cập VPN máy chủ kế toán cho quản trị viên Kevin Shaw sử dụng trong kỳ nghỉ cuối tuần.",
+      "Source": "Sticky Notes",
+      "Importance": "Critical",
+      "Timestamp": "17:15"
     }
   ],
   "Emails": [
@@ -314,6 +322,32 @@
       "EvidenceB": "E102",
       "SuccessMessage": "CHÍNH XÁC: Động cơ gây án là cờ bạc nợ 150,000 USD nên chuẩn bị sẵn sàn rửa tiền ảo để nhận 10 Bitcoin!",
       "NotificationText": "[KẾT NỐI TIMELINE] Động cơ phạm tội đã rõ ràng: Áp lực trả nợ cờ bạc khiến Kevin Shaw liều lĩnh tống tiền chính công ty mình!"
+    },
+    {
+      "EvidenceA": "E109",
+      "EvidenceB": "E104",
+      "SuccessMessage": "CHÍNH XÁC: Phiên kết nối VPN lúc 02:15 sáng sử dụng chính tài khoản mà Robert đã ghi chú cấp tạm cho Kevin Shaw mượn!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Ghi chú bàn giao xác nhận Kevin Shaw được cấp quyền VPN cuối tuần, vạch trần kẻ kết nối từ xa lúc 02:15 để phát tán ransomware!"
+    }
+  ],
+  "Notes": [
+    {
+      "Id": "NOTE_101",
+      "Title": "Bàn giao trực cuối tuần",
+      "Author": "Robert Vance (Chief Accountant)",
+      "Date": "2026-10-10 17:15",
+      "Category": "Sticky Note",
+      "Content": "LƯU Ý CUỐI TUẦN:\n────────────────────────────────────────\n• Kevin Shaw (IT) có qua xin cấp tài khoản VPN máy chủ kế toán để 'chạy bảo trì bản vá định kỳ đêm Chủ nhật'.\n• Đã cấp credential tạm thời cho Kevin, hạn chót đến 06:00 sáng Thứ Hai.\n• Sáng Thứ Hai nhớ đổi lại mật khẩu root máy chủ và thu hồi quyền VPN của Kevin.\n• Nhớ tắt điều hòa phòng làm việc.",
+      "EvidenceId": "E109"
+    },
+    {
+      "Id": "NOTE_102",
+      "Title": "Danh mục chứng từ cần quyết toán",
+      "Author": "Robert Vance",
+      "Date": "2026-10-09 11:30",
+      "Category": "Tài chính",
+      "Content": "QUYẾT TOÁN THUẾ QUÝ 3:\n────────────────────────────────────────\n1. Rà soát hóa đơn tiếp khách phòng Marketing.\n2. Nhắc bên ngân hàng gửi sao kê tài khoản doanh nghiệp.\n3. Lịch hẹn nha sĩ vào chiều Thứ Ba.",
+      "EvidenceId": null
     }
   ]
 }

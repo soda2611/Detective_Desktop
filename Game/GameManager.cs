@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using _2611_WIN_B3.Models;
 
 namespace _2611_WIN_B3.Game
 {
@@ -25,6 +27,7 @@ namespace _2611_WIN_B3.Game
         public EvidenceManager EvidenceManager { get; private set; }
         public TimelineManager TimelineManager { get; private set; }
         public CaseManager CaseManager { get; private set; }
+        public List<NoteItem> Notes => CaseManager.Notes;
 
         // Multicast Events thông báo tới Presentation Layer (Observer Pattern)
         public event Action? OnGameReset;

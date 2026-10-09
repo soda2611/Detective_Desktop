@@ -1,0 +1,47 @@
+﻿========================================================================================================
+                                BẢNG VÀNG THÀNH TÍCH PHÁ ÁN (DETECTIVE HIGH SCORES)                      
+========================================================================================================
+Hệ thống tự động ghi nhận các kết quả điều tra, thời gian phá án và điểm số của các thám tử.
+--------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-08 17:54:20
+Detective: hmn
+CaseId: Case #002
+CaseTitle: The Ransomware Attack
+Ending: ENDING 5: ĐẠI ÁN GIÁN ĐIỆP (THE BIGGER CASE)
+Score: 100
+ElapsedSeconds: 68
+Time: 01:08
+Evidences: 8/8
+TimelineLinks: 2
+Rank: S+ (Thiên tài)
+--------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-09 15:26:39
+Detective: Thám tử
+CaseId: Case #001
+CaseTitle: The Missing File
+Ending: ENDING 3: THIẾU BẰNG CHỨNG THUYẾT PHỤC
+Score: 60
+ElapsedSeconds: 70
+Time: 01:10
+Evidences: 3/8
+TimelineLinks: 0
+Rank: B (Khá)
+--------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-09 20:59:07
+Detective: Thám tử
+CaseId: Case #001
+CaseTitle: The Missing File
+Ending: ENDING 5: ĐẠI ÁN GIÁN ĐIỆP (THE BIGGER CASE)
+Score: 100
+ElapsedSeconds: 87
+Time: 01:27
+Evidences: 8/8
+TimelineLinks: 2
+Rank: S+ (Thiên tài)
+--------------------------------------------------------------------------------------------------------

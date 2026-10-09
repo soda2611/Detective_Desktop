@@ -80,6 +80,65 @@ namespace _2611_WIN_B3.Models
         }
     }
 
+    /// <summary>
+    /// Lớp NoteItem đại diện cho ghi chú / sticky note trên máy tính, kế thừa InvestigationEntity
+    /// </summary>
+    public class NoteItem : InvestigationEntity
+    {
+        private string _title = string.Empty;
+        private string _content = string.Empty;
+        private string _author = string.Empty;
+        private string _date = string.Empty;
+        private string _category = "Sticky Note";
+
+        public string Title
+        {
+            get => _title;
+            set => _title = value ?? string.Empty;
+        }
+
+        public string Content
+        {
+            get => _content;
+            set => _content = value ?? string.Empty;
+        }
+
+        public string Author
+        {
+            get => _author;
+            set => _author = value ?? string.Empty;
+        }
+
+        public string Date
+        {
+            get => _date;
+            set => _date = value ?? string.Empty;
+        }
+
+        public string Category
+        {
+            get => _category;
+            set => _category = value ?? "Sticky Note";
+        }
+
+        public NoteItem() : base() { }
+
+        public NoteItem(string id, string title, string content, string author, string? evidenceId = null)
+            : base(id, evidenceId)
+        {
+            Title = title;
+            Content = content;
+            Author = author;
+        }
+
+        public override string GetSourceType() => "Sticky Notes / Memos";
+
+        public override string GetInspectionSummary()
+        {
+            return $"[{GetSourceType()}] {Title} - Tác giả: {Author} ({Date})";
+        }
+    }
+
     public class TimelineEntry
     {
         public string Time { get; set; } = string.Empty;
@@ -156,6 +215,7 @@ namespace _2611_WIN_B3.Models
         public List<Email> Emails { get; set; } = new();
         public List<BrowserHistory> BrowserHistories { get; set; } = new();
         public List<FileItem> Files { get; set; } = new();
+        public List<NoteItem> Notes { get; set; } = new();
         public List<TimelineEntry> Timeline { get; set; } = new();
         public List<EvidenceConnectionRule> ConnectionRules { get; set; } = new();
 
