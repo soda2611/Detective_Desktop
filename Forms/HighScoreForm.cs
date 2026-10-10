@@ -18,24 +18,48 @@ namespace _2611_WIN_B3.Forms
 
         private void HighScoreForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblFilter.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            cboFilterCase.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            lblSummary.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            lvScores.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            btnOpenTxt.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnClear.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnRefresh.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(860, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1050, targetW), Math.Min(680, targetH));
+            CenterToParent();
 
-            colRank.Width = 90;
-            colDetective.Width = 180;
-            colCase.Width = 260;
-            colScore.Width = 90;
-            colTime.Width = 100;
-            colRating.Width = 110;
-            colEnding.Width = 240;
-            colDate.Width = 170;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblFilter.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            cboFilterCase.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lblSummary.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lvScores.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            btnOpenTxt.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClear.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnRefresh.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 58;
+            btnClose.Height = 38;
+            btnClose.Top = 10;
+
+            pnlTopBar.Height = 52;
+            lblFilter.Top = 14;
+            cboFilterCase.Top = 10;
+            lblSummary.Top = 14;
+
+            pnlBottom.Height = 58;
+            btnOpenTxt.Height = 40;
+            btnOpenTxt.Top = 9;
+            btnClear.Height = 40;
+            btnClear.Top = 9;
+            btnRefresh.Height = 40;
+            btnRefresh.Top = 9;
+
+            colRank.Width = 100;
+            colDetective.Width = 200;
+            colCase.Width = 300;
+            colScore.Width = 110;
+            colTime.Width = 130;
+            colRating.Width = 130;
+            colEnding.Width = 280;
+            colDate.Width = 190;
 
             ReloadData();
         }

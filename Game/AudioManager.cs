@@ -43,6 +43,10 @@ namespace _2611_WIN_B3.Game
         private AudioFileReader? _bgmReader;
         private LoopStream? _bgmLoopStream;
 
+        // Quản lý các WaveOut và Reader đang phát SFX để dọn dẹp triệt để
+        private readonly List<(IWavePlayer waveOut, IDisposable reader)> _activeSfxPlayers = new();
+        private readonly object _sfxLock = new();
+
         private float _bgmVolume = 0.30f; // Giảm nhạc nền xuống 30% (êm dịu, không lấn át)
         private float _sfxVolume = 1.40f; // Âm lượng hiệu ứng thông thường 140%
         private float _clueVolume = 2.50f; // Tăng âm lượng phát hiện manh mối clue.wav lên 250%
@@ -120,6 +124,7 @@ namespace _2611_WIN_B3.Game
             };
             _audioWorkerThread.Start();
 
+            EnsureDefaultSoundFiles();
             ScanSoundFiles();
         }
 
@@ -150,6 +155,213 @@ namespace _2611_WIN_B3.Game
         }
 
         public string GetSoundsDirectory() => _soundsDir;
+
+        private void EnsureDefaultSoundFiles()
+        {
+            var soundDirs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            if (!string.IsNullOrEmpty(_soundsDir)) soundDirs.Add(_soundsDir);
+            soundDirs.Add(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sounds"));
+            soundDirs.Add(Path.Combine(Directory.GetCurrentDirectory(), "Sounds"));
+            if (Directory.Exists(@"D:\ltw\2611_WIN_B3\Sounds"))
+                soundDirs.Add(@"D:\ltw\2611_WIN_B3\Sounds");
+
+            var generators = new Dictionary<string, Func<short[]>>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "click.wav", GenerateClickSamples },
+                { "notify.wav", GenerateNotifySamples },
+                { "connect.wav", GenerateConnectSamples },
+                { "win.wav", GenerateWinSamples },
+                { "fail.wav", GenerateFailSamples }
+            };
+
+            foreach (var dir in soundDirs)
+            {
+                try
+                {
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+
+                    foreach (var kvp in generators)
+                    {
+                        string filePath = Path.Combine(dir, kvp.Key);
+                        if (!File.Exists(filePath) || new FileInfo(filePath).Length < 100)
+                        {
+                            short[] samples = kvp.Value();
+                            WriteWavFile(filePath, samples, 44100);
+                        }
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private static short[] GenerateClickSamples()
+        {
+            const int sampleRate = 44100;
+            int totalSamples = sampleRate * 40 / 1000;
+            short[] samples = new short[totalSamples];
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                double t = (double)i / sampleRate;
+                double freq = 1400.0 - (1000.0 * (t / 0.04));
+                double env = (t < 0.002) ? (t / 0.002) : Math.Exp(-(t - 0.002) / 0.008);
+                double val = Math.Sin(2.0 * Math.PI * freq * t) * env;
+                samples[i] = (short)Math.Clamp(val * 24000.0, -32767.0, 32767.0);
+            }
+            return samples;
+        }
+
+        private static short[] GenerateNotifySamples()
+        {
+            const int sampleRate = 44100;
+            int totalSamples = sampleRate * 280 / 1000;
+            short[] samples = new short[totalSamples];
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                double t = (double)i / sampleRate;
+                double val;
+                if (t < 0.10)
+                {
+                    double localT = t;
+                    double env = (localT < 0.005) ? (localT / 0.005) : Math.Exp(-localT / 0.04);
+                    val = (Math.Sin(2.0 * Math.PI * 587.33 * t) + 0.25 * Math.Sin(2.0 * Math.PI * 1174.66 * t)) * env;
+                }
+                else
+                {
+                    double localT = t - 0.10;
+                    double env = (localT < 0.005) ? (localT / 0.005) : Math.Exp(-localT / 0.07);
+                    val = (Math.Sin(2.0 * Math.PI * 880.0 * t) + 0.20 * Math.Sin(2.0 * Math.PI * 1760.0 * t)) * env;
+                }
+                samples[i] = (short)Math.Clamp(val * 22000.0, -32767.0, 32767.0);
+            }
+            return samples;
+        }
+
+        private static short[] GenerateConnectSamples()
+        {
+            const int sampleRate = 44100;
+            int totalSamples = sampleRate * 420 / 1000;
+            short[] samples = new short[totalSamples];
+            double[] notes = { 523.25, 659.25, 783.99, 1046.50 };
+            double step = 0.090;
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                double t = (double)i / sampleRate;
+                int noteIdx = Math.Min(notes.Length - 1, (int)(t / step));
+                double localT = t - (noteIdx * step);
+                double freq = notes[noteIdx];
+                double env = (localT < 0.004) ? (localT / 0.004) : Math.Exp(-localT / 0.08);
+                double val = (Math.Sin(2.0 * Math.PI * freq * t) + 0.3 * Math.Sin(2.0 * Math.PI * (freq * 2.0) * t)) * env;
+                samples[i] = (short)Math.Clamp(val * 24000.0, -32767.0, 32767.0);
+            }
+            return samples;
+        }
+
+        private static short[] GenerateWinSamples()
+        {
+            const int sampleRate = 44100;
+            int totalSamples = sampleRate * 850 / 1000;
+            short[] samples = new short[totalSamples];
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                double t = (double)i / sampleRate;
+                double val;
+                if (t < 0.08)
+                {
+                    double env = (t < 0.005) ? (t / 0.005) : Math.Exp(-t / 0.04);
+                    val = Math.Sin(2.0 * Math.PI * 523.25 * t) * env;
+                }
+                else if (t < 0.16)
+                {
+                    double localT = t - 0.08;
+                    double env = (localT < 0.005) ? (localT / 0.005) : Math.Exp(-localT / 0.04);
+                    val = Math.Sin(2.0 * Math.PI * 659.25 * t) * env;
+                }
+                else if (t < 0.24)
+                {
+                    double localT = t - 0.16;
+                    double env = (localT < 0.005) ? (localT / 0.005) : Math.Exp(-localT / 0.04);
+                    val = Math.Sin(2.0 * Math.PI * 783.99 * t) * env;
+                }
+                else
+                {
+                    double localT = t - 0.24;
+                    double env = (localT < 0.008) ? (localT / 0.008) : Math.Exp(-localT / 0.20);
+                    val = (Math.Sin(2.0 * Math.PI * 523.25 * t) * 0.30 +
+                           Math.Sin(2.0 * Math.PI * 659.25 * t) * 0.25 +
+                           Math.Sin(2.0 * Math.PI * 783.99 * t) * 0.25 +
+                           Math.Sin(2.0 * Math.PI * 1046.50 * t) * 0.20) * env;
+                }
+                samples[i] = (short)Math.Clamp(val * 24000.0, -32767.0, 32767.0);
+            }
+            return samples;
+        }
+
+        private static short[] GenerateFailSamples()
+        {
+            const int sampleRate = 44100;
+            int totalSamples = sampleRate * 360 / 1000;
+            short[] samples = new short[totalSamples];
+
+            for (int i = 0; i < totalSamples; i++)
+            {
+                double t = (double)i / sampleRate;
+                double val;
+                if (t < 0.16)
+                {
+                    double env = (t < 0.005) ? (t / 0.005) : Math.Exp(-t / 0.08);
+                    val = (Math.Sin(2.0 * Math.PI * 349.23 * t) + 0.25 * Math.Sin(2.0 * Math.PI * 698.46 * t)) * env;
+                }
+                else
+                {
+                    double localT = t - 0.16;
+                    double env = (localT < 0.005) ? (localT / 0.005) : Math.Exp(-localT / 0.10);
+                    val = (Math.Sin(2.0 * Math.PI * 293.66 * t) + 0.25 * Math.Sin(2.0 * Math.PI * 587.33 * t)) * env;
+                }
+                samples[i] = (short)Math.Clamp(val * 22000.0, -32767.0, 32767.0);
+            }
+            return samples;
+        }
+
+        private static void WriteWavFile(string filePath, short[] samples, int sampleRate)
+        {
+            int byteRate = sampleRate * 1 * 2;
+            int dataChunkSize = samples.Length * 2;
+            int fileSize = 36 + dataChunkSize;
+
+            using var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.Read);
+            using var bw = new BinaryWriter(fs);
+
+            // RIFF header
+            bw.Write(System.Text.Encoding.ASCII.GetBytes("RIFF"));
+            bw.Write(fileSize);
+            bw.Write(System.Text.Encoding.ASCII.GetBytes("WAVE"));
+
+            // fmt subchunk
+            bw.Write(System.Text.Encoding.ASCII.GetBytes("fmt "));
+            bw.Write(16);
+            bw.Write((short)1); // PCM
+            bw.Write((short)1); // Mono
+            bw.Write(sampleRate);
+            bw.Write(byteRate);
+            bw.Write((short)2); // BlockAlign
+            bw.Write((short)16); // BitsPerSample
+
+            // data subchunk
+            bw.Write(System.Text.Encoding.ASCII.GetBytes("data"));
+            bw.Write(dataChunkSize);
+
+            for (int i = 0; i < samples.Length; i++)
+            {
+                bw.Write(samples[i]);
+            }
+        }
 
         public void ScanSoundFiles()
         {
@@ -393,10 +605,20 @@ namespace _2611_WIN_B3.Game
                 };
                 var waveOut = new WaveOut();
                 waveOut.Init(reader);
+
+                lock (_sfxLock)
+                {
+                    _activeSfxPlayers.Add((waveOut, reader));
+                }
+
                 waveOut.PlaybackStopped += (s, e) =>
                 {
                     try
                     {
+                        lock (_sfxLock)
+                        {
+                            _activeSfxPlayers.Remove((waveOut, reader));
+                        }
                         waveOut.Dispose();
                         reader.Dispose();
                     }
@@ -444,11 +666,45 @@ namespace _2611_WIN_B3.Game
 
         #endregion
 
+        /// <summary>
+        /// Giải phóng hoàn toàn toàn bộ tài nguyên âm thanh, dừng mọi luồng và giải phóng khóa file asset
+        /// </summary>
         public void Shutdown()
         {
             _isRunning = false;
             _hasTaskEvent.Set();
-            StopBgm();
+
+            // 1. Dừng và giải phóng toàn bộ luồng nhạc nền BGM ngay lập tức
+            StopBgmInternal();
+
+            // 2. Dừng và giải phóng toàn bộ hiệu ứng âm thanh SFX đang phát dở
+            lock (_sfxLock)
+            {
+                foreach (var (waveOut, reader) in _activeSfxPlayers)
+                {
+                    try
+                    {
+                        waveOut.Stop();
+                        waveOut.Dispose();
+                        reader.Dispose();
+                    }
+                    catch { }
+                }
+                _activeSfxPlayers.Clear();
+            }
+
+            // 3. Xóa cache đường dẫn
+            _verifiedSoundPaths.Clear();
+
+            // 4. Đợi worker thread kết thúc gọn gàng
+            try
+            {
+                if (_audioWorkerThread.IsAlive)
+                {
+                    _audioWorkerThread.Join(500);
+                }
+            }
+            catch { }
         }
     }
 

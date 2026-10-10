@@ -15,18 +15,33 @@ namespace _2611_WIN_B3.Forms
 
         private void BrowserForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            dgvHistory.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            dgvHistory.RowTemplate.Height = 32;
-            txtAddressBar.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            lblAddress.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            lblClueNotice.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(860, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1050, targetW), Math.Min(680, targetH));
+            CenterToParent();
 
-            colDate.Width = 120;
-            colTime.Width = 110;
-            colTitle.Width = 380;
-            colUrl.Width = 360;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            dgvHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            dgvHistory.RowTemplate.Height = 40;
+            dgvHistory.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            txtAddressBar.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lblAddress.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblClueNotice.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 88;
+            btnClose.Height = 38;
+            btnClose.Top = 12;
+            lblAddress.Location = new Point(16, 50);
+            txtAddressBar.Location = new Point(100, 48);
+            txtAddressBar.Height = 30;
+
+            colDate.Width = 150;
+            colTime.Width = 140;
+            colTitle.Width = 460;
+            colUrl.Width = 460;
 
             lblTitle.AutoEllipsis = true;
             UpdateTitleLayout();

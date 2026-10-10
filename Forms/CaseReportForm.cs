@@ -17,21 +17,53 @@ namespace _2611_WIN_B3.Forms
 
         private void CaseReportForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblCaseTimer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            grpSuspect.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            grpMotive.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            grpMethod.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            grpEvidenceSelect.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            grpConclusion.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            cboSuspect.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            cboMotive.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            cboMethod.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            clbEvidences.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            txtConclusion.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-            btnSubmitCase.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnViewHighScores.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(900, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1100, targetW), Math.Min(700, targetH));
+            CenterToParent();
+
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblCaseTimer.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            grpSuspect.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            grpMotive.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            grpMethod.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            grpEvidenceSelect.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            grpConclusion.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            cboSuspect.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            cboMotive.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            cboMethod.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            clbEvidences.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
+            txtConclusion.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular);
+            lblSuspectDetail.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
+            btnSubmitCase.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold);
+            btnViewHighScores.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 58;
+            btnClose.Height = 38;
+            btnClose.Top = 10;
+            lblCaseTimer.Height = 36;
+
+            pnlBottom.Height = 64;
+            btnSubmitCase.Height = 44;
+            btnSubmitCase.Top = 10;
+            btnViewHighScores.Height = 44;
+            btnViewHighScores.Top = 10;
+
+            // Nới rộng chiều cao các GroupBox để các ComboBox và ghi chú không bị ép sát
+            grpSuspect.Height = 260;
+            lblSuspectDetail.Top = 75;
+            lblSuspectDetail.Height = 168;
+
+            grpMotive.Height = 135;
+            cboMotive.Top = 45;
+
+            grpMethod.Height = 135;
+            cboMethod.Top = 45;
+
+            grpEvidenceSelect.Height = 280;
 
             InitSuspects();
             InitMotives();

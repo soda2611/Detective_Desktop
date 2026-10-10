@@ -17,9 +17,51 @@ namespace _2611_WIN_B3.Forms
 
         private void NotesForm_Load(object sender, EventArgs e)
         {
-            Size = new Size(1000, 680);
-            MinimumSize = new Size(820, 520);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(880, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1100, targetW), Math.Min(700, targetH));
             CenterToParent();
+
+            // Áp dụng typography và kích thước thoáng đãng cho các control
+            sptContainer.SplitterDistance = 380;
+            pnlHeader.Height = 68;
+            pnlNoteMeta.Height = 72;
+            pnlClueBanner.Height = 64;
+            pnlLeftHeader.Height = 44;
+            pnlLeftFooter.Height = 38;
+            pnlBottom.Height = 44;
+
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblSubtitle.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+            lblTitle.Location = new Point(12, 8);
+            lblSubtitle.Location = new Point(14, 40);
+
+            lblNoteTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblNoteInfo.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+            lblLeftHeader.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblNotesCount.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+            lblStatus.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
+            lblClueBanner.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold);
+
+            btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnCopyNote.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnActionClue.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            btnSave.Height = 40;
+            btnSave.Top = 14;
+            btnCopyNote.Height = 40;
+            btnCopyNote.Top = 14;
+            btnCopyNote.Width = 170;
+            btnClose.Height = 40;
+            btnClose.Top = 14;
+            btnActionClue.Height = 42;
+
+            lvNotes.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            colTitle.Width = 250;
+            colCategory.Width = 120;
 
             LoadNotesList();
         }
@@ -124,25 +166,29 @@ namespace _2611_WIN_B3.Forms
                 // Khám nghiệm manh mối (Clue Discovery Mechanism)
                 if (!string.IsNullOrEmpty(note.EvidenceId))
                 {
-                    pnlClueBanner.Visible = true;
                     bool isNew = GameManager.Instance.EvidenceManager.DiscoverEvidence(note.EvidenceId);
                     var ev = GameManager.Instance.EvidenceManager.GetEvidence(note.EvidenceId);
+                    pnlClueBanner.Visible = true;
 
                     if (isNew)
                     {
                         lblClueBanner.Text = $"⭐ PHÁT HIỆN BẰNG CHỨNG MỚI [{note.EvidenceId}]: {ev?.Name}";
                         lblClueBanner.ForeColor = Color.FromArgb(180, 83, 9);
                         pnlClueBanner.BackColor = Color.FromArgb(254, 243, 199);
+                        pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
+                        btnActionClue.BackColor = Color.FromArgb(180, 83, 9);
                         lblStatus.Text = $"⭐ Đã phát hiện và ghi nhận manh mối [{note.EvidenceId}] vào hồ sơ vụ án!";
                         lblStatus.ForeColor = Color.FromArgb(180, 83, 9);
                         item.Text = "⭐ " + note.Title;
                     }
                     else
                     {
-                        lblClueBanner.Text = $"🔍 BẰNG CHỨNG [{note.EvidenceId}] ĐÃ ĐƯỢC GHI NHẬN: {ev?.Name}";
+                        lblClueBanner.Text = $"🔍 BẰNG CHỨNG [{note.EvidenceId}] ĐÃ ĐƯỢC GHI NHẬN VÀO HỒ SƠ: {ev?.Name}";
                         lblClueBanner.ForeColor = Color.FromArgb(22, 101, 52);
                         pnlClueBanner.BackColor = Color.FromArgb(240, 253, 244);
-                        lblStatus.Text = $"Bằng chứng [{note.EvidenceId}] đã có trong hồ sơ điều tra.";
+                        pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
+                        btnActionClue.BackColor = Color.FromArgb(22, 101, 52);
+                        lblStatus.Text = $"Bằng chứng [{note.EvidenceId}] đã được lưu trữ trong hồ sơ điều tra.";
                         lblStatus.ForeColor = Color.FromArgb(22, 101, 52);
                         item.Text = "⭐ " + note.Title;
                     }

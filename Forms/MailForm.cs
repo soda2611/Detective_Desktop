@@ -14,25 +14,61 @@ namespace _2611_WIN_B3.Forms
 
         private void MailForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            lvEmails.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular);
-            txtMailBody.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular);
-            grpMailDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            lblListHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            lblSender.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            lblSenderValue.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular);
-            lblRecipient.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            lblRecipientValue.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular);
-            lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            lblDateValue.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular);
-            lblSubject.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            lblSubjectValue.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
-            lblClueAlert.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
-            btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1380, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(860, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1050, targetW), Math.Min(680, targetH));
+            CenterToParent();
 
-            colSender.Width = 150;
-            colSubject.Width = 240;
-            colTime.Width = 110;
+            lblTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            lvEmails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular);
+            txtMailBody.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular);
+            grpMailDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            lblListHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            lblSender.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            lblSenderValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular);
+            lblRecipient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            lblRecipientValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular);
+            lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            lblDateValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular);
+            lblSubject.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            lblSubjectValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            lblClueAlert.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+
+            pnlHeader.Height = 58;
+            btnClose.Height = 38;
+            btnClose.Top = 10;
+            lblListHeader.Height = 38;
+
+            // Nới rộng các nhãn Header email để không bị đè chữ
+            lblSender.Height = 26;
+            lblSenderValue.Height = 26;
+            lblRecipient.Height = 26;
+            lblRecipientValue.Height = 26;
+            lblDate.Height = 26;
+            lblDateValue.Height = 26;
+            lblSubject.Height = 26;
+            lblSubjectValue.Height = 26;
+
+            lblSender.Location = new Point(14, 30);
+            lblSenderValue.Location = new Point(100, 30);
+            lblRecipient.Location = new Point(14, 58);
+            lblRecipientValue.Location = new Point(100, 58);
+            lblDate.Location = new Point(14, 86);
+            lblDateValue.Location = new Point(100, 86);
+            lblSubject.Location = new Point(14, 114);
+            lblSubjectValue.Location = new Point(100, 114);
+
+            txtMailBody.Location = new Point(14, 150);
+            txtMailBody.Height = Math.Max(100, grpMailDetail.ClientSize.Height - 195);
+
+            lblClueAlert.Height = 38;
+
+            colSender.Width = 200;
+            colSubject.Width = 320;
+            colTime.Width = 150;
 
             lblTitle.AutoEllipsis = true;
             UpdateTitleLayout();
@@ -44,6 +80,10 @@ namespace _2611_WIN_B3.Forms
         {
             base.OnResize(e);
             UpdateTitleLayout();
+            if (txtMailBody != null && grpMailDetail != null)
+            {
+                txtMailBody.Height = Math.Max(100, grpMailDetail.ClientSize.Height - 195);
+            }
         }
 
         private void UpdateTitleLayout()

@@ -11,7 +11,22 @@ namespace _2611_WIN_B3
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            try
+            {
+                Application.Run(new Form1());
+            }
+            finally
+            {
+                try
+                {
+                    _2611_WIN_B3.Game.AudioManager.Instance.Shutdown();
+                    _2611_WIN_B3.Game.GameManager.Instance.Dispose();
+                }
+                catch { }
+
+                // Đảm bảo toàn bộ luồng nền và handles hệ điều hành được đóng hoàn toàn
+                Environment.Exit(0);
+            }
         }
     }
 }

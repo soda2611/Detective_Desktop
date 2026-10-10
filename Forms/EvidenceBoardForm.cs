@@ -16,29 +16,66 @@ namespace _2611_WIN_B3.Forms
 
         private void EvidenceBoardForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            grpEvidences.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lvEvidences.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            txtEvidenceDesc.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-            lblDescTitle.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            grpConnections.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lblSelectA.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-            lblSelectB.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-            cboEvidenceA.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            cboEvidenceB.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            btnConnect.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblConnectResult.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            lblTimelineTitle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            lvTimeline.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1450, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(920, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1100, targetW), Math.Min(700, targetH));
+            CenterToParent();
 
-            colId.Width = 70;
-            colName.Width = 260;
-            colSource.Width = 130;
-            colImportance.Width = 110;
-            colTime.Width = 120;
-            colEvent.Width = 300;
-            colEvId.Width = 90;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            grpEvidences.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lvEvidences.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            txtEvidenceDesc.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular);
+            lblDescTitle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            grpConnections.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblSelectA.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
+            lblSelectB.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
+            cboEvidenceA.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            cboEvidenceB.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            btnConnect.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblConnectResult.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblTimelineTitle.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold);
+            lvTimeline.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 58;
+            btnClose.Height = 38;
+            btnClose.Top = 10;
+
+            // Giãn khoảng cách các control trong Panel kết nối
+            lblSelectA.Location = new Point(12, 30);
+            lblSelectA.Height = 24;
+            cboEvidenceA.Location = new Point(12, 56);
+
+            lblSelectB.Location = new Point(12, 102);
+            lblSelectB.Height = 24;
+            cboEvidenceB.Location = new Point(12, 128);
+
+            btnConnect.Location = new Point(12, 175);
+            btnConnect.Height = 44;
+
+            lblConnectResult.Location = new Point(12, 230);
+            lblConnectResult.Height = 70;
+
+            lblTimelineTitle.Location = new Point(12, 312);
+            lblTimelineTitle.Height = 26;
+
+            lvTimeline.Location = new Point(12, 342);
+            lvTimeline.Height = grpConnections.ClientSize.Height - 356;
+
+            lvEvidences.Anchor = AnchorStyles.None;
+            lblDescTitle.Anchor = AnchorStyles.None;
+            txtEvidenceDesc.Anchor = AnchorStyles.None;
+            LayoutEvidencesPanel();
+
+            colId.Width = 90;
+            colName.Width = 320;
+            colSource.Width = 160;
+            colImportance.Width = 140;
+            colTime.Width = 150;
+            colEvent.Width = 380;
+            colEvId.Width = 110;
 
             RefreshEvidences();
             RefreshTimeline();
@@ -52,6 +89,34 @@ namespace _2611_WIN_B3.Forms
                 lblTitle.AutoEllipsis = true;
                 lblTitle.Width = Math.Max(100, btnClose.Left - lblTitle.Left - 15);
             }
+            if (lvTimeline != null && grpConnections != null)
+            {
+                lvTimeline.Height = Math.Max(100, grpConnections.ClientSize.Height - 356);
+            }
+            LayoutEvidencesPanel();
+        }
+
+        private void LayoutEvidencesPanel()
+        {
+            if (grpEvidences == null || lvEvidences == null || lblDescTitle == null || txtEvidenceDesc == null) return;
+            int clientW = grpEvidences.ClientSize.Width;
+            int clientH = grpEvidences.ClientSize.Height;
+            if (clientW < 50 || clientH < 100) return;
+
+            int margin = 10;
+            int descH = 140;
+            int titleH = 26;
+            int titleY = clientH - descH - titleH - 12;
+            int descY = titleY + titleH + 4;
+
+            lblDescTitle.Location = new Point(margin, titleY);
+            lblDescTitle.Size = new Size(clientW - (margin * 2), titleH);
+
+            txtEvidenceDesc.Location = new Point(margin, descY);
+            txtEvidenceDesc.Size = new Size(clientW - (margin * 2), descH);
+
+            lvEvidences.Location = new Point(margin, 24);
+            lvEvidences.Size = new Size(clientW - (margin * 2), Math.Max(60, titleY - 28));
         }
 
         public void RefreshEvidences()

@@ -32,6 +32,8 @@ namespace _2611_WIN_B3.Game
         // Multicast Events thông báo tới Presentation Layer (Observer Pattern)
         public event Action? OnGameReset;
         public event Action? OnStateUpdated;
+        public event Action<string, string>? OnEvidenceDiscovered;
+        public event Action<string>? OnNotification;
 
         private FileSystemWatcher? _fileWatcher;
         private bool _isResetting = false;
@@ -77,19 +79,23 @@ namespace _2611_WIN_B3.Game
 
         /// <summary>
         /// Đăng ký lắng nghe sự kiện từ State (Observer Pattern: Subject -> Observer)
+        /// Tự động phát âm thanh manh mối và chuyển tiếp tới Presentation Layer
         /// </summary>
         private void SetupEventHooks()
         {
             State.OnEvidenceDiscovered += (id, name) =>
             {
+                AudioManager.Instance.Play(SoundEffect.ClueDiscovered);
                 SaveProgress();
                 OnStateUpdated?.Invoke();
+                OnEvidenceDiscovered?.Invoke(id, name);
             };
 
             State.OnNotification += (msg) =>
             {
                 SaveProgress();
                 OnStateUpdated?.Invoke();
+                OnNotification?.Invoke(msg);
             };
         }
 
@@ -216,6 +222,29 @@ namespace _2611_WIN_B3.Game
             {
                 _isResetting = false;
             }
+        }
+
+        /// <summary>
+        /// Giải phóng toàn bộ tài nguyên hệ thống, hủy đăng ký hook hệ điều hành FileSystemWatcher
+        /// </summary>
+        public void Dispose()
+        {
+            try
+            {
+                SaveProgress();
+            }
+            catch { }
+
+            try
+            {
+                if (_fileWatcher != null)
+                {
+                    _fileWatcher.EnableRaisingEvents = false;
+                    _fileWatcher.Dispose();
+                    _fileWatcher = null;
+                }
+            }
+            catch { }
         }
     }
 }

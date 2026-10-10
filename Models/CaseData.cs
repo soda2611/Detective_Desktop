@@ -218,6 +218,8 @@ namespace _2611_WIN_B3.Models
         public List<NoteItem> Notes { get; set; } = new();
         public List<TimelineEntry> Timeline { get; set; } = new();
         public List<EvidenceConnectionRule> ConnectionRules { get; set; } = new();
+        public List<string> DisabledApps { get; set; } = new();
+        public Dictionary<string, string> AppLockReasons { get; set; } = new();
 
         public CaseData ToCaseData()
         {

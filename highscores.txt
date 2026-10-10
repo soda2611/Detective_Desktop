@@ -45,3 +45,45 @@ Evidences: 8/8
 TimelineLinks: 2
 Rank: S+ (Thiên tài)
 --------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-09 23:00:58
+Detective: hmn
+CaseId: Case #001
+CaseTitle: The Missing File
+Ending: ENDING 1: THÁM TỬ XUẤT SẮC (CORRECT DETECTIVE)
+Score: 85
+ElapsedSeconds: 82
+Time: 01:22
+Evidences: 9/9
+TimelineLinks: 1
+Rank: A (Giỏi)
+--------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-09 23:36:44
+Detective: hmn
+CaseId: Case #001
+CaseTitle: The Missing File
+Ending: ENDING 5: ĐẠI ÁN GIÁN ĐIỆP (THE BIGGER CASE)
+Score: 100
+ElapsedSeconds: 113
+Time: 01:53
+Evidences: 9/9
+TimelineLinks: 3
+Rank: S+ (Thiên tài)
+--------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-10 01:13:45
+Detective: hmn
+CaseId: Case #004
+CaseTitle: The Air-Gapped Blackout
+Ending: ENDING 5: ĐẠI ÁN GIÁN ĐIỆP (THE BIGGER CASE)
+Score: 100
+ElapsedSeconds: 126
+Time: 02:06
+Evidences: 6/6
+TimelineLinks: 3
+Rank: S+ (Thiên tài)
+--------------------------------------------------------------------------------------------------------

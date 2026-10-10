@@ -15,8 +15,15 @@ namespace _2611_WIN_B3.Forms
         {
             Size = new Size(880, 620);
             CenterToParent();
+            pnlHeader.Height = 56;
+            pnlBottom.Height = 56;
+            lblHeader.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblSubtitle.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
             txtCredits.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
-            btnOK.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+            btnOK.Font = new Font("Segoe UI Semibold", 11.5F, FontStyle.Bold);
+            btnOK.Size = new Size(120, 38);
+            btnOK.Top = 9;
 
             txtCredits.Text =
                 "DESKTOP DETECTIVE: THE MISSING FILE\n" +

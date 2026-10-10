@@ -16,19 +16,35 @@ namespace _2611_WIN_B3.Forms
 
         private void ExplorerForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            tvFolders.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            lvFiles.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            txtFilePreview.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-            grpPreview.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lblFileClue.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(880, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1050, targetW), Math.Min(680, targetH));
+            CenterToParent();
 
-            colName.Width = 340;
-            colSize.Width = 110;
-            colModified.Width = 190;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            tvFolders.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lvFiles.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            txtFilePreview.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular);
+            grpPreview.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblFileClue.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 74;
+            btnClose.Height = 38;
+            btnClose.Top = 16;
+            lblPath.Location = new Point(12, 42);
+            txtPath.Location = new Point(110, 40);
+            txtPath.Height = 28;
+            lblFileClue.Height = 38;
+
+            colName.Width = 380;
+            colSize.Width = 130;
+            colModified.Width = 220;
 
             InitFolderTree();
+            UpdatePreviewLayout();
             GameManager.Instance.OnStateUpdated += OnGameStateUpdated;
         }
 
@@ -39,6 +55,32 @@ namespace _2611_WIN_B3.Forms
             {
                 lblTitle.AutoEllipsis = true;
                 lblTitle.Width = Math.Max(100, btnClose.Left - lblTitle.Left - 15);
+            }
+            UpdatePreviewLayout();
+        }
+
+        private void UpdatePreviewLayout()
+        {
+            if (grpPreview == null || txtFilePreview == null || lblFileClue == null) return;
+            int clientW = grpPreview.ClientSize.Width;
+            int clientH = grpPreview.ClientSize.Height;
+            if (clientW < 50 || clientH < 50) return;
+
+            int margin = 12;
+            int top = 26;
+            int clueH = 38;
+
+            if (lblFileClue.Visible)
+            {
+                lblFileClue.Location = new Point(margin, clientH - clueH - 10);
+                lblFileClue.Size = new Size(clientW - (margin * 2), clueH);
+                txtFilePreview.Location = new Point(margin, top);
+                txtFilePreview.Size = new Size(clientW - (margin * 2), Math.Max(40, lblFileClue.Top - top - 8));
+            }
+            else
+            {
+                txtFilePreview.Location = new Point(margin, top);
+                txtFilePreview.Size = new Size(clientW - (margin * 2), Math.Max(40, clientH - top - 12));
             }
         }
 
@@ -166,6 +208,7 @@ namespace _2611_WIN_B3.Forms
                 {
                     lblFileClue.Visible = false;
                 }
+                UpdatePreviewLayout();
             }
         }
 

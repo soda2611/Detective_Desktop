@@ -221,20 +221,20 @@ namespace _2611_WIN_B3
             pnlIconGuide.Controls.Add(lblGuide);
             pnlIconGuide.Controls.Add(picGuide);
             pnlIconGuide.Cursor = Cursors.Hand;
-            pnlIconGuide.Location = new Point(284, 251);
+            pnlIconGuide.Location = new Point(375, 332);
             pnlIconGuide.Name = "pnlIconGuide";
-            pnlIconGuide.Size = new Size(109, 98);
+            pnlIconGuide.Size = new Size(150, 132);
             pnlIconGuide.TabIndex = 8;
             pnlIconGuide.DoubleClick += OpenGuide_Click;
             // 
             // lblGuide
             // 
             lblGuide.BackColor = Color.Transparent;
-            lblGuide.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblGuide.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblGuide.ForeColor = Color.FromArgb(20, 60, 110);
-            lblGuide.Location = new Point(0, 60);
+            lblGuide.Location = new Point(0, 84);
             lblGuide.Name = "lblGuide";
-            lblGuide.Size = new Size(109, 32);
+            lblGuide.Size = new Size(150, 40);
             lblGuide.TabIndex = 1;
             lblGuide.Text = "Cẩm Nang";
             lblGuide.TextAlign = ContentAlignment.TopCenter;
@@ -243,9 +243,9 @@ namespace _2611_WIN_B3
             // picGuide
             // 
             picGuide.Image = (Image)resources.GetObject("picGuide.Image");
-            picGuide.Location = new Point(30, 8);
+            picGuide.Location = new Point(41, 10);
             picGuide.Name = "picGuide";
-            picGuide.Size = new Size(49, 48);
+            picGuide.Size = new Size(68, 68);
             picGuide.SizeMode = PictureBoxSizeMode.Zoom;
             picGuide.TabIndex = 0;
             picGuide.TabStop = false;
@@ -340,20 +340,20 @@ namespace _2611_WIN_B3
             pnlIconCaseReport.Controls.Add(lblCaseReport);
             pnlIconCaseReport.Controls.Add(picCaseReport);
             pnlIconCaseReport.Cursor = Cursors.Hand;
-            pnlIconCaseReport.Location = new Point(158, 251);
+            pnlIconCaseReport.Location = new Point(200, 332);
             pnlIconCaseReport.Name = "pnlIconCaseReport";
-            pnlIconCaseReport.Size = new Size(109, 98);
+            pnlIconCaseReport.Size = new Size(150, 132);
             pnlIconCaseReport.TabIndex = 7;
             pnlIconCaseReport.DoubleClick += OpenCaseReport_Click;
             // 
             // lblCaseReport
             // 
             lblCaseReport.BackColor = Color.Transparent;
-            lblCaseReport.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblCaseReport.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblCaseReport.ForeColor = Color.FromArgb(15, 30, 60);
-            lblCaseReport.Location = new Point(0, 60);
+            lblCaseReport.Location = new Point(0, 84);
             lblCaseReport.Name = "lblCaseReport";
-            lblCaseReport.Size = new Size(109, 32);
+            lblCaseReport.Size = new Size(150, 40);
             lblCaseReport.TabIndex = 1;
             lblCaseReport.Text = "Case Report";
             lblCaseReport.TextAlign = ContentAlignment.TopCenter;
@@ -362,9 +362,9 @@ namespace _2611_WIN_B3
             // picCaseReport
             // 
             picCaseReport.Image = (Image)resources.GetObject("picCaseReport.Image");
-            picCaseReport.Location = new Point(30, 8);
+            picCaseReport.Location = new Point(41, 10);
             picCaseReport.Name = "picCaseReport";
-            picCaseReport.Size = new Size(49, 48);
+            picCaseReport.Size = new Size(68, 68);
             picCaseReport.SizeMode = PictureBoxSizeMode.Zoom;
             picCaseReport.TabIndex = 0;
             picCaseReport.TabStop = false;
@@ -376,20 +376,20 @@ namespace _2611_WIN_B3
             pnlIconEvidenceBoard.Controls.Add(lblEvidenceBoard);
             pnlIconEvidenceBoard.Controls.Add(picEvidenceBoard);
             pnlIconEvidenceBoard.Cursor = Cursors.Hand;
-            pnlIconEvidenceBoard.Location = new Point(31, 251);
+            pnlIconEvidenceBoard.Location = new Point(25, 332);
             pnlIconEvidenceBoard.Name = "pnlIconEvidenceBoard";
-            pnlIconEvidenceBoard.Size = new Size(109, 98);
+            pnlIconEvidenceBoard.Size = new Size(150, 132);
             pnlIconEvidenceBoard.TabIndex = 6;
             pnlIconEvidenceBoard.DoubleClick += OpenEvidenceBoard_Click;
             // 
             // lblEvidenceBoard
             // 
             lblEvidenceBoard.BackColor = Color.Transparent;
-            lblEvidenceBoard.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblEvidenceBoard.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblEvidenceBoard.ForeColor = Color.FromArgb(15, 30, 60);
-            lblEvidenceBoard.Location = new Point(0, 60);
+            lblEvidenceBoard.Location = new Point(0, 84);
             lblEvidenceBoard.Name = "lblEvidenceBoard";
-            lblEvidenceBoard.Size = new Size(109, 32);
+            lblEvidenceBoard.Size = new Size(150, 40);
             lblEvidenceBoard.TabIndex = 1;
             lblEvidenceBoard.Text = "Evidence Board";
             lblEvidenceBoard.TextAlign = ContentAlignment.TopCenter;
@@ -398,9 +398,9 @@ namespace _2611_WIN_B3
             // picEvidenceBoard
             // 
             picEvidenceBoard.Image = (Image)resources.GetObject("picEvidenceBoard.Image");
-            picEvidenceBoard.Location = new Point(30, 8);
+            picEvidenceBoard.Location = new Point(41, 10);
             picEvidenceBoard.Name = "picEvidenceBoard";
-            picEvidenceBoard.Size = new Size(49, 48);
+            picEvidenceBoard.Size = new Size(68, 68);
             picEvidenceBoard.SizeMode = PictureBoxSizeMode.Zoom;
             picEvidenceBoard.TabIndex = 0;
             picEvidenceBoard.TabStop = false;
@@ -412,20 +412,20 @@ namespace _2611_WIN_B3
             pnlIconNotes.Controls.Add(lblNotes);
             pnlIconNotes.Controls.Add(picNotes);
             pnlIconNotes.Cursor = Cursors.Hand;
-            pnlIconNotes.Location = new Point(284, 136);
+            pnlIconNotes.Location = new Point(375, 177);
             pnlIconNotes.Name = "pnlIconNotes";
-            pnlIconNotes.Size = new Size(109, 98);
+            pnlIconNotes.Size = new Size(150, 132);
             pnlIconNotes.TabIndex = 5;
             pnlIconNotes.DoubleClick += OpenNotes_Click;
             // 
             // lblNotes
             // 
             lblNotes.BackColor = Color.Transparent;
-            lblNotes.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblNotes.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblNotes.ForeColor = Color.FromArgb(15, 30, 60);
-            lblNotes.Location = new Point(0, 60);
+            lblNotes.Location = new Point(0, 84);
             lblNotes.Name = "lblNotes";
-            lblNotes.Size = new Size(109, 32);
+            lblNotes.Size = new Size(150, 40);
             lblNotes.TabIndex = 1;
             lblNotes.Text = "Notes";
             lblNotes.TextAlign = ContentAlignment.TopCenter;
@@ -434,9 +434,9 @@ namespace _2611_WIN_B3
             // picNotes
             // 
             picNotes.Image = (Image)resources.GetObject("picNotes.Image");
-            picNotes.Location = new Point(30, 8);
+            picNotes.Location = new Point(41, 10);
             picNotes.Name = "picNotes";
-            picNotes.Size = new Size(49, 48);
+            picNotes.Size = new Size(68, 68);
             picNotes.SizeMode = PictureBoxSizeMode.Zoom;
             picNotes.TabIndex = 0;
             picNotes.TabStop = false;
@@ -448,20 +448,20 @@ namespace _2611_WIN_B3
             pnlIconSearch.Controls.Add(lblSearch);
             pnlIconSearch.Controls.Add(picSearch);
             pnlIconSearch.Cursor = Cursors.Hand;
-            pnlIconSearch.Location = new Point(158, 136);
+            pnlIconSearch.Location = new Point(200, 177);
             pnlIconSearch.Name = "pnlIconSearch";
-            pnlIconSearch.Size = new Size(109, 98);
+            pnlIconSearch.Size = new Size(150, 132);
             pnlIconSearch.TabIndex = 4;
             pnlIconSearch.DoubleClick += OpenSearch_Click;
             // 
             // lblSearch
             // 
             lblSearch.BackColor = Color.Transparent;
-            lblSearch.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblSearch.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblSearch.ForeColor = Color.FromArgb(15, 30, 60);
-            lblSearch.Location = new Point(0, 60);
+            lblSearch.Location = new Point(0, 84);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(109, 32);
+            lblSearch.Size = new Size(150, 40);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search";
             lblSearch.TextAlign = ContentAlignment.TopCenter;
@@ -470,9 +470,9 @@ namespace _2611_WIN_B3
             // picSearch
             // 
             picSearch.Image = (Image)resources.GetObject("picSearch.Image");
-            picSearch.Location = new Point(30, 8);
+            picSearch.Location = new Point(41, 10);
             picSearch.Name = "picSearch";
-            picSearch.Size = new Size(49, 48);
+            picSearch.Size = new Size(68, 68);
             picSearch.SizeMode = PictureBoxSizeMode.Zoom;
             picSearch.TabIndex = 0;
             picSearch.TabStop = false;
@@ -484,20 +484,20 @@ namespace _2611_WIN_B3
             pnlIconRecycleBin.Controls.Add(lblRecycleBin);
             pnlIconRecycleBin.Controls.Add(picRecycleBin);
             pnlIconRecycleBin.Cursor = Cursors.Hand;
-            pnlIconRecycleBin.Location = new Point(31, 136);
+            pnlIconRecycleBin.Location = new Point(25, 177);
             pnlIconRecycleBin.Name = "pnlIconRecycleBin";
-            pnlIconRecycleBin.Size = new Size(109, 98);
+            pnlIconRecycleBin.Size = new Size(150, 132);
             pnlIconRecycleBin.TabIndex = 3;
             pnlIconRecycleBin.DoubleClick += OpenRecycleBin_Click;
             // 
             // lblRecycleBin
             // 
             lblRecycleBin.BackColor = Color.Transparent;
-            lblRecycleBin.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblRecycleBin.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblRecycleBin.ForeColor = Color.FromArgb(15, 30, 60);
-            lblRecycleBin.Location = new Point(0, 60);
+            lblRecycleBin.Location = new Point(0, 84);
             lblRecycleBin.Name = "lblRecycleBin";
-            lblRecycleBin.Size = new Size(109, 32);
+            lblRecycleBin.Size = new Size(150, 40);
             lblRecycleBin.TabIndex = 1;
             lblRecycleBin.Text = "Recycle Bin";
             lblRecycleBin.TextAlign = ContentAlignment.TopCenter;
@@ -506,9 +506,9 @@ namespace _2611_WIN_B3
             // picRecycleBin
             // 
             picRecycleBin.Image = (Image)resources.GetObject("picRecycleBin.Image");
-            picRecycleBin.Location = new Point(30, 8);
+            picRecycleBin.Location = new Point(41, 10);
             picRecycleBin.Name = "picRecycleBin";
-            picRecycleBin.Size = new Size(49, 48);
+            picRecycleBin.Size = new Size(68, 68);
             picRecycleBin.SizeMode = PictureBoxSizeMode.Zoom;
             picRecycleBin.TabIndex = 0;
             picRecycleBin.TabStop = false;
@@ -520,20 +520,20 @@ namespace _2611_WIN_B3
             pnlIconMail.Controls.Add(lblMail);
             pnlIconMail.Controls.Add(picMail);
             pnlIconMail.Cursor = Cursors.Hand;
-            pnlIconMail.Location = new Point(284, 21);
+            pnlIconMail.Location = new Point(375, 22);
             pnlIconMail.Name = "pnlIconMail";
-            pnlIconMail.Size = new Size(109, 98);
+            pnlIconMail.Size = new Size(150, 132);
             pnlIconMail.TabIndex = 2;
             pnlIconMail.DoubleClick += OpenMail_Click;
             // 
             // lblMail
             // 
             lblMail.BackColor = Color.Transparent;
-            lblMail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblMail.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblMail.ForeColor = Color.FromArgb(15, 30, 60);
-            lblMail.Location = new Point(0, 60);
+            lblMail.Location = new Point(0, 84);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(109, 32);
+            lblMail.Size = new Size(150, 40);
             lblMail.TabIndex = 1;
             lblMail.Text = "Mail";
             lblMail.TextAlign = ContentAlignment.TopCenter;
@@ -542,9 +542,9 @@ namespace _2611_WIN_B3
             // picMail
             // 
             picMail.Image = (Image)resources.GetObject("picMail.Image");
-            picMail.Location = new Point(30, 8);
+            picMail.Location = new Point(41, 10);
             picMail.Name = "picMail";
-            picMail.Size = new Size(49, 48);
+            picMail.Size = new Size(68, 68);
             picMail.SizeMode = PictureBoxSizeMode.Zoom;
             picMail.TabIndex = 0;
             picMail.TabStop = false;
@@ -556,20 +556,20 @@ namespace _2611_WIN_B3
             pnlIconBrowser.Controls.Add(lblBrowser);
             pnlIconBrowser.Controls.Add(picBrowser);
             pnlIconBrowser.Cursor = Cursors.Hand;
-            pnlIconBrowser.Location = new Point(158, 21);
+            pnlIconBrowser.Location = new Point(200, 22);
             pnlIconBrowser.Name = "pnlIconBrowser";
-            pnlIconBrowser.Size = new Size(109, 98);
+            pnlIconBrowser.Size = new Size(150, 132);
             pnlIconBrowser.TabIndex = 1;
             pnlIconBrowser.DoubleClick += OpenBrowser_Click;
             // 
             // lblBrowser
             // 
             lblBrowser.BackColor = Color.Transparent;
-            lblBrowser.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblBrowser.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblBrowser.ForeColor = Color.FromArgb(15, 30, 60);
-            lblBrowser.Location = new Point(0, 60);
+            lblBrowser.Location = new Point(0, 84);
             lblBrowser.Name = "lblBrowser";
-            lblBrowser.Size = new Size(109, 32);
+            lblBrowser.Size = new Size(150, 40);
             lblBrowser.TabIndex = 1;
             lblBrowser.Text = "Browser";
             lblBrowser.TextAlign = ContentAlignment.TopCenter;
@@ -578,9 +578,9 @@ namespace _2611_WIN_B3
             // picBrowser
             // 
             picBrowser.Image = (Image)resources.GetObject("picBrowser.Image");
-            picBrowser.Location = new Point(30, 8);
+            picBrowser.Location = new Point(41, 10);
             picBrowser.Name = "picBrowser";
-            picBrowser.Size = new Size(49, 48);
+            picBrowser.Size = new Size(68, 68);
             picBrowser.SizeMode = PictureBoxSizeMode.Zoom;
             picBrowser.TabIndex = 0;
             picBrowser.TabStop = false;
@@ -592,20 +592,20 @@ namespace _2611_WIN_B3
             pnlIconDocuments.Controls.Add(lblDocuments);
             pnlIconDocuments.Controls.Add(picDocuments);
             pnlIconDocuments.Cursor = Cursors.Hand;
-            pnlIconDocuments.Location = new Point(31, 21);
+            pnlIconDocuments.Location = new Point(25, 22);
             pnlIconDocuments.Name = "pnlIconDocuments";
-            pnlIconDocuments.Size = new Size(109, 98);
+            pnlIconDocuments.Size = new Size(150, 132);
             pnlIconDocuments.TabIndex = 0;
             pnlIconDocuments.DoubleClick += OpenDocuments_Click;
             // 
             // lblDocuments
             // 
             lblDocuments.BackColor = Color.Transparent;
-            lblDocuments.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblDocuments.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
             lblDocuments.ForeColor = Color.FromArgb(15, 30, 60);
-            lblDocuments.Location = new Point(0, 60);
+            lblDocuments.Location = new Point(0, 84);
             lblDocuments.Name = "lblDocuments";
-            lblDocuments.Size = new Size(109, 32);
+            lblDocuments.Size = new Size(150, 40);
             lblDocuments.TabIndex = 1;
             lblDocuments.Text = "Documents";
             lblDocuments.TextAlign = ContentAlignment.TopCenter;
@@ -614,9 +614,9 @@ namespace _2611_WIN_B3
             // picDocuments
             // 
             picDocuments.Image = (Image)resources.GetObject("picDocuments.Image");
-            picDocuments.Location = new Point(30, 8);
+            picDocuments.Location = new Point(41, 10);
             picDocuments.Name = "picDocuments";
-            picDocuments.Size = new Size(49, 48);
+            picDocuments.Size = new Size(68, 68);
             picDocuments.SizeMode = PictureBoxSizeMode.Zoom;
             picDocuments.TabIndex = 0;
             picDocuments.TabStop = false;
@@ -680,9 +680,9 @@ namespace _2611_WIN_B3
             pnlTaskbar.Controls.Add(lblVictimInfo);
             pnlTaskbar.Controls.Add(lblCaseTitle);
             pnlTaskbar.Dock = DockStyle.Bottom;
-            pnlTaskbar.Location = new Point(0, 598);
+            pnlTaskbar.Location = new Point(0, 588);
             pnlTaskbar.Name = "pnlTaskbar";
-            pnlTaskbar.Size = new Size(1120, 48);
+            pnlTaskbar.Size = new Size(1120, 58);
             pnlTaskbar.TabIndex = 1;
             // 
             // btnSoundToggle
@@ -790,10 +790,10 @@ namespace _2611_WIN_B3
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(232, 238, 245);
-            ClientSize = new Size(1120, 646);
+            ClientSize = new Size(1650, 960);
             Controls.Add(pnlDesktop);
             Controls.Add(pnlTaskbar);
-            MinimumSize = new Size(898, 584);
+            MinimumSize = new Size(1150, 720);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Desktop Detective — Case #001: The Missing File";

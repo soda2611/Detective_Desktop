@@ -16,20 +16,35 @@ namespace _2611_WIN_B3.Forms
 
         private void RecycleBinForm_Load(object sender, EventArgs e)
         {
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lvDeleted.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            txtDetail.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-            grpDetail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lblClueAlert.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
-            btnRestore.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(860, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1050, targetW), Math.Min(680, targetH));
+            CenterToParent();
 
-            colName.Width = 300;
-            colOriginalLoc.Width = 280;
-            colSize.Width = 110;
-            colDateDeleted.Width = 170;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lvDeleted.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            txtDetail.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular);
+            grpDetail.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblClueAlert.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnRestore.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+
+            pnlHeader.Height = 58;
+            btnRestore.Height = 38;
+            btnRestore.Top = 10;
+            btnClose.Height = 38;
+            btnClose.Top = 10;
+            lblClueAlert.Height = 38;
+
+            colName.Width = 320;
+            colOriginalLoc.Width = 300;
+            colSize.Width = 120;
+            colDateDeleted.Width = 200;
 
             LoadDeletedFiles();
+            UpdateDetailLayout();
         }
 
         protected override void OnResize(EventArgs e)
@@ -39,6 +54,32 @@ namespace _2611_WIN_B3.Forms
             {
                 lblTitle.AutoEllipsis = true;
                 lblTitle.Width = Math.Max(100, btnRestore.Left - lblTitle.Left - 15);
+            }
+            UpdateDetailLayout();
+        }
+
+        private void UpdateDetailLayout()
+        {
+            if (grpDetail == null || txtDetail == null || lblClueAlert == null) return;
+            int clientW = grpDetail.ClientSize.Width;
+            int clientH = grpDetail.ClientSize.Height;
+            if (clientW < 50 || clientH < 50) return;
+
+            int margin = 12;
+            int top = 26;
+            int clueH = 38;
+
+            if (lblClueAlert.Visible)
+            {
+                lblClueAlert.Location = new Point(margin, clientH - clueH - 10);
+                lblClueAlert.Size = new Size(clientW - (margin * 2), clueH);
+                txtDetail.Location = new Point(margin, top);
+                txtDetail.Size = new Size(clientW - (margin * 2), Math.Max(40, lblClueAlert.Top - top - 8));
+            }
+            else
+            {
+                txtDetail.Location = new Point(margin, top);
+                txtDetail.Size = new Size(clientW - (margin * 2), Math.Max(40, clientH - top - 12));
             }
         }
 
@@ -79,6 +120,7 @@ namespace _2611_WIN_B3.Forms
             {
                 txtDetail.Text = "Thùng rác hiện đang trống. Tất cả tập tin đã được khôi phục hoặc không có tập tin bị xóa.";
                 lblClueAlert.Visible = false;
+                UpdateDetailLayout();
             }
         }
 
@@ -109,6 +151,7 @@ namespace _2611_WIN_B3.Forms
                 {
                     lblClueAlert.Visible = false;
                 }
+                UpdateDetailLayout();
             }
         }
 

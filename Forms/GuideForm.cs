@@ -13,18 +13,27 @@ namespace _2611_WIN_B3.Forms
 
         private void GuideForm_Load(object sender, EventArgs e)
         {
-            Size = new System.Drawing.Size(1040, 700);
-            MinimumSize = new System.Drawing.Size(880, 580);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1400, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(900, (int)(workArea.Height * 0.95));
+            Size = new System.Drawing.Size(targetW, targetH);
+            MinimumSize = new System.Drawing.Size(Math.Min(1100, targetW), Math.Min(700, targetH));
             CenterToParent();
 
-            lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            tabGuide.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            txtOverview.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular);
-            txtApps.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular);
-            txtEvidence.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular);
-            txtEndings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular);
-            btnGotIt.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            btnGotIt.Size = new System.Drawing.Size(130, 36);
+            lblTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            lblTitle.Location = new System.Drawing.Point(14, 14);
+            pnlHeader.Height = 58;
+
+            tabGuide.Font = new System.Drawing.Font("Segoe UI Semibold", 12.5F, System.Drawing.FontStyle.Bold);
+            txtOverview.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular);
+            txtApps.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular);
+            txtEvidence.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular);
+            txtEndings.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular);
+            btnGotIt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+
+            pnlBottom.Height = 62;
+            btnGotIt.Size = new System.Drawing.Size(220, 44);
+            btnGotIt.Top = 9;
 
             var c = GameManager.Instance.CaseManager.CurrentCase;
             var pkg = GameManager.Instance.CaseManager.CurrentPackage;

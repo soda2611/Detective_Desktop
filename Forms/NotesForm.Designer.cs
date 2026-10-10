@@ -277,29 +277,30 @@ namespace _2611_WIN_B3.Forms
             // 
             // pnlClueBanner
             // 
-            pnlClueBanner.BackColor = Color.FromArgb(254, 243, 199);
+            pnlClueBanner.BackColor = Color.FromArgb(240, 253, 244);
+            pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
             pnlClueBanner.Controls.Add(btnActionClue);
             pnlClueBanner.Controls.Add(lblClueBanner);
-            pnlClueBanner.Dock = DockStyle.Top;
-            pnlClueBanner.Location = new Point(0, 60);
+            pnlClueBanner.Dock = DockStyle.Bottom;
+            pnlClueBanner.Location = new Point(0, 465);
             pnlClueBanner.Name = "pnlClueBanner";
             pnlClueBanner.Padding = new Padding(12, 0, 12, 0);
-            pnlClueBanner.Size = new Size(645, 42);
+            pnlClueBanner.Size = new Size(645, 56);
             pnlClueBanner.TabIndex = 1;
             pnlClueBanner.Visible = false;
             // 
             // btnActionClue
             // 
-            btnActionClue.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnActionClue.BackColor = Color.FromArgb(180, 83, 9);
+            btnActionClue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnActionClue.BackColor = Color.FromArgb(22, 101, 52);
             btnActionClue.Cursor = Cursors.Hand;
             btnActionClue.FlatAppearance.BorderSize = 0;
             btnActionClue.FlatStyle = FlatStyle.Flat;
-            btnActionClue.Font = new Font("Segoe UI Semibold", 8.5F, FontStyle.Bold);
+            btnActionClue.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
             btnActionClue.ForeColor = Color.White;
-            btnActionClue.Location = new Point(485, 6);
+            btnActionClue.Location = new Point(445, 8);
             btnActionClue.Name = "btnActionClue";
-            btnActionClue.Size = new Size(150, 30);
+            btnActionClue.Size = new Size(190, 38);
             btnActionClue.TabIndex = 1;
             btnActionClue.Text = "🔍 Xem Bảng Chứng Cứ";
             btnActionClue.UseVisualStyleBackColor = false;
@@ -308,13 +309,13 @@ namespace _2611_WIN_B3.Forms
             // lblClueBanner
             // 
             lblClueBanner.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblClueBanner.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            lblClueBanner.ForeColor = Color.FromArgb(146, 64, 14);
+            lblClueBanner.Font = new Font("Segoe UI Semibold", 11.5F, FontStyle.Bold);
+            lblClueBanner.ForeColor = Color.FromArgb(22, 101, 52);
             lblClueBanner.Location = new Point(12, 0);
             lblClueBanner.Name = "lblClueBanner";
-            lblClueBanner.Size = new Size(465, 42);
+            lblClueBanner.Size = new Size(425, 54);
             lblClueBanner.TabIndex = 0;
-            lblClueBanner.Text = "⭐ BẰNG CHỨNG MỚI ĐÃ ĐƯỢC GHI NHẬN TỪ MẨU GHI CHÚ NÀY";
+            lblClueBanner.Text = "🔍 BẰNG CHỨNG ĐÃ ĐƯỢC PHÁT HIỆN TỪ GHI CHÚ NÀY";
             lblClueBanner.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlNoteMeta

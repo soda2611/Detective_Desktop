@@ -140,7 +140,6 @@ namespace _2611_WIN_B3.Game
             {
                 _evidences[id].IsDiscovered = true;
                 _state.TriggerEvidenceDiscovered(id, _evidences[id].Name);
-                _state.Notify($"[MANH MỐI MỚI] Đã phát hiện bằng chứng: {_evidences[id].Name}");
                 return true;
             }
             return false;

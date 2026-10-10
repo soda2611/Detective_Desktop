@@ -66,17 +66,17 @@ namespace _2611_WIN_B3.Forms
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(884, 52);
+            pnlHeader.Size = new Size(774, 44);
             pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(15, 30, 60);
-            lblTitle.Location = new Point(14, 13);
+            lblTitle.Location = new Point(12, 11);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(428, 25);
+            lblTitle.Size = new Size(329, 20);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "📂 CHỌN VỤ ÁN / MÀN CHƠI (CASE SELECT)";
             // 
@@ -86,9 +86,9 @@ namespace _2611_WIN_B3.Forms
             pnlBottom.Controls.Add(btnPlayCase);
             pnlBottom.Controls.Add(btnCancel);
             pnlBottom.Dock = DockStyle.Bottom;
-            pnlBottom.Location = new Point(0, 509);
+            pnlBottom.Location = new Point(0, 433);
             pnlBottom.Name = "pnlBottom";
-            pnlBottom.Size = new Size(884, 52);
+            pnlBottom.Size = new Size(774, 44);
             pnlBottom.TabIndex = 2;
             // 
             // btnPlayCase
@@ -98,11 +98,11 @@ namespace _2611_WIN_B3.Forms
             btnPlayCase.Cursor = Cursors.Hand;
             btnPlayCase.FlatAppearance.BorderColor = Color.FromArgb(34, 197, 94);
             btnPlayCase.FlatStyle = FlatStyle.Flat;
-            btnPlayCase.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPlayCase.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnPlayCase.ForeColor = Color.White;
-            btnPlayCase.Location = new Point(610, 10);
+            btnPlayCase.Location = new Point(534, 8);
             btnPlayCase.Name = "btnPlayCase";
-            btnPlayCase.Size = new Size(260, 32);
+            btnPlayCase.Size = new Size(228, 27);
             btnPlayCase.TabIndex = 1;
             btnPlayCase.Text = "▶ BẮT ĐẦU ĐIỀU TRA VỤ ÁN NÀY";
             btnPlayCase.UseVisualStyleBackColor = false;
@@ -116,9 +116,9 @@ namespace _2611_WIN_B3.Forms
             btnCancel.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.ForeColor = Color.FromArgb(30, 41, 59);
-            btnCancel.Location = new Point(510, 10);
+            btnCancel.Location = new Point(446, 8);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(90, 32);
+            btnCancel.Size = new Size(79, 27);
             btnCancel.TabIndex = 0;
             btnCancel.Text = "Hủy";
             btnCancel.UseVisualStyleBackColor = false;
@@ -128,16 +128,16 @@ namespace _2611_WIN_B3.Forms
             // 
             pnlMain.Controls.Add(splitContainer1);
             pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 52);
+            pnlMain.Location = new Point(0, 44);
             pnlMain.Name = "pnlMain";
-            pnlMain.Padding = new Padding(12);
-            pnlMain.Size = new Size(884, 457);
+            pnlMain.Padding = new Padding(10, 10, 10, 10);
+            pnlMain.Size = new Size(774, 389);
             pnlMain.TabIndex = 1;
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(12, 12);
+            splitContainer1.Location = new Point(10, 10);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -147,8 +147,8 @@ namespace _2611_WIN_B3.Forms
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(grpCaseDetail);
-            splitContainer1.Size = new Size(860, 433);
-            splitContainer1.SplitterDistance = 380;
+            splitContainer1.Size = new Size(754, 369);
+            splitContainer1.SplitterDistance = 333;
             splitContainer1.TabIndex = 0;
             // 
             // pnlLeft
@@ -159,7 +159,7 @@ namespace _2611_WIN_B3.Forms
             pnlLeft.Dock = DockStyle.Fill;
             pnlLeft.Location = new Point(0, 0);
             pnlLeft.Name = "pnlLeft";
-            pnlLeft.Size = new Size(380, 433);
+            pnlLeft.Size = new Size(333, 369);
             pnlLeft.TabIndex = 0;
             // 
             // btnImportJson
@@ -169,11 +169,11 @@ namespace _2611_WIN_B3.Forms
             btnImportJson.Dock = DockStyle.Bottom;
             btnImportJson.FlatAppearance.BorderColor = Color.FromArgb(170, 195, 225);
             btnImportJson.FlatStyle = FlatStyle.Flat;
-            btnImportJson.Font = new Font("Segoe UI Semibold", 8.5F, FontStyle.Bold, GraphicsUnit.Point);
+            btnImportJson.Font = new Font("Segoe UI Semibold", 8.5F, FontStyle.Bold);
             btnImportJson.ForeColor = Color.FromArgb(15, 45, 85);
-            btnImportJson.Location = new Point(0, 399);
+            btnImportJson.Location = new Point(0, 340);
             btnImportJson.Name = "btnImportJson";
-            btnImportJson.Size = new Size(380, 34);
+            btnImportJson.Size = new Size(333, 29);
             btnImportJson.TabIndex = 2;
             btnImportJson.Text = "📥 Nhập màn chơi từ file JSON...";
             btnImportJson.UseVisualStyleBackColor = false;
@@ -188,10 +188,10 @@ namespace _2611_WIN_B3.Forms
             lvCases.ForeColor = Color.FromArgb(30, 41, 59);
             lvCases.FullRowSelect = true;
             lvCases.GridLines = true;
-            lvCases.Location = new Point(0, 28);
+            lvCases.Location = new Point(0, 24);
             lvCases.MultiSelect = false;
             lvCases.Name = "lvCases";
-            lvCases.Size = new Size(380, 405);
+            lvCases.Size = new Size(333, 345);
             lvCases.TabIndex = 1;
             lvCases.UseCompatibleStateImageBehavior = false;
             lvCases.View = View.Details;
@@ -215,11 +215,11 @@ namespace _2611_WIN_B3.Forms
             // lblListHeader
             // 
             lblListHeader.Dock = DockStyle.Top;
-            lblListHeader.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblListHeader.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             lblListHeader.ForeColor = Color.FromArgb(51, 65, 85);
             lblListHeader.Location = new Point(0, 0);
             lblListHeader.Name = "lblListHeader";
-            lblListHeader.Size = new Size(380, 28);
+            lblListHeader.Size = new Size(333, 24);
             lblListHeader.TabIndex = 0;
             lblListHeader.Text = "Danh sách màn chơi có sẵn:";
             lblListHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -233,12 +233,12 @@ namespace _2611_WIN_B3.Forms
             grpCaseDetail.Controls.Add(lblVictim);
             grpCaseDetail.Controls.Add(lblSelectedTitle);
             grpCaseDetail.Dock = DockStyle.Fill;
-            grpCaseDetail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            grpCaseDetail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             grpCaseDetail.ForeColor = Color.FromArgb(15, 30, 60);
             grpCaseDetail.Location = new Point(0, 0);
             grpCaseDetail.Name = "grpCaseDetail";
-            grpCaseDetail.Padding = new Padding(12);
-            grpCaseDetail.Size = new Size(476, 433);
+            grpCaseDetail.Padding = new Padding(10, 10, 10, 10);
+            grpCaseDetail.Size = new Size(417, 369);
             grpCaseDetail.TabIndex = 0;
             grpCaseDetail.TabStop = false;
             grpCaseDetail.Text = "  CHI TIẾT VỤ ÁN  ";
@@ -248,13 +248,13 @@ namespace _2611_WIN_B3.Forms
             txtCaseDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCaseDescription.BackColor = Color.FromArgb(248, 250, 252);
             txtCaseDescription.BorderStyle = BorderStyle.None;
-            txtCaseDescription.Font = new Font("Segoe UI", 9.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCaseDescription.Font = new Font("Segoe UI", 9.25F);
             txtCaseDescription.ForeColor = Color.FromArgb(30, 41, 59);
-            txtCaseDescription.Location = new Point(12, 130);
+            txtCaseDescription.Location = new Point(10, 110);
             txtCaseDescription.Name = "txtCaseDescription";
             txtCaseDescription.ReadOnly = true;
             txtCaseDescription.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtCaseDescription.Size = new Size(452, 290);
+            txtCaseDescription.Size = new Size(397, 247);
             txtCaseDescription.TabIndex = 4;
             txtCaseDescription.Text = "";
             // 
@@ -262,9 +262,9 @@ namespace _2611_WIN_B3.Forms
             // 
             lblIncidentDate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblIncidentDate.ForeColor = Color.FromArgb(71, 85, 105);
-            lblIncidentDate.Location = new Point(12, 100);
+            lblIncidentDate.Location = new Point(10, 85);
             lblIncidentDate.Name = "lblIncidentDate";
-            lblIncidentDate.Size = new Size(452, 20);
+            lblIncidentDate.Size = new Size(397, 17);
             lblIncidentDate.TabIndex = 3;
             lblIncidentDate.Text = "Thời điểm: ---";
             // 
@@ -272,9 +272,9 @@ namespace _2611_WIN_B3.Forms
             // 
             lblMissingFile.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblMissingFile.ForeColor = Color.FromArgb(180, 83, 9);
-            lblMissingFile.Location = new Point(12, 75);
+            lblMissingFile.Location = new Point(10, 64);
             lblMissingFile.Name = "lblMissingFile";
-            lblMissingFile.Size = new Size(452, 20);
+            lblMissingFile.Size = new Size(397, 17);
             lblMissingFile.TabIndex = 2;
             lblMissingFile.Text = "Tập tin bị mất: ---";
             // 
@@ -282,33 +282,33 @@ namespace _2611_WIN_B3.Forms
             // 
             lblVictim.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblVictim.ForeColor = Color.FromArgb(30, 41, 59);
-            lblVictim.Location = new Point(12, 50);
+            lblVictim.Location = new Point(10, 42);
             lblVictim.Name = "lblVictim";
-            lblVictim.Size = new Size(452, 20);
+            lblVictim.Size = new Size(397, 17);
             lblVictim.TabIndex = 1;
             lblVictim.Text = "Nạn nhân: ---";
             // 
             // lblSelectedTitle
             // 
             lblSelectedTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblSelectedTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSelectedTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblSelectedTitle.ForeColor = Color.FromArgb(15, 30, 60);
-            lblSelectedTitle.Location = new Point(12, 22);
+            lblSelectedTitle.Location = new Point(10, 19);
             lblSelectedTitle.Name = "lblSelectedTitle";
-            lblSelectedTitle.Size = new Size(452, 26);
+            lblSelectedTitle.Size = new Size(397, 22);
             lblSelectedTitle.TabIndex = 0;
             lblSelectedTitle.Text = "Vui lòng chọn một vụ án";
             // 
             // CaseSelectForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 245);
-            ClientSize = new Size(884, 561);
+            ClientSize = new Size(774, 477);
             Controls.Add(pnlMain);
             Controls.Add(pnlBottom);
             Controls.Add(pnlHeader);
-            MinimumSize = new Size(760, 480);
+            MinimumSize = new Size(667, 414);
             Name = "CaseSelectForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Chọn Vụ Án — Desktop Detective";

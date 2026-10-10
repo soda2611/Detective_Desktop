@@ -18,25 +18,60 @@ namespace _2611_WIN_B3.Forms
 
         private void CaseSelectForm_Load(object sender, EventArgs e)
         {
-            Size = new Size(1100, 700);
-            MinimumSize = new Size(950, 580);
+            var workArea = Screen.PrimaryScreen?.WorkingArea ?? Screen.GetWorkingArea(this);
+            int targetW = Math.Min(1450, (int)(workArea.Width * 0.95));
+            int targetH = Math.Min(900, (int)(workArea.Height * 0.95));
+            Size = new Size(targetW, targetH);
+            MinimumSize = new Size(Math.Min(1100, targetW), Math.Min(700, targetH));
             CenterToParent();
 
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lvCases.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
-            txtCaseDescription.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-            grpCaseDetail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            lblListHeader.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            btnImportJson.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnImportJson.Height = 40;
-            btnPlayCase.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnCancel.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lvCases.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            txtCaseDescription.Font = new Font("Segoe UI", 12.5F, FontStyle.Regular);
+            grpCaseDetail.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblListHeader.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            btnImportJson.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnImportJson.Height = 48;
+            btnPlayCase.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold);
+            btnCancel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
 
-            colCaseId.Width = 110;
-            colTitle.Width = 260;
-            colDifficulty.Width = 110;
+            pnlHeader.Height = 58;
+            pnlBottom.Height = 58;
+            btnPlayCase.Height = 42;
+            btnPlayCase.Top = 8;
+            btnCancel.Height = 42;
+            btnCancel.Top = 8;
+
+            colCaseId.Width = 130;
+            colTitle.Width = 330;
+            colDifficulty.Width = 130;
+
+            // Tinh chỉnh khoảng cách cho các nhãn trong GroupBox chi tiết không bị bóp chữ
+            lblSelectedTitle.Font = new Font("Segoe UI", 13.5F, FontStyle.Bold);
+            lblSelectedTitle.Height = 32;
+            lblVictim.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lblVictim.Height = 26;
+            lblMissingFile.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lblMissingFile.Height = 26;
+            lblIncidentDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            lblIncidentDate.Height = 26;
+
+            lblVictim.Location = new Point(16, 58);
+            lblMissingFile.Location = new Point(16, 88);
+            lblIncidentDate.Location = new Point(16, 118);
+            txtCaseDescription.Location = new Point(16, 152);
+            txtCaseDescription.Height = Math.Max(60, grpCaseDetail.ClientSize.Height - 168);
 
             LoadCaseList();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            if (txtCaseDescription != null && grpCaseDetail != null)
+            {
+                txtCaseDescription.Height = Math.Max(60, grpCaseDetail.ClientSize.Height - 168);
+            }
         }
 
         public void LoadCaseList()

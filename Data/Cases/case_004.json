@@ -1,0 +1,289 @@
+{
+  "CaseId": "Case #004",
+  "Title": "The Air-Gapped Blackout",
+  "Victim": "Marcus Vance (Lead Firmware Security Engineer)",
+  "MissingFileName": "NovaCore_Reactor_Firmware.hex",
+  "IncidentDate": "2026-10-25",
+  "Difficulty": "Chuyên gia",
+  "Overview": "Vào lúc 01:15 sáng, cơ sở nghiên cứu hạt nhân tối mật NovaCore đột ngột bị mất điện cục bộ tại tầng hầm điều khiển lò phản ứng B3. Toàn bộ trạm nghiên cứu hoạt động theo quy chuẩn Air-Gapped (cô lập hoàn toàn khỏi mạng Internet toàn cầu). Sau khi máy phát điện dự phòng kích hoạt, kỹ sư trưởng Marcus Vance được phát hiện bất tỉnh do trúng độc trên bàn làm việc, toàn bộ file mã nguồn điều tiết lò phản ứng 'NovaCore_Reactor_Firmware.hex' đã bị ghi đè bằng mã độc phá hoại van làm mát. Hộp thư nội bộ sập nguồn và trình duyệt mạng ngoại vi không có kết nối.",
+  "SummaryBrief": "Vụ án gián điệp công nghiệp hạt nhân và đột nhập vật lý trong môi trường cô lập Air-Gapped.",
+  "CorrectSuspectId": "SUSPECT_01",
+  "CorrectMotive": "Được tập đoàn năng lượng đối thủ Aegis hối lộ 300,000 USD để vô hiệu hóa thanh điều tiết lò phản ứng nhằm chiếm quyền thầu dự án",
+  "CorrectMethod": "Đánh thuốc mê vào cà phê nạn nhân, gạt cầu dao phòng điện tạo cớ cúp điện, dùng thẻ an ninh vào phòng cắm thiết bị ghi đè firmware và chạy script xóa camera",
+  "MotiveOptions": [
+    "Được tập đoàn năng lượng đối thủ Aegis hối lộ 300,000 USD để vô hiệu hóa thanh điều tiết lò phản ứng nhằm chiếm quyền thầu dự án",
+    "Bất mãn tiền lương và chính sách an toàn lao động tại trạm năng lượng NovaCore",
+    "Muốn che giấu sai phạm rò rỉ bức xạ năng lượng do bất cẩn trong ca trực đêm",
+    "Mâu thuẫn chuyên môn cá nhân lâu năm với kỹ sư trưởng Marcus Vance"
+  ],
+  "MethodOptions": [
+    "Đánh thuốc mê vào cà phê nạn nhân, gạt cầu dao phòng điện tạo cớ cúp điện, dùng thẻ an ninh vào phòng cắm thiết bị ghi đè firmware và chạy script xóa camera",
+    "Tấn công từ xa qua mạng Internet toàn cầu và vượt tường lửa bằng phần mềm gián điệp",
+    "Gửi email phishing chứa mã độc đính kèm đến toàn bộ nhân viên trạm nghiên cứu",
+    "Phá khóa cửa phòng máy chủ bằng vũ lực lúc nửa đêm"
+  ],
+  "RequiredEvidenceIds": [
+    "E301",
+    "E303",
+    "E304"
+  ],
+  "MinEvidenceForPass": 3,
+  "DisabledApps": [
+    "Browser",
+    "Mail"
+  ],
+  "AppLockReasons": {
+    "Browser": "🚫 MÔI TRƯỜNG CÁCH LY TUYỆT ĐỐI (AIR-GAPPED):\nTrạm nghiên cứu lò phản ứng hạt nhân NovaCore tuân thủ chuẩn an ninh quốc phòng: Cách ly 100% với Internet toàn cầu. Trình duyệt Web không có kết nối ra thế giới bên ngoài!",
+    "Mail": "🚫 MÁY CHỦ THƯ NỘI BỘ SẬP NGUỒN:\nDo sự cố chập điện và ngắt cầu dao thủ công lúc 01:14 sáng, máy chủ thư tín nội bộ đã chuyển sang chế độ bảo vệ và ngừng hoạt động. Không thể đồng bộ hộp thư!"
+  },
+  "Suspects": [
+    {
+      "Id": "SUSPECT_01",
+      "Name": "Raymond Holt",
+      "Role": "Facility Security Director",
+      "Description": "Giám đốc An ninh Cơ sở NovaCore, có quyền hạn cao nhất đối với hệ thống cửa từ, thẻ quẹt an ninh và camera giám sát.",
+      "PossibleMotive": "Tài khoản ngân hàng offshore tại Cayman vừa xuất hiện giao dịch ẩn danh 300,000 USD từ công ty bình phong của Aegis Energy.",
+      "Alibi": "Khai rằng lúc 01:10 đến 01:30 đang đi kiểm tra hàng rào chu vi ngoài trạm và không có mặt tại khu điều khiển lò phản ứng."
+    },
+    {
+      "Id": "SUSPECT_02",
+      "Name": "Elena Carter",
+      "Role": "Junior Firmware Developer",
+      "Description": "Lập trình viên nhúng trẻ tuổi tham gia phát triển logic điều khiển van làm mát dự phòng.",
+      "PossibleMotive": "Từng có email tranh cãi gay gắt với Marcus về quy trình kiểm định an toàn lò phản ứng.",
+      "Alibi": "Đã rời khỏi khu cách ly lúc 19:00 chiều hôm trước và ký sổ ra cổng có bảo vệ chứng kiến."
+    },
+    {
+      "Id": "SUSPECT_03",
+      "Name": "Dr. Nikolai Chen",
+      "Role": "Visiting Energy Consultant",
+      "Description": "Cố vấn độc lập về an toàn năng lượng hạt nhân, là chuyên gia chuyển giao từ tập đoàn đối thủ Aegis Energy.",
+      "PossibleMotive": "Tìm kiếm lỗ hổng trong kiến trúc NovaCore để giúp Aegis giành gói thầu chính phủ.",
+      "Alibi": "Nghỉ tại phòng khách chuyên gia tầng 2 từ 21:00 và có lễ tân xác nhận không rời phòng."
+    },
+    {
+      "Id": "SUSPECT_04",
+      "Name": "Bradley Cooper",
+      "Role": "Night Electrical Technician",
+      "Description": "Kỹ thuật viên điện ca đêm chịu trách nhiệm vận hành hệ thống UPS và máy phát điện khẩn cấp.",
+      "PossibleMotive": "Nợ tiền cá độ và than phiền bị phân ca trực đêm liên tục.",
+      "Alibi": "Khai rằng đang ngủ gật tại phòng nghỉ kỹ thuật khi còi báo động UPS hú vang lúc 01:14."
+    }
+  ],
+  "Evidences": [
+    {
+      "Id": "E301",
+      "Name": "Nhật ký cửa từ - Access_Badge_Log_0110.txt",
+      "Description": "Nhật ký quét thẻ cửa phòng điều khiển trung tâm lúc 01:10 sáng: Thẻ Master-01 mang định danh của Giám đốc An ninh Raymond Holt được sử dụng để mở cửa.",
+      "Source": "Documents / Work",
+      "Importance": "Critical",
+      "Timestamp": "01:10"
+    },
+    {
+      "Id": "E302",
+      "Name": "Sticky Note - Ghi chú Marcus bàn giao chìa khóa tủ dự phòng",
+      "Description": "Mẩu giấy dán tại bàn làm việc: Marcus ghi chép việc Raymond Holt yêu cầu đưa chìa khóa tủ công tắc điện dự phòng lúc 17:00 với lý do 'kiểm tra an toàn định kỳ'.",
+      "Source": "Sticky Notes",
+      "Importance": "High",
+      "Timestamp": "17:00"
+    },
+    {
+      "Id": "E303",
+      "Name": "Nhật ký nguồn điện - UPS_Power_Failure_Report.log",
+      "Description": "Báo cáo hệ thống điện: Cầu dao phòng điện trung tâm bị ngắt thủ công bằng khóa cơ học lúc 01:14, ép trạm rơi vào tình trạng mất điện 8 phút trước khi máy phát tự nổ.",
+      "Source": "Documents / Work",
+      "Importance": "Critical",
+      "Timestamp": "01:14"
+    },
+    {
+      "Id": "E304",
+      "Name": "Thùng rác - NovaCore_Firmware_Tampered.bin",
+      "Description": "Tập tin firmware giả mạo trong Thùng Rác bị xóa lúc 01:22: Mã nguồn nhúng đoạn lệnh vô hiệu hóa van làm mát số 3 và làm quá nhiệt thanh nhiên liệu hạt nhân.",
+      "Source": "Recycle Bin",
+      "Importance": "Critical",
+      "Timestamp": "01:22"
+    },
+    {
+      "Id": "E305",
+      "Name": "Báo cáo độc chất - Coffee_Toxicology_Report.txt",
+      "Description": "Kết quả xét nghiệm mẫu tách cà phê trên bàn Marcus Vance: Phát hiện nồng độ cao dung dịch thuốc an thần Rohypnol, chứng minh nạn nhân bị đầu độc gây mê từ trước.",
+      "Source": "Documents / Work",
+      "Importance": "High",
+      "Timestamp": "00:50"
+    },
+    {
+      "Id": "E306",
+      "Name": "Thùng rác - Script xóa camera: Eraser_Wipe_Script.bat",
+      "Description": "Kịch bản batch ẩn trong Thùng Rác chạy lúc 01:28: Lệnh tự động format ổ ghi camera hành lang B3 và xóa lịch sử quét thẻ từ 01:00 đến 01:30 để tẩu thoát.",
+      "Source": "Recycle Bin",
+      "Importance": "Critical",
+      "Timestamp": "01:28"
+    }
+  ],
+  "Emails": [],
+  "BrowserHistories": [],
+  "Files": [
+    {
+      "Id": "FILE_301",
+      "FileName": "Access_Badge_Log_0110.txt",
+      "Folder": "Work",
+      "OriginalFolder": "Work",
+      "Size": "4 KB",
+      "ModifiedTime": "2026-10-25 01:10",
+      "Content": "=====================================================\nNOVACORE FACILITY ACCESS CONTROL - AUDIT LOG\nZONE: SUB-LEVEL B3 REACTOR CONTROL ROOM\n=====================================================\n[00:45:12] BADGE #ENG-402 (Marcus Vance) - DOOR UNLOCKED [NORMAL]\n[01:05:00] AUTOMATIC SECURITY LOCK ENGAGED\n[01:10:48] BADGE #SEC-MASTER-01 (Raymond Holt) - DOOR UNLOCKED [OVERRIDE]\nWARNING: Master key override used outside scheduled maintenance window!\n=====================================================",
+      "IsDeleted": false,
+      "EvidenceId": "E301"
+    },
+    {
+      "Id": "FILE_302",
+      "FileName": "UPS_Power_Failure_Report.log",
+      "Folder": "Work",
+      "OriginalFolder": "Work",
+      "Size": "6 KB",
+      "ModifiedTime": "2026-10-25 01:14",
+      "Content": "=====================================================\nUPS SUBSTATION INCIDENT REPORT - 2026-10-25\n=====================================================\n[01:14:02] ALERT: Main Breaker Switch #B-4 tripped manually!\n[01:14:03] Physical cabinet door opened via physical key #K-11.\n[01:14:05] Primary power disconnected. Facility running on secondary battery.\n[01:14:10] Mail server cluster shut down to conserve core reactor power.\n[01:22:15] Diesel generator fired up. Auxiliary power restored.\nCONCLUSION: Không phải sự cố quá tải tự nhiên. Có người đã dùng chìa khóa cơ vặn ngắt cầu dao!",
+      "IsDeleted": false,
+      "EvidenceId": "E303"
+    },
+    {
+      "Id": "FILE_303",
+      "FileName": "Coffee_Toxicology_Report.txt",
+      "Folder": "Documents",
+      "OriginalFolder": "Documents",
+      "Size": "3 KB",
+      "ModifiedTime": "2026-10-25 02:30",
+      "Content": "PHÒNG Y TẾ NOVACORE - BIÊN BẢN GIÁM ĐỊNH HIỆN TRƯỜNG\nNạn nhân: Marcus Vance - Tình trạng: Bất tỉnh sâu lúc 01:20\n─────────────────────────────────────────────────────\nMẫu vật thu giữ: Cốc sứ đen trên bàn phím điều khiển, còn khoảng 40ml cà phê espresso.\nKết quả phân tích sắc ký (Chromatography):\n+ Phát hiện nồng độ cao hợp chất Flunitrazepam (Rohypnol) dạng lỏng không màu không mùi.\n+ Thời điểm nạn nhân uống ước tính: Khoảng 00:45 - 00:55.\n+ Tác dụng: Làm nạn nhân ngủ mê man, mất khả năng phản kháng trong 4 - 6 giờ.\nKẾT LUẬN: Nạn nhân bị đồng phạm hoặc kẻ đột nhập đầu độc thuốc mê có chủ đích!",
+      "IsDeleted": false,
+      "EvidenceId": "E305"
+    },
+    {
+      "Id": "FILE_304",
+      "FileName": "Reactor_Core_Safety_Protocol.pdf",
+      "Folder": "Documents",
+      "OriginalFolder": "Documents",
+      "Size": "120 KB",
+      "ModifiedTime": "2026-10-20 09:15",
+      "Content": "QUY CHUẨN AN TOÀN LÒ PHẢN ỨNG HẠT NHÂN NOVACORE\n1. Cơ sở luôn tuân thủ chế độ Air-Gapped tuyệt đối. Mọi cổng mạng bên ngoài đều bị cắt vật lý.\n2. Việc cập nhật firmware thanh điều tiết chỉ được thực hiện trực tiếp tại trạm console B3.\n3. Mọi sự cố mất điện phải báo cáo lập tức cho Ban Giám đốc.",
+      "IsDeleted": false,
+      "EvidenceId": null
+    },
+    {
+      "Id": "FILE_305",
+      "FileName": "Shift_Roster_October_25.txt",
+      "Folder": "Documents",
+      "OriginalFolder": "Documents",
+      "Size": "2 KB",
+      "ModifiedTime": "2026-10-24 18:00",
+      "Content": "LỊCH TRỰC ĐÊM 24 - 25 THÁNG 10:\n- Marcus Vance: Kỹ sư trưởng trực console lò phản ứng B3\n- Raymond Holt: Trực chỉ huy an ninh tổng thể và kiểm tra chu vi\n- Bradley Cooper: Trực trạm biến áp và phòng máy phát điện\n- Elena Carter: Nghỉ ca\n- Dr. Nikolai Chen: Khách mời lưu trú phòng chuyên gia",
+      "IsDeleted": false,
+      "EvidenceId": null
+    },
+    {
+      "Id": "FILE_306",
+      "FileName": "NovaCore_Firmware_Tampered.bin",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Projects",
+      "Size": "1,024 KB",
+      "ModifiedTime": "2026-10-25 01:22",
+      "Content": "HEX DUMP ANALYZER - FILE: NovaCore_Firmware_Tampered.bin\nOffset 0x00001000: 4E 4F 56 41 5F 43 4F 52 45 [MAGIC_HEADER]\nOffset 0x000042A0: OVERRIDE_ROD_POSITION = 0x00 (DISABLE COOLING ROD)\nOffset 0x000042B0: DISABLE_CRITICAL_ALARM = 0x01\nOffset 0x000042C0: SIGNATURE: AEGIS_PAYLOAD_V2_INJECTOR\n-----------------------------------------------------\nCẢNH BÁO: Đây là bản firmware độc hại được nhắm tới việc phá hủy lõi phản ứng!\nTập tin bị chuyển vào Thùng Rác sau khi được nạp trực tiếp qua cổng chẩn đoán lúc 01:22.",
+      "IsDeleted": true,
+      "EvidenceId": "E304"
+    },
+    {
+      "Id": "FILE_307",
+      "FileName": "Eraser_Wipe_Script.bat",
+      "Folder": "Recycle Bin",
+      "OriginalFolder": "Downloads",
+      "Size": "1 KB",
+      "ModifiedTime": "2026-10-25 01:28",
+      "Content": "@echo off\n:: Wipe B3 hallway CCTV footage between 01:00 and 01:30\ndel /f /q C:\\CCTV_Storage\\Cam_B3_20261025_01*.mp4\n:: Clean RFID badge cache for Master-01\necho [OVERWRITTEN] > C:\\AccessControl\\Logs\\temp_badge.tmp\n:: Self delete\nattrib +h Eraser_Wipe_Script.bat\nexit",
+      "IsDeleted": true,
+      "EvidenceId": "E306"
+    }
+  ],
+  "Timeline": [
+    {
+      "Time": "17:00",
+      "EventDescription": "Marcus Vance ghi chú giao chìa khóa tủ điện #K-11 cho Raymond Holt.",
+      "EvidenceId": "E302",
+      "IsVerified": false
+    },
+    {
+      "Time": "00:50",
+      "EventDescription": "Marcus Vance uống tách cà phê chứa thuốc mê Rohypnol pha sẵn trên bàn.",
+      "EvidenceId": "E305",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:10",
+      "EventDescription": "Thẻ an ninh Master-01 của Raymond Holt quẹt mở cửa phòng điều khiển trung tâm B3.",
+      "EvidenceId": "E301",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:14",
+      "EventDescription": "Cầu dao UPS bị gạt ngắt bằng chìa khóa #K-11, gây mất điện toàn khu B3 và sập mail server.",
+      "EvidenceId": "E303",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:20",
+      "EventDescription": "Marcus Vance bất tỉnh hoàn toàn trên bàn phím do tác dụng của thuốc mê.",
+      "EvidenceId": "",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:22",
+      "EventDescription": "Firmware độc hại NovaCore_Firmware_Tampered.bin được nạp vào hệ thống rồi xóa vào Thùng Rác.",
+      "EvidenceId": "E304",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:28",
+      "EventDescription": "Script Eraser_Wipe_Script.bat được kích hoạt để xóa camera hành lang và log quẹt thẻ rồi giấu vào Thùng Rác.",
+      "EvidenceId": "E306",
+      "IsVerified": false
+    }
+  ],
+  "ConnectionRules": [
+    {
+      "EvidenceA": "E302",
+      "EvidenceB": "E301",
+      "SuccessMessage": "CHÍNH XÁC: Raymond Holt mượn chìa khóa chiều hôm trước và dùng thẻ an ninh Master quẹt mở phòng điều khiển lúc 01:10!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Ghi chú bàn giao chìa khóa và log quét thẻ 01:10 chứng minh Raymond Holt đã có mặt tại hiện trường phòng điều khiển!"
+    },
+    {
+      "EvidenceA": "E303",
+      "EvidenceB": "E304",
+      "SuccessMessage": "CHÍNH XÁC: Kẻ gian gạt ngắt cầu dao điện lúc 01:14 để tạo hỗn loạn, rồi nạp firmware độc hại lúc 01:22!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Báo cáo mất điện UPS 01:14 liên kết trực tiếp với file firmware độc hại nạp lúc 01:22!"
+    },
+    {
+      "EvidenceA": "E305",
+      "EvidenceB": "E306",
+      "SuccessMessage": "CHÍNH XÁC: Kẻ gian đánh thuốc mê nạn nhân trong cà phê và chạy script xóa camera hành lang để tẩu thoát không dấu vết!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Độc chất Rohypnol và script xóa camera lúc 01:28 vạch trần kế hoạch ám hại và tẩu thoát tinh vi!"
+    }
+  ],
+  "Notes": [
+    {
+      "Id": "NOTE_301",
+      "Title": "📌 Ghi chú chìa khóa tủ điện dự phòng",
+      "Author": "Marcus Vance (Lead Firmware Security Engineer)",
+      "Date": "2026-10-24 17:00",
+      "Category": "Sticky Note",
+      "EvidenceId": "E302",
+      "Content": "GHI CHÚ CA CHIỀU 24/10:\n────────────────────────────────────────\n• Raymond Holt (Giám đốc An ninh) ghé qua bàn làm việc mượn chìa khóa cơ #K-11 của tủ điện dự phòng UPS với lý do 'kiểm tra phòng chống cháy nổ'.\n• Đã giao chìa cho Raymond lúc 17:00, hẹn sáng mai trả lại.\n• Bradley bảo máy phát dự phòng vừa thay dầu tuần trước nên không có gì phải lo.\n• Tối nay phải thức đêm hiệu chỉnh bản nạp firmware mới."
+    },
+    {
+      "Id": "NOTE_302",
+      "Title": "☕ Lịch theo dõi sức khỏe cá nhân",
+      "Author": "Marcus Vance",
+      "Date": "2026-10-24 12:00",
+      "Category": "Cá nhân",
+      "EvidenceId": null,
+      "Content": "SỔ TAY CÁ NHÂN:\n────────────────────────────────────────\n• Dạo này huyết áp hơi cao, bác sĩ dặn hạn chế uống cà phê sau 20:00.\n• Cuối tuần dẫn con gái đi hội chợ khoa học thành phố.\n• Mua thêm bóng đèn led thay cho phòng ngủ."
+    }
+  ]
+}
+
