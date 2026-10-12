@@ -47,7 +47,6 @@ namespace _2611_WIN_B3.Forms
 
             btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btnCopyNote.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btnActionClue.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
 
             btnSave.Height = 40;
@@ -57,7 +56,6 @@ namespace _2611_WIN_B3.Forms
             btnCopyNote.Width = 170;
             btnClose.Height = 40;
             btnClose.Top = 14;
-            btnActionClue.Height = 42;
 
             lvNotes.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
             colTitle.Width = 250;
@@ -176,7 +174,6 @@ namespace _2611_WIN_B3.Forms
                         lblClueBanner.ForeColor = Color.FromArgb(180, 83, 9);
                         pnlClueBanner.BackColor = Color.FromArgb(254, 243, 199);
                         pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
-                        btnActionClue.BackColor = Color.FromArgb(180, 83, 9);
                         lblStatus.Text = $"⭐ Đã phát hiện và ghi nhận manh mối [{note.EvidenceId}] vào hồ sơ vụ án!";
                         lblStatus.ForeColor = Color.FromArgb(180, 83, 9);
                         item.Text = "⭐ " + note.Title;
@@ -187,13 +184,10 @@ namespace _2611_WIN_B3.Forms
                         lblClueBanner.ForeColor = Color.FromArgb(22, 101, 52);
                         pnlClueBanner.BackColor = Color.FromArgb(240, 253, 244);
                         pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
-                        btnActionClue.BackColor = Color.FromArgb(22, 101, 52);
                         lblStatus.Text = $"Bằng chứng [{note.EvidenceId}] đã được lưu trữ trong hồ sơ điều tra.";
                         lblStatus.ForeColor = Color.FromArgb(22, 101, 52);
                         item.Text = "⭐ " + note.Title;
                     }
-
-                    btnActionClue.Visible = true;
                 }
                 else
                 {

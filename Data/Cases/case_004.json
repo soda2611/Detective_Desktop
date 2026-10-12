@@ -1,289 +1,406 @@
 {
   "CaseId": "Case #004",
-  "Title": "The Air-Gapped Blackout",
-  "Victim": "Marcus Vance (Lead Firmware Security Engineer)",
-  "MissingFileName": "NovaCore_Reactor_Firmware.hex",
+  "Title": "The Encrypted Conspiracy",
+  "Victim": "Dr. Gregory Vance (Director of AI & Systems Architecture)",
+  "MissingFileName": "Project_AETHER_Master_Deploy.enc",
   "IncidentDate": "2026-10-25",
-  "Difficulty": "Chuyên gia",
-  "Overview": "Vào lúc 01:15 sáng, cơ sở nghiên cứu hạt nhân tối mật NovaCore đột ngột bị mất điện cục bộ tại tầng hầm điều khiển lò phản ứng B3. Toàn bộ trạm nghiên cứu hoạt động theo quy chuẩn Air-Gapped (cô lập hoàn toàn khỏi mạng Internet toàn cầu). Sau khi máy phát điện dự phòng kích hoạt, kỹ sư trưởng Marcus Vance được phát hiện bất tỉnh do trúng độc trên bàn làm việc, toàn bộ file mã nguồn điều tiết lò phản ứng 'NovaCore_Reactor_Firmware.hex' đã bị ghi đè bằng mã độc phá hoại van làm mát. Hộp thư nội bộ sập nguồn và trình duyệt mạng ngoại vi không có kết nối.",
-  "SummaryBrief": "Vụ án gián điệp công nghiệp hạt nhân và đột nhập vật lý trong môi trường cô lập Air-Gapped.",
-  "CorrectSuspectId": "SUSPECT_01",
-  "CorrectMotive": "Được tập đoàn năng lượng đối thủ Aegis hối lộ 300,000 USD để vô hiệu hóa thanh điều tiết lò phản ứng nhằm chiếm quyền thầu dự án",
-  "CorrectMethod": "Đánh thuốc mê vào cà phê nạn nhân, gạt cầu dao phòng điện tạo cớ cúp điện, dùng thẻ an ninh vào phòng cắm thiết bị ghi đè firmware và chạy script xóa camera",
+  "Difficulty": "Rất khó",
+  "Overview": "Rạng sáng ngày 25/10/2026, thông tin bảo mật cùng toàn bộ file triển khai cốt lõi 'Project_AETHER_Master_Deploy.enc' thuộc dự án Trí tuệ nhân tạo hợp tác của 8 thành viên nòng cốt bị rò rỉ ra bên ngoài, gây thiệt hại nặng nề về tài chính và tiến độ. Nhằm tiêu hủy bằng chứng và đổ tội cho tập thể, kẻ thủ mưu (Hung thủ 1) đã soạn email đe dọa chứa liên kết độc hại gửi đến toàn bộ thành viên. Tuy nhiên, một thành viên phát hiện điểm bất thường trong mail nên đã âm thầm theo dõi và tận mắt chứng kiến Hung thủ 1 sát hại Dr. Gregory Vance. Bị phát hiện, Hung thủ 1 đã ép buộc người này (Hung thủ 2) phải đồng phạm, cùng thực hiện chuỗi hành vi tiêu hủy dữ liệu, ngụy tạo chứng cứ và uy hiếp các thành viên còn lại.",
+  "SummaryBrief": "Vụ án rò rỉ thông tin dự án AI/CNTT cấp cao, án mạng che giấu tội ác và sự hợp tác cưỡng ép giữa hai hung thủ nội bộ.",
+  "CorrectSuspectId": "SUSPECT_01, SUSPECT_05",
+  "CorrectMotive": "Hung thủ 1 (Jonathan Vance): Bán thông tin mật dự án cho tập đoàn đối thủ với giá 500,000 USD để trả nợ cá nhân, sát hại Giám đốc để bịt đầu mối. Hung thủ 2 (Elena Rostova): Bị Hung thủ 1 phát hiện và uy hiếp bằng chứng cứ vi phạm kỷ luật cũ sau khi tận mắt chứng kiến vụ án mạng, buộc phải tiếp tay tiêu hủy dấu vết.",
+  "CorrectMethod": "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai.",
   "MotiveOptions": [
-    "Được tập đoàn năng lượng đối thủ Aegis hối lộ 300,000 USD để vô hiệu hóa thanh điều tiết lò phản ứng nhằm chiếm quyền thầu dự án",
-    "Bất mãn tiền lương và chính sách an toàn lao động tại trạm năng lượng NovaCore",
-    "Muốn che giấu sai phạm rò rỉ bức xạ năng lượng do bất cẩn trong ca trực đêm",
-    "Mâu thuẫn chuyên môn cá nhân lâu năm với kỹ sư trưởng Marcus Vance"
+    "Hung thủ 1: Bán thông tin dự án lấy 500,000 USD trả nợ cá nhân và diệt khẩu. Hung thủ 2: Bị uy hiếp tiêu hủy chứng cứ sau khi tận mắt chứng kiến vụ án mạng",
+    "Tranh chấp quyền sở hữu trí tuệ thuật toán AI giữa các thành viên nhóm nghiên cứu",
+    "Tấn công từ xa của nhóm hacker mũ đen nhằm đòi tiền chuộc bằng tiền mã hóa",
+    "Mâu thuẫn cá nhân về việc phân chia lợi nhuận và chức danh quản lý dự án"
   ],
   "MethodOptions": [
-    "Đánh thuốc mê vào cà phê nạn nhân, gạt cầu dao phòng điện tạo cớ cúp điện, dùng thẻ an ninh vào phòng cắm thiết bị ghi đè firmware và chạy script xóa camera",
-    "Tấn công từ xa qua mạng Internet toàn cầu và vượt tường lửa bằng phần mềm gián điệp",
-    "Gửi email phishing chứa mã độc đính kèm đến toàn bộ nhân viên trạm nghiên cứu",
-    "Phá khóa cửa phòng máy chủ bằng vũ lực lúc nửa đêm"
+    "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai",
+    "Sử dụng phần mềm gián điệp keylogger từ xa để lấy tài khoản Root và xóa dữ liệu tự động",
+    "Đột nhập trung tâm dữ liệu, cắt nguồn điện toàn tòa nhà và tháo gỡ trực tiếp các ổ cứng vật lý",
+    "Phát tán mã độc tống tiền Ransomware qua đường link họp trực tuyến để khóa toàn bộ hệ thống"
   ],
   "RequiredEvidenceIds": [
     "E301",
     "E303",
-    "E304"
+    "E305",
+    "E308",
+    "E311"
   ],
-  "MinEvidenceForPass": 3,
-  "DisabledApps": [
-    "Browser",
-    "Mail"
-  ],
-  "AppLockReasons": {
-    "Browser": "🚫 MÔI TRƯỜNG CÁCH LY TUYỆT ĐỐI (AIR-GAPPED):\nTrạm nghiên cứu lò phản ứng hạt nhân NovaCore tuân thủ chuẩn an ninh quốc phòng: Cách ly 100% với Internet toàn cầu. Trình duyệt Web không có kết nối ra thế giới bên ngoài!",
-    "Mail": "🚫 MÁY CHỦ THƯ NỘI BỘ SẬP NGUỒN:\nDo sự cố chập điện và ngắt cầu dao thủ công lúc 01:14 sáng, máy chủ thư tín nội bộ đã chuyển sang chế độ bảo vệ và ngừng hoạt động. Không thể đồng bộ hộp thư!"
-  },
+  "MinEvidenceForPass": 5,
   "Suspects": [
     {
       "Id": "SUSPECT_01",
-      "Name": "Raymond Holt",
-      "Role": "Facility Security Director",
-      "Description": "Giám đốc An ninh Cơ sở NovaCore, có quyền hạn cao nhất đối với hệ thống cửa từ, thẻ quẹt an ninh và camera giám sát.",
-      "PossibleMotive": "Tài khoản ngân hàng offshore tại Cayman vừa xuất hiện giao dịch ẩn danh 300,000 USD từ công ty bình phong của Aegis Energy.",
-      "Alibi": "Khai rằng lúc 01:10 đến 01:30 đang đi kiểm tra hàng rào chu vi ngoài trạm và không có mặt tại khu điều khiển lò phản ứng."
+      "Name": "Jonathan Vance",
+      "Role": "Lead AI Architect (Hung thủ 1)",
+      "Description": "Architecht trưởng phụ trách thuật toán cốt lõi của AETHER. Nắm giữ hạ tầng triển khai mô hình.",
+      "PossibleMotive": "Thỏa thuận bán tài liệu dự án lấy 500,000 USD cho đối thủ NexaTech; diệt khẩu nạn nhân khi bị phát hiện.",
+      "Alibi": "Khai rằng đang thực hiện cập nhật hạ tầng máy chủ tại nhà từ 01:00 đến 03:00 sáng."
     },
     {
       "Id": "SUSPECT_02",
-      "Name": "Elena Carter",
-      "Role": "Junior Firmware Developer",
-      "Description": "Lập trình viên nhúng trẻ tuổi tham gia phát triển logic điều khiển van làm mát dự phòng.",
-      "PossibleMotive": "Từng có email tranh cãi gay gắt với Marcus về quy trình kiểm định an toàn lò phản ứng.",
-      "Alibi": "Đã rời khỏi khu cách ly lúc 19:00 chiều hôm trước và ký sổ ra cổng có bảo vệ chứng kiến."
+      "Name": "Marcus Sterling",
+      "Role": "Senior DevOps Engineer",
+      "Description": "Kỹ sư phụ trách hạ tầng CI/CD và quản lý quyền truy cập máy chủ dự án.",
+      "PossibleMotive": "Mâu thuẫn với Dr. Gregory Vance về định hướng phân bổ ngân sách hạ tầng Cloud.",
+      "Alibi": "Đang trực ca đêm tại phòng máy chủ tầng 2, có nhật ký quẹt thẻ ghi nhận."
     },
     {
       "Id": "SUSPECT_03",
-      "Name": "Dr. Nikolai Chen",
-      "Role": "Visiting Energy Consultant",
-      "Description": "Cố vấn độc lập về an toàn năng lượng hạt nhân, là chuyên gia chuyển giao từ tập đoàn đối thủ Aegis Energy.",
-      "PossibleMotive": "Tìm kiếm lỗ hổng trong kiến trúc NovaCore để giúp Aegis giành gói thầu chính phủ.",
-      "Alibi": "Nghỉ tại phòng khách chuyên gia tầng 2 từ 21:00 và có lễ tân xác nhận không rời phòng."
+      "Name": "Dr. Aris Thorne",
+      "Role": "Chief Data Scientist",
+      "Description": "Chuyên gia dữ liệu lớn, chịu trách nhiệm huấn luyện các tập dữ liệu AI của dự án.",
+      "PossibleMotive": "Bất mãn do đóng góp khoa học không được đứng tên đầu trong các công bố quốc tế.",
+      "Alibi": "Tham gia hội thảo trực tuyến quốc tế từ 00:00 đến 04:00 sáng, có video ghi hình."
     },
     {
       "Id": "SUSPECT_04",
-      "Name": "Bradley Cooper",
-      "Role": "Night Electrical Technician",
-      "Description": "Kỹ thuật viên điện ca đêm chịu trách nhiệm vận hành hệ thống UPS và máy phát điện khẩn cấp.",
-      "PossibleMotive": "Nợ tiền cá độ và than phiền bị phân ca trực đêm liên tục.",
-      "Alibi": "Khai rằng đang ngủ gật tại phòng nghỉ kỹ thuật khi còi báo động UPS hú vang lúc 01:14."
+      "Name": "Claire Redfield",
+      "Role": "Cybersecurity Specialist",
+      "Description": "Chuyên gia an ninh mạng phụ trách mã hóa và kiểm toán lỗ hổng hệ thống.",
+      "PossibleMotive": "Bị đe dọa cắt hợp đồng tư vấn sau đợt kiểm toán an toàn thông tin quý trước.",
+      "Alibi": "Đã rời công ty lúc 21:00 và ở tại căn hộ riêng cùng gia đình."
+    },
+    {
+      "Id": "SUSPECT_05",
+      "Name": "Elena Rostova",
+      "Role": "Senior Software Engineer (Hung thủ 2)",
+      "Description": "Kỹ sư phần mềm cấp cao. Người phát hiện điểm bất thường trong mail, chứng kiến vụ án mạng và bị ép làm đồng phạm.",
+      "PossibleMotive": "Bị Jonathan Vance uy hiếp bằng chứng cứ gian lận mã nguồn cũ, cưỡng ép tiếp tay tiêu hủy vật chứng.",
+      "Alibi": "Khai rằng làm việc muộn tại phòng lab tầng 4 và ra về lúc 01:30 sáng."
+    },
+    {
+      "Id": "SUSPECT_06",
+      "Name": "David Chen",
+      "Role": "Product Manager",
+      "Description": "Quản lý sản phẩm, cầu nối giữa nhóm kỹ thuật và ban đầu tư tài chính.",
+      "PossibleMotive": "Áp lực tiến độ từ nhà đầu tư, đối mặt nguy cơ bị đền bù hợp đồng.",
+      "Alibi": "Đang di chuyển trên chuyến bay nội địa từ Hà Nội về TP.HCM."
+    },
+    {
+      "Id": "SUSPECT_07",
+      "Name": "Sophia Taylor",
+      "Role": "QA & Test Automation Lead",
+      "Description": "Trưởng nhóm kiểm thử tự động, có quyền truy cập toàn bộ các môi trường Staging.",
+      "PossibleMotive": "Bị từ chối tăng lương và phụ cấp trách nhiệm trong kỳ đánh giá vừa qua.",
+      "Alibi": "Họp nhóm QA từ xa qua ứng dụng Google Meet đến 01:00 sáng."
+    },
+    {
+      "Id": "SUSPECT_08",
+      "Name": "Viktor Novak",
+      "Role": "Database Administrator (DBA)",
+      "Description": "Quản trị viên cơ sở dữ liệu, quản lý hệ thống lưu trữ phân tán của AETHER.",
+      "PossibleMotive": "Từng có mâu thuẫn gay gắt với Jonathan Vance về kiến trúc cơ sở dữ liệu.",
+      "Alibi": "Đang nghỉ phép tại Đà Lạt cùng gia đình từ đầu tuần."
     }
   ],
   "Evidences": [
     {
       "Id": "E301",
-      "Name": "Nhật ký cửa từ - Access_Badge_Log_0110.txt",
-      "Description": "Nhật ký quét thẻ cửa phòng điều khiển trung tâm lúc 01:10 sáng: Thẻ Master-01 mang định danh của Giám đốc An ninh Raymond Holt được sử dụng để mở cửa.",
-      "Source": "Documents / Work",
+      "Name": "Email phát tán mã độc - Emergency_Update.eml",
+      "Description": "Email giả mạo gửi từ Jonathan Vance đến 7 thành viên chứa liên kết độc hại 'aether-sec.internal/patch' nhằm xóa nhật ký cá nhân.",
+      "Source": "Mail Client",
       "Importance": "Critical",
-      "Timestamp": "01:10"
+      "Timestamp": "01:15"
     },
     {
       "Id": "E302",
-      "Name": "Sticky Note - Ghi chú Marcus bàn giao chìa khóa tủ dự phòng",
-      "Description": "Mẩu giấy dán tại bàn làm việc: Marcus ghi chép việc Raymond Holt yêu cầu đưa chìa khóa tủ công tắc điện dự phòng lúc 17:00 với lý do 'kiểm tra an toàn định kỳ'.",
-      "Source": "Sticky Notes",
+      "Name": "Browser History - Bảng phân tích Header Mail",
+      "Description": "Lịch sử duyệt web của Elena Rostova kiểm tra tiêu đề email (Header) và phát hiện địa chỉ IP phát tán là trạm làm việc của Jonathan.",
+      "Source": "Browser History",
       "Importance": "High",
-      "Timestamp": "17:00"
+      "Timestamp": "01:25"
     },
     {
       "Id": "E303",
-      "Name": "Nhật ký nguồn điện - UPS_Power_Failure_Report.log",
-      "Description": "Báo cáo hệ thống điện: Cầu dao phòng điện trung tâm bị ngắt thủ công bằng khóa cơ học lúc 01:14, ép trạm rơi vào tình trạng mất điện 8 phút trước khi máy phát tự nổ.",
-      "Source": "Documents / Work",
+      "Name": "Nhật ký Camera hành lang tầng 5",
+      "Description": "Camera ghi lại cảnh Elena âm thầm đi theo Jonathan vào phòng làm việc của Dr. Gregory Vance lúc 01:35 sáng.",
+      "Source": "Camera Logs",
       "Importance": "Critical",
-      "Timestamp": "01:14"
+      "Timestamp": "01:35"
     },
     {
       "Id": "E304",
-      "Name": "Thùng rác - NovaCore_Firmware_Tampered.bin",
-      "Description": "Tập tin firmware giả mạo trong Thùng Rác bị xóa lúc 01:22: Mã nguồn nhúng đoạn lệnh vô hiệu hóa van làm mát số 3 và làm quá nhiệt thanh nhiên liệu hạt nhân.",
-      "Source": "Recycle Bin",
-      "Importance": "Critical",
-      "Timestamp": "01:22"
+      "Name": "Tệp ghi âm bị đứt đoạn - voice_memo_0140.wav",
+      "Description": "Đoạn ghi âm từ điện thoại nạn nhân ghi lại tiếng cãi vã giữa Jonathan và Dr. Gregory, theo sau là tiếng giằng co và lời đe dọa ép Elena giữ im lặng.",
+      "Source": "Documents / Work",
+      "Importance": "High",
+      "Timestamp": "01:40"
     },
     {
       "Id": "E305",
-      "Name": "Báo cáo độc chất - Coffee_Toxicology_Report.txt",
-      "Description": "Kết quả xét nghiệm mẫu tách cà phê trên bàn Marcus Vance: Phát hiện nồng độ cao dung dịch thuốc an thần Rohypnol, chứng minh nạn nhân bị đầu độc gây mê từ trước.",
-      "Source": "Documents / Work",
-      "Importance": "High",
-      "Timestamp": "00:50"
+      "Name": "Nhật ký Active Directory - Lệnh can thiệp Log hai tài khoản",
+      "Description": "Log hệ thống ghi nhận tài khoản JonathanVance đăng nhập, sau đó tài khoản ElenaRostova thực thi script 'clear_audit_event.ps1' để xóa dấu vết quẹt thẻ.",
+      "Source": "System Logs",
+      "Importance": "Critical",
+      "Timestamp": "01:50"
     },
     {
       "Id": "E306",
-      "Name": "Thùng rác - Script xóa camera: Eraser_Wipe_Script.bat",
-      "Description": "Kịch bản batch ẩn trong Thùng Rác chạy lúc 01:28: Lệnh tự động format ổ ghi camera hành lang B3 và xóa lịch sử quét thẻ từ 01:00 đến 01:30 để tẩu thoát.",
+      "Name": "Thỏa thuận chuyển nhượng dự án - NexaTech_Contract.pdf",
+      "Description": "Bản hợp đồng đính kèm khoản đặt cọc 500,000 USD từ NexaTech cho Jonathan Vance để đổi lấy toàn bộ file mã hóa AETHER.",
+      "Source": "Archive",
+      "Importance": "High",
+      "Timestamp": "23:45"
+    },
+    {
+      "Id": "E307",
+      "Name": "Mã nguồn xóa Git - force_cleanup_master.sh",
+      "Description": "Script shell do Elena Rostova chỉnh sửa theo lệnh của Jonathan nhằm force-push đè lên nhánh master Git để che giấu commit rò rỉ.",
+      "Source": "Downloads",
+      "Importance": "High",
+      "Timestamp": "02:05"
+    },
+    {
+      "Id": "E308",
+      "Name": "Thùng rác - Tệp khóa giải mã master_aether_key.pem",
+      "Description": "Khóa giải mã master bị Elena xóa vào Thùng rác máy tính trung tâm dưới sự uy hiếp của Jonathan lúc 02:15 sáng.",
       "Source": "Recycle Bin",
       "Importance": "Critical",
-      "Timestamp": "01:28"
+      "Timestamp": "02:15"
+    },
+    {
+      "Id": "E309",
+      "Name": "Mẩu giấy tống tiền - Draft_Blackmail_Note.txt",
+      "Description": "Bản nháp tệp text do Jonathan soạn sẵn nhằm gửi đe dọa các thành viên còn lại, đổ tội cho một cuộc tấn công từ bên ngoài.",
+      "Source": "Documents",
+      "Importance": "Medium",
+      "Timestamp": "01:05"
+    },
+    {
+      "Id": "E310",
+      "Name": "Biên bản làm việc nội bộ - Sticky Note của Dr. Gregory",
+      "Description": "Ghi chú của nạn nhân ghi lại nghi vấn Jonathan Vance lén kết nối với đại diện NexaTech và việc giao Elena theo dõi các truy cập bất thường.",
+      "Source": "Sticky Notes",
+      "Importance": "High",
+      "Timestamp": "18:00"
+    },
+    {
+      "Id": "E311",
+      "Name": "Chat Log bị khôi phục - Message_Coercion.log",
+      "Description": "Đoạn tin nhắn mã hóa qua Telegram giữa Jonathan và Elena lúc 01:45 sáng: 'Cô đã thấy những gì không nên thấy. Giúp tôi xóa log ngay nếu không hồ sơ vi phạm cũ của cô sẽ gửi cho công an'.",
+      "Source": "System Logs / Chat",
+      "Importance": "Critical",
+      "Timestamp": "01:45"
+    },
+    {
+      "Id": "E312",
+      "Name": "Camera bãi xe - Xe ô tô rời trụ sở lúc 02:30",
+      "Description": "Camera ghi lại hai bóng người (một nam, một nữ) cùng rời khỏi tòa nhà qua cửa sau và lên xe của Jonathan Vance.",
+      "Source": "Camera Logs",
+      "Importance": "Medium",
+      "Timestamp": "02:30"
     }
   ],
-  "Emails": [],
-  "BrowserHistories": [],
-  "Files": [
+  "Emails": [
     {
-      "Id": "FILE_301",
-      "FileName": "Access_Badge_Log_0110.txt",
-      "Folder": "Work",
-      "OriginalFolder": "Work",
-      "Size": "4 KB",
-      "ModifiedTime": "2026-10-25 01:10",
-      "Content": "=====================================================\nNOVACORE FACILITY ACCESS CONTROL - AUDIT LOG\nZONE: SUB-LEVEL B3 REACTOR CONTROL ROOM\n=====================================================\n[00:45:12] BADGE #ENG-402 (Marcus Vance) - DOOR UNLOCKED [NORMAL]\n[01:05:00] AUTOMATIC SECURITY LOCK ENGAGED\n[01:10:48] BADGE #SEC-MASTER-01 (Raymond Holt) - DOOR UNLOCKED [OVERRIDE]\nWARNING: Master key override used outside scheduled maintenance window!\n=====================================================",
-      "IsDeleted": false,
+      "Id": "MAIL_301",
+      "Sender": "Jonathan Vance <j.vance@novatech-ai.local>",
+      "Recipient": "All Team Members <aether-core@novatech-ai.local>",
+      "Date": "2026-10-25",
+      "Time": "01:15",
+      "Subject": "CẢNH BÁO KHẨN CẤP: Lỗ hổng bảo mật rò rỉ dữ liệu AETHER",
+      "Body": "Chào toàn đội,\n\nHệ thống vừa phát hiện sự cố rò rỉ thông tin mật của Dự án AETHER. Để bảo vệ dữ liệu cá nhân và tránh bị truy cứu trách nhiệm, tất cả thành viên lập tức truy cập đường dẫn aether-sec.internal/patch để chạy công cụ vá lỗi khẩn cấp.\n\nJonathan Vance.",
       "EvidenceId": "E301"
     },
     {
-      "Id": "FILE_302",
-      "FileName": "UPS_Power_Failure_Report.log",
-      "Folder": "Work",
-      "OriginalFolder": "Work",
-      "Size": "6 KB",
-      "ModifiedTime": "2026-10-25 01:14",
-      "Content": "=====================================================\nUPS SUBSTATION INCIDENT REPORT - 2026-10-25\n=====================================================\n[01:14:02] ALERT: Main Breaker Switch #B-4 tripped manually!\n[01:14:03] Physical cabinet door opened via physical key #K-11.\n[01:14:05] Primary power disconnected. Facility running on secondary battery.\n[01:14:10] Mail server cluster shut down to conserve core reactor power.\n[01:22:15] Diesel generator fired up. Auxiliary power restored.\nCONCLUSION: Không phải sự cố quá tải tự nhiên. Có người đã dùng chìa khóa cơ vặn ngắt cầu dao!",
-      "IsDeleted": false,
-      "EvidenceId": "E303"
+      "Id": "MAIL_302",
+      "Sender": "NexaTech Acquisitions <deal@nexatech-corp.com>",
+      "Recipient": "Jonathan Vance <j.vance@novatech-ai.local>",
+      "Date": "2026-10-24",
+      "Time": "23:45",
+      "Subject": "Xác nhận điều khoản chuyển nhượng thuật toán AETHER",
+      "Body": "[Email mã hóa]\n\nChào Jonathan,\nKhoản tiền 500,000 USD đã được chuẩn bị tại tài khoản ký thác. Chúng tôi yêu cầu nhận toàn bộ file Project_AETHER_Master_Deploy.enc và khóa giải mã trước 03:00 sáng ngày 25/10.\n\nNexaTech Corp.",
+      "EvidenceId": "E306"
     },
     {
-      "Id": "FILE_303",
-      "FileName": "Coffee_Toxicology_Report.txt",
-      "Folder": "Documents",
-      "OriginalFolder": "Documents",
-      "Size": "3 KB",
-      "ModifiedTime": "2026-10-25 02:30",
-      "Content": "PHÒNG Y TẾ NOVACORE - BIÊN BẢN GIÁM ĐỊNH HIỆN TRƯỜNG\nNạn nhân: Marcus Vance - Tình trạng: Bất tỉnh sâu lúc 01:20\n─────────────────────────────────────────────────────\nMẫu vật thu giữ: Cốc sứ đen trên bàn phím điều khiển, còn khoảng 40ml cà phê espresso.\nKết quả phân tích sắc ký (Chromatography):\n+ Phát hiện nồng độ cao hợp chất Flunitrazepam (Rohypnol) dạng lỏng không màu không mùi.\n+ Thời điểm nạn nhân uống ước tính: Khoảng 00:45 - 00:55.\n+ Tác dụng: Làm nạn nhân ngủ mê man, mất khả năng phản kháng trong 4 - 6 giờ.\nKẾT LUẬN: Nạn nhân bị đồng phạm hoặc kẻ đột nhập đầu độc thuốc mê có chủ đích!",
+      "Id": "MAIL_303",
+      "Sender": "Dr. Gregory Vance <g.vance@novatech-ai.local>",
+      "Recipient": "Elena Rostova <e.rostova@novatech-ai.local>",
+      "Date": "2026-10-24",
+      "Time": "18:05",
+      "Subject": "Yêu cầu hỗ trợ rà soát lưu lượng mạng bất thường",
+      "Body": "Elena,\n\nTôi nghi ngờ có ai đó trong nhóm đang tuồn dữ liệu dự án ra ngoài. Nhờ cô bí mật theo dõi các gói tin từ trạm máy của Jonathan trong ca đêm nay.\n\nGregory.",
+      "EvidenceId": "E310"
+    }
+  ],
+  "BrowserHistories": [
+    {
+      "Id": "BH_301",
+      "Date": "2026-10-25",
+      "Time": "01:25",
+      "Url": "https://email-analyzer.internal/header_inspect",
+      "Title": "Mail Header Analysis - Origin IP Trace",
+      "EvidenceId": "E302",
+      "IsSuspicious": true
+    },
+    {
+      "Id": "BH_302",
+      "Date": "2026-10-25",
+      "Time": "02:00",
+      "Url": "https://git.novatech-ai.internal/aether/force_push",
+      "Title": "Git Management Console - Force Push Branch",
+      "EvidenceId": "E307",
+      "IsSuspicious": true
+    }
+  ],
+  "Files": [
+    {
+      "Id": "FILE_301",
+      "FileName": "clear_audit_event.ps1",
+      "Folder": "Work",
+      "Size": "5 KB",
+      "ModifiedTime": "2026-10-25 01:50",
+      "Content": "# Script xóa log hệ thống theo lệnh cưỡng ép\nClear-EventLog -LogName Security, System\nRemove-Item -Path C:\\Logs\\badge_access_5f.log -Force\nWrite-Host 'Audit trail erased by user ElenaRostova (Elevated by JonathanVance)'",
       "IsDeleted": false,
       "EvidenceId": "E305"
     },
     {
-      "Id": "FILE_304",
-      "FileName": "Reactor_Core_Safety_Protocol.pdf",
-      "Folder": "Documents",
-      "OriginalFolder": "Documents",
-      "Size": "120 KB",
-      "ModifiedTime": "2026-10-20 09:15",
-      "Content": "QUY CHUẨN AN TOÀN LÒ PHẢN ỨNG HẠT NHÂN NOVACORE\n1. Cơ sở luôn tuân thủ chế độ Air-Gapped tuyệt đối. Mọi cổng mạng bên ngoài đều bị cắt vật lý.\n2. Việc cập nhật firmware thanh điều tiết chỉ được thực hiện trực tiếp tại trạm console B3.\n3. Mọi sự cố mất điện phải báo cáo lập tức cho Ban Giám đốc.",
-      "IsDeleted": false,
-      "EvidenceId": null
-    },
-    {
-      "Id": "FILE_305",
-      "FileName": "Shift_Roster_October_25.txt",
-      "Folder": "Documents",
-      "OriginalFolder": "Documents",
-      "Size": "2 KB",
-      "ModifiedTime": "2026-10-24 18:00",
-      "Content": "LỊCH TRỰC ĐÊM 24 - 25 THÁNG 10:\n- Marcus Vance: Kỹ sư trưởng trực console lò phản ứng B3\n- Raymond Holt: Trực chỉ huy an ninh tổng thể và kiểm tra chu vi\n- Bradley Cooper: Trực trạm biến áp và phòng máy phát điện\n- Elena Carter: Nghỉ ca\n- Dr. Nikolai Chen: Khách mời lưu trú phòng chuyên gia",
-      "IsDeleted": false,
-      "EvidenceId": null
-    },
-    {
-      "Id": "FILE_306",
-      "FileName": "NovaCore_Firmware_Tampered.bin",
+      "Id": "FILE_302",
+      "FileName": "master_aether_key.pem",
       "Folder": "Recycle Bin",
-      "OriginalFolder": "Projects",
-      "Size": "1,024 KB",
-      "ModifiedTime": "2026-10-25 01:22",
-      "Content": "HEX DUMP ANALYZER - FILE: NovaCore_Firmware_Tampered.bin\nOffset 0x00001000: 4E 4F 56 41 5F 43 4F 52 45 [MAGIC_HEADER]\nOffset 0x000042A0: OVERRIDE_ROD_POSITION = 0x00 (DISABLE COOLING ROD)\nOffset 0x000042B0: DISABLE_CRITICAL_ALARM = 0x01\nOffset 0x000042C0: SIGNATURE: AEGIS_PAYLOAD_V2_INJECTOR\n-----------------------------------------------------\nCẢNH BÁO: Đây là bản firmware độc hại được nhắm tới việc phá hủy lõi phản ứng!\nTập tin bị chuyển vào Thùng Rác sau khi được nạp trực tiếp qua cổng chẩn đoán lúc 01:22.",
+      "OriginalFolder": "Projects/AETHER",
+      "Size": "3 KB",
+      "ModifiedTime": "2026-10-25 02:15",
+      "Content": "-----BEGIN RSA MASTER PRIVATE KEY-----\nMIIEowIBAAKCAQEA3f9Kz0bLq8X3yZ7w1QpMmJnK7tV4xR0s9eF8d7c6b5a4\n[PROJECT AETHER MASTER DECRYPTION KEY]\n-----END RSA MASTER PRIVATE KEY-----",
       "IsDeleted": true,
+      "EvidenceId": "E308"
+    },
+    {
+      "Id": "FILE_303",
+      "FileName": "voice_memo_0140.wav",
+      "Folder": "Documents",
+      "Size": "15 MB",
+      "ModifiedTime": "2026-10-25 01:40",
+      "Content": "[TỆP GHI ÂM]: 'Jonathan... cậu đang làm gì với file mã hóa?... Đừng lại gần!... Elena, cứu tôi... Cô mà báo công an, cô cũng sẽ chết chắc!'",
+      "IsDeleted": false,
       "EvidenceId": "E304"
     },
     {
-      "Id": "FILE_307",
-      "FileName": "Eraser_Wipe_Script.bat",
-      "Folder": "Recycle Bin",
-      "OriginalFolder": "Downloads",
-      "Size": "1 KB",
-      "ModifiedTime": "2026-10-25 01:28",
-      "Content": "@echo off\n:: Wipe B3 hallway CCTV footage between 01:00 and 01:30\ndel /f /q C:\\CCTV_Storage\\Cam_B3_20261025_01*.mp4\n:: Clean RFID badge cache for Master-01\necho [OVERWRITTEN] > C:\\AccessControl\\Logs\\temp_badge.tmp\n:: Self delete\nattrib +h Eraser_Wipe_Script.bat\nexit",
-      "IsDeleted": true,
-      "EvidenceId": "E306"
+      "Id": "FILE_304",
+      "FileName": "Project_AETHER_Master_Deploy.enc",
+      "Folder": "Projects",
+      "Size": "2.4 GB",
+      "ModifiedTime": "2026-10-25 01:10",
+      "Content": "[FILE BỊ MÃ HÓA TOÀN BỘ DỮ LIỆU DỰ ÁN AI AETHER]",
+      "IsDeleted": false,
+      "EvidenceId": null
     }
   ],
   "Timeline": [
     {
-      "Time": "17:00",
-      "EventDescription": "Marcus Vance ghi chú giao chìa khóa tủ điện #K-11 cho Raymond Holt.",
-      "EvidenceId": "E302",
+      "Time": "23:45",
+      "EventDescription": "Jonathan nhận thỏa thuận 500,000 USD từ NexaTech.",
+      "EvidenceId": "E306",
       "IsVerified": false
     },
     {
-      "Time": "00:50",
-      "EventDescription": "Marcus Vance uống tách cà phê chứa thuốc mê Rohypnol pha sẵn trên bàn.",
-      "EvidenceId": "E305",
-      "IsVerified": false
-    },
-    {
-      "Time": "01:10",
-      "EventDescription": "Thẻ an ninh Master-01 của Raymond Holt quẹt mở cửa phòng điều khiển trung tâm B3.",
+      "Time": "01:15",
+      "EventDescription": "Jonathan phát tán email bẫy chứa mã độc đến toàn bộ nhóm.",
       "EvidenceId": "E301",
       "IsVerified": false
     },
     {
-      "Time": "01:14",
-      "EventDescription": "Cầu dao UPS bị gạt ngắt bằng chìa khóa #K-11, gây mất điện toàn khu B3 và sập mail server.",
+      "Time": "01:25",
+      "EventDescription": "Elena phát hiện email giả mạo thông qua phân tích Header.",
+      "EvidenceId": "E302",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:35",
+      "EventDescription": "Elena âm thầm đi theo Jonathan vào phòng làm việc của Dr. Gregory.",
       "EvidenceId": "E303",
       "IsVerified": false
     },
     {
-      "Time": "01:20",
-      "EventDescription": "Marcus Vance bất tỉnh hoàn toàn trên bàn phím do tác dụng của thuốc mê.",
-      "EvidenceId": "",
-      "IsVerified": false
-    },
-    {
-      "Time": "01:22",
-      "EventDescription": "Firmware độc hại NovaCore_Firmware_Tampered.bin được nạp vào hệ thống rồi xóa vào Thùng Rác.",
+      "Time": "01:40",
+      "EventDescription": "Án mạng xảy ra: Jonathan sát hại Dr. Gregory Vance, Elena chứng kiến.",
       "EvidenceId": "E304",
       "IsVerified": false
     },
     {
-      "Time": "01:28",
-      "EventDescription": "Script Eraser_Wipe_Script.bat được kích hoạt để xóa camera hành lang và log quẹt thẻ rồi giấu vào Thùng Rác.",
-      "EvidenceId": "E306",
+      "Time": "01:45",
+      "EventDescription": "Jonathan nhắn tin uy hiếp, cưỡng ép Elena trở thành đồng phạm.",
+      "EvidenceId": "E311",
+      "IsVerified": false
+    },
+    {
+      "Time": "01:50",
+      "EventDescription": "Elena thực thi script xóa log dưới quyền truy cập của Jonathan.",
+      "EvidenceId": "E305",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:05",
+      "EventDescription": "Elena chạy script Git force-push đè dữ liệu mã nguồn.",
+      "EvidenceId": "E307",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:15",
+      "EventDescription": "Khóa mã hóa master bị xóa vào Thùng Rác để phi tang.",
+      "EvidenceId": "E308",
+      "IsVerified": false
+    },
+    {
+      "Time": "02:30",
+      "EventDescription": "Cả hai hung thủ cùng rời khỏi trụ sở bằng xe riêng.",
+      "EvidenceId": "E312",
       "IsVerified": false
     }
   ],
   "ConnectionRules": [
     {
-      "EvidenceA": "E302",
-      "EvidenceB": "E301",
-      "SuccessMessage": "CHÍNH XÁC: Raymond Holt mượn chìa khóa chiều hôm trước và dùng thẻ an ninh Master quẹt mở phòng điều khiển lúc 01:10!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Ghi chú bàn giao chìa khóa và log quét thẻ 01:10 chứng minh Raymond Holt đã có mặt tại hiện trường phòng điều khiển!"
+      "EvidenceA": "E301",
+      "EvidenceB": "E302",
+      "SuccessMessage": "CHÍNH XÁC: Email lừa đảo do Jonathan gửi đi bị Elena phát hiện nhờ phân tích Mail Header!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Phân tích header chứng minh email đe dọa không phải đến từ bên ngoài mà xuất phát từ máy của Jonathan Vance!"
     },
     {
       "EvidenceA": "E303",
       "EvidenceB": "E304",
-      "SuccessMessage": "CHÍNH XÁC: Kẻ gian gạt ngắt cầu dao điện lúc 01:14 để tạo hỗn loạn, rồi nạp firmware độc hại lúc 01:22!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Báo cáo mất điện UPS 01:14 liên kết trực tiếp với file firmware độc hại nạp lúc 01:22!"
+      "SuccessMessage": "CHÍNH XÁC: Elena đi theo Jonathan vào phòng nạn nhân lúc 01:35 và chứng kiến vụ sát hại trong tệp ghi âm lúc 01:40!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Hình ảnh camera khớp hoàn toàn với tệp ghi âm: Elena đã có mặt tại hiện trường khi Jonathan sát hại nạn nhân!"
+    },
+    {
+      "EvidenceA": "E304",
+      "EvidenceB": "E311",
+      "SuccessMessage": "CHÍNH XÁC: Sau vụ sát hại, Jonathan đã nhắn tin đe dọa ép Elena phải tiếp tay tiêu hủy vật chứng!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Tin nhắn Telegram vạch trần vụ uy hiếp: Jonathan biến Elena từ người nhân chứng thành đồng phạm bị cưỡng ép!"
     },
     {
       "EvidenceA": "E305",
-      "EvidenceB": "E306",
-      "SuccessMessage": "CHÍNH XÁC: Kẻ gian đánh thuốc mê nạn nhân trong cà phê và chạy script xóa camera hành lang để tẩu thoát không dấu vết!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Độc chất Rohypnol và script xóa camera lúc 01:28 vạch trần kế hoạch ám hại và tẩu thoát tinh vi!"
+      "EvidenceB": "E308",
+      "SuccessMessage": "CHÍNH XÁC: Chuỗi hành vi xóa log và giấu khóa giải mã vào Thùng Rác do hai hung thủ phối hợp thực hiện!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Bằng chứng phi tang: Jonathan và Elena đã cùng nhau xóa dấu vết hệ thống và giấu khóa master_aether_key.pem!"
+    },
+    {
+      "EvidenceA": "E306",
+      "EvidenceB": "E301",
+      "SuccessMessage": "CHÍNH XÁC: Động cơ 500,000 USD từ NexaTech thúc đẩy Jonathan phát tán mail độc và sát hại nạn nhân để bịt đầu mối!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Động cơ phạm tội gốc: Thỏa thuận bán đứng dự án AETHER là nguyên nhân gây ra toàn bộ chuỗi tội ác!"
     }
   ],
   "Notes": [
     {
       "Id": "NOTE_301",
-      "Title": "📌 Ghi chú chìa khóa tủ điện dự phòng",
-      "Author": "Marcus Vance (Lead Firmware Security Engineer)",
-      "Date": "2026-10-24 17:00",
+      "Title": "Ghi chú bảo mật khẩn cấp",
+      "Author": "Dr. Gregory Vance (Director of AI & Systems Architecture)",
+      "Date": "2026-10-24 18:00",
       "Category": "Sticky Note",
-      "EvidenceId": "E302",
-      "Content": "GHI CHÚ CA CHIỀU 24/10:\n────────────────────────────────────────\n• Raymond Holt (Giám đốc An ninh) ghé qua bàn làm việc mượn chìa khóa cơ #K-11 của tủ điện dự phòng UPS với lý do 'kiểm tra phòng chống cháy nổ'.\n• Đã giao chìa cho Raymond lúc 17:00, hẹn sáng mai trả lại.\n• Bradley bảo máy phát dự phòng vừa thay dầu tuần trước nên không có gì phải lo.\n• Tối nay phải thức đêm hiệu chỉnh bản nạp firmware mới."
+      "Content": "GHI CHÚ BẢO MẬT:\n────────────────────────────────────────\n1. Nhận thông tin nghi vấn Jonathan Vance lén lút trao đổi với phía NexaTech.\n2. Đã dặn Elena Rostova bí mật giám sát các cổng kết nối mạng của Jonathan ca đêm nay.\n3. Khóa master_aether_key.pem cần được sao lưu vào ổ đĩa an toàn trước 02:00 rạng sáng.",
+      "EvidenceId": "E310"
     },
     {
       "Id": "NOTE_302",
-      "Title": "☕ Lịch theo dõi sức khỏe cá nhân",
-      "Author": "Marcus Vance",
-      "Date": "2026-10-24 12:00",
-      "Category": "Cá nhân",
-      "EvidenceId": null,
-      "Content": "SỔ TAY CÁ NHÂN:\n────────────────────────────────────────\n• Dạo này huyết áp hơi cao, bác sĩ dặn hạn chế uống cà phê sau 20:00.\n• Cuối tuần dẫn con gái đi hội chợ khoa học thành phố.\n• Mua thêm bóng đèn led thay cho phòng ngủ."
+      "Title": "Kế hoạch ra mắt dự án AETHER",
+      "Author": "Dr. Gregory Vance",
+      "Date": "2026-10-23 14:00",
+      "Category": "Kế hoạch",
+      "Content": "LỊCH TRÌNH:\n────────────────────────────────────────\n• Hoàn thành kiểm thử hiệu năng mô hình AI trước ngày 28/10.\n• Họp báo công bố hợp tác chiến lược vào tháng 11.\n• Đặt tiệc mừng thành công dự án cho cả 8 thành viên.",
+      "EvidenceId": null
     }
   ]
 }
-

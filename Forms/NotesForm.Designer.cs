@@ -45,7 +45,6 @@ namespace _2611_WIN_B3.Forms
             pnlContent = new Panel();
             txtNotes = new RichTextBox();
             pnlClueBanner = new Panel();
-            btnActionClue = new Button();
             lblClueBanner = new Label();
             pnlNoteMeta = new Panel();
             lblNoteInfo = new Label();
@@ -76,7 +75,7 @@ namespace _2611_WIN_B3.Forms
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(960, 60);
+            pnlHeader.Size = new Size(840, 51);
             pnlHeader.TabIndex = 0;
             // 
             // btnCopyNote
@@ -88,9 +87,9 @@ namespace _2611_WIN_B3.Forms
             btnCopyNote.FlatStyle = FlatStyle.Flat;
             btnCopyNote.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnCopyNote.ForeColor = Color.FromArgb(67, 56, 202);
-            btnCopyNote.Location = new Point(560, 14);
+            btnCopyNote.Location = new Point(490, 12);
             btnCopyNote.Name = "btnCopyNote";
-            btnCopyNote.Size = new Size(150, 32);
+            btnCopyNote.Size = new Size(131, 27);
             btnCopyNote.TabIndex = 1;
             btnCopyNote.Text = "📋 Chép vào sổ tay";
             btnCopyNote.UseVisualStyleBackColor = false;
@@ -106,9 +105,9 @@ namespace _2611_WIN_B3.Forms
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(718, 14);
+            btnSave.Location = new Point(628, 12);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(130, 32);
+            btnSave.Size = new Size(114, 27);
             btnSave.TabIndex = 2;
             btnSave.Text = "💾 Lưu sổ tay";
             btnSave.UseVisualStyleBackColor = false;
@@ -123,9 +122,9 @@ namespace _2611_WIN_B3.Forms
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnClose.ForeColor = Color.FromArgb(30, 41, 59);
-            btnClose.Location = new Point(856, 14);
+            btnClose.Location = new Point(749, 12);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(90, 32);
+            btnClose.Size = new Size(79, 27);
             btnClose.TabIndex = 3;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = false;
@@ -136,9 +135,9 @@ namespace _2611_WIN_B3.Forms
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 8.5F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblSubtitle.Location = new Point(14, 34);
+            lblSubtitle.Location = new Point(12, 29);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(335, 19);
+            lblSubtitle.Size = new Size(286, 15);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Khám nghiệm Sticky Notes hệ thống & Sổ tay suy luận";
             // 
@@ -147,9 +146,9 @@ namespace _2611_WIN_B3.Forms
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(15, 30, 60);
-            lblTitle.Location = new Point(12, 8);
+            lblTitle.Location = new Point(10, 7);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(498, 28);
+            lblTitle.Size = new Size(379, 21);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "📝 FORENSIC NOTES — KHÁM NGHIỆM GHI CHÚ";
             // 
@@ -157,7 +156,7 @@ namespace _2611_WIN_B3.Forms
             // 
             sptContainer.Dock = DockStyle.Fill;
             sptContainer.FixedPanel = FixedPanel.Panel1;
-            sptContainer.Location = new Point(0, 60);
+            sptContainer.Location = new Point(0, 51);
             sptContainer.Name = "sptContainer";
             // 
             // sptContainer.Panel1
@@ -174,9 +173,8 @@ namespace _2611_WIN_B3.Forms
             sptContainer.Panel2.Controls.Add(pnlClueBanner);
             sptContainer.Panel2.Controls.Add(pnlNoteMeta);
             sptContainer.Panel2MinSize = 400;
-            sptContainer.Size = new Size(960, 521);
-            sptContainer.SplitterDistance = 310;
-            sptContainer.SplitterWidth = 5;
+            sptContainer.Size = new Size(840, 443);
+            sptContainer.SplitterDistance = 271;
             sptContainer.TabIndex = 1;
             // 
             // lvNotes
@@ -186,10 +184,10 @@ namespace _2611_WIN_B3.Forms
             lvNotes.Dock = DockStyle.Fill;
             lvNotes.FullRowSelect = true;
             lvNotes.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            lvNotes.Location = new Point(0, 36);
+            lvNotes.Location = new Point(0, 31);
             lvNotes.MultiSelect = false;
             lvNotes.Name = "lvNotes";
-            lvNotes.Size = new Size(310, 453);
+            lvNotes.Size = new Size(271, 385);
             lvNotes.TabIndex = 1;
             lvNotes.UseCompatibleStateImageBehavior = false;
             lvNotes.View = View.Details;
@@ -212,8 +210,8 @@ namespace _2611_WIN_B3.Forms
             pnlLeftHeader.Dock = DockStyle.Top;
             pnlLeftHeader.Location = new Point(0, 0);
             pnlLeftHeader.Name = "pnlLeftHeader";
-            pnlLeftHeader.Padding = new Padding(10, 0, 0, 0);
-            pnlLeftHeader.Size = new Size(310, 36);
+            pnlLeftHeader.Padding = new Padding(9, 0, 0, 0);
+            pnlLeftHeader.Size = new Size(271, 31);
             pnlLeftHeader.TabIndex = 0;
             // 
             // lblLeftHeader
@@ -221,9 +219,9 @@ namespace _2611_WIN_B3.Forms
             lblLeftHeader.Dock = DockStyle.Fill;
             lblLeftHeader.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             lblLeftHeader.ForeColor = Color.FromArgb(51, 65, 85);
-            lblLeftHeader.Location = new Point(10, 0);
+            lblLeftHeader.Location = new Point(9, 0);
             lblLeftHeader.Name = "lblLeftHeader";
-            lblLeftHeader.Size = new Size(300, 36);
+            lblLeftHeader.Size = new Size(262, 31);
             lblLeftHeader.TabIndex = 0;
             lblLeftHeader.Text = "📑 TÀI LIỆU GHI CHÚ TRÍCH XUẤT";
             lblLeftHeader.TextAlign = ContentAlignment.MiddleLeft;
@@ -233,10 +231,10 @@ namespace _2611_WIN_B3.Forms
             pnlLeftFooter.BackColor = Color.FromArgb(248, 250, 252);
             pnlLeftFooter.Controls.Add(lblNotesCount);
             pnlLeftFooter.Dock = DockStyle.Bottom;
-            pnlLeftFooter.Location = new Point(0, 489);
+            pnlLeftFooter.Location = new Point(0, 416);
             pnlLeftFooter.Name = "pnlLeftFooter";
-            pnlLeftFooter.Padding = new Padding(10, 0, 0, 0);
-            pnlLeftFooter.Size = new Size(310, 32);
+            pnlLeftFooter.Padding = new Padding(9, 0, 0, 0);
+            pnlLeftFooter.Size = new Size(271, 27);
             pnlLeftFooter.TabIndex = 2;
             // 
             // lblNotesCount
@@ -244,9 +242,9 @@ namespace _2611_WIN_B3.Forms
             lblNotesCount.Dock = DockStyle.Fill;
             lblNotesCount.Font = new Font("Segoe UI", 8.25F);
             lblNotesCount.ForeColor = Color.FromArgb(100, 116, 139);
-            lblNotesCount.Location = new Point(10, 0);
+            lblNotesCount.Location = new Point(9, 0);
             lblNotesCount.Name = "lblNotesCount";
-            lblNotesCount.Size = new Size(300, 32);
+            lblNotesCount.Size = new Size(262, 27);
             lblNotesCount.TabIndex = 0;
             lblNotesCount.Text = "Tổng số: 0 ghi chú";
             lblNotesCount.TextAlign = ContentAlignment.MiddleLeft;
@@ -255,10 +253,10 @@ namespace _2611_WIN_B3.Forms
             // 
             pnlContent.Controls.Add(txtNotes);
             pnlContent.Dock = DockStyle.Fill;
-            pnlContent.Location = new Point(0, 102);
+            pnlContent.Location = new Point(0, 51);
             pnlContent.Name = "pnlContent";
-            pnlContent.Padding = new Padding(12);
-            pnlContent.Size = new Size(645, 419);
+            pnlContent.Padding = new Padding(10, 10, 10, 10);
+            pnlContent.Size = new Size(565, 344);
             pnlContent.TabIndex = 2;
             // 
             // txtNotes
@@ -268,9 +266,9 @@ namespace _2611_WIN_B3.Forms
             txtNotes.Dock = DockStyle.Fill;
             txtNotes.Font = new Font("Consolas", 11.5F);
             txtNotes.ForeColor = Color.FromArgb(30, 41, 59);
-            txtNotes.Location = new Point(12, 12);
+            txtNotes.Location = new Point(10, 10);
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(621, 395);
+            txtNotes.Size = new Size(545, 324);
             txtNotes.TabIndex = 0;
             txtNotes.Text = "";
             txtNotes.TextChanged += txtNotes_TextChanged;
@@ -279,41 +277,23 @@ namespace _2611_WIN_B3.Forms
             // 
             pnlClueBanner.BackColor = Color.FromArgb(240, 253, 244);
             pnlClueBanner.BorderStyle = BorderStyle.FixedSingle;
-            pnlClueBanner.Controls.Add(btnActionClue);
             pnlClueBanner.Controls.Add(lblClueBanner);
             pnlClueBanner.Dock = DockStyle.Bottom;
-            pnlClueBanner.Location = new Point(0, 465);
+            pnlClueBanner.Location = new Point(0, 395);
             pnlClueBanner.Name = "pnlClueBanner";
-            pnlClueBanner.Padding = new Padding(12, 0, 12, 0);
-            pnlClueBanner.Size = new Size(645, 56);
+            pnlClueBanner.Padding = new Padding(10, 0, 10, 0);
+            pnlClueBanner.Size = new Size(565, 48);
             pnlClueBanner.TabIndex = 1;
             pnlClueBanner.Visible = false;
-            // 
-            // btnActionClue
-            // 
-            btnActionClue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnActionClue.BackColor = Color.FromArgb(22, 101, 52);
-            btnActionClue.Cursor = Cursors.Hand;
-            btnActionClue.FlatAppearance.BorderSize = 0;
-            btnActionClue.FlatStyle = FlatStyle.Flat;
-            btnActionClue.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
-            btnActionClue.ForeColor = Color.White;
-            btnActionClue.Location = new Point(445, 8);
-            btnActionClue.Name = "btnActionClue";
-            btnActionClue.Size = new Size(190, 38);
-            btnActionClue.TabIndex = 1;
-            btnActionClue.Text = "🔍 Xem Bảng Chứng Cứ";
-            btnActionClue.UseVisualStyleBackColor = false;
-            btnActionClue.Click += btnActionClue_Click;
             // 
             // lblClueBanner
             // 
             lblClueBanner.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblClueBanner.Font = new Font("Segoe UI Semibold", 11.5F, FontStyle.Bold);
             lblClueBanner.ForeColor = Color.FromArgb(22, 101, 52);
-            lblClueBanner.Location = new Point(12, 0);
+            lblClueBanner.Location = new Point(10, 0);
             lblClueBanner.Name = "lblClueBanner";
-            lblClueBanner.Size = new Size(425, 54);
+            lblClueBanner.Size = new Size(542, 46);
             lblClueBanner.TabIndex = 0;
             lblClueBanner.Text = "🔍 BẰNG CHỨNG ĐÃ ĐƯỢC PHÁT HIỆN TỪ GHI CHÚ NÀY";
             lblClueBanner.TextAlign = ContentAlignment.MiddleLeft;
@@ -326,8 +306,8 @@ namespace _2611_WIN_B3.Forms
             pnlNoteMeta.Dock = DockStyle.Top;
             pnlNoteMeta.Location = new Point(0, 0);
             pnlNoteMeta.Name = "pnlNoteMeta";
-            pnlNoteMeta.Padding = new Padding(12, 8, 12, 6);
-            pnlNoteMeta.Size = new Size(645, 60);
+            pnlNoteMeta.Padding = new Padding(10, 7, 10, 5);
+            pnlNoteMeta.Size = new Size(565, 51);
             pnlNoteMeta.TabIndex = 0;
             // 
             // lblNoteInfo
@@ -335,9 +315,9 @@ namespace _2611_WIN_B3.Forms
             lblNoteInfo.Dock = DockStyle.Bottom;
             lblNoteInfo.Font = new Font("Segoe UI", 9F);
             lblNoteInfo.ForeColor = Color.FromArgb(100, 116, 139);
-            lblNoteInfo.Location = new Point(12, 33);
+            lblNoteInfo.Location = new Point(10, 28);
             lblNoteInfo.Name = "lblNoteInfo";
-            lblNoteInfo.Size = new Size(621, 21);
+            lblNoteInfo.Size = new Size(545, 18);
             lblNoteInfo.TabIndex = 1;
             lblNoteInfo.Text = "Tác giả: Thám tử  |  Thời gian: Hiện tại  |  Phân loại: Cá nhân";
             // 
@@ -346,9 +326,9 @@ namespace _2611_WIN_B3.Forms
             lblNoteTitle.Dock = DockStyle.Top;
             lblNoteTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblNoteTitle.ForeColor = Color.FromArgb(15, 23, 42);
-            lblNoteTitle.Location = new Point(12, 8);
+            lblNoteTitle.Location = new Point(10, 7);
             lblNoteTitle.Name = "lblNoteTitle";
-            lblNoteTitle.Size = new Size(621, 26);
+            lblNoteTitle.Size = new Size(545, 22);
             lblNoteTitle.TabIndex = 0;
             lblNoteTitle.Text = "📝 SỔ TAY ĐIỀU TRA CỦA BẠN";
             // 
@@ -357,9 +337,9 @@ namespace _2611_WIN_B3.Forms
             pnlBottom.BackColor = Color.FromArgb(245, 248, 252);
             pnlBottom.Controls.Add(lblStatus);
             pnlBottom.Dock = DockStyle.Bottom;
-            pnlBottom.Location = new Point(0, 581);
+            pnlBottom.Location = new Point(0, 494);
             pnlBottom.Name = "pnlBottom";
-            pnlBottom.Size = new Size(960, 40);
+            pnlBottom.Size = new Size(840, 34);
             pnlBottom.TabIndex = 2;
             // 
             // lblStatus
@@ -369,22 +349,22 @@ namespace _2611_WIN_B3.Forms
             lblStatus.ForeColor = Color.FromArgb(100, 116, 139);
             lblStatus.Location = new Point(0, 0);
             lblStatus.Name = "lblStatus";
-            lblStatus.Padding = new Padding(12, 0, 0, 0);
-            lblStatus.Size = new Size(960, 40);
+            lblStatus.Padding = new Padding(10, 0, 0, 0);
+            lblStatus.Size = new Size(840, 34);
             lblStatus.TabIndex = 0;
             lblStatus.Text = "Ghi chép được tự động đồng bộ vào bộ nhớ trạng thái GameState.";
             lblStatus.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // NotesForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 245);
-            ClientSize = new Size(960, 621);
+            ClientSize = new Size(840, 528);
             Controls.Add(sptContainer);
             Controls.Add(pnlBottom);
             Controls.Add(pnlHeader);
-            MinimumSize = new Size(800, 520);
+            MinimumSize = new Size(702, 448);
             Name = "NotesForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Forensic Notes & Detective Journal — Khám Nghiệm Ghi Chú & Sổ Tay";
@@ -425,7 +405,6 @@ namespace _2611_WIN_B3.Forms
         private Label lblNoteInfo;
         private Panel pnlClueBanner;
         private Label lblClueBanner;
-        private Button btnActionClue;
         private Panel pnlContent;
         private RichTextBox txtNotes;
         private Panel pnlBottom;

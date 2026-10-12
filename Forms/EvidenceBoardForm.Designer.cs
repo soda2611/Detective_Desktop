@@ -70,9 +70,9 @@ namespace _2611_WIN_B3.Forms
             pnlHeader.Controls.Add(lblTitle);
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
-            pnlHeader.Margin = new Padding(3, 2, 3, 2);
+            pnlHeader.Margin = new Padding(4, 3, 4, 3);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(1120, 50);
+            pnlHeader.Size = new Size(1440, 77);
             pnlHeader.TabIndex = 0;
             // 
             // btnClose
@@ -84,10 +84,10 @@ namespace _2611_WIN_B3.Forms
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             btnClose.ForeColor = Color.FromArgb(30, 41, 59);
-            btnClose.Location = new Point(1020, 9);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Location = new Point(1311, 14);
+            btnClose.Margin = new Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(88, 32);
+            btnClose.Size = new Size(113, 49);
             btnClose.TabIndex = 1;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = false;
@@ -98,28 +98,29 @@ namespace _2611_WIN_B3.Forms
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(15, 30, 60);
-            lblTitle.Location = new Point(14, 12);
+            lblTitle.Location = new Point(18, 18);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(420, 24);
+            lblTitle.Size = new Size(525, 28);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "🧩 EVIDENCE BOARD — BẢNG MANH MỐI & TIMELINE";
+            lblTitle.Text = "\U0001f9e9 EVIDENCE BOARD — BẢNG MANH MỐI & TIMELINE";
             // 
             // pnlMain
             // 
             pnlMain.Controls.Add(splitContainer1);
             pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 41);
-            pnlMain.Margin = new Padding(3, 2, 3, 2);
+            pnlMain.Location = new Point(0, 77);
+            pnlMain.Margin = new Padding(4, 3, 4, 3);
             pnlMain.Name = "pnlMain";
-            pnlMain.Padding = new Padding(9, 8, 9, 8);
-            pnlMain.Size = new Size(861, 455);
+            pnlMain.Padding = new Padding(12, 12, 12, 12);
+            pnlMain.Size = new Size(1440, 978);
             pnlMain.TabIndex = 1;
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(9, 8);
-            splitContainer1.Margin = new Padding(3, 2, 3, 2);
+            splitContainer1.Location = new Point(12, 12);
+            splitContainer1.Margin = new Padding(4, 3, 4, 3);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -129,8 +130,9 @@ namespace _2611_WIN_B3.Forms
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(grpConnections);
-            splitContainer1.Size = new Size(1102, 650);
-            splitContainer1.SplitterDistance = 540;
+            splitContainer1.Size = new Size(1416, 954);
+            splitContainer1.SplitterDistance = 693;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 0;
             // 
             // grpEvidences
@@ -143,10 +145,10 @@ namespace _2611_WIN_B3.Forms
             grpEvidences.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             grpEvidences.ForeColor = Color.FromArgb(15, 30, 60);
             grpEvidences.Location = new Point(0, 0);
-            grpEvidences.Margin = new Padding(3, 2, 3, 2);
+            grpEvidences.Margin = new Padding(4, 3, 4, 3);
             grpEvidences.Name = "grpEvidences";
-            grpEvidences.Padding = new Padding(9, 8, 9, 8);
-            grpEvidences.Size = new Size(402, 439);
+            grpEvidences.Padding = new Padding(12, 12, 12, 12);
+            grpEvidences.Size = new Size(693, 954);
             grpEvidences.TabIndex = 0;
             grpEvidences.TabStop = false;
             grpEvidences.Text = "  MANH MỐI ĐÃ THU THẬP  ";
@@ -158,12 +160,12 @@ namespace _2611_WIN_B3.Forms
             txtEvidenceDesc.BorderStyle = BorderStyle.None;
             txtEvidenceDesc.Font = new Font("Segoe UI", 9.25F);
             txtEvidenceDesc.ForeColor = Color.FromArgb(30, 41, 59);
-            txtEvidenceDesc.Location = new Point(9, 314);
-            txtEvidenceDesc.Margin = new Padding(3, 2, 3, 2);
+            txtEvidenceDesc.Location = new Point(12, 438);
+            txtEvidenceDesc.Margin = new Padding(4, 3, 4, 3);
             txtEvidenceDesc.Name = "txtEvidenceDesc";
             txtEvidenceDesc.ReadOnly = true;
             txtEvidenceDesc.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtEvidenceDesc.Size = new Size(385, 116);
+            txtEvidenceDesc.Size = new Size(494, 178);
             txtEvidenceDesc.TabIndex = 2;
             txtEvidenceDesc.Text = "Chọn một manh mối ở trên để đọc nội dung phân tích chi tiết...";
             // 
@@ -172,9 +174,10 @@ namespace _2611_WIN_B3.Forms
             lblDescTitle.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblDescTitle.AutoSize = true;
             lblDescTitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblDescTitle.Location = new Point(9, 295);
+            lblDescTitle.Location = new Point(12, 409);
+            lblDescTitle.Margin = new Padding(4, 0, 4, 0);
             lblDescTitle.Name = "lblDescTitle";
-            lblDescTitle.Size = new Size(118, 15);
+            lblDescTitle.Size = new Size(150, 20);
             lblDescTitle.TabIndex = 1;
             lblDescTitle.Text = "Phân tích manh mối:";
             // 
@@ -187,11 +190,11 @@ namespace _2611_WIN_B3.Forms
             lvEvidences.ForeColor = Color.FromArgb(30, 41, 59);
             lvEvidences.FullRowSelect = true;
             lvEvidences.GridLines = true;
-            lvEvidences.Location = new Point(9, 21);
-            lvEvidences.Margin = new Padding(3, 2, 3, 2);
+            lvEvidences.Location = new Point(12, 32);
+            lvEvidences.Margin = new Padding(4, 3, 4, 3);
             lvEvidences.MultiSelect = false;
             lvEvidences.Name = "lvEvidences";
-            lvEvidences.Size = new Size(385, 269);
+            lvEvidences.Size = new Size(493, 368);
             lvEvidences.TabIndex = 0;
             lvEvidences.UseCompatibleStateImageBehavior = false;
             lvEvidences.View = View.Details;
@@ -231,10 +234,10 @@ namespace _2611_WIN_B3.Forms
             grpConnections.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             grpConnections.ForeColor = Color.FromArgb(15, 30, 60);
             grpConnections.Location = new Point(0, 0);
-            grpConnections.Margin = new Padding(3, 2, 3, 2);
+            grpConnections.Margin = new Padding(4, 3, 4, 3);
             grpConnections.Name = "grpConnections";
-            grpConnections.Padding = new Padding(10, 9, 10, 9);
-            grpConnections.Size = new Size(437, 439);
+            grpConnections.Padding = new Padding(13, 14, 13, 14);
+            grpConnections.Size = new Size(718, 954);
             grpConnections.TabIndex = 0;
             grpConnections.TabStop = false;
             grpConnections.Text = "  KẾT NỐI BẰNG CHỨNG & TIMELINE  ";
@@ -248,11 +251,11 @@ namespace _2611_WIN_B3.Forms
             lvTimeline.ForeColor = Color.FromArgb(30, 41, 59);
             lvTimeline.FullRowSelect = true;
             lvTimeline.GridLines = true;
-            lvTimeline.Location = new Point(10, 259);
-            lvTimeline.Margin = new Padding(3, 2, 3, 2);
+            lvTimeline.Location = new Point(13, 397);
+            lvTimeline.Margin = new Padding(4, 3, 4, 3);
             lvTimeline.MultiSelect = false;
             lvTimeline.Name = "lvTimeline";
-            lvTimeline.Size = new Size(416, 172);
+            lvTimeline.Size = new Size(535, 220);
             lvTimeline.TabIndex = 7;
             lvTimeline.UseCompatibleStateImageBehavior = false;
             lvTimeline.View = View.Details;
@@ -275,9 +278,10 @@ namespace _2611_WIN_B3.Forms
             // 
             lblTimelineTitle.AutoSize = true;
             lblTimelineTitle.ForeColor = Color.FromArgb(15, 30, 60);
-            lblTimelineTitle.Location = new Point(10, 238);
+            lblTimelineTitle.Location = new Point(13, 365);
+            lblTimelineTitle.Margin = new Padding(4, 0, 4, 0);
             lblTimelineTitle.Name = "lblTimelineTitle";
-            lblTimelineTitle.Size = new Size(212, 15);
+            lblTimelineTitle.Size = new Size(266, 20);
             lblTimelineTitle.TabIndex = 6;
             lblTimelineTitle.Text = "DÒNG THỜI GIAN VỤ ÁN (TIMELINE):";
             // 
@@ -287,10 +291,11 @@ namespace _2611_WIN_B3.Forms
             lblConnectResult.BackColor = Color.FromArgb(248, 250, 252);
             lblConnectResult.BorderStyle = BorderStyle.FixedSingle;
             lblConnectResult.ForeColor = Color.FromArgb(30, 41, 59);
-            lblConnectResult.Location = new Point(10, 169);
+            lblConnectResult.Location = new Point(13, 259);
+            lblConnectResult.Margin = new Padding(4, 0, 4, 0);
             lblConnectResult.Name = "lblConnectResult";
-            lblConnectResult.Padding = new Padding(7, 6, 7, 6);
-            lblConnectResult.Size = new Size(416, 60);
+            lblConnectResult.Padding = new Padding(9, 9, 9, 9);
+            lblConnectResult.Size = new Size(535, 91);
             lblConnectResult.TabIndex = 5;
             lblConnectResult.Text = "Chọn 2 bằng chứng ở trên rồi bấm nút 'TẠO LIÊN KẾT' để kiểm tra sự trùng khớp.";
             // 
@@ -303,10 +308,10 @@ namespace _2611_WIN_B3.Forms
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(10, 128);
-            btnConnect.Margin = new Padding(3, 2, 3, 2);
+            btnConnect.Location = new Point(13, 196);
+            btnConnect.Margin = new Padding(4, 3, 4, 3);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(415, 32);
+            btnConnect.Size = new Size(535, 49);
             btnConnect.TabIndex = 4;
             btnConnect.Text = "🔗 TẠO LIÊN KẾT (CONNECT)";
             btnConnect.UseVisualStyleBackColor = false;
@@ -320,19 +325,20 @@ namespace _2611_WIN_B3.Forms
             cboEvidenceB.FlatStyle = FlatStyle.Flat;
             cboEvidenceB.ForeColor = Color.FromArgb(15, 23, 42);
             cboEvidenceB.FormattingEnabled = true;
-            cboEvidenceB.Location = new Point(10, 94);
-            cboEvidenceB.Margin = new Padding(3, 2, 3, 2);
+            cboEvidenceB.Location = new Point(13, 144);
+            cboEvidenceB.Margin = new Padding(4, 3, 4, 3);
             cboEvidenceB.Name = "cboEvidenceB";
-            cboEvidenceB.Size = new Size(416, 23);
+            cboEvidenceB.Size = new Size(535, 28);
             cboEvidenceB.TabIndex = 3;
             // 
             // lblSelectB
             // 
             lblSelectB.AutoSize = true;
             lblSelectB.ForeColor = Color.FromArgb(100, 116, 139);
-            lblSelectB.Location = new Point(10, 75);
+            lblSelectB.Location = new Point(13, 115);
+            lblSelectB.Margin = new Padding(4, 0, 4, 0);
             lblSelectB.Name = "lblSelectB";
-            lblSelectB.Size = new Size(115, 15);
+            lblSelectB.Size = new Size(148, 20);
             lblSelectB.TabIndex = 2;
             lblSelectB.Text = "Chọn bằng chứng B:";
             // 
@@ -344,32 +350,33 @@ namespace _2611_WIN_B3.Forms
             cboEvidenceA.FlatStyle = FlatStyle.Flat;
             cboEvidenceA.ForeColor = Color.FromArgb(15, 23, 42);
             cboEvidenceA.FormattingEnabled = true;
-            cboEvidenceA.Location = new Point(10, 41);
-            cboEvidenceA.Margin = new Padding(3, 2, 3, 2);
+            cboEvidenceA.Location = new Point(13, 63);
+            cboEvidenceA.Margin = new Padding(4, 3, 4, 3);
             cboEvidenceA.Name = "cboEvidenceA";
-            cboEvidenceA.Size = new Size(416, 23);
+            cboEvidenceA.Size = new Size(535, 28);
             cboEvidenceA.TabIndex = 1;
             // 
             // lblSelectA
             // 
             lblSelectA.AutoSize = true;
             lblSelectA.ForeColor = Color.FromArgb(100, 116, 139);
-            lblSelectA.Location = new Point(10, 22);
+            lblSelectA.Location = new Point(13, 34);
+            lblSelectA.Margin = new Padding(4, 0, 4, 0);
             lblSelectA.Name = "lblSelectA";
-            lblSelectA.Size = new Size(116, 15);
+            lblSelectA.Size = new Size(149, 20);
             lblSelectA.TabIndex = 0;
             lblSelectA.Text = "Chọn bằng chứng A:";
             // 
             // EvidenceBoardForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 245);
-            ClientSize = new Size(1120, 720);
+            ClientSize = new Size(1440, 1055);
             Controls.Add(pnlMain);
             Controls.Add(pnlHeader);
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(950, 600);
+            Margin = new Padding(4, 3, 4, 3);
+            MinimumSize = new Size(1216, 895);
             Name = "EvidenceBoardForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Evidence Board — Bảng Manh Mối & Kết Nối";

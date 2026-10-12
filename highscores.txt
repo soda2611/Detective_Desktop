@@ -87,3 +87,17 @@ Evidences: 6/6
 TimelineLinks: 3
 Rank: S+ (Thiên tài)
 --------------------------------------------------------------------------------------------------------
+
+[RECORD]
+Date: 2026-10-12 10:19:19
+Detective: Thám tử
+CaseId: Case #004
+CaseTitle: The Encrypted Conspiracy
+Ending: ENDING 4: ĐIỀU TRA DANG DỞ
+Score: 20
+ElapsedSeconds: 183
+Time: 03:03
+Evidences: 2/12
+TimelineLinks: 0
+Rank: F (Chưa đạt)
+--------------------------------------------------------------------------------------------------------

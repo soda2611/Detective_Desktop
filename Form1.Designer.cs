@@ -134,7 +134,7 @@ namespace _2611_WIN_B3
             pnlDesktop.Dock = DockStyle.Fill;
             pnlDesktop.Location = new Point(0, 0);
             pnlDesktop.Name = "pnlDesktop";
-            pnlDesktop.Size = new Size(1120, 546);
+            pnlDesktop.Size = new Size(1498, 728);
             pnlDesktop.TabIndex = 0;
             // 
             // desktopContextMenu
@@ -230,7 +230,7 @@ namespace _2611_WIN_B3
             // lblGuide
             // 
             lblGuide.BackColor = Color.Transparent;
-            lblGuide.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblGuide.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblGuide.ForeColor = Color.FromArgb(20, 60, 110);
             lblGuide.Location = new Point(0, 84);
             lblGuide.Name = "lblGuide";
@@ -259,11 +259,11 @@ namespace _2611_WIN_B3
             grpCaseBrief.Controls.Add(btnHighScores);
             grpCaseBrief.Controls.Add(btnSelectCase);
             grpCaseBrief.Controls.Add(txtCaseOverview);
-            grpCaseBrief.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            grpCaseBrief.Font = new Font("Segoe UI", 9.6F, FontStyle.Bold);
             grpCaseBrief.ForeColor = Color.FromArgb(15, 45, 80);
-            grpCaseBrief.Location = new Point(420, 21);
+            grpCaseBrief.Location = new Point(531, 21);
             grpCaseBrief.Name = "grpCaseBrief";
-            grpCaseBrief.Size = new Size(642, 481);
+            grpCaseBrief.Size = new Size(948, 663);
             grpCaseBrief.TabIndex = 10;
             grpCaseBrief.TabStop = false;
             grpCaseBrief.Text = "  HỒ SƠ VỤ ÁN / NHIỆM VỤ ĐIỀU TRA  ";
@@ -275,9 +275,9 @@ namespace _2611_WIN_B3
             btnStartInvestigation.Cursor = Cursors.Hand;
             btnStartInvestigation.FlatAppearance.BorderColor = Color.FromArgb(21, 128, 61);
             btnStartInvestigation.FlatStyle = FlatStyle.Flat;
-            btnStartInvestigation.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold);
+            btnStartInvestigation.Font = new Font("Segoe UI", 9.2F, FontStyle.Bold);
             btnStartInvestigation.ForeColor = Color.White;
-            btnStartInvestigation.Location = new Point(264, 431);
+            btnStartInvestigation.Location = new Point(395, 613);
             btnStartInvestigation.Name = "btnStartInvestigation";
             btnStartInvestigation.Size = new Size(162, 37);
             btnStartInvestigation.TabIndex = 4;
@@ -292,9 +292,9 @@ namespace _2611_WIN_B3
             btnHighScores.Cursor = Cursors.Hand;
             btnHighScores.FlatAppearance.BorderColor = Color.FromArgb(170, 205, 245);
             btnHighScores.FlatStyle = FlatStyle.Flat;
-            btnHighScores.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+            btnHighScores.Font = new Font("Segoe UI Semibold", 8.400001F, FontStyle.Bold);
             btnHighScores.ForeColor = Color.FromArgb(10, 65, 140);
-            btnHighScores.Location = new Point(261, 431);
+            btnHighScores.Location = new Point(567, 613);
             btnHighScores.Name = "btnHighScores";
             btnHighScores.Size = new Size(179, 37);
             btnHighScores.TabIndex = 2;
@@ -309,9 +309,9 @@ namespace _2611_WIN_B3
             btnSelectCase.Cursor = Cursors.Hand;
             btnSelectCase.FlatAppearance.BorderColor = Color.FromArgb(170, 195, 225);
             btnSelectCase.FlatStyle = FlatStyle.Flat;
-            btnSelectCase.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+            btnSelectCase.Font = new Font("Segoe UI Semibold", 8.400001F, FontStyle.Bold);
             btnSelectCase.ForeColor = Color.FromArgb(15, 45, 85);
-            btnSelectCase.Location = new Point(449, 431);
+            btnSelectCase.Location = new Point(755, 613);
             btnSelectCase.Name = "btnSelectCase";
             btnSelectCase.Size = new Size(179, 37);
             btnSelectCase.TabIndex = 1;
@@ -324,13 +324,13 @@ namespace _2611_WIN_B3
             txtCaseOverview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCaseOverview.BackColor = Color.FromArgb(248, 250, 252);
             txtCaseOverview.BorderStyle = BorderStyle.None;
-            txtCaseOverview.Font = new Font("Segoe UI", 11.5F);
+            txtCaseOverview.Font = new Font("Segoe UI", 9.2F);
             txtCaseOverview.ForeColor = Color.FromArgb(30, 41, 59);
             txtCaseOverview.Location = new Point(16, 29);
             txtCaseOverview.Name = "txtCaseOverview";
             txtCaseOverview.ReadOnly = true;
             txtCaseOverview.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtCaseOverview.Size = new Size(612, 388);
+            txtCaseOverview.Size = new Size(918, 570);
             txtCaseOverview.TabIndex = 0;
             txtCaseOverview.Text = "";
             // 
@@ -349,7 +349,7 @@ namespace _2611_WIN_B3
             // lblCaseReport
             // 
             lblCaseReport.BackColor = Color.Transparent;
-            lblCaseReport.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblCaseReport.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblCaseReport.ForeColor = Color.FromArgb(15, 30, 60);
             lblCaseReport.Location = new Point(0, 84);
             lblCaseReport.Name = "lblCaseReport";
@@ -385,7 +385,7 @@ namespace _2611_WIN_B3
             // lblEvidenceBoard
             // 
             lblEvidenceBoard.BackColor = Color.Transparent;
-            lblEvidenceBoard.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblEvidenceBoard.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblEvidenceBoard.ForeColor = Color.FromArgb(15, 30, 60);
             lblEvidenceBoard.Location = new Point(0, 84);
             lblEvidenceBoard.Name = "lblEvidenceBoard";
@@ -421,7 +421,7 @@ namespace _2611_WIN_B3
             // lblNotes
             // 
             lblNotes.BackColor = Color.Transparent;
-            lblNotes.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblNotes.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblNotes.ForeColor = Color.FromArgb(15, 30, 60);
             lblNotes.Location = new Point(0, 84);
             lblNotes.Name = "lblNotes";
@@ -457,7 +457,7 @@ namespace _2611_WIN_B3
             // lblSearch
             // 
             lblSearch.BackColor = Color.Transparent;
-            lblSearch.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblSearch.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblSearch.ForeColor = Color.FromArgb(15, 30, 60);
             lblSearch.Location = new Point(0, 84);
             lblSearch.Name = "lblSearch";
@@ -493,7 +493,7 @@ namespace _2611_WIN_B3
             // lblRecycleBin
             // 
             lblRecycleBin.BackColor = Color.Transparent;
-            lblRecycleBin.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblRecycleBin.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblRecycleBin.ForeColor = Color.FromArgb(15, 30, 60);
             lblRecycleBin.Location = new Point(0, 84);
             lblRecycleBin.Name = "lblRecycleBin";
@@ -529,7 +529,7 @@ namespace _2611_WIN_B3
             // lblMail
             // 
             lblMail.BackColor = Color.Transparent;
-            lblMail.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblMail.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblMail.ForeColor = Color.FromArgb(15, 30, 60);
             lblMail.Location = new Point(0, 84);
             lblMail.Name = "lblMail";
@@ -565,7 +565,7 @@ namespace _2611_WIN_B3
             // lblBrowser
             // 
             lblBrowser.BackColor = Color.Transparent;
-            lblBrowser.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblBrowser.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblBrowser.ForeColor = Color.FromArgb(15, 30, 60);
             lblBrowser.Location = new Point(0, 84);
             lblBrowser.Name = "lblBrowser";
@@ -601,7 +601,7 @@ namespace _2611_WIN_B3
             // lblDocuments
             // 
             lblDocuments.BackColor = Color.Transparent;
-            lblDocuments.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold);
+            lblDocuments.Font = new Font("Segoe UI Semibold", 11.6F, FontStyle.Bold);
             lblDocuments.ForeColor = Color.FromArgb(15, 30, 60);
             lblDocuments.Location = new Point(0, 84);
             lblDocuments.Name = "lblDocuments";
@@ -680,9 +680,9 @@ namespace _2611_WIN_B3
             pnlTaskbar.Controls.Add(lblVictimInfo);
             pnlTaskbar.Controls.Add(lblCaseTitle);
             pnlTaskbar.Dock = DockStyle.Bottom;
-            pnlTaskbar.Location = new Point(0, 588);
+            pnlTaskbar.Location = new Point(0, 728);
             pnlTaskbar.Name = "pnlTaskbar";
-            pnlTaskbar.Size = new Size(1120, 58);
+            pnlTaskbar.Size = new Size(1498, 58);
             pnlTaskbar.TabIndex = 1;
             // 
             // btnSoundToggle
@@ -692,9 +692,9 @@ namespace _2611_WIN_B3
             btnSoundToggle.Cursor = Cursors.Hand;
             btnSoundToggle.FlatAppearance.BorderColor = Color.FromArgb(170, 195, 225);
             btnSoundToggle.FlatStyle = FlatStyle.Flat;
-            btnSoundToggle.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold);
+            btnSoundToggle.Font = new Font("Segoe UI Semibold", 8.400001F, FontStyle.Bold);
             btnSoundToggle.ForeColor = Color.FromArgb(20, 60, 110);
-            btnSoundToggle.Location = new Point(879, 14);
+            btnSoundToggle.Location = new Point(1257, 14);
             btnSoundToggle.Name = "btnSoundToggle";
             btnSoundToggle.Size = new Size(109, 34);
             btnSoundToggle.TabIndex = 6;
@@ -705,9 +705,9 @@ namespace _2611_WIN_B3
             // lblCaseTimer
             // 
             lblCaseTimer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblCaseTimer.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
+            lblCaseTimer.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblCaseTimer.ForeColor = Color.FromArgb(16, 95, 175);
-            lblCaseTimer.Location = new Point(993, 32);
+            lblCaseTimer.Location = new Point(1371, 32);
             lblCaseTimer.Name = "lblCaseTimer";
             lblCaseTimer.Size = new Size(122, 24);
             lblCaseTimer.TabIndex = 7;
@@ -717,9 +717,9 @@ namespace _2611_WIN_B3
             // lblClock
             // 
             lblClock.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblClock.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold);
+            lblClock.Font = new Font("Segoe UI", 9.2F, FontStyle.Bold);
             lblClock.ForeColor = Color.FromArgb(20, 35, 60);
-            lblClock.Location = new Point(993, 8);
+            lblClock.Location = new Point(1371, 8);
             lblClock.Name = "lblClock";
             lblClock.Size = new Size(122, 22);
             lblClock.TabIndex = 5;
@@ -730,11 +730,11 @@ namespace _2611_WIN_B3
             // 
             lblNotification.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblNotification.AutoEllipsis = true;
-            lblNotification.Font = new Font("Segoe UI", 10.5F);
+            lblNotification.Font = new Font("Segoe UI", 8.400001F);
             lblNotification.ForeColor = Color.FromArgb(40, 55, 75);
             lblNotification.Location = new Point(429, 8);
             lblNotification.Name = "lblNotification";
-            lblNotification.Size = new Size(442, 44);
+            lblNotification.Size = new Size(820, 44);
             lblNotification.TabIndex = 4;
             lblNotification.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -749,33 +749,33 @@ namespace _2611_WIN_B3
             // lblEvidenceCounter
             // 
             lblEvidenceCounter.AutoSize = true;
-            lblEvidenceCounter.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            lblEvidenceCounter.Font = new Font("Segoe UI Semibold", 8.8F, FontStyle.Bold);
             lblEvidenceCounter.ForeColor = Color.FromArgb(16, 95, 175);
             lblEvidenceCounter.Location = new Point(249, 4);
             lblEvidenceCounter.Name = "lblEvidenceCounter";
-            lblEvidenceCounter.Size = new Size(164, 20);
+            lblEvidenceCounter.Size = new Size(130, 15);
             lblEvidenceCounter.TabIndex = 2;
             lblEvidenceCounter.Text = "Bằng chứng: 0 / 8 (0%)";
             // 
             // lblVictimInfo
             // 
             lblVictimInfo.AutoSize = true;
-            lblVictimInfo.Font = new Font("Segoe UI", 10.5F);
+            lblVictimInfo.Font = new Font("Segoe UI", 8.400001F);
             lblVictimInfo.ForeColor = Color.FromArgb(80, 95, 115);
             lblVictimInfo.Location = new Point(14, 42);
             lblVictimInfo.Name = "lblVictimInfo";
-            lblVictimInfo.Size = new Size(286, 19);
+            lblVictimInfo.Size = new Size(247, 15);
             lblVictimInfo.TabIndex = 1;
             lblVictimInfo.Text = "Nạn nhân: Đang nạp... | Mục tiêu: Đang nạp...";
             // 
             // lblCaseTitle
             // 
             lblCaseTitle.AutoSize = true;
-            lblCaseTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCaseTitle.Font = new Font("Segoe UI", 9.6F, FontStyle.Bold);
             lblCaseTitle.ForeColor = Color.FromArgb(15, 30, 60);
             lblCaseTitle.Location = new Point(14, 22);
             lblCaseTitle.Name = "lblCaseTitle";
-            lblCaseTitle.Size = new Size(178, 21);
+            lblCaseTitle.Size = new Size(149, 17);
             lblCaseTitle.TabIndex = 0;
             lblCaseTitle.Text = "Đang tải hồ sơ vụ án...";
             // 
@@ -787,13 +787,14 @@ namespace _2611_WIN_B3
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(232, 238, 245);
-            ClientSize = new Size(1650, 960);
+            ClientSize = new Size(1498, 786);
             Controls.Add(pnlDesktop);
             Controls.Add(pnlTaskbar);
-            MinimumSize = new Size(1150, 720);
+            Font = new Font("Segoe UI", 8F);
+            MinimumSize = new Size(1149, 718);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Desktop Detective — Case #001: The Missing File";
