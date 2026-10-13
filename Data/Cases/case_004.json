@@ -5,37 +5,37 @@
   "MissingFileName": "Project_AETHER_Master_Deploy.enc",
   "IncidentDate": "2026-10-25",
   "Difficulty": "Rất khó",
-  "Overview": "Rạng sáng ngày 25/10/2026, thông tin bảo mật cùng toàn bộ file triển khai cốt lõi 'Project_AETHER_Master_Deploy.enc' thuộc dự án Trí tuệ nhân tạo hợp tác của 8 thành viên nòng cốt bị rò rỉ ra bên ngoài, gây thiệt hại nặng nề về tài chính và tiến độ. Nhằm tiêu hủy bằng chứng và đổ tội cho tập thể, kẻ thủ mưu (Hung thủ 1) đã soạn email đe dọa chứa liên kết độc hại gửi đến toàn bộ thành viên. Tuy nhiên, một thành viên phát hiện điểm bất thường trong mail nên đã âm thầm theo dõi và tận mắt chứng kiến Hung thủ 1 sát hại Dr. Gregory Vance. Bị phát hiện, Hung thủ 1 đã ép buộc người này (Hung thủ 2) phải đồng phạm, cùng thực hiện chuỗi hành vi tiêu hủy dữ liệu, ngụy tạo chứng cứ và uy hiếp các thành viên còn lại.",
-  "SummaryBrief": "Vụ án rò rỉ thông tin dự án AI/CNTT cấp cao, án mạng che giấu tội ác và sự hợp tác cưỡng ép giữa hai hung thủ nội bộ.",
-  "CorrectSuspectId": "SUSPECT_01, SUSPECT_05",
-  "CorrectMotive": "Hung thủ 1 (Jonathan Vance): Bán thông tin mật dự án cho tập đoàn đối thủ với giá 500,000 USD để trả nợ cá nhân, sát hại Giám đốc để bịt đầu mối. Hung thủ 2 (Elena Rostova): Bị Hung thủ 1 phát hiện và uy hiếp bằng chứng cứ vi phạm kỷ luật cũ sau khi tận mắt chứng kiến vụ án mạng, buộc phải tiếp tay tiêu hủy dấu vết.",
-  "CorrectMethod": "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai.",
+  "Overview": "Rạng sáng ngày 25/10/2026, thông tin bảo mật cùng toàn bộ file triển khai cốt lõi 'Project_AETHER_Master_Deploy.enc' thuộc dự án Trí tuệ nhân tạo hợp tác của 8 thành viên nòng cốt bị rò rỉ ra bên ngoài, gây thiệt hại nặng nề về tài chính và tiến độ. Nhằm tiêu hủy bằng chứng và đánh lạc hướng, kẻ thủ mưu đã soạn email đe dọa chứa liên kết độc hại gửi đến toàn bộ thành viên. Tuy nhiên, trong quá trình gửi mail thì có một thành viên phát hiện điểm bất thường từ mail, nên đã âm thầm theo dõi và tận mắt chứng kiến hung thủ ra tay sát hại Dr. Gregory Vance để bịt đầu mối. Nhiệm vụ của người chơi là bóc gỡ các lớp ngụy trang công nghệ và tìm ra danh tính duy nhất của kẻ thủ mưu.",
+  "SummaryBrief": "Vụ án rò rỉ thông tin dự án AI/CNTT cấp cao, án mạng che giấu tội ác và hành vi can thiệp hệ thống tinh vi của kẻ nội gián.",
+  "CorrectSuspectId": "SUSPECT_01",
+  "CorrectMotive": "Bán thông tin mật dự án cho tập đoàn đối thủ NexaTech với giá 500,000 USD để trả nợ cá nhân, sát hại Giám đốc Kiến trúc để bịt đầu mối khi bị phát hiện.",
+  "CorrectMethod": "Gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện; sau đó tự tay chạy script xóa log hệ thống, force-push xóa lịch sử Git và giấu khóa mã hóa master vào Thùng Rác để đổ tội cho đợt tấn công từ bên ngoài.",
   "MotiveOptions": [
-    "Hung thủ 1: Bán thông tin dự án lấy 500,000 USD trả nợ cá nhân và diệt khẩu. Hung thủ 2: Bị uy hiếp tiêu hủy chứng cứ sau khi tận mắt chứng kiến vụ án mạng",
+    "Bán thông tin mật dự án cho tập đoàn đối thủ NexaTech với giá 500,000 USD để trả nợ cá nhân, sát hại Giám đốc Kiến trúc để bịt đầu mối",
     "Tranh chấp quyền sở hữu trí tuệ thuật toán AI giữa các thành viên nhóm nghiên cứu",
     "Tấn công từ xa của nhóm hacker mũ đen nhằm đòi tiền chuộc bằng tiền mã hóa",
     "Mâu thuẫn cá nhân về việc phân chia lợi nhuận và chức danh quản lý dự án"
   ],
   "MethodOptions": [
-    "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai",
+    "Gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, sát hại nạn nhân khi bị phát hiện; chạy script xóa log hệ thống, force-push xóa lịch sử Git và giấu khóa mã hóa master vào Thùng Rác",
     "Sử dụng phần mềm gián điệp keylogger từ xa để lấy tài khoản Root và xóa dữ liệu tự động",
     "Đột nhập trung tâm dữ liệu, cắt nguồn điện toàn tòa nhà và tháo gỡ trực tiếp các ổ cứng vật lý",
     "Phát tán mã độc tống tiền Ransomware qua đường link họp trực tuyến để khóa toàn bộ hệ thống"
   ],
   "RequiredEvidenceIds": [
     "E301",
-    "E303",
+    "E302",
+    "E304",
     "E305",
-    "E308",
-    "E311"
+    "E308"
   ],
   "MinEvidenceForPass": 5,
   "Suspects": [
     {
       "Id": "SUSPECT_01",
       "Name": "Jonathan Vance",
-      "Role": "Lead AI Architect (Hung thủ 1)",
-      "Description": "Architecht trưởng phụ trách thuật toán cốt lõi của AETHER. Nắm giữ hạ tầng triển khai mô hình.",
+      "Role": "Lead AI Architect",
+      "Description": "Architect trưởng phụ trách thuật toán cốt lõi của AETHER. Nắm giữ hạ tầng triển khai mô hình.",
       "PossibleMotive": "Thỏa thuận bán tài liệu dự án lấy 500,000 USD cho đối thủ NexaTech; diệt khẩu nạn nhân khi bị phát hiện.",
       "Alibi": "Khai rằng đang thực hiện cập nhật hạ tầng máy chủ tại nhà từ 01:00 đến 03:00 sáng."
     },
@@ -66,9 +66,9 @@
     {
       "Id": "SUSPECT_05",
       "Name": "Elena Rostova",
-      "Role": "Senior Software Engineer (Hung thủ 2)",
-      "Description": "Kỹ sư phần mềm cấp cao. Người phát hiện điểm bất thường trong mail, chứng kiến vụ án mạng và bị ép làm đồng phạm.",
-      "PossibleMotive": "Bị Jonathan Vance uy hiếp bằng chứng cứ gian lận mã nguồn cũ, cưỡng ép tiếp tay tiêu hủy vật chứng.",
+      "Role": "Senior Software Engineer",
+      "Description": "Kỹ sư phần mềm cấp cao. Người phát hiện điểm bất thường từ mail, âm thầm theo dõi hung thủ và thu thập chứng cứ ngầm.",
+      "PossibleMotive": "Từng bị nhắc nhở vì vi phạm quy trình đẩy code lên môi trường Production.",
       "Alibi": "Khai rằng làm việc muộn tại phòng lab tầng 4 và ra về lúc 01:30 sáng."
     },
     {
@@ -116,23 +116,23 @@
     {
       "Id": "E303",
       "Name": "Nhật ký Camera hành lang tầng 5",
-      "Description": "Camera ghi lại cảnh Elena âm thầm đi theo Jonathan vào phòng làm việc của Dr. Gregory Vance lúc 01:35 sáng.",
-      "Source": "Camera Logs",
+      "Description": "Camera ghi lại cảnh Elena âm thầm đi theo Jonathan vào khu vực phòng làm việc của Dr. Gregory Vance lúc 01:35 sáng.",
+      "Source": "Documents / Camera Logs",
       "Importance": "Critical",
       "Timestamp": "01:35"
     },
     {
       "Id": "E304",
       "Name": "Tệp ghi âm bị đứt đoạn - voice_memo_0140.wav",
-      "Description": "Đoạn ghi âm từ điện thoại nạn nhân ghi lại tiếng cãi vã giữa Jonathan và Dr. Gregory, theo sau là tiếng giằng co và lời đe dọa ép Elena giữ im lặng.",
+      "Description": "Đoạn ghi âm từ điện thoại nạn nhân ghi lại tiếng cãi vã giữa Jonathan và Dr. Gregory, theo sau là tiếng giằng co hung thủ ra tay diệt khẩu.",
       "Source": "Documents / Work",
       "Importance": "High",
       "Timestamp": "01:40"
     },
     {
       "Id": "E305",
-      "Name": "Nhật ký Active Directory - Lệnh can thiệp Log hai tài khoản",
-      "Description": "Log hệ thống ghi nhận tài khoản JonathanVance đăng nhập, sau đó tài khoản ElenaRostova thực thi script 'clear_audit_event.ps1' để xóa dấu vết quẹt thẻ.",
+      "Name": "Nhật ký Active Directory - Lệnh can thiệp Log",
+      "Description": "Log hệ thống ghi nhận tài khoản JonathanVance thực thi script 'clear_audit_event.ps1' để xóa dấu vết quẹt thẻ và nhật ký truy cập.",
       "Source": "System Logs",
       "Importance": "Critical",
       "Timestamp": "01:50"
@@ -148,7 +148,7 @@
     {
       "Id": "E307",
       "Name": "Mã nguồn xóa Git - force_cleanup_master.sh",
-      "Description": "Script shell do Elena Rostova chỉnh sửa theo lệnh của Jonathan nhằm force-push đè lên nhánh master Git để che giấu commit rò rỉ.",
+      "Description": "Script shell do Jonathan tạo ra nhằm force-push đè lên nhánh master Git để che giấu commit rò rỉ dữ liệu.",
       "Source": "Downloads",
       "Importance": "High",
       "Timestamp": "02:05"
@@ -156,7 +156,7 @@
     {
       "Id": "E308",
       "Name": "Thùng rác - Tệp khóa giải mã master_aether_key.pem",
-      "Description": "Khóa giải mã master bị Elena xóa vào Thùng rác máy tính trung tâm dưới sự uy hiếp của Jonathan lúc 02:15 sáng.",
+      "Description": "Khóa giải mã master bị Jonathan xóa vào Thùng rác máy tính trung tâm sau khi sao chép xong dữ liệu lúc 02:15 sáng.",
       "Source": "Recycle Bin",
       "Importance": "Critical",
       "Timestamp": "02:15"
@@ -165,7 +165,7 @@
       "Id": "E309",
       "Name": "Mẩu giấy tống tiền - Draft_Blackmail_Note.txt",
       "Description": "Bản nháp tệp text do Jonathan soạn sẵn nhằm gửi đe dọa các thành viên còn lại, đổ tội cho một cuộc tấn công từ bên ngoài.",
-      "Source": "Documents",
+      "Source": "Documents / Work",
       "Importance": "Medium",
       "Timestamp": "01:05"
     },
@@ -179,17 +179,17 @@
     },
     {
       "Id": "E311",
-      "Name": "Chat Log bị khôi phục - Message_Coercion.log",
-      "Description": "Đoạn tin nhắn mã hóa qua Telegram giữa Jonathan và Elena lúc 01:45 sáng: 'Cô đã thấy những gì không nên thấy. Giúp tôi xóa log ngay nếu không hồ sơ vi phạm cũ của cô sẽ gửi cho công an'.",
-      "Source": "System Logs / Chat",
+      "Name": "Chat Log bị khôi phục - Message_Trace.log",
+      "Description": "Đoạn tin nhắn mã hóa qua Telegram giữa Jonathan và bên môi giới NexaTech xác nhận đã giao dịch thành công file mã hóa.",
+      "Source": "Documents / System Logs / Chat",
       "Importance": "Critical",
       "Timestamp": "01:45"
     },
     {
       "Id": "E312",
       "Name": "Camera bãi xe - Xe ô tô rời trụ sở lúc 02:30",
-      "Description": "Camera ghi lại hai bóng người (một nam, một nữ) cùng rời khỏi tòa nhà qua cửa sau và lên xe của Jonathan Vance.",
-      "Source": "Camera Logs",
+      "Description": "Camera ghi lại cảnh xe ô tô của Jonathan Vance tăng tốc rời khỏi tòa nhà qua cửa thoát hiểm phía sau.",
+      "Source": "Documents / Camera Logs",
       "Importance": "Medium",
       "Timestamp": "02:30"
     }
@@ -253,7 +253,7 @@
       "Folder": "Work",
       "Size": "5 KB",
       "ModifiedTime": "2026-10-25 01:50",
-      "Content": "# Script xóa log hệ thống theo lệnh cưỡng ép\nClear-EventLog -LogName Security, System\nRemove-Item -Path C:\\Logs\\badge_access_5f.log -Force\nWrite-Host 'Audit trail erased by user ElenaRostova (Elevated by JonathanVance)'",
+      "Content": "# Script xóa log hệ thống do Jonathan chạy\nClear-EventLog -LogName Security, System\nRemove-Item -Path C:\\Logs\\badge_access_5f.log -Force\nWrite-Host 'Audit trail erased successfully by Admin JonathanVance.'",
       "IsDeleted": false,
       "EvidenceId": "E305"
     },
@@ -274,7 +274,7 @@
       "Folder": "Documents",
       "Size": "15 MB",
       "ModifiedTime": "2026-10-25 01:40",
-      "Content": "[TỆP GHI ÂM]: 'Jonathan... cậu đang làm gì với file mã hóa?... Đừng lại gần!... Elena, cứu tôi... Cô mà báo công an, cô cũng sẽ chết chắc!'",
+      "Content": "[TỆP GHI ÂM]: 'Jonathan... cậu đang làm gì với file mã hóa?... Đừng lại gần!... Bỏ dao xuống...'",
       "IsDeleted": false,
       "EvidenceId": "E304"
     },
@@ -304,49 +304,49 @@
     },
     {
       "Time": "01:25",
-      "EventDescription": "Elena phát hiện email giả mạo thông qua phân tích Header.",
+      "EventDescription": "Elena phát hiện email giả mạo thông qua phân tích Mail Header.",
       "EvidenceId": "E302",
       "IsVerified": false
     },
     {
       "Time": "01:35",
-      "EventDescription": "Elena âm thầm đi theo Jonathan vào phòng làm việc của Dr. Gregory.",
+      "EventDescription": "Elena âm thầm đi theo Jonathan vào khu vực phòng làm việc nạn nhân.",
       "EvidenceId": "E303",
       "IsVerified": false
     },
     {
       "Time": "01:40",
-      "EventDescription": "Án mạng xảy ra: Jonathan sát hại Dr. Gregory Vance, Elena chứng kiến.",
+      "EventDescription": "Án mạng xảy ra: Jonathan sát hại Dr. Gregory Vance.",
       "EvidenceId": "E304",
       "IsVerified": false
     },
     {
       "Time": "01:45",
-      "EventDescription": "Jonathan nhắn tin uy hiếp, cưỡng ép Elena trở thành đồng phạm.",
+      "EventDescription": "Jonathan nhắn tin xác nhận giao dịch tệp mã hóa với phía NexaTech.",
       "EvidenceId": "E311",
       "IsVerified": false
     },
     {
       "Time": "01:50",
-      "EventDescription": "Elena thực thi script xóa log dưới quyền truy cập của Jonathan.",
+      "EventDescription": "Jonathan thực thi script xóa log kiểm toán hệ thống.",
       "EvidenceId": "E305",
       "IsVerified": false
     },
     {
       "Time": "02:05",
-      "EventDescription": "Elena chạy script Git force-push đè dữ liệu mã nguồn.",
+      "EventDescription": "Jonathan chạy script Git force-push đè dữ liệu mã nguồn.",
       "EvidenceId": "E307",
       "IsVerified": false
     },
     {
       "Time": "02:15",
-      "EventDescription": "Khóa mã hóa master bị xóa vào Thùng Rác để phi tang.",
+      "EventDescription": "Khóa mã hóa master bị vứt vào Thùng Rác để phi tang.",
       "EvidenceId": "E308",
       "IsVerified": false
     },
     {
       "Time": "02:30",
-      "EventDescription": "Cả hai hung thủ cùng rời khỏi trụ sở bằng xe riêng.",
+      "EventDescription": "Jonathan lên xe ô tô rời khỏi trụ sở tòa nhà.",
       "EvidenceId": "E312",
       "IsVerified": false
     }
@@ -355,32 +355,32 @@
     {
       "EvidenceA": "E301",
       "EvidenceB": "E302",
-      "SuccessMessage": "CHÍNH XÁC: Email lừa đảo do Jonathan gửi đi bị Elena phát hiện nhờ phân tích Mail Header!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Phân tích header chứng minh email đe dọa không phải đến từ bên ngoài mà xuất phát từ máy của Jonathan Vance!"
+      "SuccessMessage": "CHÍNH XÁC: Email lừa đảo gửi đi bị phát hiện nhờ phân tích Mail Header từ máy của Jonathan!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Phân tích header chứng minh email đe dọa xuất phát từ chính trạm máy của Jonathan Vance!"
     },
     {
       "EvidenceA": "E303",
       "EvidenceB": "E304",
-      "SuccessMessage": "CHÍNH XÁC: Elena đi theo Jonathan vào phòng nạn nhân lúc 01:35 và chứng kiến vụ sát hại trong tệp ghi âm lúc 01:40!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Hình ảnh camera khớp hoàn toàn với tệp ghi âm: Elena đã có mặt tại hiện trường khi Jonathan sát hại nạn nhân!"
-    },
-    {
-      "EvidenceA": "E304",
-      "EvidenceB": "E311",
-      "SuccessMessage": "CHÍNH XÁC: Sau vụ sát hại, Jonathan đã nhắn tin đe dọa ép Elena phải tiếp tay tiêu hủy vật chứng!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Tin nhắn Telegram vạch trần vụ uy hiếp: Jonathan biến Elena từ người nhân chứng thành đồng phạm bị cưỡng ép!"
+      "SuccessMessage": "CHÍNH XÁC: Nhân chứng theo dõi Jonathan lúc 01:35 khớp với tệp ghi âm án mạng xảy ra lúc 01:40!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Hình ảnh camera và tệp ghi âm xác nhận Jonathan Vance chính là kẻ đã sát hại nạn nhân!"
     },
     {
       "EvidenceA": "E305",
       "EvidenceB": "E308",
-      "SuccessMessage": "CHÍNH XÁC: Chuỗi hành vi xóa log và giấu khóa giải mã vào Thùng Rác do hai hung thủ phối hợp thực hiện!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Bằng chứng phi tang: Jonathan và Elena đã cùng nhau xóa dấu vết hệ thống và giấu khóa master_aether_key.pem!"
+      "SuccessMessage": "CHÍNH XÁC: Jonathan tự tay thực thi script xóa log và giấu khóa mã hóa master vào Thùng Rác!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Bằng chứng phi tang: Jonathan Vance đã cố tình xóa sạch log hệ thống và giấu khóa master_aether_key.pem!"
     },
     {
       "EvidenceA": "E306",
       "EvidenceB": "E301",
-      "SuccessMessage": "CHÍNH XÁC: Động cơ 500,000 USD từ NexaTech thúc đẩy Jonathan phát tán mail độc và sát hại nạn nhân để bịt đầu mối!",
-      "NotificationText": "[KẾT NỐI TIMELINE] Động cơ phạm tội gốc: Thỏa thuận bán đứng dự án AETHER là nguyên nhân gây ra toàn bộ chuỗi tội ác!"
+      "SuccessMessage": "CHÍNH XÁC: Thỏa thuận 500,000 USD từ NexaTech là động cơ khiến Jonathan phát tán mail độc và ra tay diệt khẩu!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Động cơ phạm tội gốc: Thỏa thuận bán đứng dự án AETHER là nguyên nhân gây ra vụ án!"
+    },
+    {
+      "EvidenceA": "E310",
+      "EvidenceB": "E306",
+      "SuccessMessage": "CHÍNH XÁC: Nghi vấn của nạn nhân trong Sticky Note trùng khớp với hợp đồng bán chui dữ liệu cho NexaTech!",
+      "NotificationText": "[KẾT NỐI TIMELINE] Ghi chú của Dr. Gregory vạch trần mối liên hệ mờ ám giữa Jonathan Vance và đối thủ NexaTech!"
     }
   ],
   "Notes": [
