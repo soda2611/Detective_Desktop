@@ -95,7 +95,8 @@ namespace _2611_WIN_B3.Forms
                 {
                     Tag = file
                 };
-                lvi.SubItems.Add($"C:\\Users\\{c.VictimUserName}\\{file.OriginalFolder}");
+                string origFolder = (file.OriginalFolder ?? string.Empty).Replace(" / ", "\\").Replace("/", "\\");
+                lvi.SubItems.Add(string.IsNullOrEmpty(origFolder) ? $"C:\\Users\\{c.VictimUserName}" : $"C:\\Users\\{c.VictimUserName}\\{origFolder}");
                 lvi.SubItems.Add(file.Size);
                 lvi.SubItems.Add(file.ModifiedTime);
 
@@ -193,7 +194,9 @@ namespace _2611_WIN_B3.Forms
                 GameManager.Instance.NotifyStateChanged();
 
                 var c = GameManager.Instance.CaseManager.CurrentCase;
-                string msg = $"Đã khôi phục tập tin '{file.FileName}' về thư mục C:\\Users\\{c.VictimUserName}\\{file.Folder} thành công!\n" +
+                string restoredFolder = (file.Folder ?? string.Empty).Replace(" / ", "\\").Replace("/", "\\");
+                string targetPath = string.IsNullOrEmpty(restoredFolder) ? $"C:\\Users\\{c.VictimUserName}" : $"C:\\Users\\{c.VictimUserName}\\{restoredFolder}";
+                string msg = $"Đã khôi phục tập tin '{file.FileName}' về thư mục {targetPath} thành công!\n" +
                              $"Nội dung đã được xác minh toàn vẹn và hiện đã có thể truy cập trong File Explorer.";
 
                 if (isNew && ev != null)

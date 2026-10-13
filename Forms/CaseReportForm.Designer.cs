@@ -44,7 +44,7 @@ namespace _2611_WIN_B3.Forms
             cboMotive = new ComboBox();
             grpSuspect = new GroupBox();
             lblSuspectDetail = new Label();
-            cboSuspect = new ComboBox();
+            clbSuspects = new CheckedListBox();
             grpConclusion = new GroupBox();
             txtConclusion = new RichTextBox();
             grpEvidenceSelect = new GroupBox();
@@ -266,17 +266,17 @@ namespace _2611_WIN_B3.Forms
             // 
             grpSuspect.BackColor = Color.White;
             grpSuspect.Controls.Add(lblSuspectDetail);
-            grpSuspect.Controls.Add(cboSuspect);
+            grpSuspect.Controls.Add(clbSuspects);
             grpSuspect.Dock = DockStyle.Top;
             grpSuspect.Font = new Font("Segoe UI Semibold", 10.5F, FontStyle.Bold, GraphicsUnit.Point);
             grpSuspect.ForeColor = Color.FromArgb(15, 30, 60);
             grpSuspect.Location = new Point(0, 0);
             grpSuspect.Name = "grpSuspect";
             grpSuspect.Padding = new Padding(12);
-            grpSuspect.Size = new Size(470, 230);
+            grpSuspect.Size = new Size(470, 260);
             grpSuspect.TabIndex = 0;
             grpSuspect.TabStop = false;
-            grpSuspect.Text = "  1. NGHI PHẠM CHÍNH (PRIMARY SUSPECT)  ";
+            grpSuspect.Text = "  1. NGHI PHẠM BỊ TỐ CÁO (CÓ THỂ CHỌN NHIỀU NGƯỜI)  ";
             // 
             // lblSuspectDetail
             // 
@@ -285,27 +285,27 @@ namespace _2611_WIN_B3.Forms
             lblSuspectDetail.BorderStyle = BorderStyle.FixedSingle;
             lblSuspectDetail.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblSuspectDetail.ForeColor = Color.FromArgb(30, 41, 59);
-            lblSuspectDetail.Location = new Point(12, 75);
+            lblSuspectDetail.Location = new Point(12, 140);
             lblSuspectDetail.Name = "lblSuspectDetail";
             lblSuspectDetail.Padding = new Padding(8);
-            lblSuspectDetail.Size = new Size(446, 140);
+            lblSuspectDetail.Size = new Size(446, 110);
             lblSuspectDetail.TabIndex = 1;
             lblSuspectDetail.Text = "Chọn một nghi phạm để xem hồ sơ tóm tắt...";
             // 
-            // cboSuspect
+            // clbSuspects
             // 
-            cboSuspect.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cboSuspect.BackColor = Color.White;
-            cboSuspect.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboSuspect.FlatStyle = FlatStyle.Flat;
-            cboSuspect.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            cboSuspect.ForeColor = Color.FromArgb(15, 23, 42);
-            cboSuspect.FormattingEnabled = true;
-            cboSuspect.Location = new Point(12, 35);
-            cboSuspect.Name = "cboSuspect";
-            cboSuspect.Size = new Size(446, 29);
-            cboSuspect.TabIndex = 0;
-            cboSuspect.SelectedIndexChanged += cboSuspect_SelectedIndexChanged;
+            clbSuspects.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            clbSuspects.BackColor = Color.White;
+            clbSuspects.BorderStyle = BorderStyle.FixedSingle;
+            clbSuspects.CheckOnClick = true;
+            clbSuspects.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            clbSuspects.ForeColor = Color.FromArgb(15, 23, 42);
+            clbSuspects.FormattingEnabled = true;
+            clbSuspects.Location = new Point(12, 28);
+            clbSuspects.Name = "clbSuspects";
+            clbSuspects.Size = new Size(446, 105);
+            clbSuspects.TabIndex = 0;
+            clbSuspects.SelectedIndexChanged += clbSuspects_SelectedIndexChanged;
             // 
             // grpConclusion
             // 
@@ -411,7 +411,7 @@ namespace _2611_WIN_B3.Forms
         private SplitContainer splitContainer1;
         private GroupBox grpSuspect;
         private Label lblSuspectDetail;
-        private ComboBox cboSuspect;
+        private CheckedListBox clbSuspects;
         private GroupBox grpMotive;
         private ComboBox cboMotive;
         private GroupBox grpMethod;

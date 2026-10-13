@@ -40,6 +40,7 @@ namespace _2611_WIN_B3.Forms
             splitContainerPreview = new SplitContainer();
             lvFiles = new ListView();
             colName = new ColumnHeader();
+            colFolder = new ColumnHeader();
             colSize = new ColumnHeader();
             colModified = new ColumnHeader();
             grpPreview = new GroupBox();
@@ -207,7 +208,7 @@ namespace _2611_WIN_B3.Forms
             // 
             lvFiles.BackColor = Color.White;
             lvFiles.BorderStyle = BorderStyle.FixedSingle;
-            lvFiles.Columns.AddRange(new ColumnHeader[] { colName, colSize, colModified });
+            lvFiles.Columns.AddRange(new ColumnHeader[] { colName, colFolder, colSize, colModified });
             lvFiles.Dock = DockStyle.Fill;
             lvFiles.ForeColor = Color.FromArgb(30, 41, 59);
             lvFiles.FullRowSelect = true;
@@ -221,11 +222,17 @@ namespace _2611_WIN_B3.Forms
             lvFiles.UseCompatibleStateImageBehavior = false;
             lvFiles.View = View.Details;
             lvFiles.SelectedIndexChanged += lvFiles_SelectedIndexChanged;
+            lvFiles.DoubleClick += lvFiles_DoubleClick;
             // 
             // colName
             // 
-            colName.Text = "Tên tệp";
-            colName.Width = 320;
+            colName.Text = "Tên tệp / Thư mục";
+            colName.Width = 280;
+            // 
+            // colFolder
+            // 
+            colFolder.Text = "Thư mục";
+            colFolder.Width = 190;
             // 
             // colSize
             // 
@@ -327,6 +334,7 @@ namespace _2611_WIN_B3.Forms
         private SplitContainer splitContainerPreview;
         private ListView lvFiles;
         private ColumnHeader colName;
+        private ColumnHeader colFolder;
         private ColumnHeader colSize;
         private ColumnHeader colModified;
         private GroupBox grpPreview;

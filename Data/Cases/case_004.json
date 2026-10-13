@@ -5,22 +5,22 @@
   "MissingFileName": "Project_AETHER_Master_Deploy.enc",
   "IncidentDate": "2026-10-25",
   "Difficulty": "Rất khó",
-  "Overview": "Rạng sáng ngày 25/10/2026, thông tin bảo mật cùng toàn bộ file triển khai cốt lõi 'Project_AETHER_Master_Deploy.enc' thuộc dự án Trí tuệ nhân tạo hợp tác của 8 thành viên nòng cốt bị rò rỉ ra bên ngoài, gây thiệt hại nặng nề về tài chính và tiến độ. Nhằm tiêu hủy bằng chứng và đổ tội cho tập thể, kẻ thủ mưu (Hung thủ 1) đã soạn email đe dọa chứa liên kết độc hại gửi đến toàn bộ thành viên. Tuy nhiên, một thành viên phát hiện điểm bất thường trong mail nên đã âm thầm theo dõi và tận mắt chứng kiến Hung thủ 1 sát hại Dr. Gregory Vance. Bị phát hiện, Hung thủ 1 đã ép buộc người này (Hung thủ 2) phải đồng phạm, cùng thực hiện chuỗi hành vi tiêu hủy dữ liệu, ngụy tạo chứng cứ và uy hiếp các thành viên còn lại.",
-  "SummaryBrief": "Vụ án rò rỉ thông tin dự án AI/CNTT cấp cao, án mạng che giấu tội ác và sự hợp tác cưỡng ép giữa hai hung thủ nội bộ.",
+  "Overview": "Rạng sáng ngày 25/10/2026, Giám đốc Hệ thống AI - Dr. Gregory Vance được phát hiện tử vong tại phòng làm việc tầng 5. Cùng thời điểm, tập tin triển khai cốt lõi 'Project_AETHER_Master_Deploy.enc' thuộc dự án Trí tuệ nhân tạo hợp tác của 8 thành viên nòng cốt bị mã hóa trái phép và rò rỉ ra bên ngoài. Một email cảnh báo bất thường được gửi tới toàn bộ thành viên trong đêm, đi kèm các dấu hiệu can thiệp nhật ký hệ thống tinh vi. Cơ quan điều tra nghi vấn có sự câu kết và che giấu chứng cứ của các nhân sự nội bộ.",
+  "SummaryBrief": "Vụ án rò rỉ thông tin dự án AI trọng điểm, án mạng tại văn phòng và nghi vấn câu kết che giấu chứng cứ của nhân sự nội bộ.",
   "CorrectSuspectId": "SUSPECT_01, SUSPECT_05",
-  "CorrectMotive": "Hung thủ 1 (Jonathan Vance): Bán thông tin mật dự án cho tập đoàn đối thủ với giá 500,000 USD để trả nợ cá nhân, sát hại Giám đốc để bịt đầu mối. Hung thủ 2 (Elena Rostova): Bị Hung thủ 1 phát hiện và uy hiếp bằng chứng cứ vi phạm kỷ luật cũ sau khi tận mắt chứng kiến vụ án mạng, buộc phải tiếp tay tiêu hủy dấu vết.",
-  "CorrectMethod": "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai.",
+  "CorrectMotive": "Thỏa thuận ngầm bán mã nguồn AETHER cho tập đoàn đối thủ lấy 500,000 USD; thủ mưu sát hại Giám đốc diệt khẩu và cưỡng ép nhân chứng tiếp tay tiêu hủy dấu vết",
+  "CorrectMethod": "Phát tán email giả mạo chứa liên kết độc để đánh lạc hướng, sát hại nạn nhân khi bị phát hiện; khống chế nhân chứng tại hiện trường để can thiệp nhật ký Git/Logs và giấu khóa mã hóa vào Thùng rác",
   "MotiveOptions": [
-    "Hung thủ 1: Bán thông tin dự án lấy 500,000 USD trả nợ cá nhân và diệt khẩu. Hung thủ 2: Bị uy hiếp tiêu hủy chứng cứ sau khi tận mắt chứng kiến vụ án mạng",
-    "Tranh chấp quyền sở hữu trí tuệ thuật toán AI giữa các thành viên nhóm nghiên cứu",
-    "Tấn công từ xa của nhóm hacker mũ đen nhằm đòi tiền chuộc bằng tiền mã hóa",
-    "Mâu thuẫn cá nhân về việc phân chia lợi nhuận và chức danh quản lý dự án"
+    "Thỏa thuận ngầm bán mã nguồn AETHER cho tập đoàn đối thủ lấy 500,000 USD; thủ mưu sát hại Giám đốc diệt khẩu và cưỡng ép nhân chứng tiếp tay tiêu hủy dấu vết",
+    "Kỹ sư DevOps và chuyên gia an ninh câu kết chiếm đoạt thuật toán, xóa dữ liệu máy chủ nhằm tống tiền ban giám đốc sau khi bị cắt giảm ngân sách",
+    "Tranh chấp quyền sở hữu trí tuệ; thủ phạm đột nhập phòng lab sát hại nạn nhân rồi phát tán email độc hại nhằm vu khống toàn bộ nhóm nghiên cứu",
+    "Nhóm gián điệp công nghệ APT cài cắm mã độc từ xa, đe dọa tống tiền bằng tiền mã hóa và ép buộc nhân sự nội bộ xóa sạch nhật ký hệ thống"
   ],
   "MethodOptions": [
-    "Hung thủ 1 gửi email lừa đảo chứa mã độc xóa dấu vết đến các thành viên, đâm sát hại nạn nhân khi bị phát hiện. Hung thủ 2 bị khống chế tại hiện trường, giúp Hung thủ 1 can thiệp lịch sử Git/Logs, xóa khóa mã hóa master trong Thùng Rác và ngụy tạo bằng chứng ngoại phạm giả cho cả hai",
-    "Sử dụng phần mềm gián điệp keylogger từ xa để lấy tài khoản Root và xóa dữ liệu tự động",
-    "Đột nhập trung tâm dữ liệu, cắt nguồn điện toàn tòa nhà và tháo gỡ trực tiếp các ổ cứng vật lý",
-    "Phát tán mã độc tống tiền Ransomware qua đường link họp trực tuyến để khóa toàn bộ hệ thống"
+    "Phát tán email giả mạo chứa liên kết độc để đánh lạc hướng, sát hại nạn nhân khi bị phát hiện; khống chế nhân chứng tại hiện trường để can thiệp nhật ký Git/Logs và giấu khóa mã hóa vào Thùng rác",
+    "Lợi dụng quyền quản trị hạ tầng CI/CD tiêm mã độc vào nhánh master, kích hoạt script tự hủy từ xa và ngắt nguồn điện phòng máy chủ để tẩu thoát",
+    "Khai thác tài khoản nội bộ bị rò rỉ qua VPN, cài đặt phần mềm gián điệp keylogger lên máy trạm nạn nhân và đánh tráo ổ cứng chứa dữ liệu tại phòng lab",
+    "Phát tán mã độc tống tiền Ransomware qua đường link họp khẩn cấp, xóa khóa giải mã trên toàn bộ máy chủ và bỏ trốn ngay trong đêm bằng ô tô riêng"
   ],
   "RequiredEvidenceIds": [
     "E301",
@@ -34,66 +34,66 @@
     {
       "Id": "SUSPECT_01",
       "Name": "Jonathan Vance",
-      "Role": "Lead AI Architect (Hung thủ 1)",
-      "Description": "Architecht trưởng phụ trách thuật toán cốt lõi của AETHER. Nắm giữ hạ tầng triển khai mô hình.",
-      "PossibleMotive": "Thỏa thuận bán tài liệu dự án lấy 500,000 USD cho đối thủ NexaTech; diệt khẩu nạn nhân khi bị phát hiện.",
-      "Alibi": "Khai rằng đang thực hiện cập nhật hạ tầng máy chủ tại nhà từ 01:00 đến 03:00 sáng."
+      "Role": "Lead AI Architect",
+      "Description": "Kiến trúc sư trưởng phụ trách thiết kế thuật toán cốt lõi và hạ tầng mô hình AETHER. Có quyền truy cập cấp cao nhất vào hệ sinh thái triển khai dự án.",
+      "PossibleMotive": "Áp lực nợ nần tài chính cá nhân và tham vọng lập công ty AI riêng; từng bất đồng gay gắt với chính sách bảo mật khắt khe của Dr. Gregory Vance.",
+      "Alibi": "Khai rằng làm việc từ xa tại căn hộ riêng từ 00:00 và thực hiện cập nhật cấu hình hạ tầng đến 03:00 sáng."
     },
     {
       "Id": "SUSPECT_02",
       "Name": "Marcus Sterling",
       "Role": "Senior DevOps Engineer",
-      "Description": "Kỹ sư phụ trách hạ tầng CI/CD và quản lý quyền truy cập máy chủ dự án.",
-      "PossibleMotive": "Mâu thuẫn với Dr. Gregory Vance về định hướng phân bổ ngân sách hạ tầng Cloud.",
-      "Alibi": "Đang trực ca đêm tại phòng máy chủ tầng 2, có nhật ký quẹt thẻ ghi nhận."
+      "Description": "Kỹ sư phụ trách hạ tầng CI/CD và quản lý quyền truy cập máy chủ dự án. Nắm giữ quyền Root và script tự động hóa.",
+      "PossibleMotive": "Bất mãn sâu sắc vì bị cắt giảm ngân sách hạ tầng Cloud; có lịch sử truy cập terminal máy chủ bất thường lúc 01:45 sáng.",
+      "Alibi": "Khai rằng trực ca đêm tại phòng máy chủ tầng 2, tuy nhiên nhật ký quẹt thẻ có khoảng trống gián đoạn 40 phút."
     },
     {
       "Id": "SUSPECT_03",
       "Name": "Dr. Aris Thorne",
       "Role": "Chief Data Scientist",
-      "Description": "Chuyên gia dữ liệu lớn, chịu trách nhiệm huấn luyện các tập dữ liệu AI của dự án.",
-      "PossibleMotive": "Bất mãn do đóng góp khoa học không được đứng tên đầu trong các công bố quốc tế.",
-      "Alibi": "Tham gia hội thảo trực tuyến quốc tế từ 00:00 đến 04:00 sáng, có video ghi hình."
+      "Description": "Chuyên gia dữ liệu lớn, chịu trách nhiệm huấn luyện các tập dữ liệu AI của dự án và thẩm định kết quả mô hình.",
+      "PossibleMotive": "Bất mãn vì đóng góp khoa học bị gạt khỏi danh sách tác giả đầu trong các công bố quốc tế của Viện nghiên cứu.",
+      "Alibi": "Tham gia hội thảo trực tuyến quốc tế từ 00:00 đến 04:00 sáng, tuy nhiên camera phòng họp bị tắt trong khoảng 01:20 đến 02:00."
     },
     {
       "Id": "SUSPECT_04",
       "Name": "Claire Redfield",
       "Role": "Cybersecurity Specialist",
-      "Description": "Chuyên gia an ninh mạng phụ trách mã hóa và kiểm toán lỗ hổng hệ thống.",
-      "PossibleMotive": "Bị đe dọa cắt hợp đồng tư vấn sau đợt kiểm toán an toàn thông tin quý trước.",
-      "Alibi": "Đã rời công ty lúc 21:00 và ở tại căn hộ riêng cùng gia đình."
+      "Description": "Chuyên gia an ninh mạng phụ trách mã hóa khóa RSA và kiểm toán lỗ hổng hệ thống. Quản lý chứng chỉ bảo mật.",
+      "PossibleMotive": "Có toàn quyền với khóa giải mã master_aether_key.pem; bị điều tra nội bộ vì từng nhận lời tư vấn cho đối thủ cạnh tranh.",
+      "Alibi": "Khai rằng đã rời công ty lúc 21:00, nhưng máy trạm tại văn phòng vẫn duy trì phiên kết nối ngầm tới hệ thống."
     },
     {
       "Id": "SUSPECT_05",
       "Name": "Elena Rostova",
-      "Role": "Senior Software Engineer (Hung thủ 2)",
-      "Description": "Kỹ sư phần mềm cấp cao. Người phát hiện điểm bất thường trong mail, chứng kiến vụ án mạng và bị ép làm đồng phạm.",
-      "PossibleMotive": "Bị Jonathan Vance uy hiếp bằng chứng cứ gian lận mã nguồn cũ, cưỡng ép tiếp tay tiêu hủy vật chứng.",
-      "Alibi": "Khai rằng làm việc muộn tại phòng lab tầng 4 và ra về lúc 01:30 sáng."
+      "Role": "Senior Software Engineer",
+      "Description": "Kỹ sư phần mềm cấp cao phụ trách tích hợp API và kho lưu trữ Git của dự án AETHER. Nắm giữ quyền can thiệp nhánh master.",
+      "PossibleMotive": "Từng bị Dr. Gregory Vance lập biên bản khiển trách vì vi phạm quy trình commit mã nguồn trong đợt kiểm toán an toàn trước đó.",
+      "Alibi": "Khai rằng làm việc muộn tại phòng lab tầng 4 và đã quẹt thẻ ra về lúc 01:30 sáng."
     },
     {
       "Id": "SUSPECT_06",
       "Name": "David Chen",
       "Role": "Product Manager",
-      "Description": "Quản lý sản phẩm, cầu nối giữa nhóm kỹ thuật và ban đầu tư tài chính.",
-      "PossibleMotive": "Áp lực tiến độ từ nhà đầu tư, đối mặt nguy cơ bị đền bù hợp đồng.",
-      "Alibi": "Đang di chuyển trên chuyến bay nội địa từ Hà Nội về TP.HCM."
+      "Description": "Quản lý sản phẩm, cầu nối giữa nhóm kỹ thuật và ban điều hành tài chính. Nắm rõ tiến độ nghiệm thu dự án.",
+      "PossibleMotive": "Chịu sức ép tiến độ nặng nề từ nhà đầu tư, đối mặt nguy cơ bồi thường hợp đồng hàng triệu USD nếu AETHER trễ hạn.",
+      "Alibi": "Khai rằng đang di chuyển trên chuyến bay nội địa, nhưng điện thoại xuất hiện tín hiệu kích hoạt dịch vụ lúc rạng sáng."
     },
     {
       "Id": "SUSPECT_07",
       "Name": "Sophia Taylor",
       "Role": "QA & Test Automation Lead",
-      "Description": "Trưởng nhóm kiểm thử tự động, có quyền truy cập toàn bộ các môi trường Staging.",
-      "PossibleMotive": "Bị từ chối tăng lương và phụ cấp trách nhiệm trong kỳ đánh giá vừa qua.",
-      "Alibi": "Họp nhóm QA từ xa qua ứng dụng Google Meet đến 01:00 sáng."
+      "Description": "Trưởng nhóm kiểm thử tự động, có quyền truy cập toàn bộ các môi trường Staging và cơ sở dữ liệu test.",
+      "PossibleMotive": "Bị từ chối tăng lương và phụ cấp trách nhiệm trong kỳ đánh giá; từng đe dọa nộp đơn nghỉ việc cùng mã nguồn kiểm thử.",
+      "Alibi": "Họp nhóm QA từ xa qua ứng dụng Google Meet đến 01:00 sáng, sau đó tài khoản vẫn hoạt động."
     },
     {
       "Id": "SUSPECT_08",
       "Name": "Viktor Novak",
       "Role": "Database Administrator (DBA)",
-      "Description": "Quản trị viên cơ sở dữ liệu, quản lý hệ thống lưu trữ phân tán của AETHER.",
-      "PossibleMotive": "Từng có mâu thuẫn gay gắt với Jonathan Vance về kiến trúc cơ sở dữ liệu.",
-      "Alibi": "Đang nghỉ phép tại Đà Lạt cùng gia đình từ đầu tuần."
+      "Description": "Quản trị viên cơ sở dữ liệu, quản lý hệ thống lưu trữ phân tán và các bản sao lưu dự phòng của AETHER.",
+      "PossibleMotive": "Từng có mâu thuẫn gay gắt với Dr. Gregory Vance về phương án mã hóa và cấu trúc phân vùng dữ liệu dự án.",
+      "Alibi": "Khai rằng đang nghỉ phép tại Đà Lạt cùng gia đình, nhưng tài khoản cá nhân có đăng nhập từ địa chỉ IP bất thường."
     }
   ],
   "Evidences": [
@@ -141,7 +141,7 @@
       "Id": "E306",
       "Name": "Thỏa thuận chuyển nhượng dự án - NexaTech_Contract.pdf",
       "Description": "Bản hợp đồng đính kèm khoản đặt cọc 500,000 USD từ NexaTech cho Jonathan Vance để đổi lấy toàn bộ file mã hóa AETHER.",
-      "Source": "Archive",
+      "Source": "Documents / Archive",
       "Importance": "High",
       "Timestamp": "23:45"
     },
@@ -149,7 +149,7 @@
       "Id": "E307",
       "Name": "Mã nguồn xóa Git - force_cleanup_master.sh",
       "Description": "Script shell do Elena Rostova chỉnh sửa theo lệnh của Jonathan nhằm force-push đè lên nhánh master Git để che giấu commit rò rỉ.",
-      "Source": "Downloads",
+      "Source": "Documents / Downloads",
       "Importance": "High",
       "Timestamp": "02:05"
     },
@@ -181,7 +181,7 @@
       "Id": "E311",
       "Name": "Chat Log bị khôi phục - Message_Coercion.log",
       "Description": "Đoạn tin nhắn mã hóa qua Telegram giữa Jonathan và Elena lúc 01:45 sáng: 'Cô đã thấy những gì không nên thấy. Giúp tôi xóa log ngay nếu không hồ sơ vi phạm cũ của cô sẽ gửi cho công an'.",
-      "Source": "System Logs / Chat",
+      "Source": "Documents / System Logs / Chat",
       "Importance": "Critical",
       "Timestamp": "01:45"
     },
@@ -250,7 +250,7 @@
     {
       "Id": "FILE_301",
       "FileName": "clear_audit_event.ps1",
-      "Folder": "Work",
+      "Folder": "Documents / Work",
       "Size": "5 KB",
       "ModifiedTime": "2026-10-25 01:50",
       "Content": "# Script xóa log hệ thống theo lệnh cưỡng ép\nClear-EventLog -LogName Security, System\nRemove-Item -Path C:\\Logs\\badge_access_5f.log -Force\nWrite-Host 'Audit trail erased by user ElenaRostova (Elevated by JonathanVance)'",
@@ -261,7 +261,7 @@
       "Id": "FILE_302",
       "FileName": "master_aether_key.pem",
       "Folder": "Recycle Bin",
-      "OriginalFolder": "Projects/AETHER",
+      "OriginalFolder": "Documents / Projects / AETHER",
       "Size": "3 KB",
       "ModifiedTime": "2026-10-25 02:15",
       "Content": "-----BEGIN RSA MASTER PRIVATE KEY-----\nMIIEowIBAAKCAQEA3f9Kz0bLq8X3yZ7w1QpMmJnK7tV4xR0s9eF8d7c6b5a4\n[PROJECT AETHER MASTER DECRYPTION KEY]\n-----END RSA MASTER PRIVATE KEY-----",
@@ -271,7 +271,7 @@
     {
       "Id": "FILE_303",
       "FileName": "voice_memo_0140.wav",
-      "Folder": "Documents",
+      "Folder": "Documents / Work",
       "Size": "15 MB",
       "ModifiedTime": "2026-10-25 01:40",
       "Content": "[TỆP GHI ÂM]: 'Jonathan... cậu đang làm gì với file mã hóa?... Đừng lại gần!... Elena, cứu tôi... Cô mà báo công an, cô cũng sẽ chết chắc!'",
@@ -281,12 +281,52 @@
     {
       "Id": "FILE_304",
       "FileName": "Project_AETHER_Master_Deploy.enc",
-      "Folder": "Projects",
+      "Folder": "Documents / Projects",
       "Size": "2.4 GB",
       "ModifiedTime": "2026-10-25 01:10",
       "Content": "[FILE BỊ MÃ HÓA TOÀN BỘ DỮ LIỆU DỰ ÁN AI AETHER]",
       "IsDeleted": false,
       "EvidenceId": null
+    },
+    {
+      "Id": "FILE_305",
+      "FileName": "cctv_hallway_5f.log",
+      "Folder": "Documents / Camera Logs",
+      "Size": "18 KB",
+      "ModifiedTime": "2026-10-25 01:35",
+      "Content": "[CCTV CAMERA HÀNH LANG TẦNG 5 - 01:35:12]\nPhát hiện 2 đối tượng di chuyển vào phòng Dr. Gregory Vance:\n- Jonathan Vance (Thẻ quản lý #0041)\n- Elena Rostova (Thẻ kỹ sư #0108, đi phía sau trong trạng thái căng thẳng)\nCửa phòng bị khóa chốt lúc 01:35:45.",
+      "IsDeleted": false,
+      "EvidenceId": "E303"
+    },
+    {
+      "Id": "FILE_306",
+      "FileName": "Draft_Blackmail_Note.txt",
+      "Folder": "Documents",
+      "Size": "2 KB",
+      "ModifiedTime": "2026-10-25 01:05",
+      "Content": "[BẢN NHÁP THƯ TỐNG TIỀN DO JONATHAN VANCE SOẠN SẴN]\nGửi Ban điều hành Novatech,\nToàn bộ mã nguồn dự án AETHER đã bị kiểm soát bởi nhóm hacker quốc tế. Nếu muốn chuộc lại khóa giải mã, chuẩn bị 500,000 USD chuyển vào ví trung gian trước 06:00 sáng.\n(Mục đích nhằm đánh lạc hướng điều tra thành vụ tấn công từ bên ngoài).",
+      "IsDeleted": false,
+      "EvidenceId": "E309"
+    },
+    {
+      "Id": "FILE_307",
+      "FileName": "Message_Coercion.log",
+      "Folder": "Documents / System Logs / Chat",
+      "Size": "6 KB",
+      "ModifiedTime": "2026-10-25 01:25",
+      "Content": "=== NHẬT KÝ CHAT NỘI BỘ (KHÔI PHỤC TỪ CACHE ỨNG DỤNG SLACK) ===\n[01:22] Jonathan: Elena, chạy ngay script xóa event log và ném tệp master key vào thùng rác. Đừng để tôi phải nhắc lần thứ hai.\n[01:24] Elena: Anh điên rồi à? Dr. Gregory mà tỉnh lại thì sẽ phát hiện ra ngay!\n[01:25] Jonathan: Ông ta sẽ không bao giờ tỉnh lại nữa đâu. Nếu cô muốn gia đình cô bình yên thì làm theo lời tôi ngay lập tức!",
+      "IsDeleted": false,
+      "EvidenceId": "E311"
+    },
+    {
+      "Id": "FILE_308",
+      "FileName": "parking_gate_camera.log",
+      "Folder": "Documents / Camera Logs",
+      "Size": "12 KB",
+      "ModifiedTime": "2026-10-25 02:30",
+      "Content": "[CAMERA AN NINH BÃI XE NGOÀI TRỜI - 02:30:18]\nBarrier cổng số 2 mở tự động theo nhận diện thẻ VIP: Jonathan Vance.\nPhương tiện: Ô tô sedan màu đen biển số 29A-884.21 lao nhanh ra cổng chính hướng về đường cao tốc.\nThời điểm trùng khớp ngay sau khi tiến trình mã hóa tệp kết thúc.",
+      "IsDeleted": false,
+      "EvidenceId": "E312"
     }
   ],
   "Timeline": [

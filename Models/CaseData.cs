@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _2611_WIN_B3.Models
 {
@@ -166,6 +168,18 @@ namespace _2611_WIN_B3.Models
         public string Difficulty { get; set; } = "Dễ";
         public string SummaryBrief { get; set; } = "Vụ án trộm cắp tài sản trí tuệ công nghệ cao tại tập đoàn Novatech.";
         public string CorrectSuspectId { get; set; } = "SUSPECT_02"; // Elena Rostova
+        public List<string> CorrectSuspectIds
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(CorrectSuspectId)) return new List<string>();
+                return CorrectSuspectId
+                    .Split(new[] { ',', ';', '/' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim())
+                    .Where(s => !string.IsNullOrEmpty(s))
+                    .ToList();
+            }
+        }
         public string CorrectMotive { get; set; } = "Gián điệp công nghệ - Nhận tiền lót tay 50,000 USD từ đối thủ CyberTech";
         public string CorrectMethod { get; set; } = "Lừa nạn nhân ra ngoài, cắm USB sao chép, tải lên Cloud và xóa file gốc";
         public List<string> RequiredEvidenceIds { get; set; } = new List<string> { "E001", "E002", "E003", "E004", "E006" };
@@ -202,6 +216,18 @@ namespace _2611_WIN_B3.Models
 
         // Solution criteria
         public string CorrectSuspectId { get; set; } = string.Empty;
+        public List<string> CorrectSuspectIds
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(CorrectSuspectId)) return new List<string>();
+                return CorrectSuspectId
+                    .Split(new[] { ',', ';', '/' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim())
+                    .Where(s => !string.IsNullOrEmpty(s))
+                    .ToList();
+            }
+        }
         public string CorrectMotive { get; set; } = string.Empty;
         public string CorrectMethod { get; set; } = string.Empty;
         public List<string> MotiveOptions { get; set; } = new();

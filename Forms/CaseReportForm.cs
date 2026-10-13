@@ -31,7 +31,7 @@ namespace _2611_WIN_B3.Forms
             grpMethod.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
             grpEvidenceSelect.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
             grpConclusion.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            cboSuspect.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            clbSuspects.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
             cboMotive.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
             cboMethod.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
             clbEvidences.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular);
@@ -52,10 +52,12 @@ namespace _2611_WIN_B3.Forms
             btnViewHighScores.Height = 44;
             btnViewHighScores.Top = 10;
 
-            // Nới rộng chiều cao các GroupBox để các ComboBox và ghi chú không bị ép sát
-            grpSuspect.Height = 260;
-            lblSuspectDetail.Top = 75;
-            lblSuspectDetail.Height = 168;
+            // Nới rộng chiều cao các GroupBox để các điều khiển không bị ép sát
+            grpSuspect.Height = 285;
+            clbSuspects.Top = 28;
+            clbSuspects.Height = 105;
+            lblSuspectDetail.Top = 140;
+            lblSuspectDetail.Height = 135;
 
             grpMotive.Height = 135;
             cboMotive.Top = 45;
@@ -100,18 +102,20 @@ namespace _2611_WIN_B3.Forms
 
         private void InitSuspects()
         {
-            cboSuspect.Items.Clear();
-            cboSuspect.Items.Add("-- Chọn nghi phạm cần khởi tố --");
+            clbSuspects.Items.Clear();
             var suspects = GameManager.Instance.CaseManager.Suspects;
 
             foreach (var s in suspects)
             {
-                cboSuspect.Items.Add(new SuspectComboItem { Suspect = s });
+                clbSuspects.Items.Add(new SuspectCheckItem { Suspect = s }, false);
             }
 
-            cboSuspect.DropDownWidth = 500;
-            cboSuspect.SelectedIndex = 0;
-            lblSuspectDetail.Text = "Vui lòng chọn một nghi phạm để xem hồ sơ và kiểm tra chứng cứ ngoại phạm.";
+            lblSuspectDetail.Text = "💡 Nhấp vào từng nghi phạm để xem chi tiết hồ sơ & chứng cứ ngoại phạm.\n" +
+                                    "   Tích chọn một hoặc nhiều nghi phạm cần khởi tố trong vụ án này.";
+            if (clbSuspects.Items.Count > 0)
+            {
+                clbSuspects.SelectedIndex = 0;
+            }
         }
 
         private void InitMotives()
@@ -179,9 +183,9 @@ namespace _2611_WIN_B3.Forms
             }
         }
 
-        private void cboSuspect_SelectedIndexChanged(object sender, EventArgs e)
+        private void clbSuspects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboSuspect.SelectedItem is SuspectComboItem item)
+            if (clbSuspects.SelectedItem is SuspectCheckItem item)
             {
                 var s = item.Suspect;
                 lblSuspectDetail.Text = $"👤 Tên: {s.Name}\n" +
@@ -191,15 +195,25 @@ namespace _2611_WIN_B3.Forms
             }
             else
             {
-                lblSuspectDetail.Text = "Vui lòng chọn một nghi phạm để xem hồ sơ và kiểm tra chứng cứ ngoại phạm.";
+                lblSuspectDetail.Text = "💡 Nhấp vào từng nghi phạm để xem chi tiết hồ sơ & chứng cứ ngoại phạm.\n" +
+                                        "   Tích chọn một hoặc nhiều nghi phạm cần khởi tố trong vụ án này.";
             }
         }
 
         private void btnSubmitCase_Click(object sender, EventArgs e)
         {
-            if (cboSuspect.SelectedItem is not SuspectComboItem selectedSuspectItem)
+            var accusedSuspects = new List<Suspect>();
+            for (int i = 0; i < clbSuspects.CheckedItems.Count; i++)
             {
-                MessageBox.Show("Vui lòng chọn nghi phạm chính cần khởi tố!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (clbSuspects.CheckedItems[i] is SuspectCheckItem sItem)
+                {
+                    accusedSuspects.Add(sItem.Suspect);
+                }
+            }
+
+            if (accusedSuspects.Count == 0)
+            {
+                MessageBox.Show("Vui lòng tích chọn ít nhất một nghi phạm cần khởi tố!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -215,7 +229,7 @@ namespace _2611_WIN_B3.Forms
                 return;
             }
 
-            string suspectId = selectedSuspectItem.Suspect.Id;
+            var suspectIds = accusedSuspects.Select(s => s.Id).ToList();
             string motive = cboMotive.SelectedItem?.ToString() ?? "";
             string method = cboMethod.SelectedItem?.ToString() ?? "";
 
@@ -234,14 +248,15 @@ namespace _2611_WIN_B3.Forms
                 return;
             }
 
-            GameManager.Instance.State.SelectedSuspectId = suspectId;
+            GameManager.Instance.State.SelectedSuspectIds = suspectIds;
+            GameManager.Instance.State.SelectedSuspectId = string.Join(", ", suspectIds);
             GameManager.Instance.State.SelectedMotive = motive;
             GameManager.Instance.State.SelectedMethod = method;
             GameManager.Instance.State.FinalConclusion = txtConclusion.Text;
 
             var result = GameManager.Instance.CaseManager.EvaluateCase(
                 GameManager.Instance.State,
-                suspectId,
+                suspectIds,
                 motive,
                 method,
                 selectedEvidenceIds);
@@ -335,7 +350,7 @@ namespace _2611_WIN_B3.Forms
             Close();
         }
 
-        private class SuspectComboItem
+        private class SuspectCheckItem
         {
             public Suspect Suspect { get; set; } = null!;
             public override string ToString() => $"{Suspect.Name} ({Suspect.Role})";

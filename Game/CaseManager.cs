@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Collections.Generic;
 
@@ -288,7 +288,7 @@ namespace _2611_WIN_B3.Game
 
                         Description = $"Manh mối trích xuất từ tập tin '{file.FileName}'.",
 
-                        Source = file.IsDeleted ? "Recycle Bin" : $"Documents / {file.Folder}",
+                        Source = file.IsDeleted ? "Recycle Bin" : (string.IsNullOrWhiteSpace(file.Folder) ? "Documents" : (file.Folder.Trim().StartsWith("Documents", System.StringComparison.OrdinalIgnoreCase) ? file.Folder.Trim() : $"Documents / {file.Folder.Trim()}")),
 
                         Importance = "High",
 
@@ -337,15 +337,120 @@ namespace _2611_WIN_B3.Game
 
 
             // 3. Chuẩn hóa ngưỡng bằng chứng yêu cầu tối thiểu nếu gói chưa thiết lập
-
             if (pkg.MinEvidenceForPass <= 0)
-
             {
-
                 pkg.MinEvidenceForPass = Math.Max(1, pkg.Evidences.Count / 2);
-
             }
 
+            // 4. Mặc định các manh mối không thuộc ứng dụng nào (Mail, Browser, Notes, Files) sẽ thuộc về duyệt file (File Explorer)
+            var assignedEvidenceIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            if (pkg.Emails != null)
+            {
+                foreach (var e in pkg.Emails)
+                {
+                    if (!string.IsNullOrWhiteSpace(e.EvidenceId)) assignedEvidenceIds.Add(e.EvidenceId);
+                }
+            }
+
+            if (pkg.BrowserHistories != null)
+            {
+                foreach (var b in pkg.BrowserHistories)
+                {
+                    if (!string.IsNullOrWhiteSpace(b.EvidenceId)) assignedEvidenceIds.Add(b.EvidenceId);
+                }
+            }
+
+            if (pkg.Notes != null)
+            {
+                foreach (var n in pkg.Notes)
+                {
+                    if (!string.IsNullOrWhiteSpace(n.EvidenceId)) assignedEvidenceIds.Add(n.EvidenceId);
+                }
+            }
+
+            if (pkg.Files != null)
+            {
+                foreach (var f in pkg.Files)
+                {
+                    if (!string.IsNullOrWhiteSpace(f.EvidenceId)) assignedEvidenceIds.Add(f.EvidenceId);
+                }
+            }
+
+            foreach (var ev in pkg.Evidences)
+            {
+                if (string.IsNullOrWhiteSpace(ev.Id) || assignedEvidenceIds.Contains(ev.Id)) continue;
+
+                // Manh mối này chưa thuộc bất kỳ ứng dụng nào -> Mặc định gán vào Duyệt file (Documents)
+                string folder = DetermineFolderFromSource(ev.Source);
+                string fileName = ExtractFileNameFromEvidence(ev);
+
+                var generatedFile = new FileItem
+                {
+                    Id = $"FILE_AUTO_{ev.Id}",
+                    FileName = fileName,
+                    Folder = folder,
+                    OriginalFolder = folder,
+                    InitialFolder = folder,
+                    Size = "8 KB",
+                    ModifiedTime = !string.IsNullOrEmpty(pkg.IncidentDate) ? $"{pkg.IncidentDate} {ev.Timestamp}" : $"2026-10-05 {ev.Timestamp}",
+                    Content = $"=== {(ev.Name ?? "MANH MỐI").ToUpperInvariant()} ===\nThời gian ghi nhận: {ev.Timestamp}\nNguồn gốc: {ev.Source}\nMức độ: {ev.Importance}\n\nNội dung chi tiết:\n{ev.Description}",
+                    EvidenceId = ev.Id,
+                    IsDeleted = false,
+                    InitialIsDeleted = false
+                };
+
+                pkg.Files ??= new List<FileItem>();
+                pkg.Files.Add(generatedFile);
+                assignedEvidenceIds.Add(ev.Id);
+            }
+        }
+
+        private static string DetermineFolderFromSource(string? source)
+        {
+            if (string.IsNullOrWhiteSpace(source)) return "Documents";
+
+            string s = source.Trim();
+            if (s.StartsWith("Documents", StringComparison.OrdinalIgnoreCase))
+            {
+                return s;
+            }
+
+            return $"Documents / {s}";
+        }
+
+        private static string ExtractFileNameFromEvidence(Evidence ev)
+        {
+            if (ev == null) return "evidence_data.txt";
+
+            var match = System.Text.RegularExpressions.Regex.Match(ev.Name ?? "", @"([a-zA-Z0-9_\-]+\.[a-zA-Z0-9]{2,4})");
+            if (match.Success)
+            {
+                return match.Groups[1].Value;
+            }
+
+            match = System.Text.RegularExpressions.Regex.Match(ev.Description ?? "", @"([a-zA-Z0-9_\-]+\.[a-zA-Z0-9]{2,4})");
+            if (match.Success)
+            {
+                return match.Groups[1].Value;
+            }
+
+            string cleanId = ev.Id.ToLower().Trim();
+            string source = (ev.Source ?? "").ToLower();
+            if (source.Contains("camera") || (ev.Name ?? "").ToLower().Contains("camera"))
+            {
+                return $"camera_log_{cleanId}.log";
+            }
+            if (source.Contains("chat") || (ev.Name ?? "").ToLower().Contains("chat"))
+            {
+                return $"chat_history_{cleanId}.log";
+            }
+            if (source.Contains("log"))
+            {
+                return $"system_audit_{cleanId}.log";
+            }
+
+            return $"clue_record_{cleanId}.txt";
         }
 
 
@@ -517,75 +622,87 @@ namespace _2611_WIN_B3.Game
         /// </summary>
 
         public InvestigationResult EvaluateCase(
-
             GameState state,
-
             string suspectId,
-
             string motive,
-
             string method,
-
             List<string> selectedEvidences)
-
         {
+            var list = string.IsNullOrWhiteSpace(suspectId)
+                ? new List<string>()
+                : suspectId.Split(new[] { ',', ';', '/' }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim()).ToList();
+            return EvaluateCase(state, list, motive, method, selectedEvidences);
+        }
 
+        public InvestigationResult EvaluateCase(
+            GameState state,
+            List<string> suspectIds,
+            string motive,
+            string method,
+            List<string> selectedEvidences)
+        {
             int discoveredCount = state.DiscoveredEvidenceIds.Count;
-
             int connectedCount = state.ConnectedEvidencePairs.Count;
 
-
-
             // Nhánh 1: Kiểm tra ngưỡng thu thập bằng chứng tối thiểu (Min Evidence Threshold Check)
-
             int minPass = CurrentPackage.MinEvidenceForPass > 0 ? CurrentPackage.MinEvidenceForPass : Math.Max(1, CurrentPackage.Evidences.Count / 2);
-
             if (discoveredCount < minPass)
-
             {
-
                 return new InvestigationResult
-
                 {
-
                     EndingType = EndingType.IncompleteInvestigation,
-
                     Title = "ENDING 4: ĐIỀU TRA DANG DỞ",
-
                     Description = $"Bạn nộp báo cáo khi mới thu thập được {discoveredCount} bằng chứng (yêu cầu tối thiểu {minPass}). Cảnh sát và viện kiểm sát bác bỏ báo cáo vì hồ sơ quá sơ sài. Vụ án bị đình chỉ và kẻ thủ ác vẫn nhởn nhơ ngoài vòng pháp luật!",
-
                     Score = 20
-
                 };
-
             }
 
+            // Nhánh 2: Kiểm tra định danh nghi phạm (Suspect Identity Verification - Hỗ trợ đa nghi phạm)
+            var targetSet = new HashSet<string>(CurrentPackage.CorrectSuspectIds, StringComparer.OrdinalIgnoreCase);
+            var accusedSet = new HashSet<string>(suspectIds ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
+            bool allCorrectCaught = targetSet.Count > 0 && targetSet.SetEquals(accusedSet);
+            bool partialCaught = targetSet.Overlaps(accusedSet);
+            bool innocentAccused = accusedSet.Any(id => !targetSet.Contains(id));
 
-            // Nhánh 2: Kiểm tra định danh nghi phạm (Suspect Identity Verification)
-
-            if (!suspectId.Equals(CurrentPackage.CorrectSuspectId, StringComparison.OrdinalIgnoreCase))
-
+            if (!allCorrectCaught)
             {
+                var correctSuspectNames = Suspects
+                    .Where(s => targetSet.Contains(s.Id))
+                    .Select(s => s.Name)
+                    .ToList();
+                string culpritNames = correctSuspectNames.Count > 0 ? string.Join(" & ", correctSuspectNames) : "Thủ phạm thực sự";
 
-                var correctSuspect = Suspects.Find(s => s.Id == CurrentPackage.CorrectSuspectId);
-
-                string culpritName = correctSuspect?.Name ?? "Thủ phạm thực sự";
-
-                return new InvestigationResult
-
+                if (partialCaught && !innocentAccused)
                 {
-
-                    EndingType = EndingType.WrongSuspect,
-
-                    Title = "ENDING 2: BẮT SAI NGHI PHẠM",
-
-                    Description = $"Bạn đã cáo buộc sai người! Người bị bạn nêu tên có chứng cứ ngoại phạm xác thực. Trong khi đó, {culpritName} đã kịp tẩu thoát cùng tài liệu bị đánh cắp!",
-
-                    Score = 35
-
-                };
-
+                    return new InvestigationResult
+                    {
+                        EndingType = EndingType.WrongSuspect,
+                        Title = "ENDING 2: BỎ LỌT ĐỒNG PHẠM NGUY HIỂM",
+                        Description = $"Bạn đã chỉ ra đúng một kẻ tham gia, nhưng vụ án này có nhiều nghi phạm đồng lõa! Đồng phạm ({culpritNames}) đã kịp thời tẩu thoát cùng tài liệu bí mật và tiếp tục lẩn trốn!",
+                        Score = 45
+                    };
+                }
+                else if (partialCaught && innocentAccused)
+                {
+                    return new InvestigationResult
+                    {
+                        EndingType = EndingType.WrongSuspect,
+                        Title = "ENDING 2: CÁO BUỘC OAN SAI & THIẾU CHÍNH XÁC",
+                        Description = $"Trong số các nghi phạm bạn cáo buộc, có người vô tội bị vu oan! Tòa án đình chỉ xét xử vì hồ sơ cáo buộc lẫn lộn giữa thủ phạm thực sự ({culpritNames}) và người vô tội!",
+                        Score = 40
+                    };
+                }
+                else
+                {
+                    return new InvestigationResult
+                    {
+                        EndingType = EndingType.WrongSuspect,
+                        Title = "ENDING 2: BẮT SAI NGHI PHẠM",
+                        Description = $"Bạn đã cáo buộc sai người! Những người bị bạn nêu tên có chứng cứ ngoại phạm xác thực. Trong khi đó, thủ phạm thực sự ({culpritNames}) đã kịp tẩu thoát cùng tài liệu bị đánh cắp!",
+                        Score = 35
+                    };
+                }
             }
 
 
@@ -641,14 +758,8 @@ namespace _2611_WIN_B3.Game
 
 
             // Nhánh 3b: Kiểm tra động cơ và phương thức gây án (Motive & Method Reasoning Verification)
-
-            bool correctMotive = string.IsNullOrEmpty(CurrentPackage.CorrectMotive) ||
-
-                                 motive.Trim().Equals(CurrentPackage.CorrectMotive.Trim(), StringComparison.OrdinalIgnoreCase);
-
-            bool correctMethod = string.IsNullOrEmpty(CurrentPackage.CorrectMethod) ||
-
-                                 method.Trim().Equals(CurrentPackage.CorrectMethod.Trim(), StringComparison.OrdinalIgnoreCase);
+            bool correctMotive = IsMotiveOrMethodMatch(motive, CurrentPackage.CorrectMotive, CurrentPackage.MotiveOptions);
+            bool correctMethod = IsMotiveOrMethodMatch(method, CurrentPackage.CorrectMethod, CurrentPackage.MethodOptions);
 
 
 
@@ -715,11 +826,41 @@ namespace _2611_WIN_B3.Game
                 Description = $"XUẤT SẮC! Báo cáo điều tra của bạn sắc bén và thuyết phục. Thủ phạm đã phải cúi đầu nhận tội trước chuỗi bằng chứng đanh thép. Tập tin quan trọng '{CurrentPackage.MissingFileName}' đã được khôi phục nguyên vẹn!",
 
                 Score = 85
-
             };
-
         }
 
+        private static bool IsMotiveOrMethodMatch(string selected, string? target, List<string>? options)
+        {
+            if (string.IsNullOrWhiteSpace(target) && (options == null || options.Count == 0)) return true;
+            if (string.IsNullOrWhiteSpace(selected)) return false;
+
+            string normSelected = NormalizeReasoningText(selected);
+
+            // 1. So khớp trực tiếp với target
+            if (!string.IsNullOrWhiteSpace(target))
+            {
+                string normTarget = NormalizeReasoningText(target);
+                if (normSelected.Equals(normTarget, StringComparison.OrdinalIgnoreCase)) return true;
+                if (normSelected.Contains(normTarget, StringComparison.OrdinalIgnoreCase) || normTarget.Contains(normSelected, StringComparison.OrdinalIgnoreCase)) return true;
+            }
+
+            // 2. So khớp với phương án đúng mặc định đầu tiên trong danh sách options (nếu có)
+            if (options != null && options.Count > 0)
+            {
+                string normDefault = NormalizeReasoningText(options[0]);
+                if (normSelected.Equals(normDefault, StringComparison.OrdinalIgnoreCase)) return true;
+                if (normSelected.Contains(normDefault, StringComparison.OrdinalIgnoreCase) || normDefault.Contains(normSelected, StringComparison.OrdinalIgnoreCase)) return true;
+            }
+
+            return false;
+        }
+
+        private static string NormalizeReasoningText(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return "";
+            string cleaned = text.Trim().TrimEnd('.', ';', '!', '?', ':', ',');
+            return System.Text.RegularExpressions.Regex.Replace(cleaned, @"\s+", " ");
+        }
     }
 
 

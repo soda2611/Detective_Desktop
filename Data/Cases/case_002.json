@@ -211,7 +211,7 @@
     {
       "Id": "FILE_101",
       "FileName": "RANSOM_NOTE_README.txt",
-      "Folder": "Documents",
+      "Folder": "Documents / Work",
       "Size": "4 KB",
       "ModifiedTime": "2026-10-12 02:25",
       "Content": "=== YOUR NETWORK IS ENCRYPTED BY LOCKBIT-NOVA ===\nToàn bộ cơ sở dữ liệu kế toán và hợp đồng đã bị khóa mã AES-256.\nĐể nhận công cụ giải mã, chuyển chính xác 10 BTC vào ví: bc1q9xkevinshaw4482\nThời hạn: 08:00 AM ngày 12/10/2026. Sau thời hạn này khóa giải mã sẽ bị hủy!",

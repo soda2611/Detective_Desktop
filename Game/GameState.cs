@@ -24,6 +24,7 @@ namespace _2611_WIN_B3.Game
         public List<string> ConnectedEvidencePairs { get; set; } = new List<string>();
         public string DetectiveNotes { get; set; } = "=== SỔ TAY GHI CHÉP ĐIỀU TRA ===\n- Ghi lại các manh mối, mâu thuẫn thời gian và nghi vấn cần đối chiếu.\n- Dữ liệu sổ tay được lưu trữ tự động vào tiến trình điều tra.\n";
         public string SelectedSuspectId { get; set; } = string.Empty;
+        public List<string> SelectedSuspectIds { get; set; } = new List<string>();
         public string SelectedMotive { get; set; } = string.Empty;
         public string SelectedMethod { get; set; } = string.Empty;
         public string FinalConclusion { get; set; } = string.Empty;
