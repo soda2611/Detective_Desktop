@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -14,6 +14,7 @@ namespace _2611_WIN_B3.Forms
         public CaseSelectForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void CaseSelectForm_Load(object sender, EventArgs e)

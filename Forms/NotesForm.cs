@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using _2611_WIN_B3.Game;
@@ -13,6 +13,7 @@ namespace _2611_WIN_B3.Forms
         public NotesForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void NotesForm_Load(object sender, EventArgs e)

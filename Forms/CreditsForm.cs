@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +9,7 @@ namespace _2611_WIN_B3.Forms
         public CreditsForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void CreditsForm_Load(object sender, EventArgs e)

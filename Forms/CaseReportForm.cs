@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +13,7 @@ namespace _2611_WIN_B3.Forms
         public CaseReportForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void CaseReportForm_Load(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace _2611_WIN_B3
         public Form1()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using _2611_WIN_B3.Game;
 using _2611_WIN_B3.Models;
@@ -10,6 +10,7 @@ namespace _2611_WIN_B3.Forms
         public MailForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void MailForm_Load(object sender, EventArgs e)

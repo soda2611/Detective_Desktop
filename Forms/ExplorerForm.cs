@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,6 +12,7 @@ namespace _2611_WIN_B3.Forms
         public ExplorerForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void ExplorerForm_Load(object sender, EventArgs e)

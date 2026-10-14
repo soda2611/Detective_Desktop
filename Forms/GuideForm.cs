@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using _2611_WIN_B3.Game;
 
@@ -9,6 +9,7 @@ namespace _2611_WIN_B3.Forms
         public GuideForm()
         {
             InitializeComponent();
+            AppIconHelper.ApplyTo(this);
         }
 
         private void GuideForm_Load(object sender, EventArgs e)
