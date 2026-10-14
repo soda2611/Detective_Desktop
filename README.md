@@ -1,13 +1,13 @@
-# TÀI LIỆU CẨM NANG KIẾN TRÚC, CƠ CHẾ VẬN HÀNH & THUẬT TOÁN HỆ THỐNG
+# TÀI LIỆU KIẾN TRÚC, CƠ CHẾ VẬN HÀNH & THUẬT TOÁN HỆ THỐNG
 ## DESKTOP DETECTIVE — NỀN TẢNG MÔ PHỎNG ĐIỀU TRA KỸ THUẬT SỐ (C# .NET 10 WINFORMS)
 
 > **Môn học:** Lập trình Windows  
 > **Nền tảng & Công nghệ:** .NET 10.0 (`net10.0-windows`), C# 13, Windows Forms, System.Text.Json, NAudio 3.1.0  
-> **Danh sách 4 thành viên & Vai trò cốt lõi:**  
-> 1. **Hồ Minh Nhật** (`51.01.104.065`) — *Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ (`Game/`, `Models/`)*  
-> 2. **Trần Ngọc Hà** (`51.01.104.020`) — *Thiết kế Giao diện Hệ điều hành ảo, Responsive Layout Engine & 13 Biểu mẫu (`Form1.cs`, `Forms/`)*  
-> 3. **Đào Khánh Trúc** (`51.01.104.109`) — *Mô hình Dữ liệu Động (100% Data-Driven JSON Schema), Thực thể Pháp y & Hệ thống Luật Suy luận (`Data/Cases/*.json`, `Models/`)*  
-> 4. **Phan Thị Trang** (`51.01.104.102`) — *Kiểm thử Hộp đen/Hộp trắng, Bảng Vàng Thành tích (`HighScoreManager`), Xử lý Ngoại lệ I/O & Báo cáo (`SaveManager`)*
+> **Danh sách 4 thành viên & Vai trò kỹ thuật:**  
+> 1. **Hồ Minh Nhật** (`51.01.104.065`) — *Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ*  
+> 2. **Trần Ngọc Hà** (`51.01.104.020`) — *Thiết kế Giao diện Hệ điều hành ảo, Responsive Layout Engine & 13 Biểu mẫu*  
+> 3. **Đào Khánh Trúc** (`51.01.104.109`) — *Mô hình Dữ liệu Động (100% Data-Driven JSON Schema), Thực thể Pháp y & Hệ thống Luật Suy luận*  
+> 4. **Phan Thị Trang** (`51.01.104.102`) — *Kiểm thử Hộp đen/Hộp trắng, Bảng Vàng Thành tích (`HighScoreManager`), Xử lý Ngoại lệ I/O & Báo cáo*  
 
 ---
 
@@ -17,8 +17,9 @@
 2. **[PHẦN 2: KIẾN TRÚC HỆ THỐNG & LUỒNG HOẠT ĐỘNG (4-LAYER ARCHITECTURE)](#phần-2-kiến-trúc-hệ-thống--luồng-hoạt-động-4-layer-architecture)**
 3. **[PHẦN 3: CÔNG NGHỆ, MÔ HÌNH HƯỚNG ĐỐI TƯỢNG (OOP) & DESIGN PATTERNS](#phần-3-công-nghệ-mô-hình-hướng-đối-tượng-oop--design-patterns)**
 4. **[PHẦN 4: GIẢI PHẪU CHI TIẾT CÁC THUẬT TOÁN CỐT LÕI (ALGORITHMS DEEP-DIVE)](#phần-4-giải-phẫu-chi-tiết-các-thuật-toán-cốt-lõi-algorithms-deep-dive)**
-5. **[PHẦN 5: CẨM NANG CHUYÊN SÂU CHO TỪNG THÀNH VIÊN (4 ROLES PLAYBOOK)](#phần-5-cẩm-nang-chuyên-sâu-cho-từng-thành-viên-4-roles-playbook)**
+5. **[PHẦN 5: TÀI LIỆU HƯỚNG DẪN CHUYÊN BIỆT THEO THÀNH VIÊN (PLAYBOOKS)](#phần-5-tài-liệu-hướng-dẫn-chuyên-biệt-theo-thành-viên-playbooks)**
 6. **[PHẦN 6: BỘ CÂU HỎI & TRẢ LỜI VẤN ĐÁP BẢO VỆ ĐỀ TÀI](#phần-6-bộ-câu-hỏi--trả-lời-vấn-đáp-bảo-vệ-đề-tài)**
+7. **[PHẦN 7: HƯỚNG DẪN CÀI ĐẶT & CHẠY DỰ ÁN (BUILD & RUN)](#phần-7-hướng-dẫn-cài-đặt--chạy-dự-án-build--run)**
 
 ---
 
@@ -345,68 +346,16 @@ flowchart TD
 
 ---
 
-## PHẦN 5: CẨM NANG CHUYÊN SÂU CHO TỪNG THÀNH VIÊN (4 ROLES PLAYBOOK)
+## PHẦN 5: TÀI LIỆU HƯỚNG DẪN CHUYÊN BIỆT THEO THÀNH VIÊN (PLAYBOOKS)
 
-### 👤 THÀNH VIÊN 1: HỒ MINH NHẬT (`51.01.104.065`)
-**Vai trò:** *Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ*
+Nhằm phục vụ công tác chuẩn bị vấn đáp và giải trình kỹ thuật chuyên sâu theo từng mảng đề tài, nhóm đã tách riêng 4 cẩm nang hướng dẫn độc lập đặt tên theo **Mã số sinh viên (không dấu chấm)** của từng thành viên:
 
-#### 1. Các tệp mã nguồn phụ trách chính:
-* [`Game/GameManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameManager.cs), [`Game/GameState.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameState.cs)
-* [`Game/CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs), [`Game/EvidenceManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/EvidenceManager.cs), [`Game/TimelineManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/TimelineManager.cs)
-* [`Game/AudioManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/AudioManager.cs)
-* [`Models/InvestigationEntity.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/InvestigationEntity.cs)
-
-#### 2. Trọng tâm kỹ thuật & Kiến trúc bảo vệ:
-* **Kiến trúc Điều phối Trung tâm Singleton & Tiêm phụ thuộc (Dependency Injection):** Constructor của `GameManager` thiết lập trật tự nạp dữ liệu: khởi tạo `CaseManager`, giải tuần tự hóa trạng thái phiên chơi từ `gamelog.json`, sau đó tiêm `State` và dữ liệu gói vụ án vào `EvidenceManager` và `TimelineManager`.
-* **Engine Âm thanh Đa luồng Phi chặn (Zero-Lag Audio Engine):** Áp dụng mô hình Producer-Consumer bằng cách đẩy lệnh phát âm thanh vào `ConcurrentQueue<Action>` từ UI Thread (tiêu tốn 0ms), trong khi `AudioEngine_WorkerThread` đảm nhận giải mã và phát âm qua NAudio. Cơ chế giải phóng tài nguyên triệt để trong `Shutdown()` đảm bảo tiến trình ứng dụng thoát hoàn toàn khi đóng cửa sổ.
-* **Cây Quyết định Phán quyết 5 Kết thúc & Nhận diện Đa nghi phạm:** Triển khai thuật toán đánh giá đa tầng thẩm định danh tính, xử lý logic đồng phạm (`targetSet.SetEquals`, `targetSet.Overlaps`), đính kèm vật chứng bắt buộc và so khớp chuẩn hóa cho Động cơ / Thủ đoạn.
-
----
-
-### 👤 THÀNH VIÊN 2: TRẦN NGỌC HÀ (`51.01.104.020`)
-**Vai trò:** *Thiết kế Giao diện Hệ điều hành ảo (Virtual OS UI) & Bố trí 13 Biểu mẫu (Forms)*
-
-#### 1. Các tệp mã nguồn phụ trách chính:
-* [`Form1.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Form1.cs) & `Form1.Designer.cs`
-* Nhóm biểu mẫu chức năng: [`ExplorerForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/ExplorerForm.cs), [`RecycleBinForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/RecycleBinForm.cs), [`MailForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/MailForm.cs), [`BrowserForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/BrowserForm.cs), [`NotesForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/NotesForm.cs), [`EvidenceBoardForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/EvidenceBoardForm.cs), [`CaseReportForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CaseReportForm.cs), [`CaseSelectForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CaseSelectForm.cs), [`HighScoreForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/HighScoreForm.cs), [`GuideForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/GuideForm.cs), [`AboutForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/AboutForm.cs), [`CreditsForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CreditsForm.cs).
-
-#### 2. Trọng tâm kỹ thuật & Kiến trúc bảo vệ:
-* **Bộ tính toán Bố cục Thích ứng (Responsive Layout Engine):** Tính giải tích tọa độ lưới biểu tượng Desktop thông qua phép chia lấy nguyên/lấy dư (`Modulo Grid`), cơ chế tự động chuyển đổi bố cục hàng nút bấm (`Button Stacking`) và co giãn khung mô tả linh hoạt trên màn hình độ phân giải cao PerMonitorV2.
-* **Làm chủ các Điều khiển Nâng cao của Windows Forms:**
-  * `TreeView` + `ListView` (trong `ExplorerForm`): Cây thư mục ảo hóa với gốc chuẩn mực `Documents`, `ListView` 4 cột hiển thị thư mục con trên danh sách và điều hướng nhấp đúp chuột. Thuộc tính `.Tag` lưu trực tiếp tham chiếu đối tượng dữ liệu.
-  * `CheckedListBox` (trong `CaseReportForm`): Bọc đối tượng `SuspectCheckItem` và `EvidenceCheckItem` cho phép tích chọn đa nghi phạm và đính kèm danh sách vật chứng.
-  * `DataGridView` (trong `BrowserForm`): Bảng dữ liệu lịch sử duyệt web có định dạng có điều kiện, tô màu nổi bật cảnh báo các liên kết bất thường.
-  * `SplitContainer` (trong `NotesForm`): Giao diện chia đôi màn hình hỗ trợ đồng thời xem ghi chú hệ thống và soạn thảo sổ tay cá nhân.
-* **Kỹ thuật Chống nhấp nháy (Anti-Flicker) & An toàn Đa luồng Giao diện:** Sử dụng Reflection để bật thuộc tính `DoubleBuffered = true` trên các Panel chính và sử dụng `InvokeRequired` / `BeginInvoke` khi nhận sự kiện từ Engine trò chơi.
-
----
-
-### 👤 THÀNH VIÊN 3: ĐÀO KHÁNH TRÚC (`51.01.104.109`)
-**Vai trò:** *Thiết kế Cấu trúc Dữ liệu Động (Data-Driven JSON Schema) & Hệ thống Luật Pháp y*
-
-#### 1. Các tệp mã nguồn phụ trách chính:
-* [`Models/CaseData.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/CaseData.cs), [`Models/InvestigationEntity.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/InvestigationEntity.cs)
-* [`Models/Email.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Email.cs), [`Models/BrowserHistory.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/BrowserHistory.cs), [`Models/Evidence.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Evidence.cs), [`Suspect.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Suspect.cs)
-* Toàn bộ các gói cấu hình vụ án JSON trong thư mục `Data/Cases/`.
-
-#### 2. Trọng tâm kỹ thuật & Kiến trúc bảo vệ:
-* **Đặc tả Schema Gói Vụ Án (`CasePackage`) & Khóa Ngoại Logic:** Xây dựng cấu trúc dữ liệu JSON liên kết mọi thực thể thông qua khóa định danh `EvidenceId`: một Email, Tệp tin, Bản ghi duyệt web hay Ghi chú đều có thể mang mã bằng chứng liên kết tới kho `Evidences`. Hỗ trợ cấu hình đa nghi phạm qua `CorrectSuspectIds`.
-* **Cơ chế Khôi phục Dữ liệu Thiếu & Suy diễn Thư mục Gốc (Auto-Healing Heuristics):** Thuật toán tự động sinh đối tượng `Evidence` dự phòng khi phát hiện mã bằng chứng chưa khai báo trong mảng chính; cơ chế Heuristic dự đoán thư mục gốc của tệp tin trong Thùng rác dựa trên phần mở rộng (`.enc`, `.pem`, `.ps1`, `.txt`) để chống lỗi `NullReferenceException`.
-* **Cơ chế Cô lập Ứng dụng theo Kịch bản (`DisabledApps` & `AppLockReasons`):** Hỗ trợ cấu hình khóa phần mềm linh hoạt (mô phỏng sự cố mạng, môi trường cách ly ngoại tuyến Air-Gapped) được đọc và thực thi động hoàn toàn từ tệp JSON.
-
----
-
-### 👤 THÀNH VIÊN 4: PHAN THỊ TRANG (`51.01.104.102`)
-**Vai trò:** *Kiểm thử Phần mềm (QA/Testing), Quản lý Lưu trữ Bảng Vàng (`HighScoreManager`, `SaveManager`) & Báo cáo*
-
-#### 1. Các tệp mã nguồn phụ trách chính:
-* [`Game/HighScoreManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/HighScoreManager.cs), [`Forms/HighScoreForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/HighScoreForm.cs), [`highscores.txt`](file:///D:/Projects/ltw/2611_WIN_B3/highscores.txt)
-* [`Game/SaveManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/SaveManager.cs), [`Forms/GuideForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/GuideForm.cs), [`Forms/AboutForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/AboutForm.cs), [`CreditsForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CreditsForm.cs).
-
-#### 2. Trọng tâm kỹ thuật & Kiến trúc bảo vệ:
-* **Bộ Phân tích Cú pháp Tệp Tùy biến (Custom Text Parser) cho `highscores.txt`:** Cơ chế đọc tệp văn bản định dạng khối `[RECORD]`, tách chuỗi khóa/giá trị tại dấu hai chấm đầu tiên (`line.IndexOf(':')`), sử dụng các phương thức chuyển đổi an toàn `int.TryParse` và `DateTime.TryParse` để chống lỗi dừng chương trình khi tệp văn bản bị chỉnh sửa thủ công từ bên ngoài.
-* **Thuật toán Sắp xếp Kỷ lục Đa Tiêu chí & Phân lớp Danh hiệu:** Sắp xếp danh sách kỷ lục theo chuỗi ưu tiên (Điểm số cao hơn $\to$ Thời gian ít hơn $\to$ Thời điểm gần nhất) và phân loại danh hiệu thám tử đa ngưỡng (Rank S+, S, A, B, C, F) kết hợp giữa điểm số và thời gian phá án.
-* **Cơ chế Kiểm thử Phần mềm & Giám sát Tệp Nhật ký (Testing & Defense Trap):** Thiết kế bộ kịch bản kiểm thử thẩm định 5 kết thúc của Cây quyết định; kiểm thử kiểm chứng cơ chế phòng vệ kép (xóa nóng tệp `gamelog.json` để xác nhận khả năng tự động hoàn nguyên của `FileSystemWatcher`).
+| MSSV | Họ và tên | Vai trò Kỹ thuật Chính | Tệp Hướng dẫn Chuyên sâu |
+|:---:|---|---|:---:|
+| `5101104065` | **Hồ Minh Nhật** | Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ | [`5101104065.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104065.md) |
+| `5101104020` | **Trần Ngọc Hà** | Thiết kế Giao diện Hệ điều hành ảo, Responsive Layout Engine & 13 Biểu mẫu | [`5101104020.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104020.md) |
+| `5101104109` | **Đào Khánh Trúc** | Mô hình Dữ liệu Động (Data-Driven JSON Schema), Thực thể Pháp y & Hệ thống Luật Suy luận | [`5101104109.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104109.md) |
+| `5101104102` | **Phan Thị Trang** | Kiểm thử Hộp đen/Hộp trắng, Bảng Vàng Thành tích (`HighScoreManager`), Xử lý Ngoại lệ I/O & Báo cáo | [`5101104102.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104102.md) |
 
 ---
 
@@ -424,6 +373,28 @@ flowchart TD
 | **8** | **Tại sao việc phát âm thanh hiệu ứng liên tục không gây giật lag hay treo giao diện WinForms?** | Lớp `AudioManager` áp dụng mô hình **Producer-Consumer**: Luồng giao diện chính (UI Thread) chỉ đẩy yêu cầu phát âm thanh vào hàng đợi luồng `ConcurrentQueue<Action>` (tiêu tốn 0ms). Luồng công nhân ngầm (`AudioEngine_WorkerThread`) chịu trách nhiệm lấy yêu cầu ra giải mã và tương tác với phần cứng âm thanh thông qua NAudio độc lập hoàn toàn với luồng vẽ giao diện. |
 | **9** | **Nếu máy tính kiểm tra bị thiếu toàn bộ các tệp âm thanh `.wav` thì ứng dụng có bị lỗi crash không?** | Hệ thống được trang bị thuật toán **Tổng hợp sóng âm số PCM (DSP Synthesis)**: tự động tính toán hàm lượng giác $\sin(2\pi f t) \cdot e^{-t/\tau}$, đóng gói cấu trúc nhị phân RIFF WAVE Header chuẩn 44.1kHz 16-bit và tạo mới tệp `.wav` thay thế tức thì, đồng thời có cơ chế phòng vệ thứ cấp chuyển đổi về `SystemSounds` của Windows. |
 | **10** | **Tại sao khi mở lại ván chơi dở từ tệp lưu vết, đồng hồ không chạy tiếp ngay mà lại ở trạng thái Tạm dừng (`Paused`)?** | Trong [`GameManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameManager.cs), khi khôi phục tiến trình từ `gamelog.json`, nếu trạng thái trước đó là `InProgress`, hệ thống chủ động chuyển sang `Paused`. Điều này giúp người dùng có thời gian quan sát lại hồ sơ điều tra trước khi chủ động bấm tiếp tục, bảo đảm tính công bằng tuyệt đối cho chỉ số thời gian phá án khi xếp hạng trên Bảng vàng. |
+
+---
+
+## PHẦN 7: HƯỚNG DẪN CÀI ĐẶT & CHẠY DỰ ÁN (BUILD & RUN)
+
+### 7.1. Yêu cầu Môi trường
+* **Hệ điều hành:** Windows 10 (Phiên bản 1809 trở lên) hoặc Windows 11.
+* **Bộ SDK:** `.NET 10.0 SDK` (hoặc Visual Studio 2022/2026 với gói cài đặt *.NET Desktop Development*).
+* **Kiến trúc:** `x64` / `x86` / `ARM64`.
+
+### 7.2. Lệnh Biên dịch & Khởi chạy Nhanh
+Mở cửa sổ dòng lệnh PowerShell hoặc Command Prompt tại thư mục gốc của đồ án:
+```powershell
+# 1. Khôi phục các gói phụ thuộc (NuGet Packages: NAudio 3.1.0)
+dotnet restore
+
+# 2. Biên dịch dự án ở chế độ Debug
+dotnet build
+
+# 3. Khởi chạy ứng dụng
+dotnet run
+```
 
 ---
 *Tài liệu kỹ thuật được chuẩn hóa đồng bộ với kiến trúc mã nguồn thực tế của dự án **Desktop Detective (`2611_WIN_B3`)** — Tập trung thuần túy vào Nền tảng Công nghệ, Cơ chế Vận hành, Mô hình OOP và Thuật toán Nghiệp vụ.*
