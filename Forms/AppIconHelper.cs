@@ -32,15 +32,16 @@ namespace _2611_WIN_B3.Forms
 
                 try
                 {
-                    string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-                    string projectDir = Directory.GetCurrentDirectory();
-
+                    // Ưu tiên dùng đường dẫn tương đối (relative path)
                     string[] candidatePaths = new[]
                     {
-                        Path.Combine(baseDir, "img", "logo.png"),
-                        Path.Combine(projectDir, "img", "logo.png"),
-                        Path.Combine(baseDir, "logo.png"),
-                        Path.Combine(projectDir, "logo.png")
+                        Path.Combine("img", "logo.png"),
+                        @"img\logo.png",
+                        "logo.png",
+                        Path.Combine("..", "..", "..", "img", "logo.png"),
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", "logo.png"),
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "img", "logo.png"),
+                        Path.Combine(Directory.GetCurrentDirectory(), "img", "logo.png")
                     };
 
                     foreach (var path in candidatePaths)

@@ -51,18 +51,56 @@ namespace _2611_WIN_B3.Game
     {
         public const string FileName = "highscores.txt";
 
+        private static string? GetProjectRootFilePath()
+        {
+            string[] candidateRootDirs = new[]
+            {
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", ".."),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", ".."),
+                Directory.GetCurrentDirectory()
+            };
+
+            foreach (var dir in candidateRootDirs)
+            {
+                try
+                {
+                    string fullDir = Path.GetFullPath(dir);
+                    if (Directory.Exists(fullDir))
+                    {
+                        if (Directory.GetFiles(fullDir, "*.csproj").Length > 0 || Directory.Exists(Path.Combine(fullDir, "Data")))
+                        {
+                            return Path.Combine(fullDir, FileName);
+                        }
+                    }
+                }
+                catch { }
+            }
+
+            return null;
+        }
+
         public static string GetFilePath()
         {
-            // Ưu tiên đường dẫn tại thư mục làm việc hiện tại hoặc project root
-            string localPath = Path.Combine(Directory.GetCurrentDirectory(), FileName);
-            string baseDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileName);
-            string projectPath = @"D:\ltw\2611_WIN_B3\highscores.txt";
+            // Ưu tiên đường dẫn tương đối (relative path) tại thư mục làm việc hiện tại hoặc project root
+            string[] candidatePaths = new[]
+            {
+                FileName,
+                Path.Combine(Directory.GetCurrentDirectory(), FileName),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileName),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", FileName),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", FileName)
+            };
 
-            if (File.Exists(projectPath)) return projectPath;
-            if (File.Exists(localPath)) return localPath;
-            if (File.Exists(baseDir)) return baseDir;
+            foreach (var path in candidatePaths)
+            {
+                try
+                {
+                    if (File.Exists(path)) return path;
+                }
+                catch { }
+            }
 
-            return localPath;
+            return Path.Combine(Directory.GetCurrentDirectory(), FileName);
         }
 
         /// <summary>
@@ -105,10 +143,15 @@ namespace _2611_WIN_B3.Game
                 // Đồng bộ sang thư mục gốc project nếu đang chạy trong bin
                 try
                 {
-                    string rootPath = @"D:\ltw\2611_WIN_B3\highscores.txt";
-                    if (!rootPath.Equals(targetPath, StringComparison.OrdinalIgnoreCase) && Directory.Exists(@"D:\ltw\2611_WIN_B3"))
+                    string? rootPath = GetProjectRootFilePath();
+                    if (!string.IsNullOrEmpty(rootPath))
                     {
-                        File.WriteAllText(rootPath, File.ReadAllText(targetPath, Encoding.UTF8), Encoding.UTF8);
+                        string fullRoot = Path.GetFullPath(rootPath);
+                        string fullTarget = Path.GetFullPath(targetPath);
+                        if (!fullRoot.Equals(fullTarget, StringComparison.OrdinalIgnoreCase))
+                        {
+                            File.WriteAllText(fullRoot, File.ReadAllText(targetPath, Encoding.UTF8), Encoding.UTF8);
+                        }
                     }
                 }
                 catch { }
@@ -249,8 +292,8 @@ namespace _2611_WIN_B3.Game
             try
             {
                 if (File.Exists(path)) File.Delete(path);
-                string root = @"D:\ltw\2611_WIN_B3\highscores.txt";
-                if (File.Exists(root)) File.Delete(root);
+                string? root = GetProjectRootFilePath();
+                if (!string.IsNullOrEmpty(root) && File.Exists(root)) File.Delete(root);
             }
             catch { }
         }

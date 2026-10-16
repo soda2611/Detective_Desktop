@@ -102,23 +102,23 @@ flowchart LR
 
 | Thư mục / Tệp tin | Vai trò Chức năng & Mối liên hệ Kiến trúc | Thành viên Phụ trách Chính |
 |---|---|---|
-| [`Program.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Program.cs) | Điểm khởi chạy ứng dụng (`Main`), bật cấu hình DPI-Awareness PerMonitorV2 và kích hoạt `Form1`. | Hồ Minh Nhật |
-| [`Form1.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Form1.cs) | Màn hình Desktop OS ảo, quản lý vòng đời trạng thái FSM, layout thích ứng, điều phối mở 12 Form con và 8 ứng dụng Desktop. | Trần Ngọc Hà & Hồ Minh Nhật |
-| [`Game/GameManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameManager.cs) | **Trái tim điều phối hệ thống** (Singleton): quản lý `State`, `CaseManager`, `EvidenceManager`, `TimelineManager` và cơ chế phòng vệ kép. | Hồ Minh Nhật |
-| [`Game/GameState.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameState.cs) | Lưu trữ tiến trình phiên điều tra: các `HashSet<string>` lưu ID vết tích, tệp đã mở, tệp đã phục hồi, danh sách khởi tố đa nghi phạm và phát sự kiện. | Hồ Minh Nhật |
-| [`Game/CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) | Nạp động gói dữ liệu JSON, tự động đưa manh mối mồ côi vào duyệt file, chuẩn hóa cây thư mục, đồng bộ Thùng rác và Cây quyết định đa nhánh. | Hồ Minh Nhật & Đào Khánh Trúc |
-| [`Game/EvidenceManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/EvidenceManager.cs) | Quản lý bảng băm `Dictionary<string, Evidence>`, xử lý mở khóa manh mối bất biến lặp (`DiscoverEvidence`). | Hồ Minh Nhật |
-| [`Game/TimelineManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/TimelineManager.cs) | Đối sánh luật suy luận tương quan hai chiều (`TryConnectEvidences`) và trích xuất sự kiện Timeline đã xác thực. | Hồ Minh Nhật |
-| [`Game/AudioManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/AudioManager.cs) | Engine âm thanh đa luồng (`ConcurrentQueue` + `Thread`), bộ đệm lặp vô tận (`LoopStream`), tự tổng hợp sóng DSP Waveform. | Hồ Minh Nhật |
-| [`Game/SaveManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/SaveManager.cs) | Tuần tự hóa `GameState` ra tệp `gamelog.json` (tự động) và `savegame.json` (thủ công) bằng `System.Text.Json`. | Phan Thị Trang & Hồ Minh Nhật |
-| [`Game/HighScoreManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/HighScoreManager.cs) | Bộ phân tích cú pháp tệp `highscores.txt`, thuật toán phân loại Rank S+ đến F, sắp xếp bảng kỷ lục đa tiêu chí. | Phan Thị Trang |
-| [`Models/InvestigationEntity.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/InvestigationEntity.cs) | Giao diện `IInspectable` và lớp cơ sở trừu tượng `InvestigationEntity` (Trụ cột OOP của hệ thống). | Hồ Minh Nhật |
-| [`Models/CaseData.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/CaseData.cs) | Định nghĩa `FileItem`, `NoteItem`, `TimelineEntry`, `EvidenceConnectionRule`, `CasePackage`, hỗ trợ `CorrectSuspectIds`. | Đào Khánh Trúc & Hồ Minh Nhật |
-| [`Models/Email.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Email.cs), [`BrowserHistory.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/BrowserHistory.cs), [`Evidence.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Evidence.cs), [`Suspect.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/Suspect.cs) | Các lớp thực thể dữ liệu nghiệp vụ với đóng gói toàn vẹn (`private fields` + `public properties`). | Đào Khánh Trúc & Hồ Minh Nhật |
-| [`Forms/ExplorerForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/ExplorerForm.cs) & [`RecycleBinForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/RecycleBinForm.cs) | Quản lý tệp tin: Cây thư mục ảo hóa quy tụ dưới `Documents`, `ListView` 4 cột kèm thư mục con điều hướng nhấp đúp, phục hồi tệp tin Thùng rác hai chiều. | Trần Ngọc Hà |
-| [`Forms/MailForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/MailForm.cs), [`BrowserForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/BrowserForm.cs), [`NotesForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/NotesForm.cs) | Ứng dụng điều tra: Hòm thư điện tử, Lịch sử duyệt web (`DataGridView` định dạng có điều kiện), Sổ tay cá nhân & Ghi chú Sticky Notes. | Trần Ngọc Hà |
-| [`Forms/EvidenceBoardForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/EvidenceBoardForm.cs) & [`CaseReportForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CaseReportForm.cs) | Bảng suy luận nối chứng cứ mở khóa Timeline và Biểu mẫu khởi tố đa nghi phạm (`CheckedListBox`), lựa chọn động cơ/thủ đoạn. | Trần Ngọc Hà |
-| [`Forms/CaseSelectForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CaseSelectForm.cs), [`HighScoreForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/HighScoreForm.cs), [`GuideForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/GuideForm.cs), [`AboutForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/AboutForm.cs), [`CreditsForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CreditsForm.cs) | Biểu mẫu hệ thống: Chọn/Import gói vụ án JSON ngoài, Bảng vàng thành tích, Hướng dẫn nghiệp vụ, Thông tin đồ án. | Trần Ngọc Hà & Phan Thị Trang |
+| [`Program.cs`](Program.cs) | Điểm khởi chạy ứng dụng (`Main`), bật cấu hình DPI-Awareness PerMonitorV2 và kích hoạt `Form1`. | Hồ Minh Nhật |
+| [`Form1.cs`](Form1.cs) | Màn hình Desktop OS ảo, quản lý vòng đời trạng thái FSM, layout thích ứng, điều phối mở 12 Form con và 8 ứng dụng Desktop. | Trần Ngọc Hà & Hồ Minh Nhật |
+| [`Game/GameManager.cs`](Game/GameManager.cs) | **Trái tim điều phối hệ thống** (Singleton): quản lý `State`, `CaseManager`, `EvidenceManager`, `TimelineManager` và cơ chế phòng vệ kép. | Hồ Minh Nhật |
+| [`Game/GameState.cs`](Game/GameState.cs) | Lưu trữ tiến trình phiên điều tra: các `HashSet<string>` lưu ID vết tích, tệp đã mở, tệp đã phục hồi, danh sách khởi tố đa nghi phạm và phát sự kiện. | Hồ Minh Nhật |
+| [`Game/CaseManager.cs`](Game/CaseManager.cs) | Nạp động gói dữ liệu JSON, tự động đưa manh mối mồ côi vào duyệt file, chuẩn hóa cây thư mục, đồng bộ Thùng rác và Cây quyết định đa nhánh. | Hồ Minh Nhật & Đào Khánh Trúc |
+| [`Game/EvidenceManager.cs`](Game/EvidenceManager.cs) | Quản lý bảng băm `Dictionary<string, Evidence>`, xử lý mở khóa manh mối bất biến lặp (`DiscoverEvidence`). | Hồ Minh Nhật |
+| [`Game/TimelineManager.cs`](Game/TimelineManager.cs) | Đối sánh luật suy luận tương quan hai chiều (`TryConnectEvidences`) và trích xuất sự kiện Timeline đã xác thực. | Hồ Minh Nhật |
+| [`Game/AudioManager.cs`](Game/AudioManager.cs) | Engine âm thanh đa luồng (`ConcurrentQueue` + `Thread`), bộ đệm lặp vô tận (`LoopStream`), tự tổng hợp sóng DSP Waveform. | Hồ Minh Nhật |
+| [`Game/SaveManager.cs`](Game/SaveManager.cs) | Tuần tự hóa `GameState` ra tệp `gamelog.json` (tự động) và `savegame.json` (thủ công) bằng `System.Text.Json`. | Phan Thị Trang & Hồ Minh Nhật |
+| [`Game/HighScoreManager.cs`](Game/HighScoreManager.cs) | Bộ phân tích cú pháp tệp `highscores.txt`, thuật toán phân loại Rank S+ đến F, sắp xếp bảng kỷ lục đa tiêu chí. | Phan Thị Trang |
+| [`Models/InvestigationEntity.cs`](Models/InvestigationEntity.cs) | Giao diện `IInspectable` và lớp cơ sở trừu tượng `InvestigationEntity` (Trụ cột OOP của hệ thống). | Hồ Minh Nhật |
+| [`Models/CaseData.cs`](Models/CaseData.cs) | Định nghĩa `FileItem`, `NoteItem`, `TimelineEntry`, `EvidenceConnectionRule`, `CasePackage`, hỗ trợ `CorrectSuspectIds`. | Đào Khánh Trúc & Hồ Minh Nhật |
+| [`Models/Email.cs`](Models/Email.cs), [`BrowserHistory.cs`](Models/BrowserHistory.cs), [`Evidence.cs`](Models/Evidence.cs), [`Suspect.cs`](Models/Suspect.cs) | Các lớp thực thể dữ liệu nghiệp vụ với đóng gói toàn vẹn (`private fields` + `public properties`). | Đào Khánh Trúc & Hồ Minh Nhật |
+| [`Forms/ExplorerForm.cs`](Forms/ExplorerForm.cs) & [`RecycleBinForm.cs`](Forms/RecycleBinForm.cs) | Quản lý tệp tin: Cây thư mục ảo hóa quy tụ dưới `Documents`, `ListView` 4 cột kèm thư mục con điều hướng nhấp đúp, phục hồi tệp tin Thùng rác hai chiều. | Trần Ngọc Hà |
+| [`Forms/MailForm.cs`](Forms/MailForm.cs), [`BrowserForm.cs`](Forms/BrowserForm.cs), [`NotesForm.cs`](Forms/NotesForm.cs) | Ứng dụng điều tra: Hòm thư điện tử, Lịch sử duyệt web (`DataGridView` định dạng có điều kiện), Sổ tay cá nhân & Ghi chú Sticky Notes. | Trần Ngọc Hà |
+| [`Forms/EvidenceBoardForm.cs`](Forms/EvidenceBoardForm.cs) & [`CaseReportForm.cs`](Forms/CaseReportForm.cs) | Bảng suy luận nối chứng cứ mở khóa Timeline và Biểu mẫu khởi tố đa nghi phạm (`CheckedListBox`), lựa chọn động cơ/thủ đoạn. | Trần Ngọc Hà |
+| [`Forms/CaseSelectForm.cs`](Forms/CaseSelectForm.cs), [`HighScoreForm.cs`](Forms/HighScoreForm.cs), [`GuideForm.cs`](Forms/GuideForm.cs), [`AboutForm.cs`](Forms/AboutForm.cs), [`CreditsForm.cs`](Forms/CreditsForm.cs) | Biểu mẫu hệ thống: Chọn/Import gói vụ án JSON ngoài, Bảng vàng thành tích, Hướng dẫn nghiệp vụ, Thông tin đồ án. | Trần Ngọc Hà & Phan Thị Trang |
 | `Data/Cases/*.json` | Các gói dữ liệu vụ án độc lập theo chuẩn JSON Schema, thể hiện cơ chế phân cấp độ khó, khóa tính năng và luật suy luận phong phú. | Đào Khánh Trúc |
 
 ### 2.3. Cơ chế Lan truyền Sự kiện Toàn cục (Event-Driven Flow)
@@ -152,7 +152,7 @@ sequenceDiagram
 ```
 
 ### 2.4. Máy Trạng thái Vòng đời Trò chơi (Finite State Machine)
-Tiến trình điều tra được quản lý thông qua máy trạng thái hữu hạn `InvestigationStatus` ([`GameState.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameState.cs)):
+Tiến trình điều tra được quản lý thông qua máy trạng thái hữu hạn `InvestigationStatus` ([`GameState.cs`](Game/GameState.cs)):
 
 ```mermaid
 stateDiagram-v2
@@ -241,7 +241,7 @@ classDiagram
 ## PHẦN 4: GIẢI PHẪU CHI TIẾT CÁC THUẬT TOÁN CỐT LÕI (ALGORITHMS DEEP-DIVE)
 
 ### Thuật toán 1: Cây Quyết định Chấm điểm Đa Tầng & Khởi tố Đa Nghi phạm (Decision Tree Evaluation)
-* **Vị trí:** [`CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) — Phương thức `EvaluateCase()`
+* **Vị trí:** [`CaseManager.cs`](Game/CaseManager.cs) — Phương thức `EvaluateCase()`
 * **Độ phức tạp:** Thời gian $O(M)$ (với $M$ là số bằng chứng cốt lõi); Không gian bộ nhớ $O(1)$.
 * **Nguyên lý Đánh giá Đa Tầng:**
 
@@ -273,7 +273,7 @@ flowchart TD
   * **Bắt sai hoàn toàn (`!targetSet.Overlaps(accusedSet)`):** Bắt nhầm người hoàn toàn vô tội $\to$ Ending 2 (35 điểm).
 
 ### Thuật toán 2: So khớp Động cơ & Phương thức Kháng Sai số (Fuzzy/Normalized Reasoning Matching)
-* **Vị trí:** [`CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) — Phương thức `IsMotiveOrMethodMatch()`
+* **Vị trí:** [`CaseManager.cs`](Game/CaseManager.cs) — Phương thức `IsMotiveOrMethodMatch()`
 * **Mục đích:** Khắc phục triệt để lỗi không khớp chuỗi do dấu câu cuối dòng (`.`, `;`, `,`), khoảng trắng thừa, hoặc sự chênh lệch diễn đạt giữa danh sách lựa chọn và cấu hình đáp án.
 * **Nguyên lý:**
   1. Chuẩn hóa chuỗi văn bản (`NormalizeReasoningText`): Cắt tỉa khoảng trắng đầu cuối, loại bỏ toàn bộ dấu chấm câu ở cuối chuỗi (`TrimEnd('.', ';', '!', '?', ':', ',')`) và gộp các khoảng trắng liên tiếp về 1 khoảng trắng duy nhất qua biểu thức chính quy `\s+`.
@@ -281,7 +281,7 @@ flowchart TD
   3. So khớp dung sai hai chiều (`Contains` lồng nhau): Cho phép nhận diện chính xác ngay cả khi cấu hình mở rộng có thêm phần phụ chú hoặc chi tiết bổ sung.
 
 ### Thuật toán 3: Chuẩn hóa Cây Thư mục Động & Điều hướng File Explorer
-* **Vị trí:** [`ExplorerForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/ExplorerForm.cs) — `NormalizeToDocumentsPath()`, `InitFolderTree()`, `LoadFilesForFolder()`
+* **Vị trí:** [`ExplorerForm.cs`](Forms/ExplorerForm.cs) — `NormalizeToDocumentsPath()`, `InitFolderTree()`, `LoadFilesForFolder()`
 * **Cơ chế Phân cấp Động:**
   1. **Chuẩn hóa Đường dẫn Gốc (`NormalizeToDocumentsPath`):** Bất kỳ đường dẫn nào (ngoại trừ Thùng rác `Recycle Bin`) đều được tự động đưa về dưới cây thư mục cha chuẩn mực: `"Work"` $\to$ `"Documents / Work"`.
   2. **Dựng Cây Phân cấp Đệ quy:** Thư mục gốc `Documents` đóng vai trò nút cha duy nhất dưới `This PC`. Toàn bộ các phân đoạn con được tách mảng và chèn đệ quy vào nhánh con của `Documents`.
@@ -289,13 +289,13 @@ flowchart TD
      Bảng danh sách hiển thị đầy đủ 4 cột (`colName`: Tên tệp/Thư mục, `colFolder`: Thư mục cha, `colSize`: Kích thước, `colModified`: Thời gian). Khi ở thư mục cha, các thư mục con tự động được đưa lên đầu danh sách (`📁 [Tên thư mục]`). Sự kiện nhấp đúp chuột (`DoubleClick`) trên hàng thư mục con sẽ tự động chuyển vị trí chọn trên `TreeView` và duyệt sâu vào thư mục đó.
 
 ### Thuật toán 4: Tự động Đưa Manh mối Mồ côi vào Duyệt File
-* **Vị trí:** [`CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) — Hàm `InitPackageDefaults()` & `DetermineFolderFromSource()`
+* **Vị trí:** [`CaseManager.cs`](Game/CaseManager.cs) — Hàm `InitPackageDefaults()` & `DetermineFolderFromSource()`
 * **Nguyên lý:**
   * Hệ thống quét toàn bộ danh sách `Evidences`. Nếu phát hiện bất kỳ mã bằng chứng nào chưa được gán vào Email, BrowserHistory, Notes hay Files ban đầu, hệ thống tự động khởi tạo một đối tượng `FileItem` (định danh `FILE_AUTO_{id}`) để đưa vào hệ thống duyệt tập tin của nạn nhân.
   * Thư mục lưu trữ của tệp tự động được chuẩn hóa về dưới cây thư mục cha `Documents` thông qua hàm `DetermineFolderFromSource`, đảm bảo người dùng luôn có thể tìm thấy toàn bộ dấu vết pháp y trực quan trong File Explorer.
 
 ### Thuật toán 5: Suy luận Tương quan Hai chiều & Chuẩn hóa Khóa Đối xứng (Canonical Symmetrical Pairing)
-* **Vị trí:** [`TimelineManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/TimelineManager.cs) — Phương thức `TryConnectEvidences()`
+* **Vị trí:** [`TimelineManager.cs`](Game/TimelineManager.cs) — Phương thức `TryConnectEvidences()`
 * **Giải pháp toán học:**
   * Khóa cặp bất biến thứ tự: Dù người dùng chọn nối $(A, B)$ hay $(B, A)$, hệ thống đều ánh xạ về một khóa chuẩn tắc duy nhất:
     $$\text{CanonicalKey} = \min(A, B) + \text{"+"} + \max(A, B)$$
@@ -304,33 +304,33 @@ flowchart TD
   * Ngăn ngừa trùng lặp tuyệt đối trong $O(1)$ thông qua việc lưu vết `CanonicalKey` vào tập hợp `HashSet<string>`.
 
 ### Thuật toán 6: Khám phá Manh mối Bất biến Lặp (Idempotent Evidence Discovery)
-* **Vị trí:** [`EvidenceManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/EvidenceManager.cs) — Phương thức `DiscoverEvidence(id)`
+* **Vị trí:** [`EvidenceManager.cs`](Game/EvidenceManager.cs) — Phương thức `DiscoverEvidence(id)`
 * **Nguyên lý:** Kết hợp bảng băm `Dictionary<string, Evidence>` và tập hợp băm `HashSet<string> DiscoveredEvidenceIds`:
   * Gọi trực tiếp `_state.DiscoveredEvidenceIds.Add(id)`: Phương thức `.Add()` của `HashSet<T>` trong nền tảng .NET thực hiện kiểm tra tồn tại và chèn mới đồng thời trong **$O(1)$**.
   * Chỉ khi phương thức trả về `true` (dấu hiệu chưa từng xuất hiện), hệ thống mới ghi nhận điểm, kích hoạt âm thanh và phát sự kiện cập nhật tiến trình. Mọi thao tác click lặp lại đều trả về `false` và bỏ qua ngay lập tức.
 
 ### Thuật toán 7: Cơ chế Phòng vệ Kép Giám sát Tệp Nhật ký (Dual-Defense File Liveness Trap)
-* **Vị trí:** [`GameManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameManager.cs) & [`Form1.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Form1.cs)
+* **Vị trí:** [`GameManager.cs`](Game/GameManager.cs) & [`Form1.cs`](Form1.cs)
 * **Mục đích:** Phát hiện hành vi can thiệp trái phép hoặc xóa bỏ tệp lưu vết `gamelog.json` từ bên ngoài hệ điều hành khi ứng dụng đang chạy.
 * **Cấu trúc Phòng thủ 2 Lớp:**
   * **Lớp 1 (Ngắt Hệ điều hành - `FileSystemWatcher`):** Bắt sự kiện ngắt `_fileWatcher.Deleted`. Khi phát hiện tệp bị xóa, hệ thống lập tức gọi `ResetGame(becauseFileDeleted: true)`.
   * **Lớp 2 (Thăm dò Định kỳ - `Polling Liveness Check`):** Dự phòng trường hợp tràn bộ đệm sự kiện (Buffer Overflow) của hệ điều hành, mỗi chu kỳ 1 giây của đồng hồ hệ thống (`systemTimer_Tick`), ứng dụng chủ động kiểm tra sự tồn tại vật lý của tệp. Nếu tệp biến mất trong khi tiến trình đang diễn ra, trạng thái trò chơi được hoàn nguyên về 0 ngay lập tức.
 
 ### Thuật toán 8: Xáo trộn Phương án Nhiễu Tất định theo Hạt giống (Deterministic Seeded Shuffle)
-* **Vị trí:** [`CaseReportForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/CaseReportForm.cs)
+* **Vị trí:** [`CaseReportForm.cs`](Forms/CaseReportForm.cs)
 * **Nguyên lý:** Khởi tạo bộ sinh số giả ngẫu nhiên `Random` dựa trên mã băm của định danh vụ án (`CaseId.GetHashCode()`):
   * Đảm bảo thứ tự các phương án lựa chọn trên ComboBox được đảo ngẫu nhiên (không để lộ đáp án đúng ở vị trí đầu tiên).
   * Đảm bảo tính tất định: thứ tự hiển thị không bị thay đổi lộn xộn giữa các lần đóng/mở lại biểu mẫu trong cùng một ván chơi.
 
 ### Thuật toán 9: Tổng hợp Sóng âm Kỹ thuật số PCM & Tạo File WAV Tự động (Procedural DSP Waveform Synthesis)
-* **Vị trí:** [`AudioManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/AudioManager.cs)
+* **Vị trí:** [`AudioManager.cs`](Game/AudioManager.cs)
 * **Nguyên lý Toán học DSP:**  
   Nếu thư mục tài nguyên âm thanh bị thiếu tệp `.wav`, hệ thống tự động tổng hợp mảng mẫu âm thanh nhị phân 16-bit PCM ở tần số $f_s = 44100\text{ Hz}$ theo công thức sóng hình sin kết hợp họa âm và hàm suy giảm mũ:
   $$y(t) = A \cdot \left[\sin(2\pi f t) + k \cdot \sin(4\pi f t)\right] \cdot e^{-t / \tau}$$
   Thuật toán tự động đóng gói cấu trúc nhị phân chuẩn **RIFF WAVE Header** (44 bytes) và ghi tệp trực tiếp xuống đĩa để phục vụ phát âm thanh tức thì.
 
 ### Thuật toán 10: Bố cục Giao diện Thích ứng Toán học (Responsive Mathematical Layout Engine)
-* **Vị trí:** [`Form1.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Form1.cs)
+* **Vị trí:** [`Form1.cs`](Form1.cs)
 * **Nguyên lý:**
   * **Lưới Biểu tượng Desktop (Modulo Grid Layout):** Tự động xác định số cột dựa trên bề rộng màn hình. Vị trí tọa độ của biểu tượng thứ $i$ được tính giải tích:
     $$\text{Cột } c = i \bmod \text{cols}, \quad \text{Hàng } r = \lfloor i / \text{cols} \rfloor$$
@@ -338,7 +338,7 @@ flowchart TD
   * **Chuyển đổi Trạng thái Nút bấm (Button Stacking):** Tự động chuyển đổi giữa bố cục 1 hàng ngang (khi bề rộng khả dụng $\ge 580\text{px}$) sang bố cục 2 hàng phân tầng (khi bề rộng $< 580\text{px}$) nhằm triệt tiêu hoàn toàn hiện tượng tràn khung hoặc đè lấp văn bản.
 
 ### Thuật toán 11: Đồng bộ Trạng thái Phục hồi Thùng rác Hai chiều (Bi-directional Recycle Bin Synchronization)
-* **Vị trí:** [`CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) & [`RecycleBinForm.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Forms/RecycleBinForm.cs)
+* **Vị trí:** [`CaseManager.cs`](Game/CaseManager.cs) & [`RecycleBinForm.cs`](Forms/RecycleBinForm.cs)
 * **Nguyên lý:**
   * Lưu vết trạng thái ban đầu của mọi tệp tin (`InitialIsDeleted`, `InitialFolder`).
   * Khi khôi phục tệp: Chuyển cờ `IsDeleted = false`, trả `Folder` về `OriginalFolder`, ghi nhận ID vào `GameState.RestoredFileIds` và phát sự kiện `OnStateUpdated` để `ExplorerForm` lập tức hiển thị lại tệp trên cây thư mục.
@@ -352,10 +352,10 @@ Nhằm phục vụ công tác chuẩn bị vấn đáp và giải trình kỹ th
 
 | MSSV | Họ và tên | Vai trò Kỹ thuật Chính | Tệp Hướng dẫn Chuyên sâu |
 |:---:|---|---|:---:|
-| `5101104065` | **Hồ Minh Nhật** | Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ | [`5101104065.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104065.md) |
-| `5101104020` | **Trần Ngọc Hà** | Thiết kế Giao diện Hệ điều hành ảo, Responsive Layout Engine & 13 Biểu mẫu | [`5101104020.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104020.md) |
-| `5101104109` | **Đào Khánh Trúc** | Mô hình Dữ liệu Động (Data-Driven JSON Schema), Thực thể Pháp y & Hệ thống Luật Suy luận | [`5101104109.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104109.md) |
-| `5101104102` | **Phan Thị Trang** | Kiểm thử Hộp đen/Hộp trắng, Bảng Vàng Thành tích (`HighScoreManager`), Xử lý Ngoại lệ I/O & Báo cáo | [`5101104102.md`](file:///D:/Projects/ltw/2611_WIN_B3/5101104102.md) |
+| `5101104065` | **Hồ Minh Nhật** | Kiến trúc Hệ thống, Game Engine, Đa luồng & Thuật toán Nghiệp vụ | [`5101104065.md`](5101104065.md) |
+| `5101104020` | **Trần Ngọc Hà** | Thiết kế Giao diện Hệ điều hành ảo, Responsive Layout Engine & 13 Biểu mẫu | [`5101104020.md`](5101104020.md) |
+| `5101104109` | **Đào Khánh Trúc** | Mô hình Dữ liệu Động (Data-Driven JSON Schema), Thực thể Pháp y & Hệ thống Luật Suy luận | [`5101104109.md`](5101104109.md) |
+| `5101104102` | **Phan Thị Trang** | Kiểm thử Hộp đen/Hộp trắng, Bảng Vàng Thành tích (`HighScoreManager`), Xử lý Ngoại lệ I/O & Báo cáo | [`5101104102.md`](5101104102.md) |
 
 ---
 
@@ -363,16 +363,16 @@ Nhằm phục vụ công tác chuẩn bị vấn đáp và giải trình kỹ th
 
 | STT | Câu hỏi Trọng tâm | Câu trả lời Chuẩn mực Kỹ thuật |
 |:---:|---|---|
-| **1** | **Tính Kế thừa và Đa hình trong dự án được tổ chức như thế nào?** | Trong [`Models/InvestigationEntity.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Models/InvestigationEntity.cs), giao diện `IInspectable` quy định hành vi `GetInspectionSummary()`, lớp trừu tượng `InvestigationEntity` đóng gói các trường dùng chung và phương thức thuần ảo `abstract string GetSourceType()`. 4 lớp thực thể con `FileItem`, `NoteItem`, `Email`, `BrowserHistory` cùng kế thừa và ghi đè phương thức này để phản ánh nguồn gốc đặc thù của từng loại bằng chứng. |
+| **1** | **Tính Kế thừa và Đa hình trong dự án được tổ chức như thế nào?** | Trong [`Models/InvestigationEntity.cs`](Models/InvestigationEntity.cs), giao diện `IInspectable` quy định hành vi `GetInspectionSummary()`, lớp trừu tượng `InvestigationEntity` đóng gói các trường dùng chung và phương thức thuần ảo `abstract string GetSourceType()`. 4 lớp thực thể con `FileItem`, `NoteItem`, `Email`, `BrowserHistory` cùng kế thừa và ghi đè phương thức này để phản ánh nguồn gốc đặc thù của từng loại bằng chứng. |
 | **2** | **Làm thế nào để các Form con giao tiếp về Desktop mà không gây phụ thuộc chặt (Tight Coupling)?** | Ứng dụng áp dụng **Observer Pattern** kết hợp **Singleton Pattern**. Các Form chức năng con chỉ gửi lệnh `DiscoverEvidence(id)` tới `GameManager.Instance.EvidenceManager`. `GameState` sau đó kích hoạt các sự kiện C# `Action`. Cửa sổ chính `Form1` đăng ký lắng nghe sự kiện này để tự động cập nhật thanh tiến trình và thông báo Taskbar mà không cần Form con lưu trữ tham chiếu ngược. |
 | **3** | **Làm sao để hệ thống nạp thêm một màn chơi/vụ án mới mà không cần biên dịch lại mã nguồn C#?** | Nhờ **Kiến trúc Hướng dữ liệu 100% (Data-Driven)**, toàn bộ thực thể, danh sách nghi phạm, chứng cứ, luật kết nối và cả cấu hình khóa ứng dụng (`DisabledApps`) đều nằm trong tệp JSON. Khi người dùng nạp tệp JSON mới qua `CaseSelectForm`, lớp `CaseManager` tự động phân tích cú pháp, chuẩn hóa thực thể và khởi tạo phiên chơi mà không cần chỉnh sửa một dòng code C# nào. |
 | **4** | **Cơ chế khóa ứng dụng theo kịch bản (mất kết nối mạng, môi trường cách ly) vận hành ra sao?** | Khi nạp gói dữ liệu, `CasePackage` đọc mảng `"DisabledApps"` kèm thông điệp giải thích `"AppLockReasons"`. Cửa sổ `Form1` duyệt qua cấu hình này trong `UpdateAppIconVisualState()` để chuyển nhãn icon thành trạng thái khóa `🔒 (Offline)` và chặn mở cửa sổ trong `CheckAppAccessible()`, buộc người dùng phải điều tra qua các kênh thay thế. |
-| **5** | **Thuật toán Cây quyết định đánh giá hồ sơ điều tra hoạt động theo nguyên lý nào?** | Phương thức `EvaluateCase()` trong [`CaseManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/CaseManager.cs) thẩm định tuần tự qua 5 tầng lọc: (1) Ngưỡng số lượng bằng chứng tối thiểu $\to$ *Ending 4 (20đ)*; (2) Nhận diện tập hợp nghi phạm: bắt đủ đồng phạm, bỏ lọt đồng phạm (45đ), vu oan người vô tội (40đ) hoặc bắt sai hoàn toàn $\to$ *Ending 2 (35đ)*; (3) Thiếu bằng chứng cốt lõi $\to$ *Ending 3 (60đ)*; (4) Sai động cơ hoặc thủ đoạn $\to$ *Ending 3 (55đ)*; (5) Đúng toàn bộ kèm điều kiện mở rộng ($\ge \text{Total}-1$ chứng cứ và $\ge 2$ cặp kết nối) $\to$ *Ending 5 Đại án (100đ)*, ngược lại đạt *Ending 1 Chuẩn (85đ)*. |
+| **5** | **Thuật toán Cây quyết định đánh giá hồ sơ điều tra hoạt động theo nguyên lý nào?** | Phương thức `EvaluateCase()` trong [`CaseManager.cs`](Game/CaseManager.cs) thẩm định tuần tự qua 5 tầng lọc: (1) Ngưỡng số lượng bằng chứng tối thiểu $\to$ *Ending 4 (20đ)*; (2) Nhận diện tập hợp nghi phạm: bắt đủ đồng phạm, bỏ lọt đồng phạm (45đ), vu oan người vô tội (40đ) hoặc bắt sai hoàn toàn $\to$ *Ending 2 (35đ)*; (3) Thiếu bằng chứng cốt lõi $\to$ *Ending 3 (60đ)*; (4) Sai động cơ hoặc thủ đoạn $\to$ *Ending 3 (55đ)*; (5) Đúng toàn bộ kèm điều kiện mở rộng ($\ge \text{Total}-1$ chứng cứ và $\ge 2$ cặp kết nối) $\to$ *Ending 5 Đại án (100đ)*, ngược lại đạt *Ending 1 Chuẩn (85đ)*. |
 | **6** | **Làm thế nào để đảm bảo người dùng click liên tục vào cùng một manh mối không bị tính điểm trùng lặp?** | Thuật toán khám nghiệm bất biến lặp (Idempotent Discovery) sử dụng tập hợp băm `HashSet<string> DiscoveredEvidenceIds`. Hàm `.Add(id)` có độ phức tạp $O(1)$ và chỉ trả về `true` khi phần tử chưa từng tồn tại trong tập hợp. Mọi thao tác click lặp lại đều trả về `false` và bị hệ thống bỏ qua ngay lập tức. |
 | **7** | **Nếu tệp nhật ký `gamelog.json` bị người dùng xóa từ Windows Explorer trong lúc đang chơi thì sao?** | Hệ thống áp dụng **Cơ chế Phòng vệ Kép**: Lớp 1 dùng `FileSystemWatcher` bắt sự kiện xóa tệp từ hệ điều hành; Lớp 2 dùng thăm dò nhịp tim định kỳ (`Polling Liveness Check`) mỗi giây trong đồng hồ hệ thống. Ngay khi phát hiện tệp bị xóa, trò chơi lập tức hoàn nguyên toàn bộ trạng thái về 0 và thông báo cảnh báo trên giao diện. |
 | **8** | **Tại sao việc phát âm thanh hiệu ứng liên tục không gây giật lag hay treo giao diện WinForms?** | Lớp `AudioManager` áp dụng mô hình **Producer-Consumer**: Luồng giao diện chính (UI Thread) chỉ đẩy yêu cầu phát âm thanh vào hàng đợi luồng `ConcurrentQueue<Action>` (tiêu tốn 0ms). Luồng công nhân ngầm (`AudioEngine_WorkerThread`) chịu trách nhiệm lấy yêu cầu ra giải mã và tương tác với phần cứng âm thanh thông qua NAudio độc lập hoàn toàn với luồng vẽ giao diện. |
 | **9** | **Nếu máy tính kiểm tra bị thiếu toàn bộ các tệp âm thanh `.wav` thì ứng dụng có bị lỗi crash không?** | Hệ thống được trang bị thuật toán **Tổng hợp sóng âm số PCM (DSP Synthesis)**: tự động tính toán hàm lượng giác $\sin(2\pi f t) \cdot e^{-t/\tau}$, đóng gói cấu trúc nhị phân RIFF WAVE Header chuẩn 44.1kHz 16-bit và tạo mới tệp `.wav` thay thế tức thì, đồng thời có cơ chế phòng vệ thứ cấp chuyển đổi về `SystemSounds` của Windows. |
-| **10** | **Tại sao khi mở lại ván chơi dở từ tệp lưu vết, đồng hồ không chạy tiếp ngay mà lại ở trạng thái Tạm dừng (`Paused`)?** | Trong [`GameManager.cs`](file:///D:/Projects/ltw/2611_WIN_B3/Game/GameManager.cs), khi khôi phục tiến trình từ `gamelog.json`, nếu trạng thái trước đó là `InProgress`, hệ thống chủ động chuyển sang `Paused`. Điều này giúp người dùng có thời gian quan sát lại hồ sơ điều tra trước khi chủ động bấm tiếp tục, bảo đảm tính công bằng tuyệt đối cho chỉ số thời gian phá án khi xếp hạng trên Bảng vàng. |
+| **10** | **Tại sao khi mở lại ván chơi dở từ tệp lưu vết, đồng hồ không chạy tiếp ngay mà lại ở trạng thái Tạm dừng (`Paused`)?** | Trong [`GameManager.cs`](Game/GameManager.cs), khi khôi phục tiến trình từ `gamelog.json`, nếu trạng thái trước đó là `InProgress`, hệ thống chủ động chuyển sang `Paused`. Điều này giúp người dùng có thời gian quan sát lại hồ sơ điều tra trước khi chủ động bấm tiếp tục, bảo đảm tính công bằng tuyệt đối cho chỉ số thời gian phá án khi xếp hạng trên Bảng vàng. |
 
 ---
 

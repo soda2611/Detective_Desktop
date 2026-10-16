@@ -60,6 +60,8 @@ namespace _2611_WIN_B3.Game
 
 
 
+        private string? _casesDir;
+
         public CaseManager()
 
         {
@@ -86,15 +88,15 @@ namespace _2611_WIN_B3.Game
 
             {
 
+                Path.Combine("Data", "Cases"),
+
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Cases"),
 
                 Path.Combine(Directory.GetCurrentDirectory(), "Data", "Cases"),
 
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data", "Cases"),
 
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "Data", "Cases"),
-
-                @"D:\ltw\2611_WIN_B3\Data\Cases"
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "Data", "Cases")
 
             };
 
@@ -117,6 +119,8 @@ namespace _2611_WIN_B3.Game
                     {
 
                         validDir = full;
+
+                        _casesDir = full;
 
                         break;
 
@@ -581,7 +585,7 @@ namespace _2611_WIN_B3.Game
 
                 // Lưu tệp vật lý xuống thư mục Data/Cases để tái sử dụng lâu dài
 
-                string casesDir = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Cases");
+                string casesDir = _casesDir ?? Path.Combine(Directory.GetCurrentDirectory(), "Data", "Cases");
 
                 Directory.CreateDirectory(casesDir);
 
@@ -590,6 +594,17 @@ namespace _2611_WIN_B3.Game
                 string savePath = Path.Combine(casesDir, $"{cleanId}.json");
 
                 File.WriteAllText(savePath, json);
+
+                // Đồng bộ sang thư mục gốc project qua relative path nếu đang chạy trong bin
+                try
+                {
+                    string candidateRoot = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data", "Cases"));
+                    if (Directory.Exists(candidateRoot) && !candidateRoot.Equals(Path.GetFullPath(casesDir), StringComparison.OrdinalIgnoreCase))
+                    {
+                        File.WriteAllText(Path.Combine(candidateRoot, $"{cleanId}.json"), json);
+                    }
+                }
+                catch { }
 
 
 

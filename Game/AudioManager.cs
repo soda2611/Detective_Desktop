@@ -132,9 +132,10 @@ namespace _2611_WIN_B3.Game
         {
             var candidates = new[]
             {
+                "Sounds",
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sounds"),
-                Path.Combine(Directory.GetCurrentDirectory(), "Sounds"),
-                @"D:\ltw\2611_WIN_B3\Sounds"
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Sounds"),
+                Path.Combine(Directory.GetCurrentDirectory(), "Sounds")
             };
 
             foreach (var dir in candidates)
@@ -160,10 +161,10 @@ namespace _2611_WIN_B3.Game
         {
             var soundDirs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             if (!string.IsNullOrEmpty(_soundsDir)) soundDirs.Add(_soundsDir);
+            soundDirs.Add("Sounds");
             soundDirs.Add(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sounds"));
+            soundDirs.Add(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Sounds"));
             soundDirs.Add(Path.Combine(Directory.GetCurrentDirectory(), "Sounds"));
-            if (Directory.Exists(@"D:\ltw\2611_WIN_B3\Sounds"))
-                soundDirs.Add(@"D:\ltw\2611_WIN_B3\Sounds");
 
             var generators = new Dictionary<string, Func<short[]>>(StringComparer.OrdinalIgnoreCase)
             {
